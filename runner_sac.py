@@ -30,7 +30,6 @@ sac_config = (
     )
     .training(
         train_batch_size=config_run_train["train"].get("train_batch_size", 1),
-        lr=config_run_train["train"].get("lr", 3e-4),
         num_steps_sampled_before_learning_starts=config_run_train["train"].get("num_steps_sampled_before_learning_starts", 10000),
         replay_buffer_config=config_run_train["train"].get("replay_buffer_config"),
     )

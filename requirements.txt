@@ -3,3 +3,4 @@ matplotlib~=3.8.2
 gymnasium~=0.28.1
 torch~=2.1.2
 ray~=2.9.0
+pillow~=10.2.0
