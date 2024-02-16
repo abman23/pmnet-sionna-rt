@@ -72,16 +72,19 @@ class BaseEnvironment(gym.Env):
         # count the number of used cropped resource
         self.n_trained_maps: int = 0
 
-        self.action_space: Discrete = Discrete(map_size * map_size)
-        self.observation_space: Dict = Dict(
-            {
-                "observations": MultiBinary([map_size, map_size]),
-                "action_mask": MultiBinary(map_size * map_size)
-            }
-        )
         # action mask has the same shape as the action
         self.mask: np.ndarray = np.empty(map_size * map_size, dtype=np.int8)
         self.no_masking: bool = config.get("no_masking", True)
+        self.action_space: Discrete = Discrete(map_size * map_size)
+        if self.no_masking:
+            self.observation_space = MultiBinary([map_size, map_size])
+        else:
+            self.observation_space: Dict = Dict(
+                {
+                    "observations": MultiBinary([map_size, map_size]),
+                    "action_mask": MultiBinary(map_size * map_size)
+                }
+            )
 
         # fix a random seed
         self._np_random, seed = seeding.np_random(RANDOM_SEED)
@@ -121,10 +124,13 @@ class BaseEnvironment(gym.Env):
         # self.loc_tx_opt, self.coverage_map_opt = find_opt_loc(self.pixel_map, self.original_map_scale, self.thr_pl)
         # e = time.time()
 
-        obs_dict = {
-            "observations": self.pixel_map,
-            "action_mask": self.mask
-        }
+        if self.no_masking:
+            observation = self.pixel_map
+        else:
+            observation = {
+                "observations": self.pixel_map,
+                "action_mask": self.mask
+            }
         info_dict = {
             # "action_mask": self.mask,
             # "cropped_map_shape": self.pixel_map.shape,
@@ -142,7 +148,7 @@ class BaseEnvironment(gym.Env):
         # save_map(f"log/coverage_{datetime.now().strftime('%m%d_%H%M')}.png",
         #          self.coverage_map_opt, mark_loc=self.loc_tx_opt)
         # np.savetxt('log/coverage_map_opt.txt', self.coverage_map_opt, delimiter=',', fmt='%d')
-        return obs_dict, info_dict
+        return observation, info_dict
 
     def step(
             self, action: ActType
@@ -168,10 +174,13 @@ class BaseEnvironment(gym.Env):
         # if self.steps % self.n_steps_per_map == 0:
         #     self.n_trained_maps += 1
         #     self.pixel_map = self.cropped_maps[self.n_trained_maps % self.n_maps]
-        obs_dict = {
-            "observations": self.pixel_map,
-            "action_mask": self.mask
-        }
+        if self.no_masking:
+            observation = self.pixel_map
+        else:
+            observation = {
+                "observations": self.pixel_map,
+                "action_mask": self.mask
+            }
 
         info_dict = {
             "steps": self.steps,
@@ -181,7 +190,7 @@ class BaseEnvironment(gym.Env):
         #     print(info_dict)
         #     print(f"action: {[row, col]}, loc_opt: {self.loc_tx_opt}")
 
-        return obs_dict, r, term, trunc, info_dict
+        return observation, r, term, trunc, info_dict
 
     def _calc_coverage(self, x_tx: int, y_tx: int) -> np.ndarray:
         """Calculate the coverage of a TX, given its location and a threshold.

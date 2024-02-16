@@ -65,6 +65,9 @@ config_run_train = {
         "evaluation_duration": 3,
         "evaluation_config": {"explore": False},
     },
+    "report": {
+        "min_sample_timesteps_per_iteration": 1000,
+    },
     "stop": {
         "training_iteration": 20,
     }

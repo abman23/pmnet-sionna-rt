@@ -38,6 +38,7 @@ sac_config = (
         evaluation_duration=config_run_train["eval"].get("evaluation_duration", 3),
         evaluation_config=config_run_train["eval"].get("evaluation_config", {}),
     )
+    .reporting(min_sample_timesteps_per_iteration=config_run_train["report"].get("min_sample_timesteps_per_iteration", 1000))
 )
 sac = sac_config.build()
 

@@ -33,13 +33,13 @@ dqn_config = (
         lr=1e-3,
         num_steps_sampled_before_learning_starts=config_run_train["train"].get("num_steps_sampled_before_learning_starts", 10000),
         replay_buffer_config=config_run_train["train"].get("replay_buffer_config"),
-        double_q=True,
     )
     .evaluation(
         evaluation_interval=config_run_train["eval"].get("evaluation_interval", 1),
         evaluation_duration=config_run_train["eval"].get("evaluation_duration", 3),
         evaluation_config=config_run_train["eval"].get("evaluation_config", {}),
     )
+    .reporting(min_sample_timesteps_per_iteration=config_run_train["report"].get("min_sample_timesteps_per_iteration", 1000))
 )
 dqn = dqn_config.build()
 # dqn.restore('/Users/ylu/Documents/USC/WiDeS/BS_Deployment/checkpoint/dqn_0215_1703')
