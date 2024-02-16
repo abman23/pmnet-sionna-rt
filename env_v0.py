@@ -12,7 +12,7 @@ from gymnasium.spaces import Discrete, MultiBinary, Dict
 from gymnasium.utils import seeding
 
 from utils import generate_map, crop_map, calc_coverage, find_opt_loc, calc_pl_threshold, load_map, save_map
-from config import config_run_test, config_run_train, config_run3
+from config import config_run_test
 
 RANDOM_SEED: int | None = None  # manually set random seed
 # RATIO_BUILDINGS: float = .5  # the ratio of buildings for a randomly generated pixel map
@@ -140,13 +140,13 @@ class BaseEnvironment(gym.Env):
         }
         logger.info(info_dict)
         # print(info_dict)
-        # print(f"optimal coverage reward: {np.sum(self.coverage_map_opt)}")
-        # print(f"RoI area: {np.sum(self.pixel_map == 0)}")
-        # save_map(f"log/cropped_map_{datetime.now().strftime('%m%d_%H%M')}.png",
-        #          self.pixel_map, mark_loc=self.loc_tx_opt)
+        print(f"optimal coverage reward: {np.sum(self.coverage_map_opt)}")
+        print(f"RoI area: {np.sum(self.pixel_map == 0)}")
+        save_map(f"log/cropped_map_{datetime.now().strftime('%m%d_%H%M')}.png",
+                 self.pixel_map, mark_loc=self.loc_tx_opt)
         # np.savetxt('log/cropped_map.txt', self.pixel_map, delimiter=',', fmt='%d')
-        # save_map(f"log/coverage_{datetime.now().strftime('%m%d_%H%M')}.png",
-        #          self.coverage_map_opt, mark_loc=self.loc_tx_opt)
+        save_map(f"log/coverage_{datetime.now().strftime('%m%d_%H%M')}.png",
+                 self.coverage_map_opt, mark_loc=self.loc_tx_opt)
         # np.savetxt('log/coverage_map_opt.txt', self.coverage_map_opt, delimiter=',', fmt='%d')
         return observation, info_dict
 
@@ -208,23 +208,23 @@ class BaseEnvironment(gym.Env):
 
 if __name__ == "__main__":
     env = BaseEnvironment(config=config_run_test["env"])
-    # env.reset()
+    env.reset()
 
-    fig, ax = plt.subplots()
-
-    for i in range(3):
-        env.reset()
-        terminated, truncated = False, False
-        r_ep = []
-        n = 0
-        while not terminated and not truncated:
-            obs, reward, terminated, truncated, info = env.step(env.action_space.sample())
-            n += 1
-            r_ep.append(reward)
-
-        ax.plot(list(range(n)), r_ep, label=f"episode # {i}")
-
-    ax.set(xlabel="step", ylabel="reward", title="Random Sample")
-    ax.legend()
-    ax.grid()
-    fig.savefig(f"./figures/random_{datetime.now().strftime('%m%d_%H%M')}.png")
+    # fig, ax = plt.subplots()
+    #
+    # for i in range(3):
+    #     env.reset()
+    #     terminated, truncated = False, False
+    #     r_ep = []
+    #     n = 0
+    #     while not terminated and not truncated:
+    #         obs, reward, terminated, truncated, info = env.step(env.action_space.sample())
+    #         n += 1
+    #         r_ep.append(reward)
+    #
+    #     ax.plot(list(range(n)), r_ep, label=f"episode # {i}")
+    #
+    # ax.set(xlabel="step", ylabel="reward", title="Random Sample")
+    # ax.legend()
+    # ax.grid()
+    # fig.savefig(f"./figures/random_{datetime.now().strftime('%m%d_%H%M')}.png")

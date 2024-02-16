@@ -8,7 +8,7 @@ from ray import air, tune
 from ray.tune.logger import pretty_print
 
 from env_v0 import BaseEnvironment
-from config import config_run_train
+from config import config_run_sac
 
 # set a logger
 logger = logging.getLogger(__name__)
@@ -20,25 +20,26 @@ logger.addHandler(handler)
 
 sac_config = (
     SACConfig()
-    .environment(env=BaseEnvironment, env_config=config_run_train.get("env"))
+    .environment(env=BaseEnvironment, env_config=config_run_sac.get("env"))
     .framework("torch")
     .rollouts(num_rollout_workers=1, num_envs_per_worker=1)
     .resources(num_gpus=0)
     .exploration(
         explore=True,
-        exploration_config=config_run_train["explore"].get("exploration_config", {})
+        exploration_config=config_run_sac["explore"].get("exploration_config", {})
     )
     .training(
-        train_batch_size=config_run_train["train"].get("train_batch_size", 1),
-        num_steps_sampled_before_learning_starts=config_run_train["train"].get("num_steps_sampled_before_learning_starts", 10000),
-        replay_buffer_config=config_run_train["train"].get("replay_buffer_config"),
+        train_batch_size=config_run_sac["train"].get("train_batch_size", 1),
+        num_steps_sampled_before_learning_starts=config_run_sac["train"].get("num_steps_sampled_before_learning_starts", 10000),
+        replay_buffer_config=config_run_sac["train"].get("replay_buffer_config"),
+        target_network_update_freq=5,
     )
     .evaluation(
-        evaluation_interval=config_run_train["eval"].get("evaluation_interval", 1),
-        evaluation_duration=config_run_train["eval"].get("evaluation_duration", 3),
-        evaluation_config=config_run_train["eval"].get("evaluation_config", {}),
+        evaluation_interval=config_run_sac["eval"].get("evaluation_interval", 1),
+        evaluation_duration=config_run_sac["eval"].get("evaluation_duration", 3),
+        evaluation_config=config_run_sac["eval"].get("evaluation_config", {}),
     )
-    .reporting(min_sample_timesteps_per_iteration=config_run_train["report"].get("min_sample_timesteps_per_iteration", 1000))
+    .reporting(min_sample_timesteps_per_iteration=config_run_sac["report"].get("min_sample_timesteps_per_iteration", 1000))
 )
 sac = sac_config.build()
 
@@ -65,7 +66,7 @@ if __name__ == "__main__":
             # save the result and checkpoint
             logger.info("=============A WHOLE TRAINING PERIOD ENDED=============")
             logger.info(pretty_print(result))
-            logger.debug(config_run_train)
+            logger.debug(config_run_sac)
             checkpoint_dir = sac.save(f"./checkpoint/sac_{datetime.now().strftime('%m%d_%H%M')}").checkpoint.path
             print(f"Checkpoint saved in directory {checkpoint_dir}")
 

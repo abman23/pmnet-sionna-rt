@@ -1,0 +1,419 @@
+2024-02-16 02:42:13,080 INFO =============A WHOLE TRAINING PERIOD ENDED=============
+2024-02-16 02:42:13,087 INFO agent_timesteps_total: 10000
+connector_metrics:
+  ObsPreprocessorConnector_ms: 0.0038683414459228516
+  StateBufferConnector_ms: 0.0021631717681884766
+  ViewRequirementAgentConnector_ms: 0.04478955268859863
+counters:
+  num_agent_steps_sampled: 10000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 10000
+  num_env_steps_trained: 0
+custom_metrics: {}
+date: 2024-02-16_02-42-13
+done: false
+episode_len_mean: 99.12
+episode_media: {}
+episode_reward_max: -1745.1761498218777
+episode_reward_mean: -15603.8903513508
+episode_reward_min: -21596.22973861886
+episodes_this_iter: 1
+episodes_total: 100
+evaluation:
+  connector_metrics:
+    ObsPreprocessorConnector_ms: 0.0024159749348958335
+    StateBufferConnector_ms: 0.0015497207641601562
+    ViewRequirementAgentConnector_ms: 0.03732840220133463
+  custom_metrics: {}
+  episode_len_mean: 100.0
+  episode_media: {}
+  episode_reward_max: -10221.954445729292
+  episode_reward_mean: -12179.57689549172
+  episode_reward_min: -15189.24439894495
+  episodes_this_iter: 3
+  hist_stats:
+    episode_lengths:
+    - 100
+    - 100
+    - 100
+    episode_reward:
+    - -11127.531841800921
+    - -10221.954445729292
+    - -15189.24439894495
+  num_agent_steps_sampled_this_iter: 300
+  num_env_steps_sampled_this_iter: 300
+  num_faulty_episodes: 0
+  num_healthy_workers: 0
+  num_in_flight_async_reqs: 0
+  num_remote_worker_restarts: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.035326407991295314
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 11.350533870143783
+    mean_inference_ms: 0.5501519878333158
+    mean_raw_obs_processing_ms: 0.1139871986948376
+  sampler_results:
+    connector_metrics:
+      ObsPreprocessorConnector_ms: 0.0024159749348958335
+      StateBufferConnector_ms: 0.0015497207641601562
+      ViewRequirementAgentConnector_ms: 0.03732840220133463
+    custom_metrics: {}
+    episode_len_mean: 100.0
+    episode_media: {}
+    episode_reward_max: -10221.954445729292
+    episode_reward_mean: -12179.57689549172
+    episode_reward_min: -15189.24439894495
+    episodes_this_iter: 3
+    hist_stats:
+      episode_lengths:
+      - 100
+      - 100
+      - 100
+      episode_reward:
+      - -11127.531841800921
+      - -10221.954445729292
+      - -15189.24439894495
+    num_faulty_episodes: 0
+    policy_reward_max: {}
+    policy_reward_mean: {}
+    policy_reward_min: {}
+    sampler_perf:
+      mean_action_processing_ms: 0.035326407991295314
+      mean_env_render_ms: 0.0
+      mean_env_wait_ms: 11.350533870143783
+      mean_inference_ms: 0.5501519878333158
+      mean_raw_obs_processing_ms: 0.1139871986948376
+  timesteps_this_iter: 300
+hostname: OrangeBookPro14.lan
+info:
+  learner: {}
+  num_agent_steps_sampled: 10000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 10000
+  num_env_steps_trained: 0
+iterations_since_restore: 100
+node_ip: 127.0.0.1
+num_agent_steps_sampled: 10000
+num_agent_steps_trained: 0
+num_env_steps_sampled: 10000
+num_env_steps_sampled_this_iter: 100
+num_env_steps_sampled_throughput_per_sec: 81.83164739320515
+num_env_steps_trained: 0
+num_env_steps_trained_this_iter: 0
+num_env_steps_trained_throughput_per_sec: 0.0
+num_faulty_episodes: 0
+num_healthy_workers: 1
+num_in_flight_async_reqs: 0
+num_remote_worker_restarts: 0
+num_steps_trained_this_iter: 0
+perf:
+  cpu_util_percent: 31.957142857142856
+  ram_util_percent: 80.74285714285715
+pid: 13063
+policy_reward_max: {}
+policy_reward_mean: {}
+policy_reward_min: {}
+sampler_perf:
+  mean_action_processing_ms: 0.03634390417246309
+  mean_env_render_ms: 0.0
+  mean_env_wait_ms: 11.400920804206475
+  mean_inference_ms: 0.7033412899696914
+  mean_raw_obs_processing_ms: 0.24458432474059524
+sampler_results:
+  connector_metrics:
+    ObsPreprocessorConnector_ms: 0.0038683414459228516
+    StateBufferConnector_ms: 0.0021631717681884766
+    ViewRequirementAgentConnector_ms: 0.04478955268859863
+  custom_metrics: {}
+  episode_len_mean: 99.12
+  episode_media: {}
+  episode_reward_max: -1745.1761498218777
+  episode_reward_mean: -15603.8903513508
+  episode_reward_min: -21596.22973861886
+  episodes_this_iter: 1
+  hist_stats:
+    episode_lengths: [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+      100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+      100, 100, 100, 100, 100, 100, 100, 12, 100, 100, 100, 100, 100, 100, 100, 100,
+      100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+      100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+      100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+      100, 100, 100, 100, 100, 100, 100, 100]
+    episode_reward: [-15408.915278441733, -15461.186552974948, -13815.924110785612,
+      -17198.449822145594, -16477.847244900375, -12893.910676114117, -14677.53845160566,
+      -13959.902005815347, -16654.37471799315, -12180.071423545394, -13901.682914942196,
+      -16462.73501222297, -15790.993258376278, -15106.940155847613, -14753.942218706039,
+      -14850.374126392417, -17744.08992153781, -15288.602980252756, -19580.04993938005,
+      -12815.130699869238, -16786.300976943363, -15741.215179818582, -16737.444204428495,
+      -15304.389394262425, -14189.11604711618, -16416.690541412314, -15696.177124933849,
+      -16120.980377529426, -15393.218689510202, -12530.716729149199, -13983.336954442964,
+      -15524.121265992784, -15213.10602690341, -14812.130275458918, -15877.467724437342,
+      -1745.1761498218777, -16143.80032889482, -15819.519264476312, -20760.58656210036,
+      -12795.00259509774, -14993.415437414593, -16860.244363688096, -14807.095708050003,
+      -15666.349208619296, -15480.019988836108, -15358.70674517471, -18535.065527152972,
+      -17191.96448882627, -14739.608292527855, -13538.117379415904, -16499.390208322737,
+      -18189.36300442435, -16289.825933098267, -14878.392150502781, -15175.920238555987,
+      -13551.010334478895, -16721.226632887043, -13673.329776477618, -16943.291098867518,
+      -14978.989619963262, -16033.00635780384, -17685.916841945298, -16857.70596220446,
+      -14497.65062277507, -18708.77298074022, -14740.852657909469, -16308.076729184997,
+      -17988.615849401245, -17448.68256879263, -15642.403289866666, -21051.942750466405,
+      -14994.6462735963, -18085.298756949484, -13843.658381426269, -13759.533346148,
+      -14126.479574283274, -21596.22973861886, -18114.88218999681, -13831.580945101832,
+      -14673.97599770875, -17224.73345223255, -13822.413625653071, -13077.75418791752,
+      -14961.000475779056, -15104.520813288067, -13279.144687341397, -20684.04697297682,
+      -14480.484798646912, -14401.244621095308, -11551.426211766186, -16792.222615906572,
+      -17320.66047422428, -13382.36723746115, -14139.37028212606, -21354.53561119326,
+      -17382.58320207552, -18869.040260865004, -19174.403762660186, -14703.350826052494,
+      -12009.335139034336]
+  num_faulty_episodes: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.03634390417246309
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 11.400920804206475
+    mean_inference_ms: 0.7033412899696914
+    mean_raw_obs_processing_ms: 0.24458432474059524
+time_since_restore: 502.51943731307983
+time_this_iter_s: 5.242213726043701
+time_total_s: 502.51943731307983
+timers:
+  sample_time_ms: 12.206
+  training_iteration_time_ms: 12.304
+timestamp: 1708080133
+timesteps_total: 10000
+training_iteration: 100
+trial_id: default
+
+2024-02-16 02:42:13,087 DEBUG {'env': {'cropped_map_size': 64, 'ratio_coverage': 0.0125, 'original_map_path': '/Users/ylu/Documents/USC/WiDeS/BS_Deployment/resource/usc.png', 'original_map_scale': 3.4375, 'n_maps': 10, 'n_steps_per_map': 100, 'no_masking': True, 'coefficient_dict': {'r_c': 1.0, 'p_d': 1.0, 'p_b': 1.0}}, 'explore': {'explore': True, 'exploration_config': {'type': 'EpsilonGreedy', 'initial_epsilon': 1.0, 'final_epsilon': 0.02, 'epsilon_timesteps': 20000}}, 'train': {'train_batch_size': 32, 'num_steps_sampled_before_learning_starts': 10000, 'replay_buffer_config': {'capacity': 20000}}, 'eval': {'evaluation_interval': 1, 'evaluation_duration': 3, 'evaluation_config': {'explore': False}}, 'stop': {'training_iteration': 20}}
+2024-02-16 04:53:42,697 INFO =============A WHOLE TRAINING PERIOD ENDED=============
+2024-02-16 04:53:42,706 INFO agent_timesteps_total: 100000
+connector_metrics:
+  ObsPreprocessorConnector_ms: 0.0055887699127197266
+  StateBufferConnector_ms: 0.0027549266815185547
+  ViewRequirementAgentConnector_ms: 0.0919804573059082
+counters:
+  last_target_update_ts: 100000
+  num_agent_steps_sampled: 100000
+  num_agent_steps_trained: 2880000
+  num_env_steps_sampled: 100000
+  num_env_steps_trained: 2880000
+  num_target_updates: 90000
+custom_metrics: {}
+date: 2024-02-16_04-53-42
+done: false
+episode_len_mean: 100.0
+episode_media: {}
+episode_reward_max: -1188.1390690862513
+episode_reward_mean: -10608.552027860598
+episode_reward_min: -15419.081706789311
+episodes_this_iter: 10
+episodes_total: 1000
+evaluation:
+  connector_metrics:
+    ObsPreprocessorConnector_ms: 0.0020106633504231772
+    StateBufferConnector_ms: 0.0014464060465494792
+    ViewRequirementAgentConnector_ms: 0.0310818354288737
+  custom_metrics: {}
+  episode_len_mean: 100.0
+  episode_media: {}
+  episode_reward_max: -14240.063693621545
+  episode_reward_mean: -15343.351996485595
+  episode_reward_min: -16244.99614791762
+  episodes_this_iter: 3
+  hist_stats:
+    episode_lengths:
+    - 100
+    - 100
+    - 100
+    episode_reward:
+    - -15544.996147917618
+    - -16244.99614791762
+    - -14240.063693621545
+  num_agent_steps_sampled_this_iter: 300
+  num_env_steps_sampled_this_iter: 300
+  num_faulty_episodes: 0
+  num_healthy_workers: 0
+  num_in_flight_async_reqs: 0
+  num_remote_worker_restarts: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.031285951751132225
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 10.973655860831963
+    mean_inference_ms: 0.5036602774912793
+    mean_raw_obs_processing_ms: 0.10565047955331014
+  sampler_results:
+    connector_metrics:
+      ObsPreprocessorConnector_ms: 0.0020106633504231772
+      StateBufferConnector_ms: 0.0014464060465494792
+      ViewRequirementAgentConnector_ms: 0.0310818354288737
+    custom_metrics: {}
+    episode_len_mean: 100.0
+    episode_media: {}
+    episode_reward_max: -14240.063693621545
+    episode_reward_mean: -15343.351996485595
+    episode_reward_min: -16244.99614791762
+    episodes_this_iter: 3
+    hist_stats:
+      episode_lengths:
+      - 100
+      - 100
+      - 100
+      episode_reward:
+      - -15544.996147917618
+      - -16244.99614791762
+      - -14240.063693621545
+    num_faulty_episodes: 0
+    policy_reward_max: {}
+    policy_reward_mean: {}
+    policy_reward_min: {}
+    sampler_perf:
+      mean_action_processing_ms: 0.031285951751132225
+      mean_env_render_ms: 0.0
+      mean_env_wait_ms: 10.973655860831963
+      mean_inference_ms: 0.5036602774912793
+      mean_raw_obs_processing_ms: 0.10565047955331014
+  timesteps_this_iter: 300
+hostname: OrangeBookPro14.lan
+info:
+  last_target_update_ts: 100000
+  learner:
+    default_policy:
+      custom_metrics: {}
+      diff_num_grad_updates_vs_sampler_policy: 89999.0
+      learner_stats:
+        actor_loss: 10464.9345703125
+        allreduce_latency: 0.0
+        alpha_loss: -221.23191833496094
+        alpha_value: 612198055936.0
+        critic_loss: 4.858701705932617
+        grad_gnorm: 8.151411056518555
+        log_alpha_value: 27.140321731567383
+        max_q: 26.541534423828125
+        mean_q: -7931.052734375
+        min_q: -16497.322265625
+        policy_t: 0.000244140625
+        target_entropy: 8.151411056518555
+      mean_td_error: 25.99674415588379
+      model: {}
+      num_agent_steps_trained: 32.0
+      num_grad_updates_lifetime: 90000.0
+      td_error: [7.92431640625, 10.90185546875, 30.64697265625, 10.90185546875, 10.90185546875,
+        22.967529296875, 2.98583984375, 130.5615234375, 13.96142578125, 21.64697265625,
+        7.92431640625, 13.96142578125, 7.19775390625, 7.92431640625, 10.2783203125,
+        10.90185546875, 23.81103515625, 3.216796875, 2.98583984375, 11.69195556640625,
+        30.64697265625, 20.76611328125, 13.96142578125, 284.32275390625, 7.19775390625,
+        2.55859375, 5.7216796875, 30.64697265625, 22.967529296875, 19.64697265625,
+        7.19775390625, 22.967529296875]
+  num_agent_steps_sampled: 100000
+  num_agent_steps_trained: 2880000
+  num_env_steps_sampled: 100000
+  num_env_steps_trained: 2880000
+  num_target_updates: 90000
+iterations_since_restore: 100
+node_ip: 127.0.0.1
+num_agent_steps_sampled: 100000
+num_agent_steps_trained: 2880000
+num_env_steps_sampled: 100000
+num_env_steps_sampled_this_iter: 1000
+num_env_steps_sampled_throughput_per_sec: 13.24921301461849
+num_env_steps_trained: 2880000
+num_env_steps_trained_this_iter: 32000
+num_env_steps_trained_throughput_per_sec: 423.9748164677917
+num_faulty_episodes: 0
+num_healthy_workers: 1
+num_in_flight_async_reqs: 0
+num_remote_worker_restarts: 0
+num_steps_trained_this_iter: 32000
+perf:
+  cpu_util_percent: 22.033035714285713
+  ram_util_percent: 80.05892857142858
+pid: 13478
+policy_reward_max: {}
+policy_reward_mean: {}
+policy_reward_min: {}
+sampler_perf:
+  mean_action_processing_ms: 0.044426566164953
+  mean_env_render_ms: 0.0
+  mean_env_wait_ms: 11.44442294672484
+  mean_inference_ms: 0.8524254697478745
+  mean_raw_obs_processing_ms: 0.3502034457599181
+sampler_results:
+  connector_metrics:
+    ObsPreprocessorConnector_ms: 0.0055887699127197266
+    StateBufferConnector_ms: 0.0027549266815185547
+    ViewRequirementAgentConnector_ms: 0.0919804573059082
+  custom_metrics: {}
+  episode_len_mean: 100.0
+  episode_media: {}
+  episode_reward_max: -1188.1390690862513
+  episode_reward_mean: -10608.552027860598
+  episode_reward_min: -15419.081706789311
+  episodes_this_iter: 10
+  hist_stats:
+    episode_lengths: [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+      100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+      100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+      100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+      100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+      100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+      100, 100, 100, 100, 100, 100, 100, 100]
+    episode_reward: [-10444.200071649653, -13517.29043358775, -9062.32703549278, -14416.30761174081,
+      -13050.528627946673, -9036.8147610538, -11313.344218749753, -11336.0679774998,
+      -10699.689895004874, -11595.212440142532, -11513.608305156182, -9697.503556109159,
+      -7957.165716661152, -9847.16107275425, -14324.669653925443, -8886.16960546906,
+      -10196.868638427186, -14179.503914973422, -12482.718455881215, -13191.755282131568,
+      -5942.887451746169, -8966.07627338611, -7754.582478537381, -11520.969135567253,
+      -14135.19669896634, -10676.921478740784, -12707.535884528586, -14177.264865358158,
+      -15283.650066971004, -11148.25130147012, -14360.80905878752, -10737.60585556816,
+      -12319.535622777777, -10480.282864072251, -9593.141849091735, -13520.772469410911,
+      -10285.538224105276, -15419.081706789311, -2182.842712474621, -12213.608305156184,
+      -13142.114763410455, -10629.922914390101, -9010.217860157256, -11429.882102172183,
+      -9509.361393549028, -11677.42542996314, -10636.0679774998, -6708.707068617014,
+      -12162.83552696398, -11312.64994427896, -9879.113173467245, -11523.014285349873,
+      -12349.778803095109, -5750.982500219446, -12182.84271247462, -9638.540852988901,
+      -13456.028666680792, -13789.789376054407, -6745.187378732392, -15022.03589590872,
+      -13199.858006897632, -4980.446701676663, -7979.217646178665, -1608.9680950855268,
+      -11282.770398228071, -10163.98501970892, -9913.274595042154, -10760.931937264037,
+      -13610.786194085456, -6581.495481311969, -10958.567932877748, -8895.555661743232,
+      -11204.465011904798, -14307.631981610468, -1188.1390690862513, -4985.051135210729,
+      -6183.1634347253685, -10777.04199416519, -12078.657748896327, -2582.2044665438257,
+      -9713.274595042156, -10635.373390120545, -9040.001050340403, -11080.120829709676,
+      -10801.455456429874, -8828.30379126923, -9935.822578726384, -12665.949227904253,
+      -11840.312423743302, -13943.938198037118, -11055.501735165863, -11482.842712474618,
+      -8486.654418759512, -6609.804234161358, -14202.271554554503, -12392.823797171817,
+      -10016.095238760572, -11894.262351449273, -12413.608305156185, -13842.614181003906]
+  num_faulty_episodes: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.044426566164953
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 11.44442294672484
+    mean_inference_ms: 0.8524254697478745
+    mean_raw_obs_processing_ms: 0.3502034457599181
+time_since_restore: 7386.156136274338
+time_this_iter_s: 78.98432183265686
+time_total_s: 7386.156136274338
+timers:
+  learn_throughput: 1614.478
+  learn_time_ms: 19.821
+  load_throughput: 532187.661
+  load_time_ms: 0.06
+  sample_time_ms: 32.618
+  synch_weights_time_ms: 3.033
+  training_iteration_time_ms: 73.698
+timestamp: 1708088022
+timesteps_total: 100000
+training_iteration: 100
+trial_id: default
+
+2024-02-16 04:53:42,706 DEBUG {'env': {'cropped_map_size': 64, 'ratio_coverage': 0.0125, 'original_map_path': '/Users/ylu/Documents/USC/WiDeS/BS_Deployment/resource/usc.png', 'original_map_scale': 3.4375, 'n_maps': 10, 'n_steps_per_map': 100, 'no_masking': True, 'coefficient_dict': {'r_c': 1.0, 'p_d': 1.0, 'p_b': 1.0}}, 'explore': {'explore': True, 'exploration_config': {'type': 'EpsilonGreedy', 'initial_epsilon': 1.0, 'final_epsilon': 0.02, 'epsilon_timesteps': 20000}}, 'train': {'train_batch_size': 32, 'num_steps_sampled_before_learning_starts': 10000, 'replay_buffer_config': {'capacity': 20000}}, 'eval': {'evaluation_interval': 1, 'evaluation_duration': 3, 'evaluation_config': {'explore': False}}, 'report': {'min_sample_timesteps_per_iteration': 1000}, 'stop': {'training_iteration': 20}}
