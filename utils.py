@@ -1,7 +1,55 @@
 import math
 from typing import Tuple
-
+from PIL import Image, ImageDraw
 import numpy as np
+
+
+def load_map(filepath: str) -> np.ndarray:
+    """Convert a building map image (black - building, white - free space) to a numpy array.
+
+    Args:
+        filepath: Path of the map.
+
+    Returns:
+        The corresponding 0-1 numpy array (1 - building, 0 - free space).
+
+    """
+    image = Image.open(filepath)
+    # convert the image to grayscale
+    image_gray = image.convert("L")
+    image_array = np.array(image_gray)
+    threshold = 128  # threshold of the grayscale value to map black to 1 and white to 0
+
+    return (image_array < threshold).astype(np.int8)
+
+
+def save_map(filepath: str, pixel_map: np.ndarray, reverse_color: bool = True, mark_loc: np.ndarray | None = None) -> None:
+    """Save building map array as a black-white image.
+
+    Args:
+        filepath: Path of the image.
+        pixel_map: Building map array.
+        reverse_color: Whether to reverse the 0 1 value of each pixel or not.
+        mark_loc (optional): Add a marker to the image given its location.
+
+    Returns:
+
+    """
+    if reverse_color:
+        pixel_map = (np.ones_like(pixel_map, dtype=np.uint8) - pixel_map)
+    # convert the binary array to an image
+    image_from_array = Image.fromarray((255 * pixel_map).astype(np.uint8), mode='L')
+
+    if mark_loc is not None:
+        image_from_array = image_from_array.convert('RGB')
+        # Calculate the pixel coordinates of the top-left corner of the circle
+        xy = (mark_loc[1], mark_loc[0])
+        # Create an ImageDraw object to draw on the image
+        draw = ImageDraw.Draw(image_from_array)
+        # Draw the red point
+        draw.point(xy, fill='red')
+
+    image_from_array.save(filepath)
 
 
 def generate_map(n_rows: int, n_cols: int, ratio_buildings: float = .5, seed: int | None = None) -> np.ndarray:
@@ -28,19 +76,21 @@ def generate_map(n_rows: int, n_cols: int, ratio_buildings: float = .5, seed: in
 
 
 def crop_map(original_map: np.ndarray, map_size: int, n: int, rng: np.random.Generator) -> list[np.ndarray]:
-    """Crop N MAP_SIZE x MAP_SIZE pixel square which must contain a building pixel from the ORIGINAL_MAP.
+    """Crop N pixel resource which must contain a building pixel from the ORIGINAL_MAP.
 
     Args:
         original_map: The original pixel map to crop.
         map_size: The size of cropped map.
-        n: The number of cropped maps.
+        n: The number of cropped resource.
         rng: A random number generator.
 
     Returns:
-        A cropped square pixel map.
+        A cropped square pixel map with the same size as the original map.
 
     """
-    assert np.sum(original_map) > 0
+    assert np.sum(original_map) > 0  # the original map must contain building areas
+    row_scale = original_map.shape[0] // map_size
+    col_scale = original_map.shape[1] // map_size
 
     maps = []
     for _ in range(n):
@@ -49,22 +99,25 @@ def crop_map(original_map: np.ndarray, map_size: int, n: int, rng: np.random.Gen
             x_start = rng.choice(original_map.shape[0] - map_size)
             y_start = rng.choice(original_map.shape[1] - map_size)
             s_map = original_map[x_start:x_start + map_size, y_start:y_start + map_size]
+        # s_map = np.repeat(np.repeat(s_map, col_scale, axis=1), row_scale, axis=0)
         maps.append(s_map)
     return maps
 
 
-def calc_path_loss(x: int, y: int, map: np.ndarray, threshold: float | None = None, option: str = "FSPL") -> np.ndarray:
-    """Calculate path loss for every pixel in the map and return the path loss map, given a TX location.
+def calc_coverage(x: int, y: int, map: np.ndarray, map_scale: float,
+                  threshold: float = -np.inf, option: str = "FSPL") -> np.ndarray:
+    """Calculate the coverage of a TX given its location and a building map.
 
     Args:
         x: The X coordinate of TX.
         y: The Y coordinate of TX.
         map: The pixel map to calculate FSPL for.
+        map_scale: The ratio between physical length and pixel (meter/pixel).
         threshold: A threshold of FSPL for counting each pixel as covered by the TX or not.
         option: The type of path loss.
 
     Returns:
-        The path loss map if THRESHOLD is None, otherwise a cover map.
+        The path loss map if THRESHOLD is None, otherwise a TX coverage map.
 
     """
     n_row, n_col = map.shape
@@ -74,24 +127,30 @@ def calc_path_loss(x: int, y: int, map: np.ndarray, threshold: float | None = No
     for i in range(n_row):
         pl_row = []
         for j in range(n_col):
-            dis = np.linalg.norm([x - i, y - i])
+            # we ignore non-ROI area (inside buildings)
+            if map[i][j] == 1:
+                pl_row.append(0)
+                continue
+
+            dis = np.linalg.norm([x - i, y - j]) * map_scale
             if option == "FSPL":
                 pl = calc_fspl(dis)
             else:
                 pl = 0.
-            if threshold is not None:
-                pl = 1 if pl > threshold else 0
-            pl_row.append(pl)
+            # convert path loss value to a 0-1 indicator of coverage if a threshold is given
+            covered = 1 if pl > threshold else 0
+            pl_row.append(covered)
         values_pl.append(pl_row)
 
-    return np.array(values_pl, dtype=np.float32) if threshold is None else np.array(values_pl, dtype=np.int8)
+    return np.array(values_pl, dtype=np.int8)
 
 
-def calc_pl_threshold(original_map: np.ndarray, ratio_coverage: float, option: str = "FSPL") -> float:
+def calc_pl_threshold(original_map: np.ndarray, map_scale: float, ratio_coverage: float, option: str = "FSPL") -> float:
     """Calculate the threshold of path loss value given a PIXEL_MAP and an expected coverage rate.
 
     Args:
         original_map: A pixel map with buildings and free spaces.
+        map_scale: The ratio between physical length and pixel (meter/pixel).
         ratio_coverage: The ratio of pixels with higher average path loss value than the threshold.
 
     Returns:
@@ -100,18 +159,20 @@ def calc_pl_threshold(original_map: np.ndarray, ratio_coverage: float, option: s
     """
     assert 0 < ratio_coverage < 1
 
-    radius = math.sqrt(ratio_coverage ** 2 * original_map.shape[0] * original_map.shape[1] / math.pi)
+    radius = math.sqrt(ratio_coverage * map_scale * original_map.shape[0] * original_map.shape[1] / math.pi)
     if option == "FSPL":
         return calc_fspl(radius)
     else:
         return -np.inf
 
 
-def find_opt_loc(pixel_map: np.ndarray, pl_threshold: float | None = None) -> Tuple[np.ndarray, np.ndarray]:
-    """Find the optimal location of TX which maximizes the overall path loss.
+def find_opt_loc(pixel_map: np.ndarray, map_scale: float, pl_threshold: float | None = None) -> Tuple[
+    np.ndarray, np.ndarray]:
+    """Find the optimal location of TX which maximizes the overall coverage.
 
     Args:
         pixel_map: A pixel map to find the optimal TX location for.
+        map_scale: The ratio between physical length and pixel (meter/pixel).
         pl_threshold: : The threshold of path loss.
 
     Returns:
@@ -119,20 +180,28 @@ def find_opt_loc(pixel_map: np.ndarray, pl_threshold: float | None = None) -> Tu
 
     """
     loc_opt = np.ones(2, dtype=np.int32) * -1
-    pl_sum_opt = -np.inf
+    coverage_sum_opt = -np.inf
     coverage_map_opt = np.empty((pixel_map.shape[0], pixel_map.shape[1]), dtype=np.int8)
+    loc_center = np.array([pixel_map.shape[0] // 2, pixel_map.shape[1] // 2], dtype=np.int32)
+    dis_center_loc_opt = np.inf
 
     for x in range(pixel_map.shape[0]):
         for y in range(pixel_map.shape[1]):
             if pixel_map[x][y] == 1:
-                coverage_map = calc_path_loss(x, y, pixel_map, threshold=pl_threshold)
-                pl_sum = np.sum(coverage_map)
-                if pl_sum > pl_sum_opt:
-                    pl_sum_opt = pl_sum
-                    loc_opt[0], loc_opt[1] = x, y
+                coverage_map = calc_coverage(x, y, pixel_map, map_scale, threshold=pl_threshold)
+                coverage_sum = np.sum(coverage_map)
+                loc = np.array([x, y])
+                dis_center_loc = np.linalg.norm(loc - loc_center)
+                # update the optimal location if the sum of coverage is greater or the location is closer to the center
+                if (coverage_sum > coverage_sum_opt or
+                        (coverage_sum == coverage_sum_opt and dis_center_loc < dis_center_loc_opt)):
+                    coverage_sum_opt = coverage_sum
+                    loc_opt = loc
                     coverage_map_opt = coverage_map
+                    dis_center_loc_opt = dis_center_loc
 
     return loc_opt, coverage_map_opt
+
 
 def calc_fspl(dis: float) -> float:
     """Calculate the free-space path loss (FSPL) at a point given a distance.
