@@ -2,6 +2,8 @@ import math
 from typing import Tuple
 from PIL import Image, ImageDraw
 import numpy as np
+import json
+from gymnasium.utils import seeding
 
 
 def load_map(filepath: str) -> np.ndarray:
@@ -23,7 +25,7 @@ def load_map(filepath: str) -> np.ndarray:
     return (image_array < threshold).astype(np.int8)
 
 
-def save_map(filepath: str, pixel_map: np.ndarray, reverse_color: bool = True, mark_loc: np.ndarray | None = None) -> None:
+def save_map(filepath: str, pixel_map: np.ndarray, reverse_color: bool = True, mark_loc: np.ndarray | None = None, **kwargs) -> None:
     """Save building map array as a black-white image.
 
     Args:
@@ -49,7 +51,49 @@ def save_map(filepath: str, pixel_map: np.ndarray, reverse_color: bool = True, m
         # Draw the red point
         draw.point(xy, fill='red')
 
+    if "mark_locs" in kwargs.keys():
+        locs = kwargs["mark_locs"]
+        draw = ImageDraw.Draw(image_from_array)
+        for loc in locs:
+            xy = (loc[1], loc[0])
+            draw.point(xy, fill='blue')
+
     image_from_array.save(filepath)
+
+
+def save_cropped_maps(original_map: np.ndarray, map_size: int, n: int, map_scale: float, ratio_coverage: float,
+                      rng: np.random.Generator, filepath: str = './resource/setup.json') -> None:
+    """Crop N pixel maps, calculate the corresponding optimal TX locations, coverages and save them in a file.
+
+    Args:
+        original_map: The original pixel map to crop.
+        map_size: The size of cropped map.
+        map_scale: The ratio between physical length and pixel (meter/pixel).
+        ratio_coverage: The ratio of pixels with higher average path loss value than the threshold.
+        n: The number of cropped resource.
+        rng: A random number generator.
+        filepath: Path of the output file.
+
+    """
+    threshold = calc_pl_threshold(original_map, map_scale, ratio_coverage)
+    cropped_maps = crop_map(original_map, map_size, n, rng)
+    locs_opt = []
+    coverages_opt = []
+
+    for i, cropped_map in enumerate(cropped_maps):
+        loc_opt, coverage_opt = find_opt_loc(cropped_map, map_scale, threshold)
+        cropped_maps[i] = cropped_map.tolist()
+        locs_opt.append(loc_opt.tolist())
+        coverages_opt.append(coverage_opt.tolist())
+
+    res_dict = {
+        "thr_pl": threshold,
+        "cropped_maps": cropped_maps,
+        "locs_opt": locs_opt,
+        "coverages_opt": coverages_opt,
+    }
+    with open(filepath, "w", encoding="utf-8") as output_file:
+        json.dump(res_dict, output_file)
 
 
 def generate_map(n_rows: int, n_cols: int, ratio_buildings: float = .5, seed: int | None = None) -> np.ndarray:
@@ -76,7 +120,7 @@ def generate_map(n_rows: int, n_cols: int, ratio_buildings: float = .5, seed: in
 
 
 def crop_map(original_map: np.ndarray, map_size: int, n: int, rng: np.random.Generator) -> list[np.ndarray]:
-    """Crop N pixel resource which must contain a building pixel from the ORIGINAL_MAP.
+    """Crop N pixel maps which must contain a building pixel from the ORIGINAL_MAP.
 
     Args:
         original_map: The original pixel map to crop.
@@ -159,7 +203,7 @@ def calc_pl_threshold(original_map: np.ndarray, map_scale: float, ratio_coverage
     """
     assert 0 < ratio_coverage < 1
 
-    radius = math.sqrt(ratio_coverage * map_scale * original_map.shape[0] * original_map.shape[1] / math.pi)
+    radius = math.sqrt(ratio_coverage * map_scale**2 * original_map.shape[0] * original_map.shape[1] / math.pi)
     if option == "FSPL":
         return calc_fspl(radius)
     else:
@@ -218,3 +262,14 @@ def calc_fspl(dis: float) -> float:
     beta = 3
     lg_param = -1.0203
     return 10 * beta * (lg_param - np.log(dis) / np.log(10))
+
+
+if __name__ == '__main__':
+    original_map = load_map('./resource/usc.png')
+    map_size = 64
+    n = 100
+    map_scale = 880/256
+    ratio_coverage = .2/16
+    rng, seed = seeding.np_random(2024)
+    filepath = './resource/setup.json'
+    save_cropped_maps(original_map, map_size, n, map_scale, ratio_coverage, rng, filepath)

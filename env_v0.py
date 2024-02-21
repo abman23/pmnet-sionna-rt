@@ -1,4 +1,4 @@
-import random
+import json
 import time
 from datetime import datetime
 import logging
@@ -12,7 +12,7 @@ from gymnasium.spaces import Discrete, MultiBinary, Dict
 from gymnasium.utils import seeding
 
 from utils import generate_map, crop_map, calc_coverage, find_opt_loc, calc_pl_threshold, load_map, save_map
-from config import config_run_test
+from config import config_run_test, config_run_train
 
 RANDOM_SEED: int | None = None  # manually set random seed
 # RATIO_BUILDINGS: float = .5  # the ratio of buildings for a randomly generated pixel map
@@ -24,7 +24,7 @@ RANDOM_SEED: int | None = None  # manually set random seed
 # set a logger
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
-handler = logging.FileHandler(f"/Users/ylu/Documents/USC/WiDeS/BS_Deployment/log/{__name__}.log", encoding='utf-8', mode='a')
+handler = logging.FileHandler(f"./log/{__name__}.log", encoding='utf-8', mode='a')
 formatter = logging.Formatter("%(asctime)s %(levelname)s %(message)s")
 handler.setFormatter(formatter)
 logger.addHandler(handler)
@@ -46,14 +46,23 @@ class BaseEnvironment(gym.Env):
         # a pixel map where 1 = building, 0 = free space
         original_map_path = config.get("original_map_path", "resource/usc.png")
         original_map: np.ndarray = load_map(original_map_path)
-        # print(f"original map with shape {original_map.shape}")
-        # print(original_map)
         original_map_scale: float = config.get("original_map_scale", 880 / 256)
         ratio_coverage = config.get("ratio_coverage", .01)
         self.original_map: np.ndarray = original_map
         self.original_map_scale: float = original_map_scale
+
+        preset_config: dict = {}
+        # if not None, use a given set of cropped maps and the corresponding configurations
+        preset_map_path: str | None = config.get("preset_map_path", None)
+        if preset_map_path:
+            with open(preset_map_path, "r", encoding="utf-8") as preset_file:
+                preset_config = json.load(preset_file)
+
         # the threshold of path loss such that we consider a pixel as 'covered' by the TX
-        self.thr_pl: float = calc_pl_threshold(original_map, original_map_scale, ratio_coverage)
+        if preset_map_path:
+            self.thr_pl: float = preset_config.get("thr_pl")
+        else:
+            self.thr_pl: float = calc_pl_threshold(original_map, original_map_scale, ratio_coverage)
 
         map_size = config.get("cropped_map_size", 256)
         # number of pixels in one row or column of the cropped map
@@ -71,6 +80,9 @@ class BaseEnvironment(gym.Env):
         self.steps: int = 0
         # count the number of used cropped resource
         self.n_trained_maps: int = 0
+
+        self.evaluation = config.get("evaluation", False)
+        self.eval_plot = config.get("eval_plot", False)
 
         # action mask has the same shape as the action
         self.mask: np.ndarray = np.empty(map_size * map_size, dtype=np.int8)
@@ -90,18 +102,23 @@ class BaseEnvironment(gym.Env):
         self._np_random, seed = seeding.np_random(RANDOM_SEED)
 
         # crop some resource from the original one and calculate the optimal TX location and coverage for each map
-        self.cropped_maps = crop_map(self.original_map, self.cropped_map_size,
-                                     self.n_maps, self.np_random)
-        self.locs_opt: list[np.ndarray] = []
-        self.coverages_opt: list[np.ndarray] = []
-        s = time.time()
-        for cropped_map in self.cropped_maps:
-            loc_opt, coverage_opt = find_opt_loc(cropped_map, self.original_map_scale, self.thr_pl)
-            self.locs_opt.append(loc_opt)
-            self.coverages_opt.append(coverage_opt)
-        e = time.time()
+        if preset_map_path:
+            self.cropped_maps = np.array(preset_config.get("cropped_maps"))
+            self.locs_opt = np.array(preset_config.get("locs_opt"))
+            self.coverages_opt = np.array(preset_config.get("coverages_opt"))
+        else:
+            self.cropped_maps = crop_map(self.original_map, self.cropped_map_size,
+                                         self.n_maps, self.np_random)
+            self.locs_opt: list[np.ndarray] = []
+            self.coverages_opt: list[np.ndarray] = []
+            s = time.time()
+            for cropped_map in self.cropped_maps:
+                loc_opt, coverage_opt = find_opt_loc(cropped_map, self.original_map_scale, self.thr_pl)
+                self.locs_opt.append(loc_opt)
+                self.coverages_opt.append(coverage_opt)
+            e = time.time()
+            logger.info(f"exhaustive search time for {self.n_maps} cropped maps: {e - s} s")
         logger.info("=============NEW ENV INITIALIZED=============")
-        logger.info(f"exhaustive search time for {self.n_maps} cropped resource: {e - s} s")
 
     def reset(
             self, *, seed: int | None = None, options: dict[str, Any] | None = None,
@@ -109,12 +126,15 @@ class BaseEnvironment(gym.Env):
         super().reset(seed=seed, options=options)
 
         self.steps = 0
-        # 'randomly' (controlled by the seed) crop a smaller map from the original one
         # todo: scale cropped map to original one's size (64x64 -> 256x256)
-        map_idx = self.np_random.choice(self.n_maps)
+        # choose the map in sequence in evaluation
+        if self.evaluation:
+            map_idx = self.n_trained_maps % self.n_maps
+        else:
+            map_idx = self.np_random.choice(self.n_maps)
         self.pixel_map = self.cropped_maps[map_idx]
         self.loc_tx_opt = self.locs_opt[map_idx]
-        self.coverage_map_opt = self.coverages_opt[self.n_trained_maps % self.n_maps]
+        self.coverage_map_opt = self.coverages_opt[map_idx]
         # self.pixel_map = crop_map(self.original_map, self.cropped_map_size, n=1, rng=self.np_random)[0]
         self.n_trained_maps += 1
         # 1 - building, 0 - free space
@@ -133,20 +153,20 @@ class BaseEnvironment(gym.Env):
             }
         info_dict = {
             # "action_mask": self.mask,
-            # "cropped_map_shape": self.pixel_map.shape,
+            "cropped_map_shape": self.pixel_map.shape,
             "map_index": map_idx,
             "loc_tx_opt": self.loc_tx_opt,
             # "time_exhaustive_search": e - s
         }
         logger.info(info_dict)
         # print(info_dict)
-        print(f"optimal coverage reward: {np.sum(self.coverage_map_opt)}")
-        print(f"RoI area: {np.sum(self.pixel_map == 0)}")
-        save_map(f"log/cropped_map_{datetime.now().strftime('%m%d_%H%M')}.png",
-                 self.pixel_map, mark_loc=self.loc_tx_opt)
+        # print(f"optimal coverage reward: {np.sum(self.coverage_map_opt)}")
+        # print(f"RoI area: {np.sum(self.pixel_map == 0)}")
+        # save_map(f"log/cropped_map_{datetime.now().strftime('%m%d_%H%M')}.png",
+        #          self.pixel_map, mark_loc=self.loc_tx_opt)
         # np.savetxt('log/cropped_map.txt', self.pixel_map, delimiter=',', fmt='%d')
-        save_map(f"log/coverage_{datetime.now().strftime('%m%d_%H%M')}.png",
-                 self.coverage_map_opt, mark_loc=self.loc_tx_opt)
+        # save_map(f"log/coverage_{datetime.now().strftime('%m%d_%H%M')}.png",
+        #          self.coverage_map_opt, mark_loc=self.loc_tx_opt)
         # np.savetxt('log/coverage_map_opt.txt', self.coverage_map_opt, delimiter=',', fmt='%d')
         return observation, info_dict
 
@@ -162,7 +182,7 @@ class BaseEnvironment(gym.Env):
         r_e = np.sum(self.coverage_map_opt)  # optimal coverage reward
         p_d = -np.linalg.norm(np.array([row, col]) - self.loc_tx_opt)  # distance penalty
         p_b = -100 if (self.pixel_map[row, col] != 1 and self.no_masking) else 0  # RoI penalty
-        a = self.coefficient_dict.get("r_c", .1)
+        a = self.coefficient_dict.get("r_c", 1.)
         b = self.coefficient_dict.get("p_d", 1.)
         c = self.coefficient_dict.get("p_b", 1.)
         r = a * (r_c - r_e) + b * p_d + c * p_b
@@ -184,11 +204,22 @@ class BaseEnvironment(gym.Env):
 
         info_dict = {
             "steps": self.steps,
+            "action": [row, col],
+            "loc_opt": self.loc_tx_opt.tolist(),
             "detailed_rewards": f"r_c = {r_c}, r_e = {r_e}, p_d = {p_d}, p_b = {p_b}",
         }
-        # if self.steps % 100 == 0 or term or trunc:
-        #     print(info_dict)
-        #     print(f"action: {[row, col]}, loc_opt: {self.loc_tx_opt}")
+        if self.evaluation and (self.steps % 20 == 0 or term or trunc):
+            logger.info(info_dict)
+
+        # plot the current and optimal TX locations
+        if self.eval_plot and (term or trunc):
+            save_map(
+                f"./figures/eval_map_{self.n_trained_maps}_{datetime.now().strftime('%m%d_%H%M')}.png",
+                self.pixel_map,
+                True,
+                self.loc_tx_opt,
+                mark_locs=[[row, col]],
+            )
 
         return observation, r, term, trunc, info_dict
 
@@ -207,24 +238,30 @@ class BaseEnvironment(gym.Env):
 
 
 if __name__ == "__main__":
-    env = BaseEnvironment(config=config_run_test["env"])
-    env.reset()
+    start = time.time()
 
-    # fig, ax = plt.subplots()
-    #
-    # for i in range(3):
-    #     env.reset()
-    #     terminated, truncated = False, False
-    #     r_ep = []
-    #     n = 0
-    #     while not terminated and not truncated:
-    #         obs, reward, terminated, truncated, info = env.step(env.action_space.sample())
-    #         n += 1
-    #         r_ep.append(reward)
-    #
-    #     ax.plot(list(range(n)), r_ep, label=f"episode # {i}")
-    #
-    # ax.set(xlabel="step", ylabel="reward", title="Random Sample")
-    # ax.legend()
-    # ax.grid()
-    # fig.savefig(f"./figures/random_{datetime.now().strftime('%m%d_%H%M')}.png")
+    env = BaseEnvironment(config=config_run_train["env"])
+    # env.reset()
+
+    fig, ax = plt.subplots()
+
+    for i in range(3):
+        env.reset()
+        terminated, truncated = False, False
+        r_ep = []
+        n = 0
+        while not terminated and not truncated:
+            obs, reward, terminated, truncated, info = env.step(env.action_space.sample())
+            print(info)
+            n += 1
+            r_ep.append(reward)
+
+        ax.plot(list(range(n)), r_ep, label=f"episode # {i}")
+
+    ax.set(xlabel="step", ylabel="reward", title="Random Sample")
+    ax.legend()
+    ax.grid()
+    fig.savefig(f"./figures/random_{datetime.now().strftime('%m%d_%H%M')}.png")
+
+    end = time.time()
+    print(f"total runtime: {end - start}s")

@@ -1,3 +1,15 @@
 2024-02-16 11:08:54,214 INFO =============NEW ENV INITIALIZED=============
 2024-02-16 11:08:54,214 INFO exhaustive search time for 1 cropped resource: 5.359365940093994 s
 2024-02-16 11:08:54,214 INFO {'map_index': 0, 'loc_tx_opt': array([21, 22])}
+2024-02-18 17:06:56,889 INFO =============NEW ENV INITIALIZED=============
+2024-02-18 17:06:56,891 INFO exhaustive search time for 1 cropped resource: 1.9681379795074463 s
+2024-02-18 17:06:56,891 INFO {'map_index': 0, 'loc_tx_opt': array([18, 49])}
+2024-02-18 19:53:13,404 INFO =============NEW ENV INITIALIZED=============
+2024-02-18 19:53:13,406 INFO exhaustive search time for 1 cropped resource: 3.62618088722229 s
+2024-02-18 19:53:13,406 INFO {'map_index': 0, 'loc_tx_opt': array([35, 23])}
+2024-02-18 20:59:45,211 INFO =============NEW ENV INITIALIZED=============
+2024-02-18 20:59:45,212 INFO exhaustive search time for 1 cropped resource: 6.601010322570801 s
+2024-02-18 20:59:45,213 INFO {'map_index': 0, 'loc_tx_opt': array([37, 46])}
+2024-02-18 20:59:45,214 INFO {'map_index': 0, 'loc_tx_opt': array([37, 46])}
+2024-02-19 14:44:14,585 INFO =============NEW ENV INITIALIZED=============
+2024-02-19 14:44:14,588 INFO {'cropped_map_shape': (64, 64), 'map_index': 86, 'loc_tx_opt': array([33, 30])}
