@@ -5758,3 +5758,172 @@
 2024-02-20 20:02:10,968 INFO {'steps': 20, 'action': [18, 45], 'loc_opt': [20, 17], 'detailed_rewards': 'r_c = 779, r_e = 786, p_d = -28.071337695236398, p_b = -100'}
 2024-02-20 20:02:11,221 INFO {'steps': 40, 'action': [18, 45], 'loc_opt': [20, 17], 'detailed_rewards': 'r_c = 779, r_e = 786, p_d = -28.071337695236398, p_b = -100'}
 2024-02-20 20:02:11,345 INFO {'steps': 50, 'action': [18, 45], 'loc_opt': [20, 17], 'detailed_rewards': 'r_c = 779, r_e = 786, p_d = -28.071337695236398, p_b = -100'}
+2024-02-21 16:27:46,926 INFO =============NEW ENV INITIALIZED=============
+2024-02-21 16:27:46,927 INFO =============NEW ENV INITIALIZED=============
+2024-02-21 16:27:46,927 INFO =============NEW ENV INITIALIZED=============
+2024-02-21 16:27:46,928 INFO =============NEW ENV INITIALIZED=============
+2024-02-21 16:27:46,938 INFO {'cropped_map_shape': (64, 64), 'map_index': 46, 'loc_tx_opt': array([33, 24])}
+2024-02-21 16:27:46,938 INFO {'cropped_map_shape': (64, 64), 'map_index': 80, 'loc_tx_opt': array([42, 14])}
+2024-02-21 16:27:46,938 INFO {'cropped_map_shape': (64, 64), 'map_index': 54, 'loc_tx_opt': array([36, 21])}
+2024-02-21 16:27:46,938 INFO {'cropped_map_shape': (64, 64), 'map_index': 64, 'loc_tx_opt': array([36, 45])}
+2024-02-21 16:27:46,939 INFO {'cropped_map_shape': (64, 64), 'map_index': 38, 'loc_tx_opt': array([25, 43])}
+2024-02-21 16:27:46,939 INFO {'cropped_map_shape': (64, 64), 'map_index': 84, 'loc_tx_opt': array([16, 42])}
+2024-02-21 16:27:46,939 INFO {'cropped_map_shape': (64, 64), 'map_index': 62, 'loc_tx_opt': array([21, 48])}
+2024-02-21 16:27:46,939 INFO {'cropped_map_shape': (64, 64), 'map_index': 0, 'loc_tx_opt': array([22, 18])}
+2024-02-21 16:27:46,939 INFO {'cropped_map_shape': (64, 64), 'map_index': 89, 'loc_tx_opt': array([12, 23])}
+2024-02-21 16:27:46,939 INFO {'cropped_map_shape': (64, 64), 'map_index': 85, 'loc_tx_opt': array([16, 42])}
+2024-02-21 16:27:46,939 INFO {'cropped_map_shape': (64, 64), 'map_index': 64, 'loc_tx_opt': array([36, 45])}
+2024-02-21 16:27:46,939 INFO {'cropped_map_shape': (64, 64), 'map_index': 22, 'loc_tx_opt': array([38, 35])}
+2024-02-21 16:27:47,531 INFO =============NEW ENV INITIALIZED=============
+2024-02-21 16:27:47,533 INFO {'cropped_map_shape': (64, 64), 'map_index': 0, 'loc_tx_opt': array([22, 18])}
+2024-02-21 16:27:47,533 INFO {'cropped_map_shape': (64, 64), 'map_index': 1, 'loc_tx_opt': array([32, 49])}
+2024-02-21 16:27:47,533 INFO {'cropped_map_shape': (64, 64), 'map_index': 2, 'loc_tx_opt': array([21, 31])}
+2024-02-21 16:27:47,611 INFO {'cropped_map_shape': (64, 64), 'map_index': 58, 'loc_tx_opt': array([25, 20])}
+2024-02-21 16:27:47,611 INFO {'cropped_map_shape': (64, 64), 'map_index': 65, 'loc_tx_opt': array([16, 28])}
+2024-02-21 16:27:47,611 INFO {'cropped_map_shape': (64, 64), 'map_index': 68, 'loc_tx_opt': array([43, 31])}
+2024-02-21 16:27:47,611 INFO {'cropped_map_shape': (64, 64), 'map_index': 65, 'loc_tx_opt': array([16, 28])}
+2024-02-21 16:27:47,775 INFO {'cropped_map_shape': (64, 64), 'map_index': 36, 'loc_tx_opt': array([44, 43])}
+2024-02-21 16:27:47,775 INFO {'cropped_map_shape': (64, 64), 'map_index': 54, 'loc_tx_opt': array([36, 21])}
+2024-02-21 16:27:47,775 INFO {'cropped_map_shape': (64, 64), 'map_index': 33, 'loc_tx_opt': array([48, 15])}
+2024-02-21 16:27:47,775 INFO {'cropped_map_shape': (64, 64), 'map_index': 85, 'loc_tx_opt': array([16, 42])}
+2024-02-21 16:27:47,878 INFO {'cropped_map_shape': (64, 64), 'map_index': 3, 'loc_tx_opt': array([14, 14])}
+2024-02-21 16:27:47,982 INFO {'steps': 10, 'action': [12, 61], 'loc_opt': [14, 14], 'detailed_rewards': 'r_c = 457, r_e = 722, p_d = -47.042533945356304, p_b = -100'}
+2024-02-21 16:27:47,983 INFO {'cropped_map_shape': (64, 64), 'map_index': 4, 'loc_tx_opt': array([33, 18])}
+2024-02-21 16:27:48,091 INFO {'steps': 10, 'action': [11, 23], 'loc_opt': [33, 18], 'detailed_rewards': 'r_c = 748, r_e = 741, p_d = -22.561028345356956, p_b = -100'}
+2024-02-21 16:27:48,092 INFO {'cropped_map_shape': (64, 64), 'map_index': 5, 'loc_tx_opt': array([35, 14])}
+2024-02-21 16:27:48,197 INFO {'steps': 10, 'action': [40, 48], 'loc_opt': [35, 14], 'detailed_rewards': 'r_c = 807, r_e = 766, p_d = -34.36568055487916, p_b = -100'}
+2024-02-21 16:27:48,198 INFO {'cropped_map_shape': (64, 64), 'map_index': 6, 'loc_tx_opt': array([25, 47])}
+2024-02-21 16:27:48,276 INFO {'cropped_map_shape': (64, 64), 'map_index': 19, 'loc_tx_opt': array([15, 28])}
+2024-02-21 16:27:48,276 INFO {'cropped_map_shape': (64, 64), 'map_index': 93, 'loc_tx_opt': array([36, 21])}
+2024-02-21 16:27:48,276 INFO {'cropped_map_shape': (64, 64), 'map_index': 51, 'loc_tx_opt': array([40, 15])}
+2024-02-21 16:27:48,276 INFO {'cropped_map_shape': (64, 64), 'map_index': 88, 'loc_tx_opt': array([24, 36])}
+2024-02-21 16:27:48,717 INFO {'cropped_map_shape': (64, 64), 'map_index': 43, 'loc_tx_opt': array([46, 48])}
+2024-02-21 16:27:48,717 INFO {'cropped_map_shape': (64, 64), 'map_index': 9, 'loc_tx_opt': array([38, 23])}
+2024-02-21 16:27:48,725 INFO {'cropped_map_shape': (64, 64), 'map_index': 57, 'loc_tx_opt': array([36, 15])}
+2024-02-21 16:27:48,730 INFO {'cropped_map_shape': (64, 64), 'map_index': 14, 'loc_tx_opt': array([43, 53])}
+2024-02-21 16:27:48,922 INFO {'steps': 10, 'action': [15, 3], 'loc_opt': [25, 47], 'detailed_rewards': 'r_c = 519, r_e = 773, p_d = -45.12205669071391, p_b = -100'}
+2024-02-21 16:27:48,923 INFO {'cropped_map_shape': (64, 64), 'map_index': 7, 'loc_tx_opt': array([39, 30])}
+2024-02-21 16:27:49,028 INFO {'steps': 10, 'action': [15, 3], 'loc_opt': [39, 30], 'detailed_rewards': 'r_c = 480, r_e = 768, p_d = -36.124783736376884, p_b = 0'}
+2024-02-21 16:27:49,029 INFO {'cropped_map_shape': (64, 64), 'map_index': 8, 'loc_tx_opt': array([25, 22])}
+2024-02-21 16:27:49,131 INFO {'steps': 10, 'action': [15, 3], 'loc_opt': [25, 22], 'detailed_rewards': 'r_c = 443, r_e = 770, p_d = -21.470910553583888, p_b = -100'}
+2024-02-21 16:27:49,132 INFO {'cropped_map_shape': (64, 64), 'map_index': 9, 'loc_tx_opt': array([38, 23])}
+2024-02-21 16:42:44,805 INFO =============NEW ENV INITIALIZED=============
+2024-02-21 16:42:44,807 INFO =============NEW ENV INITIALIZED=============
+2024-02-21 16:42:44,809 INFO =============NEW ENV INITIALIZED=============
+2024-02-21 16:42:44,808 INFO =============NEW ENV INITIALIZED=============
+2024-02-21 16:42:44,817 INFO {'cropped_map_shape': (64, 64), 'map_index': 11, 'loc_tx_opt': array([35, 47])}
+2024-02-21 16:42:44,817 INFO {'cropped_map_shape': (64, 64), 'map_index': 65, 'loc_tx_opt': array([16, 28])}
+2024-02-21 16:42:44,817 INFO {'cropped_map_shape': (64, 64), 'map_index': 46, 'loc_tx_opt': array([33, 24])}
+2024-02-21 16:42:44,817 INFO {'cropped_map_shape': (64, 64), 'map_index': 3, 'loc_tx_opt': array([14, 14])}
+2024-02-21 16:42:44,818 INFO {'cropped_map_shape': (64, 64), 'map_index': 55, 'loc_tx_opt': array([28, 23])}
+2024-02-21 16:42:44,818 INFO {'cropped_map_shape': (64, 64), 'map_index': 10, 'loc_tx_opt': array([47, 19])}
+2024-02-21 16:42:44,818 INFO {'cropped_map_shape': (64, 64), 'map_index': 38, 'loc_tx_opt': array([25, 43])}
+2024-02-21 16:42:44,818 INFO {'cropped_map_shape': (64, 64), 'map_index': 93, 'loc_tx_opt': array([36, 21])}
+2024-02-21 16:42:44,818 INFO {'cropped_map_shape': (64, 64), 'map_index': 0, 'loc_tx_opt': array([22, 18])}
+2024-02-21 16:42:44,818 INFO {'cropped_map_shape': (64, 64), 'map_index': 27, 'loc_tx_opt': array([44, 23])}
+2024-02-21 16:42:44,818 INFO {'cropped_map_shape': (64, 64), 'map_index': 76, 'loc_tx_opt': array([43, 47])}
+2024-02-21 16:42:44,818 INFO {'cropped_map_shape': (64, 64), 'map_index': 1, 'loc_tx_opt': array([32, 49])}
+2024-02-21 16:43:02,682 INFO exhaustive search time for 3 cropped maps: 17.281890869140625 s
+2024-02-21 16:43:02,683 INFO =============NEW ENV INITIALIZED=============
+2024-02-21 16:43:02,683 INFO {'cropped_map_shape': (64, 64), 'map_index': 0, 'loc_tx_opt': array([41, 27])}
+2024-02-21 16:43:02,684 INFO {'cropped_map_shape': (64, 64), 'map_index': 1, 'loc_tx_opt': array([23, 47])}
+2024-02-21 16:43:02,684 INFO {'cropped_map_shape': (64, 64), 'map_index': 2, 'loc_tx_opt': array([31, 32])}
+2024-02-21 16:43:02,794 INFO {'cropped_map_shape': (64, 64), 'map_index': 6, 'loc_tx_opt': array([25, 47])}
+2024-02-21 16:43:02,794 INFO {'cropped_map_shape': (64, 64), 'map_index': 26, 'loc_tx_opt': array([35, 13])}
+2024-02-21 16:43:02,794 INFO {'cropped_map_shape': (64, 64), 'map_index': 10, 'loc_tx_opt': array([47, 19])}
+2024-02-21 16:43:02,796 INFO {'cropped_map_shape': (64, 64), 'map_index': 21, 'loc_tx_opt': array([39, 18])}
+2024-02-21 16:43:02,988 INFO {'cropped_map_shape': (64, 64), 'map_index': 37, 'loc_tx_opt': array([16, 40])}
+2024-02-21 16:43:02,988 INFO {'cropped_map_shape': (64, 64), 'map_index': 74, 'loc_tx_opt': array([33, 39])}
+2024-02-21 16:43:02,988 INFO {'cropped_map_shape': (64, 64), 'map_index': 61, 'loc_tx_opt': array([21, 48])}
+2024-02-21 16:43:02,988 INFO {'cropped_map_shape': (64, 64), 'map_index': 10, 'loc_tx_opt': array([47, 19])}
+2024-02-21 16:43:03,090 INFO {'cropped_map_shape': (64, 64), 'map_index': 0, 'loc_tx_opt': array([41, 27])}
+2024-02-21 16:43:03,218 INFO {'steps': 10, 'action': [21, 29], 'loc_opt': [41, 27], 'detailed_rewards': 'r_c = 709, r_e = 750, p_d = -20.09975124224178, p_b = -100'}
+2024-02-21 16:43:03,219 INFO {'cropped_map_shape': (64, 64), 'map_index': 1, 'loc_tx_opt': array([23, 47])}
+2024-02-21 16:43:03,337 INFO {'steps': 10, 'action': [2, 62], 'loc_opt': [23, 47], 'detailed_rewards': 'r_c = 267, r_e = 735, p_d = -25.80697580112788, p_b = -100'}
+2024-02-21 16:43:03,338 INFO {'cropped_map_shape': (64, 64), 'map_index': 2, 'loc_tx_opt': array([31, 32])}
+2024-02-21 16:43:03,462 INFO {'steps': 10, 'action': [36, 62], 'loc_opt': [31, 32], 'detailed_rewards': 'r_c = 384, r_e = 770, p_d = -30.4138126514911, p_b = -100'}
+2024-02-21 16:43:03,463 INFO {'cropped_map_shape': (64, 64), 'map_index': 0, 'loc_tx_opt': array([41, 27])}
+2024-02-21 16:43:03,539 INFO {'cropped_map_shape': (64, 64), 'map_index': 43, 'loc_tx_opt': array([46, 48])}
+2024-02-21 16:43:03,540 INFO {'cropped_map_shape': (64, 64), 'map_index': 97, 'loc_tx_opt': array([31, 46])}
+2024-02-21 16:43:03,540 INFO {'cropped_map_shape': (64, 64), 'map_index': 10, 'loc_tx_opt': array([47, 19])}
+2024-02-21 16:43:03,540 INFO {'cropped_map_shape': (64, 64), 'map_index': 4, 'loc_tx_opt': array([33, 18])}
+2024-02-21 16:43:03,980 INFO {'cropped_map_shape': (64, 64), 'map_index': 57, 'loc_tx_opt': array([36, 15])}
+2024-02-21 16:43:03,980 INFO {'cropped_map_shape': (64, 64), 'map_index': 9, 'loc_tx_opt': array([38, 23])}
+2024-02-21 16:43:03,980 INFO {'cropped_map_shape': (64, 64), 'map_index': 52, 'loc_tx_opt': array([32, 23])}
+2024-02-21 16:43:03,989 INFO {'cropped_map_shape': (64, 64), 'map_index': 25, 'loc_tx_opt': array([18, 25])}
+2024-02-21 16:43:04,169 INFO {'steps': 10, 'action': [18, 19], 'loc_opt': [41, 27], 'detailed_rewards': 'r_c = 764, r_e = 750, p_d = -24.351591323771842, p_b = -100'}
+2024-02-21 16:43:04,170 INFO {'cropped_map_shape': (64, 64), 'map_index': 1, 'loc_tx_opt': array([23, 47])}
+2024-02-21 16:43:04,283 INFO {'steps': 10, 'action': [18, 19], 'loc_opt': [23, 47], 'detailed_rewards': 'r_c = 530, r_e = 735, p_d = -28.442925306655784, p_b = -100'}
+2024-02-21 16:43:04,284 INFO {'cropped_map_shape': (64, 64), 'map_index': 2, 'loc_tx_opt': array([31, 32])}
+2024-02-21 16:43:04,408 INFO {'steps': 10, 'action': [18, 19], 'loc_opt': [31, 32], 'detailed_rewards': 'r_c = 711, r_e = 770, p_d = -18.384776310850235, p_b = -100'}
+2024-02-21 16:43:04,409 INFO {'cropped_map_shape': (64, 64), 'map_index': 0, 'loc_tx_opt': array([41, 27])}
+2024-02-21 23:31:05,137 INFO =============NEW ENV INITIALIZED=============
+2024-02-21 23:31:05,147 INFO =============NEW ENV INITIALIZED=============
+2024-02-21 23:31:05,156 INFO =============NEW ENV INITIALIZED=============
+2024-02-21 23:31:05,153 INFO =============NEW ENV INITIALIZED=============
+2024-02-21 23:31:05,166 INFO {'cropped_map_shape': (64, 64), 'map_index': 23, 'loc_tx_opt': array([33, 45])}
+2024-02-21 23:31:05,166 INFO {'cropped_map_shape': (64, 64), 'map_index': 6, 'loc_tx_opt': array([25, 47])}
+2024-02-21 23:31:05,166 INFO {'cropped_map_shape': (64, 64), 'map_index': 81, 'loc_tx_opt': array([52, 16])}
+2024-02-21 23:31:05,166 INFO {'cropped_map_shape': (64, 64), 'map_index': 52, 'loc_tx_opt': array([32, 23])}
+2024-02-21 23:31:05,168 INFO {'cropped_map_shape': (64, 64), 'map_index': 11, 'loc_tx_opt': array([35, 47])}
+2024-02-21 23:31:05,168 INFO {'cropped_map_shape': (64, 64), 'map_index': 73, 'loc_tx_opt': array([24, 17])}
+2024-02-21 23:31:05,168 INFO {'cropped_map_shape': (64, 64), 'map_index': 32, 'loc_tx_opt': array([39, 16])}
+2024-02-21 23:31:05,168 INFO {'cropped_map_shape': (64, 64), 'map_index': 91, 'loc_tx_opt': array([44, 16])}
+2024-02-21 23:31:05,168 INFO {'cropped_map_shape': (64, 64), 'map_index': 99, 'loc_tx_opt': array([22, 29])}
+2024-02-21 23:31:05,168 INFO {'cropped_map_shape': (64, 64), 'map_index': 76, 'loc_tx_opt': array([43, 47])}
+2024-02-21 23:31:05,168 INFO {'cropped_map_shape': (64, 64), 'map_index': 18, 'loc_tx_opt': array([39, 18])}
+2024-02-21 23:31:05,168 INFO {'cropped_map_shape': (64, 64), 'map_index': 66, 'loc_tx_opt': array([16, 43])}
+2024-02-21 23:31:27,275 INFO exhaustive search time for 3 cropped maps: 21.641837120056152 s
+2024-02-21 23:31:27,276 INFO =============NEW ENV INITIALIZED=============
+2024-02-21 23:31:27,276 INFO {'cropped_map_shape': (64, 64), 'map_index': 0, 'loc_tx_opt': array([42, 14])}
+2024-02-21 23:31:27,277 INFO {'cropped_map_shape': (64, 64), 'map_index': 1, 'loc_tx_opt': array([42, 48])}
+2024-02-21 23:31:27,277 INFO {'cropped_map_shape': (64, 64), 'map_index': 2, 'loc_tx_opt': array([31, 40])}
+2024-02-21 23:31:27,334 INFO {'cropped_map_shape': (64, 64), 'map_index': 32, 'loc_tx_opt': array([39, 16])}
+2024-02-21 23:31:27,334 INFO {'cropped_map_shape': (64, 64), 'map_index': 76, 'loc_tx_opt': array([43, 47])}
+2024-02-21 23:31:27,334 INFO {'cropped_map_shape': (64, 64), 'map_index': 6, 'loc_tx_opt': array([25, 47])}
+2024-02-21 23:31:27,334 INFO {'cropped_map_shape': (64, 64), 'map_index': 99, 'loc_tx_opt': array([22, 29])}
+2024-02-21 23:31:27,656 INFO {'cropped_map_shape': (64, 64), 'map_index': 39, 'loc_tx_opt': array([16, 24])}
+2024-02-21 23:31:27,656 INFO {'cropped_map_shape': (64, 64), 'map_index': 20, 'loc_tx_opt': array([46, 25])}
+2024-02-21 23:31:27,657 INFO {'cropped_map_shape': (64, 64), 'map_index': 89, 'loc_tx_opt': array([12, 23])}
+2024-02-21 23:31:27,658 INFO {'cropped_map_shape': (64, 64), 'map_index': 57, 'loc_tx_opt': array([36, 15])}
+2024-02-21 23:31:27,942 INFO {'cropped_map_shape': (64, 64), 'map_index': 22, 'loc_tx_opt': array([38, 35])}
+2024-02-21 23:31:27,944 INFO {'cropped_map_shape': (64, 64), 'map_index': 19, 'loc_tx_opt': array([15, 28])}
+2024-02-21 23:31:27,947 INFO {'cropped_map_shape': (64, 64), 'map_index': 73, 'loc_tx_opt': array([24, 17])}
+2024-02-21 23:31:27,948 INFO {'cropped_map_shape': (64, 64), 'map_index': 85, 'loc_tx_opt': array([16, 42])}
+2024-02-21 23:31:28,248 INFO {'cropped_map_shape': (64, 64), 'map_index': 65, 'loc_tx_opt': array([16, 28])}
+2024-02-21 23:31:28,251 INFO {'cropped_map_shape': (64, 64), 'map_index': 38, 'loc_tx_opt': array([25, 43])}
+2024-02-21 23:31:28,251 INFO {'cropped_map_shape': (64, 64), 'map_index': 16, 'loc_tx_opt': array([37, 37])}
+2024-02-21 23:31:28,253 INFO {'cropped_map_shape': (64, 64), 'map_index': 94, 'loc_tx_opt': array([31, 20])}
+2024-02-21 23:31:28,535 INFO {'cropped_map_shape': (64, 64), 'map_index': 0, 'loc_tx_opt': array([22, 18])}
+2024-02-21 23:31:28,535 INFO {'cropped_map_shape': (64, 64), 'map_index': 16, 'loc_tx_opt': array([37, 37])}
+2024-02-21 23:31:28,539 INFO {'cropped_map_shape': (64, 64), 'map_index': 79, 'loc_tx_opt': array([45, 25])}
+2024-02-21 23:31:28,540 INFO {'cropped_map_shape': (64, 64), 'map_index': 12, 'loc_tx_opt': array([ 9, 57])}
+2024-02-21 23:31:28,727 INFO {'cropped_map_shape': (64, 64), 'map_index': 0, 'loc_tx_opt': array([42, 14])}
+2024-02-21 23:31:28,846 INFO {'steps': 10, 'action': [3, 45], 'loc_opt': [42, 14], 'detailed_rewards': 'r_c = 342, r_e = 734, p_d = -49.8196748283246, p_b = -100'}
+2024-02-21 23:31:28,847 INFO {'cropped_map_shape': (64, 64), 'map_index': 1, 'loc_tx_opt': array([42, 48])}
+2024-02-21 23:31:28,960 INFO {'steps': 10, 'action': [3, 45], 'loc_opt': [42, 48], 'detailed_rewards': 'r_c = 365, r_e = 724, p_d = -39.11521443121589, p_b = -100'}
+2024-02-21 23:31:28,960 INFO {'cropped_map_shape': (64, 64), 'map_index': 2, 'loc_tx_opt': array([31, 40])}
+2024-02-21 23:31:29,076 INFO {'steps': 10, 'action': [3, 45], 'loc_opt': [31, 40], 'detailed_rewards': 'r_c = 332, r_e = 745, p_d = -28.442925306655784, p_b = -100'}
+2024-02-21 23:31:29,077 INFO {'cropped_map_shape': (64, 64), 'map_index': 0, 'loc_tx_opt': array([42, 14])}
+2024-02-21 23:31:29,358 INFO {'cropped_map_shape': (64, 64), 'map_index': 10, 'loc_tx_opt': array([47, 19])}
+2024-02-21 23:31:29,359 INFO {'cropped_map_shape': (64, 64), 'map_index': 88, 'loc_tx_opt': array([24, 36])}
+2024-02-21 23:31:29,359 INFO {'cropped_map_shape': (64, 64), 'map_index': 86, 'loc_tx_opt': array([33, 30])}
+2024-02-21 23:31:29,361 INFO {'cropped_map_shape': (64, 64), 'map_index': 22, 'loc_tx_opt': array([38, 35])}
+2024-02-21 23:31:29,630 INFO {'cropped_map_shape': (64, 64), 'map_index': 70, 'loc_tx_opt': array([12, 52])}
+2024-02-21 23:31:29,631 INFO {'cropped_map_shape': (64, 64), 'map_index': 21, 'loc_tx_opt': array([39, 18])}
+2024-02-21 23:31:29,632 INFO {'cropped_map_shape': (64, 64), 'map_index': 67, 'loc_tx_opt': array([46, 16])}
+2024-02-21 23:31:29,638 INFO {'cropped_map_shape': (64, 64), 'map_index': 16, 'loc_tx_opt': array([37, 37])}
+2024-02-21 23:31:29,904 INFO {'cropped_map_shape': (64, 64), 'map_index': 69, 'loc_tx_opt': array([47, 44])}
+2024-02-21 23:31:29,909 INFO {'cropped_map_shape': (64, 64), 'map_index': 59, 'loc_tx_opt': array([20, 43])}
+2024-02-21 23:31:29,909 INFO {'cropped_map_shape': (64, 64), 'map_index': 90, 'loc_tx_opt': array([15, 15])}
+2024-02-21 23:31:29,914 INFO {'cropped_map_shape': (64, 64), 'map_index': 71, 'loc_tx_opt': array([24, 52])}
+2024-02-21 23:31:30,174 INFO {'cropped_map_shape': (64, 64), 'map_index': 69, 'loc_tx_opt': array([47, 44])}
+2024-02-21 23:31:30,181 INFO {'cropped_map_shape': (64, 64), 'map_index': 32, 'loc_tx_opt': array([39, 16])}
+2024-02-21 23:31:30,182 INFO {'cropped_map_shape': (64, 64), 'map_index': 11, 'loc_tx_opt': array([35, 47])}
+2024-02-21 23:31:30,184 INFO {'cropped_map_shape': (64, 64), 'map_index': 91, 'loc_tx_opt': array([44, 16])}
+2024-02-21 23:31:30,454 INFO {'steps': 10, 'action': [3, 45], 'loc_opt': [42, 14], 'detailed_rewards': 'r_c = 342, r_e = 734, p_d = -49.8196748283246, p_b = -100'}
+2024-02-21 23:31:30,455 INFO {'cropped_map_shape': (64, 64), 'map_index': 1, 'loc_tx_opt': array([42, 48])}
+2024-02-21 23:31:30,567 INFO {'steps': 10, 'action': [3, 45], 'loc_opt': [42, 48], 'detailed_rewards': 'r_c = 365, r_e = 724, p_d = -39.11521443121589, p_b = -100'}
+2024-02-21 23:31:30,568 INFO {'cropped_map_shape': (64, 64), 'map_index': 2, 'loc_tx_opt': array([31, 40])}
+2024-02-21 23:31:30,683 INFO {'steps': 10, 'action': [3, 45], 'loc_opt': [31, 40], 'detailed_rewards': 'r_c = 332, r_e = 745, p_d = -28.442925306655784, p_b = -100'}
+2024-02-21 23:31:30,684 INFO {'cropped_map_shape': (64, 64), 'map_index': 0, 'loc_tx_opt': array([42, 14])}

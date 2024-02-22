@@ -7,12 +7,12 @@ import matplotlib.pyplot as plt
 
 import gymnasium as gym
 import numpy as np
+import yaml
 from gymnasium.core import ActType, ObsType
 from gymnasium.spaces import Discrete, MultiBinary, Dict
 from gymnasium.utils import seeding
 
 from utils import generate_map, crop_map, calc_coverage, find_opt_loc, calc_pl_threshold, load_map, save_map
-from config import config_run_test, config_run_train
 
 RANDOM_SEED: int | None = None  # manually set random seed
 # RATIO_BUILDINGS: float = .5  # the ratio of buildings for a randomly generated pixel map
@@ -240,7 +240,9 @@ class BaseEnvironment(gym.Env):
 if __name__ == "__main__":
     start = time.time()
 
-    env = BaseEnvironment(config=config_run_train["env"])
+    config = yaml.safe_load(open('config/dqn_test.yaml', 'r'))
+    env_config = config['env']
+    env = BaseEnvironment(config=env_config)
     # env.reset()
 
     fig, ax = plt.subplots()

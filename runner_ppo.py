@@ -1,16 +1,16 @@
 import time
 import yaml
 
-from agent.dqn import DQNAgent
+from agent.ppo import PPOAgent
 
 
 if __name__ == "__main__":
     start = time.time()
-    config = yaml.safe_load(open('config/dqn_test.yaml', 'r'))
-    dqn = DQNAgent(config=config, log_file='log/runner_dqn.log')
+    config_ppo = yaml.safe_load(open('config/ppo_test.yaml', 'r'))
+    ppo = PPOAgent(config=config_ppo, log_file='log/runner_ppo.log')
 
     # train the agent and evaluate every some steps
-    dqn.train_and_eval()
+    ppo.train_and_eval()
     # tuner = tune.Tuner(
     #     "DQN",
     #     param_space=dqn_config.to_dict(),
