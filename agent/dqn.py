@@ -25,7 +25,10 @@ class DQNAgent(Agent):
             )
             .training(
                 train_batch_size=config["train"].get("train_batch_size", 1),
-                lr=config["train"].get("lr", 3e-4),
+                tau=config["train"].get("tau", 5e-3),
+                target_network_update_freq=config["train"].get("target_network_update_freq", 0),
+                lr=config["train"].get("lr", 1e-4),
+                gamma=config["train"].get("gamma", 0.95),
                 num_steps_sampled_before_learning_starts=config["train"].get(
                     "num_steps_sampled_before_learning_starts", 10000),
                 replay_buffer_config=config["train"].get("replay_buffer_config"),

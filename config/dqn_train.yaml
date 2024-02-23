@@ -40,7 +40,10 @@ stop:
   training_iteration: 500
 train:
   lr: 0.0001
+  gamma: 0.1
+  tau: 5.0e-3
+  target_network_update_freq: 0
   num_steps_sampled_before_learning_starts: 50000
   replay_buffer_config:
     capacity: 50000
-  train_batch_size: 128
+  train_batch_size: 32

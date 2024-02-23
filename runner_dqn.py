@@ -22,7 +22,7 @@ if __name__ == "__main__":
 
     # plot the action (TX location) of the trained agent vs. the optimal TX location
     # dqn.agent.restore("./checkpoint/dqn_0220_1342")
-    # dqn.eval_plot()
+    dqn.eval_plot()
 
     end = time.time()
     print(f"total runtime: {end - start}s")

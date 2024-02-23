@@ -1,0 +1,1198 @@
+2024-02-21 23:31:28,464 INFO ================EVALUATION AT # 5================
+2024-02-21 23:31:30,100 INFO ================EVALUATION AT # 10================
+2024-02-21 23:31:30,705 INFO =============A WHOLE TRAINING PERIOD ENDED=============
+2024-02-21 23:31:30,710 INFO agent_timesteps_total: 320
+connector_metrics:
+  ObsPreprocessorConnector_ms: 0.004839152097702026
+  StateBufferConnector_ms: 0.003074854612350464
+  ViewRequirementAgentConnector_ms: 0.07180199027061462
+counters:
+  num_agent_steps_sampled: 320
+  num_agent_steps_trained: 320
+  num_env_steps_sampled: 320
+  num_env_steps_trained: 320
+custom_metrics: {}
+date: 2024-02-21_23-31-30
+done: false
+episode_len_mean: 10.0
+episode_media: {}
+episode_reward_max: -222.1077027627484
+episode_reward_mean: -1408.778388988033
+episode_reward_min: -1807.9883776089548
+episodes_this_iter: 4
+episodes_total: 32
+evaluation:
+  connector_metrics:
+    ObsPreprocessorConnector_ms: 0.0030120213826497397
+    StateBufferConnector_ms: 0.0021060307820638022
+    ViewRequirementAgentConnector_ms: 0.04498163859049479
+  custom_metrics: {}
+  episode_len_mean: 10.0
+  episode_media: {}
+  episode_reward_max: -1697.4292530665577
+  episode_reward_mean: -1779.259381887321
+  episode_reward_min: -1890.1967482832465
+  episodes_this_iter: 3
+  hist_stats:
+    episode_lengths:
+    - 10
+    - 10
+    - 10
+    episode_reward:
+    - -1890.1967482832465
+    - -1750.1521443121592
+    - -1697.4292530665577
+  num_agent_steps_sampled_this_iter: 30
+  num_env_steps_sampled_this_iter: 30
+  num_faulty_episodes: 0
+  num_healthy_workers: 0
+  num_in_flight_async_reqs: 0
+  num_remote_worker_restarts: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.04479533336201652
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 10.90533616112881
+    mean_inference_ms: 0.4411681753690126
+    mean_raw_obs_processing_ms: 0.18217524544137423
+  sampler_results:
+    connector_metrics:
+      ObsPreprocessorConnector_ms: 0.0030120213826497397
+      StateBufferConnector_ms: 0.0021060307820638022
+      ViewRequirementAgentConnector_ms: 0.04498163859049479
+    custom_metrics: {}
+    episode_len_mean: 10.0
+    episode_media: {}
+    episode_reward_max: -1697.4292530665577
+    episode_reward_mean: -1779.259381887321
+    episode_reward_min: -1890.1967482832465
+    episodes_this_iter: 3
+    hist_stats:
+      episode_lengths:
+      - 10
+      - 10
+      - 10
+      episode_reward:
+      - -1890.1967482832465
+      - -1750.1521443121592
+      - -1697.4292530665577
+    num_faulty_episodes: 0
+    policy_reward_max: {}
+    policy_reward_mean: {}
+    policy_reward_min: {}
+    sampler_perf:
+      mean_action_processing_ms: 0.04479533336201652
+      mean_env_render_ms: 0.0
+      mean_env_wait_ms: 10.90533616112881
+      mean_inference_ms: 0.4411681753690126
+      mean_raw_obs_processing_ms: 0.18217524544137423
+  timesteps_this_iter: 30
+hostname: OrangeBookPro14.lan
+info:
+  learner:
+    default_policy:
+      custom_metrics: {}
+      diff_num_grad_updates_vs_sampler_policy: 9.5
+      learner_stats:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 0.00234375
+        cur_lr: 5.0e-05
+        entropy: 6.889841771125793
+        entropy_coeff: 0.0
+        grad_gnorm: 1.1094839870929718
+        kl: 0.07080947475042194
+        policy_loss: 0.20120200887322426
+        total_loss: 10.20136775970459
+        vf_explained_var: -1.1146068572998046e-06
+        vf_loss: 10.0
+      model: {}
+      num_agent_steps_trained: 16.0
+      num_grad_updates_lifetime: 190.5
+  num_agent_steps_sampled: 320
+  num_agent_steps_trained: 320
+  num_env_steps_sampled: 320
+  num_env_steps_trained: 320
+iterations_since_restore: 10
+node_ip: 127.0.0.1
+num_agent_steps_sampled: 320
+num_agent_steps_trained: 320
+num_env_steps_sampled: 320
+num_env_steps_sampled_this_iter: 32
+num_env_steps_sampled_throughput_per_sec: 129.01729872307047
+num_env_steps_trained: 320
+num_env_steps_trained_this_iter: 32
+num_env_steps_trained_throughput_per_sec: 129.01729872307047
+num_faulty_episodes: 0
+num_healthy_workers: 4
+num_in_flight_async_reqs: 0
+num_remote_worker_restarts: 0
+num_steps_trained_this_iter: 32
+perf:
+  cpu_util_percent: 40.5
+  ram_util_percent: 83.1
+pid: 94005
+policy_reward_max: {}
+policy_reward_mean: {}
+policy_reward_min: {}
+sampler_perf:
+  mean_action_processing_ms: 0.06770710670350825
+  mean_env_render_ms: 0.0
+  mean_env_wait_ms: 9.473864006421369
+  mean_inference_ms: 0.9146936966139017
+  mean_raw_obs_processing_ms: 0.39647331537791153
+sampler_results:
+  connector_metrics:
+    ObsPreprocessorConnector_ms: 0.004839152097702026
+    StateBufferConnector_ms: 0.003074854612350464
+    ViewRequirementAgentConnector_ms: 0.07180199027061462
+  custom_metrics: {}
+  episode_len_mean: 10.0
+  episode_media: {}
+  episode_reward_max: -222.1077027627484
+  episode_reward_mean: -1408.778388988033
+  episode_reward_min: -1807.9883776089548
+  episodes_this_iter: 4
+  hist_stats:
+    episode_lengths: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+      10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+    episode_reward: [-1173.5654670859942, -937.3756001338277, -1461.1527416704103,
+      -1404.75663936473, -1388.2278345510852, -222.1077027627484, -1684.9820624195556,
+      -1330.3538406167133, -823.0054944640259, -1231.5538513813742, -1423.108823397055,
+      -1454.0865204668482, -1467.009345590327, -1445.9893810104468, -1709.3664875824695,
+      -1340.1077027627482, -1752.5938759064047, -1143.2556436789503, -1608.2849839314597,
+      -1739.1514803843838, -1541.473193175917, -823.0054944640259, -1644.4101966249682,
+      -1807.9883776089548, -1608.2849839314597, -1277.0175425099137, -1765.9999999999995,
+      -1681.0084884547477, -1551.0392060941738, -1484.3594362117867, -1702.113621693308,
+      -1454.1724276862371]
+  num_faulty_episodes: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.06770710670350825
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 9.473864006421369
+    mean_inference_ms: 0.9146936966139017
+    mean_raw_obs_processing_ms: 0.39647331537791153
+time_since_restore: 3.314812421798706
+time_this_iter_s: 0.5977709293365479
+time_total_s: 3.314812421798706
+timers:
+  learn_throughput: 219.444
+  learn_time_ms: 145.823
+  load_throughput: 166152.176
+  load_time_ms: 0.193
+  sample_time_ms: 95.481
+  synch_weights_time_ms: 15.444
+  training_iteration_time_ms: 257.147
+timestamp: 1708587090
+timesteps_total: 320
+training_iteration: 10
+trial_id: default
+
+2024-02-21 23:31:30,710 DEBUG {'env': {'coefficient_dict': {'p_b': 1.0, 'p_d': 1.0, 'r_c': 0.1}, 'cropped_map_size': 64, 'n_maps': 100, 'n_steps_per_map': 10, 'no_masking': True, 'original_map_path': './resource/usc.png', 'original_map_scale': 3.4375, 'preset_map_path': './resource/setup.json', 'ratio_coverage': 0.0125}, 'eval': {'evaluation_config': {'env_config': {'evaluation': True, 'n_maps': 3, 'preset_map_path': None}, 'explore': False}, 'evaluation_duration': 3, 'evaluation_interval': 5}, 'explore': {'exploration_config': {'epsilon_timesteps': 10, 'final_epsilon': 0.02, 'initial_epsilon': 1.0, 'type': 'EpsilonGreedy'}, 'explore': True}, 'report': {'min_sample_timesteps_per_iteration': 10}, 'resource': {'num_cpus_per_worker': 2, 'num_gpus': 0, 'num_gpus_per_worker': 0}, 'rollout': {'num_envs_per_worker': 1, 'num_rollout_workers': 4}, 'stop': {'training_iteration': 10}, 'train': {'lr': 5e-05, 'train_batch_size': 32, 'sgd_minibatch_size': 16, 'num_sgd_iter': 10}}
+2024-02-22 13:14:01,388 INFO ================EVALUATION AT # 5================
+2024-02-22 13:14:03,183 INFO ================EVALUATION AT # 10================
+2024-02-22 13:14:03,810 INFO =============A WHOLE TRAINING PERIOD ENDED=============
+2024-02-22 13:14:03,815 INFO agent_timesteps_total: 320
+connector_metrics:
+  ObsPreprocessorConnector_ms: 0.005742907524108887
+  StateBufferConnector_ms: 0.003631412982940674
+  ViewRequirementAgentConnector_ms: 0.08192658424377441
+counters:
+  num_agent_steps_sampled: 320
+  num_agent_steps_trained: 320
+  num_env_steps_sampled: 320
+  num_env_steps_trained: 320
+custom_metrics: {}
+date: 2024-02-22_13-14-03
+done: false
+episode_len_mean: 10.0
+episode_media: {}
+episode_reward_max: -578.34255586866
+episode_reward_mean: -1297.2069324454462
+episode_reward_min: -1802.1841748206684
+episodes_this_iter: 4
+episodes_total: 32
+evaluation:
+  connector_metrics:
+    ObsPreprocessorConnector_ms: 0.003226598103841146
+    StateBufferConnector_ms: 0.0023365020751953125
+    ViewRequirementAgentConnector_ms: 0.04485448201497396
+  custom_metrics: {}
+  episode_len_mean: 10.0
+  episode_media: {}
+  episode_reward_max: -659.2753579347358
+  episode_reward_mean: -1149.421873609328
+  episode_reward_min: -1577.121933088197
+  episodes_this_iter: 3
+  hist_stats:
+    episode_lengths:
+    - 10
+    - 10
+    - 10
+    episode_reward:
+    - -1577.121933088197
+    - -659.2753579347358
+    - -1211.8683298050516
+  num_agent_steps_sampled_this_iter: 30
+  num_env_steps_sampled_this_iter: 30
+  num_faulty_episodes: 0
+  num_healthy_workers: 0
+  num_in_flight_async_reqs: 0
+  num_remote_worker_restarts: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.042180545994492814
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 11.554202095406955
+    mean_inference_ms: 0.4532884378902247
+    mean_raw_obs_processing_ms: 0.1925992183997983
+  sampler_results:
+    connector_metrics:
+      ObsPreprocessorConnector_ms: 0.003226598103841146
+      StateBufferConnector_ms: 0.0023365020751953125
+      ViewRequirementAgentConnector_ms: 0.04485448201497396
+    custom_metrics: {}
+    episode_len_mean: 10.0
+    episode_media: {}
+    episode_reward_max: -659.2753579347358
+    episode_reward_mean: -1149.421873609328
+    episode_reward_min: -1577.121933088197
+    episodes_this_iter: 3
+    hist_stats:
+      episode_lengths:
+      - 10
+      - 10
+      - 10
+      episode_reward:
+      - -1577.121933088197
+      - -659.2753579347358
+      - -1211.8683298050516
+    num_faulty_episodes: 0
+    policy_reward_max: {}
+    policy_reward_mean: {}
+    policy_reward_min: {}
+    sampler_perf:
+      mean_action_processing_ms: 0.042180545994492814
+      mean_env_render_ms: 0.0
+      mean_env_wait_ms: 11.554202095406955
+      mean_inference_ms: 0.4532884378902247
+      mean_raw_obs_processing_ms: 0.1925992183997983
+  timesteps_this_iter: 30
+hostname: OrangeBookPro14.lan
+info:
+  learner:
+    default_policy:
+      custom_metrics: {}
+      diff_num_grad_updates_vs_sampler_policy: 9.5
+      learner_stats:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 0.00234375
+        cur_lr: 5.0e-05
+        entropy: 6.569695520401001
+        entropy_coeff: 0.0
+        grad_gnorm: 1.3355473309755326
+        kl: 0.0748743881471455
+        policy_loss: 0.17392897605895996
+        total_loss: 10.174104690551758
+        vf_explained_var: -1.4603137969970703e-06
+        vf_loss: 10.0
+      model: {}
+      num_agent_steps_trained: 16.0
+      num_grad_updates_lifetime: 190.5
+  num_agent_steps_sampled: 320
+  num_agent_steps_trained: 320
+  num_env_steps_sampled: 320
+  num_env_steps_trained: 320
+iterations_since_restore: 10
+node_ip: 127.0.0.1
+num_agent_steps_sampled: 320
+num_agent_steps_trained: 320
+num_env_steps_sampled: 320
+num_env_steps_sampled_this_iter: 32
+num_env_steps_sampled_throughput_per_sec: 128.5172182665681
+num_env_steps_trained: 320
+num_env_steps_trained_this_iter: 32
+num_env_steps_trained_throughput_per_sec: 128.5172182665681
+num_faulty_episodes: 0
+num_healthy_workers: 4
+num_in_flight_async_reqs: 0
+num_remote_worker_restarts: 0
+num_steps_trained_this_iter: 32
+perf:
+  cpu_util_percent: 61.9
+  ram_util_percent: 83.5
+pid: 3134
+policy_reward_max: {}
+policy_reward_mean: {}
+policy_reward_min: {}
+sampler_perf:
+  mean_action_processing_ms: 0.06852327228130385
+  mean_env_render_ms: 0.0
+  mean_env_wait_ms: 10.023141342442765
+  mean_inference_ms: 1.036387535434295
+  mean_raw_obs_processing_ms: 0.6026692983557314
+sampler_results:
+  connector_metrics:
+    ObsPreprocessorConnector_ms: 0.005742907524108887
+    StateBufferConnector_ms: 0.003631412982940674
+    ViewRequirementAgentConnector_ms: 0.08192658424377441
+  custom_metrics: {}
+  episode_len_mean: 10.0
+  episode_media: {}
+  episode_reward_max: -578.34255586866
+  episode_reward_mean: -1297.2069324454462
+  episode_reward_min: -1802.1841748206684
+  episodes_this_iter: 4
+  hist_stats:
+    episode_lengths: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+      10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10]
+    episode_reward: [-863.3035172230514, -985.655230608825, -1392.8831959023723, -982.6203318791953,
+      -673.9301256742124, -1349.7800560721073, -1502.9461391117677, -1802.1841748206684,
+      -1700.1967482832463, -1517.5863337187866, -1802.1841748206684, -699.4616584663205,
+      -1613.2277660168384, -1695.5444029504401, -811.0041152089149, -578.34255586866,
+      -1337.8304597359459, -1591.0308423547494, -1297.6225774829854, -1532.5382386916235,
+      -1443.320112359526, -1312.4166406412633, -1689.5102382966913, -1427.394846967484,
+      -654.4937810560444, -1380.2374841615667, -1502.4101966249689, -1480.2091952673163,
+      -1522.5585369269927, -578.34255586866, -1333.4331697709329, -1456.422435421457]
+  num_faulty_episodes: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.06852327228130385
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 10.023141342442765
+    mean_inference_ms: 1.036387535434295
+    mean_raw_obs_processing_ms: 0.6026692983557314
+time_since_restore: 3.583927631378174
+time_this_iter_s: 0.6196420192718506
+time_total_s: 3.583927631378174
+timers:
+  learn_throughput: 199.138
+  learn_time_ms: 160.693
+  load_throughput: 207735.224
+  load_time_ms: 0.154
+  sample_time_ms: 101.503
+  synch_weights_time_ms: 17.374
+  training_iteration_time_ms: 279.949
+timestamp: 1708636443
+timesteps_total: 320
+training_iteration: 10
+trial_id: default
+
+2024-02-22 13:14:03,815 DEBUG {'env': {'coefficient_dict': {'p_b': 1.0, 'p_d': 1.0, 'r_c': 0.1}, 'cropped_map_size': 64, 'n_maps': 100, 'n_steps_per_map': 10, 'no_masking': True, 'original_map_path': './resource/usc.png', 'original_map_scale': 3.4375, 'preset_map_path': './resource/setup.json', 'ratio_coverage': 0.0125}, 'eval': {'evaluation_config': {'env_config': {'evaluation': True, 'n_maps': 3, 'preset_map_path': None}, 'explore': False}, 'evaluation_duration': 3, 'evaluation_interval': 5}, 'explore': {'exploration_config': {'epsilon_timesteps': 10, 'final_epsilon': 0.02, 'initial_epsilon': 1.0, 'type': 'EpsilonGreedy'}, 'explore': True}, 'report': {'min_sample_timesteps_per_iteration': 10}, 'resource': {'num_cpus_per_worker': 2, 'num_gpus': 0, 'num_gpus_per_worker': 0}, 'rollout': {'num_envs_per_worker': 1, 'num_rollout_workers': 4}, 'stop': {'training_iteration': 10}, 'train': {'lr': 5e-05, 'train_batch_size': 32, 'sgd_minibatch_size': 16, 'num_sgd_iter': 10}}
+2024-02-22 13:14:27,405 INFO average coverage reward for test 0: 535.0
+2024-02-22 13:14:27,634 INFO average coverage reward for test 1: 565.5
+2024-02-22 13:14:27,871 INFO average coverage reward for test 2: 437.0
+2024-02-22 13:17:33,976 INFO ================EVALUATION AT # 5================
+2024-02-22 13:20:21,005 INFO ================EVALUATION AT # 10================
+2024-02-22 13:23:03,510 INFO ================EVALUATION AT # 15================
+2024-02-22 13:25:44,816 INFO ================EVALUATION AT # 20================
+2024-02-22 13:28:22,905 INFO ================EVALUATION AT # 25================
+2024-02-22 13:31:06,580 INFO ================EVALUATION AT # 30================
+2024-02-22 13:33:44,644 INFO ================EVALUATION AT # 35================
+2024-02-22 13:36:22,736 INFO ================EVALUATION AT # 40================
+2024-02-22 13:39:03,683 INFO ================EVALUATION AT # 45================
+2024-02-22 13:41:42,398 INFO ================EVALUATION AT # 50================
+2024-02-22 13:44:20,398 INFO ================EVALUATION AT # 55================
+2024-02-22 13:46:58,704 INFO ================EVALUATION AT # 60================
+2024-02-22 13:49:40,918 INFO ================EVALUATION AT # 65================
+2024-02-22 13:52:20,318 INFO ================EVALUATION AT # 70================
+2024-02-22 13:54:58,579 INFO ================EVALUATION AT # 75================
+2024-02-22 13:57:37,521 INFO ================EVALUATION AT # 80================
+2024-02-22 14:00:18,197 INFO ================EVALUATION AT # 85================
+2024-02-22 14:02:58,153 INFO ================EVALUATION AT # 90================
+2024-02-22 14:05:37,176 INFO ================EVALUATION AT # 95================
+2024-02-22 14:08:16,201 INFO ================EVALUATION AT # 100================
+2024-02-22 14:10:55,480 INFO ================EVALUATION AT # 105================
+2024-02-22 14:13:36,823 INFO ================EVALUATION AT # 110================
+2024-02-22 14:16:17,288 INFO ================EVALUATION AT # 115================
+2024-02-22 14:19:01,090 INFO ================EVALUATION AT # 120================
+2024-02-22 14:21:42,545 INFO ================EVALUATION AT # 125================
+2024-02-22 14:24:23,547 INFO ================EVALUATION AT # 130================
+2024-02-22 14:27:03,175 INFO ================EVALUATION AT # 135================
+2024-02-22 14:29:43,481 INFO ================EVALUATION AT # 140================
+2024-02-22 14:32:23,086 INFO ================EVALUATION AT # 145================
+2024-02-22 14:35:03,358 INFO ================EVALUATION AT # 150================
+2024-02-22 14:37:44,239 INFO ================EVALUATION AT # 155================
+2024-02-22 14:40:24,551 INFO ================EVALUATION AT # 160================
+2024-02-22 14:43:04,764 INFO ================EVALUATION AT # 165================
+2024-02-22 14:45:46,794 INFO ================EVALUATION AT # 170================
+2024-02-22 14:48:38,135 INFO ================EVALUATION AT # 175================
+2024-02-22 14:51:23,836 INFO ================EVALUATION AT # 180================
+2024-02-22 14:54:07,522 INFO ================EVALUATION AT # 185================
+2024-02-22 14:56:53,693 INFO ================EVALUATION AT # 190================
+2024-02-22 14:59:38,832 INFO ================EVALUATION AT # 195================
+2024-02-22 15:02:24,218 INFO ================EVALUATION AT # 200================
+2024-02-22 15:05:09,824 INFO ================EVALUATION AT # 205================
+2024-02-22 15:07:54,344 INFO ================EVALUATION AT # 210================
+2024-02-22 15:10:41,179 INFO ================EVALUATION AT # 215================
+2024-02-22 15:13:31,633 INFO ================EVALUATION AT # 220================
+2024-02-22 15:16:16,863 INFO ================EVALUATION AT # 225================
+2024-02-22 15:19:06,037 INFO ================EVALUATION AT # 230================
+2024-02-22 15:21:52,511 INFO ================EVALUATION AT # 235================
+2024-02-22 15:24:37,776 INFO ================EVALUATION AT # 240================
+2024-02-22 15:27:23,010 INFO ================EVALUATION AT # 245================
+2024-02-22 15:30:08,253 INFO ================EVALUATION AT # 250================
+2024-02-22 15:32:54,033 INFO ================EVALUATION AT # 255================
+2024-02-22 15:35:40,839 INFO ================EVALUATION AT # 260================
+2024-02-22 15:38:25,151 INFO ================EVALUATION AT # 265================
+2024-02-22 15:41:10,255 INFO ================EVALUATION AT # 270================
+2024-02-22 15:43:54,771 INFO ================EVALUATION AT # 275================
+2024-02-22 15:46:40,635 INFO ================EVALUATION AT # 280================
+2024-02-22 15:49:22,649 INFO ================EVALUATION AT # 285================
+2024-02-22 15:51:57,472 INFO ================EVALUATION AT # 290================
+2024-02-22 15:54:34,475 INFO ================EVALUATION AT # 295================
+2024-02-22 15:57:14,135 INFO ================EVALUATION AT # 300================
+2024-02-22 15:59:51,062 INFO ================EVALUATION AT # 305================
+2024-02-22 16:02:26,038 INFO ================EVALUATION AT # 310================
+2024-02-22 16:05:01,323 INFO ================EVALUATION AT # 315================
+2024-02-22 16:07:36,536 INFO ================EVALUATION AT # 320================
+2024-02-22 16:10:12,297 INFO ================EVALUATION AT # 325================
+2024-02-22 16:12:47,449 INFO ================EVALUATION AT # 330================
+2024-02-22 16:15:22,599 INFO ================EVALUATION AT # 335================
+2024-02-22 16:18:01,803 INFO ================EVALUATION AT # 340================
+2024-02-22 16:20:38,902 INFO ================EVALUATION AT # 345================
+2024-02-22 16:23:14,893 INFO ================EVALUATION AT # 350================
+2024-02-22 16:25:52,805 INFO ================EVALUATION AT # 355================
+2024-02-22 16:28:30,240 INFO ================EVALUATION AT # 360================
+2024-02-22 16:31:07,661 INFO ================EVALUATION AT # 365================
+2024-02-22 16:33:48,287 INFO ================EVALUATION AT # 370================
+2024-02-22 16:36:29,384 INFO ================EVALUATION AT # 375================
+2024-02-22 16:39:08,379 INFO ================EVALUATION AT # 380================
+2024-02-22 16:41:38,647 INFO ================EVALUATION AT # 385================
+2024-02-22 16:44:14,691 INFO ================EVALUATION AT # 390================
+2024-02-22 16:46:51,541 INFO ================EVALUATION AT # 395================
+2024-02-22 16:49:43,960 INFO ================EVALUATION AT # 400================
+2024-02-22 16:52:27,223 INFO ================EVALUATION AT # 405================
+2024-02-22 16:55:01,570 INFO ================EVALUATION AT # 410================
+2024-02-22 16:57:32,158 INFO ================EVALUATION AT # 415================
+2024-02-22 17:00:01,224 INFO ================EVALUATION AT # 420================
+2024-02-22 17:02:30,619 INFO ================EVALUATION AT # 425================
+2024-02-22 17:05:12,005 INFO ================EVALUATION AT # 430================
+2024-02-22 17:07:47,826 INFO ================EVALUATION AT # 435================
+2024-02-22 17:10:42,481 INFO ================EVALUATION AT # 440================
+2024-02-22 17:13:21,070 INFO ================EVALUATION AT # 445================
+2024-02-22 17:15:54,511 INFO ================EVALUATION AT # 450================
+2024-02-22 17:18:32,566 INFO ================EVALUATION AT # 455================
+2024-02-22 17:21:13,198 INFO ================EVALUATION AT # 460================
+2024-02-22 17:23:43,299 INFO ================EVALUATION AT # 465================
+2024-02-22 17:26:22,091 INFO ================EVALUATION AT # 470================
+2024-02-22 17:28:54,328 INFO ================EVALUATION AT # 475================
+2024-02-22 17:31:24,747 INFO ================EVALUATION AT # 480================
+2024-02-22 17:34:04,937 INFO ================EVALUATION AT # 485================
+2024-02-22 17:36:52,863 INFO ================EVALUATION AT # 490================
+2024-02-22 17:39:35,935 INFO ================EVALUATION AT # 495================
+2024-02-22 17:42:20,132 INFO ================EVALUATION AT # 500================
+2024-02-22 17:42:56,648 INFO =============A WHOLE TRAINING PERIOD ENDED=============
+2024-02-22 17:42:56,654 INFO agent_timesteps_total: 512000
+connector_metrics:
+  ObsPreprocessorConnector_ms: 0.005667686462402344
+  StateBufferConnector_ms: 0.003023386001586914
+  ViewRequirementAgentConnector_ms: 0.08183836936950684
+counters:
+  num_agent_steps_sampled: 512000
+  num_agent_steps_trained: 512000
+  num_env_steps_sampled: 512000
+  num_env_steps_trained: 512000
+custom_metrics: {}
+date: 2024-02-22_17-42-56
+done: false
+episode_len_mean: 19.62
+episode_media: {}
+episode_reward_max: 0.0
+episode_reward_mean: -1362.7590811889108
+episode_reward_min: -3592.875745240818
+episodes_this_iter: 53
+episodes_total: 25811
+evaluation:
+  connector_metrics:
+    ObsPreprocessorConnector_ms: 0.0037590662638346353
+    StateBufferConnector_ms: 0.0023603439331054688
+    ViewRequirementAgentConnector_ms: 0.05312760670979818
+  custom_metrics: {}
+  episode_len_mean: 20.0
+  episode_media: {}
+  episode_reward_max: -484.98221281347026
+  episode_reward_mean: -1334.934848266287
+  episode_reward_min: -2349.198563445667
+  episodes_this_iter: 3
+  hist_stats:
+    episode_lengths:
+    - 20
+    - 20
+    - 20
+    episode_reward:
+    - -484.98221281347026
+    - -1170.623768539724
+    - -2349.198563445667
+  num_agent_steps_sampled_this_iter: 60
+  num_env_steps_sampled_this_iter: 60
+  num_faulty_episodes: 0
+  num_healthy_workers: 0
+  num_in_flight_async_reqs: 0
+  num_remote_worker_restarts: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.03519707412605305
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 12.120225274191363
+    mean_inference_ms: 0.4064952149190142
+    mean_raw_obs_processing_ms: 0.14052798680078385
+  sampler_results:
+    connector_metrics:
+      ObsPreprocessorConnector_ms: 0.0037590662638346353
+      StateBufferConnector_ms: 0.0023603439331054688
+      ViewRequirementAgentConnector_ms: 0.05312760670979818
+    custom_metrics: {}
+    episode_len_mean: 20.0
+    episode_media: {}
+    episode_reward_max: -484.98221281347026
+    episode_reward_mean: -1334.934848266287
+    episode_reward_min: -2349.198563445667
+    episodes_this_iter: 3
+    hist_stats:
+      episode_lengths:
+      - 20
+      - 20
+      - 20
+      episode_reward:
+      - -484.98221281347026
+      - -1170.623768539724
+      - -2349.198563445667
+    num_faulty_episodes: 0
+    policy_reward_max: {}
+    policy_reward_mean: {}
+    policy_reward_min: {}
+    sampler_perf:
+      mean_action_processing_ms: 0.03519707412605305
+      mean_env_render_ms: 0.0
+      mean_env_wait_ms: 12.120225274191363
+      mean_inference_ms: 0.4064952149190142
+      mean_raw_obs_processing_ms: 0.14052798680078385
+  timesteps_this_iter: 60
+hostname: OrangeBookPro14.lan
+info:
+  learner:
+    default_policy:
+      custom_metrics: {}
+      diff_num_grad_updates_vs_sampler_policy: 59.5
+      learner_stats:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 3.5012520769810797e-143
+        cur_lr: 5.0000000000000016e-05
+        entropy: 0.06984279545965061
+        entropy_coeff: 0.0
+        grad_gnorm: 0.31749645541589283
+        kl: 0.0001705871492102033
+        policy_loss: -0.0821199615796407
+        total_loss: 7.460207082827886
+        vf_explained_var: -0.08815455337365469
+        vf_loss: 7.542327016592026
+      model: {}
+      num_agent_steps_trained: 8.0
+      num_grad_updates_lifetime: 1919940.5
+  num_agent_steps_sampled: 512000
+  num_agent_steps_trained: 512000
+  num_env_steps_sampled: 512000
+  num_env_steps_trained: 512000
+iterations_since_restore: 500
+node_ip: 127.0.0.1
+num_agent_steps_sampled: 512000
+num_agent_steps_trained: 512000
+num_env_steps_sampled: 512000
+num_env_steps_sampled_this_iter: 1024
+num_env_steps_sampled_throughput_per_sec: 28.687557022380698
+num_env_steps_trained: 512000
+num_env_steps_trained_this_iter: 1024
+num_env_steps_trained_throughput_per_sec: 28.687557022380698
+num_faulty_episodes: 0
+num_healthy_workers: 4
+num_in_flight_async_reqs: 0
+num_remote_worker_restarts: 0
+num_steps_trained_this_iter: 1024
+perf:
+  cpu_util_percent: 47.119230769230775
+  ram_util_percent: 82.88653846153846
+pid: 3238
+policy_reward_max: {}
+policy_reward_mean: {}
+policy_reward_min: {}
+sampler_perf:
+  mean_action_processing_ms: 0.04645801359935527
+  mean_env_render_ms: 0.0
+  mean_env_wait_ms: 9.327791941899468
+  mean_inference_ms: 0.6883089065983792
+  mean_raw_obs_processing_ms: 0.2950659357814296
+sampler_results:
+  connector_metrics:
+    ObsPreprocessorConnector_ms: 0.005667686462402344
+    StateBufferConnector_ms: 0.003023386001586914
+    ViewRequirementAgentConnector_ms: 0.08183836936950684
+  custom_metrics: {}
+  episode_len_mean: 19.62
+  episode_media: {}
+  episode_reward_max: 0.0
+  episode_reward_mean: -1362.7590811889108
+  episode_reward_min: -3592.875745240818
+  episodes_this_iter: 53
+  hist_stats:
+    episode_lengths: [20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 1, 1, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20]
+    episode_reward: [-953.9311410035102, -2346.814495343266, -526.4342047700779, -628.9780757793814,
+      -2365.365280503242, -193.6643375224736, -642.6342439892262, -2601.738750882996,
+      -282.92422502470635, -3101.4342230381476, -2702.444102037119, -416.1264008865607,
+      -913.4848328356901, -375.51023387301245, -1153.7208798105562, -2953.4415128223004,
+      -2812.8964600958984, -3328.772439983705, -2838.4761515876235, -658.7896939349687,
+      -257.1077027627484, -699.2608495961765, -774.3124237432851, -493.3945729601885,
+      -595.7358552246078, -2614.3297567789523, -730.333240792145, -456.65491900843114,
+      -3592.875745240818, -939.3999276002803, -868.8029308359326, -871.8442884530657,
+      -2602.310562561767, -2856.126423342397, -2489.8467265781323, -1126.6249938994622,
+      -2119.0223822757353, -2434.7133769523643, -3411.268487978451, -628.4971769034255,
+      -392.71337695236406, -765.3945729601884, -735.0619512757764, -734.0000000000002,
+      -245.70329614269, -167.89352521910584, -2739.543263536458, -243.24515496597093,
+      -2799.312115349617, -2744.4657282054122, -2678.831891575846, -484.49030993194214,
+      -383.42471832484017, -209.65525060596445, -2411.8488797889954, -505.21952191620244,
+      -2865.4139616173243, -2080.8706946213038, -3411.268487978451, -480.3564212655271,
+      -2671.264116732914, -546.3105625617662, -2369.481028320378, -268.04650534085243,
+      -2812.8964600958984, -3204.010988928051, -2433.1098884280705, -878.7966415668213,
+      -1304.384473250307, -1601.2945721019264, -784.9253902261876, -2292.760482563257,
+      -399.25353003264144, -655.4500931320961, -680.1452920561187, -849.5417527999326,
+      -799.3552483535377, -173.99999999999997, -602.587727318528, -716.7128425310541,
+      -2393.2535300326426, -319.5249202999535, -2926.949386427841, -44.72135954999578,
+      -618.4642778942908, 0.0, 0.0, -826.6486583132389, -344.8800749063506, -373.91214233792294,
+      -2108.882965458469, -2702.444102037119, -161.44271909999154, -2921.601782270357,
+      -244.32582403567255, -231.65525060596445, -422.7680962081059, -161.44271909999154,
+      -663.0443535372822, -3326.8612089887483]
+  num_faulty_episodes: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.04645801359935527
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 9.327791941899468
+    mean_inference_ms: 0.6883089065983792
+    mean_raw_obs_processing_ms: 0.2950659357814296
+time_since_restore: 16039.29258108139
+time_this_iter_s: 36.5042941570282
+time_total_s: 16039.29258108139
+timers:
+  learn_throughput: 33.018
+  learn_time_ms: 969.163
+  load_throughput: 82814.665
+  load_time_ms: 0.386
+  sample_time_ms: 94.995
+  synch_weights_time_ms: 7.126
+  training_iteration_time_ms: 1071.894
+timestamp: 1708652576
+timesteps_total: 512000
+training_iteration: 500
+trial_id: default
+
+2024-02-22 17:42:56,654 DEBUG {'env': {'coefficient_dict': {'p_b': 1.0, 'p_d': 1.0, 'r_c': 0.1}, 'cropped_map_size': 64, 'n_maps': 400, 'n_steps_per_map': 20, 'no_masking': True, 'original_map_path': './resource/usc.png', 'original_map_scale': 3.4375, 'preset_map_path': './resource/setup_400.json', 'ratio_coverage': 0.0125}, 'eval': {'evaluation_config': {'env_config': {'evaluation': True, 'n_maps': 3, 'preset_map_path': None}, 'explore': False}, 'evaluation_duration': 3, 'evaluation_interval': 5}, 'explore': {'exploration_config': {'epsilon_timesteps': 100000, 'final_epsilon': 0.02, 'initial_epsilon': 1.0, 'type': 'EpsilonGreedy'}, 'explore': True}, 'report': {'min_sample_timesteps_per_iteration': 1000}, 'resource': {'num_cpus_per_worker': 2, 'num_gpus': 0, 'num_gpus_per_worker': 0}, 'rollout': {'num_envs_per_worker': 1, 'num_rollout_workers': 4}, 'stop': {'training_iteration': 500}, 'train': {'lr': 5e-05, 'gamma': 0.1, 'grad_clip': 40.0, 'train_batch_size': 32, 'sgd_minibatch_size': 8, 'num_sgd_iter': 30}}
+2024-02-22 17:43:13,117 INFO average coverage reward for test 0: 681.0
+2024-02-22 17:43:13,589 INFO average coverage reward for test 1: 681.0
+2024-02-22 17:43:14,056 INFO average coverage reward for test 2: 694.0
+2024-02-22 19:56:25,877 INFO ================EVALUATION AT # 5================
+2024-02-22 19:59:02,414 INFO ================EVALUATION AT # 10================
+2024-02-22 20:01:44,007 INFO ================EVALUATION AT # 15================
+2024-02-22 20:04:28,642 INFO ================EVALUATION AT # 20================
+2024-02-22 20:07:13,281 INFO ================EVALUATION AT # 25================
+2024-02-22 20:09:42,126 INFO ================EVALUATION AT # 30================
+2024-02-22 20:12:11,008 INFO ================EVALUATION AT # 35================
+2024-02-22 20:14:39,953 INFO ================EVALUATION AT # 40================
+2024-02-22 20:17:08,092 INFO ================EVALUATION AT # 45================
+2024-02-22 20:19:36,529 INFO ================EVALUATION AT # 50================
+2024-02-22 20:22:04,762 INFO ================EVALUATION AT # 55================
+2024-02-22 20:24:33,742 INFO ================EVALUATION AT # 60================
+2024-02-22 20:27:02,410 INFO ================EVALUATION AT # 65================
+2024-02-22 20:29:29,182 INFO ================EVALUATION AT # 70================
+2024-02-22 20:31:55,816 INFO ================EVALUATION AT # 75================
+2024-02-22 20:34:23,247 INFO ================EVALUATION AT # 80================
+2024-02-22 20:36:49,122 INFO ================EVALUATION AT # 85================
+2024-02-22 20:39:15,464 INFO ================EVALUATION AT # 90================
+2024-02-22 20:41:42,002 INFO ================EVALUATION AT # 95================
+2024-02-22 20:44:08,865 INFO ================EVALUATION AT # 100================
+2024-02-22 20:46:35,654 INFO ================EVALUATION AT # 105================
+2024-02-22 20:49:06,332 INFO ================EVALUATION AT # 110================
+2024-02-22 20:51:37,305 INFO ================EVALUATION AT # 115================
+2024-02-22 20:54:08,618 INFO ================EVALUATION AT # 120================
+2024-02-22 20:56:46,561 INFO ================EVALUATION AT # 125================
+2024-02-22 20:59:33,316 INFO ================EVALUATION AT # 130================
+2024-02-22 21:02:17,315 INFO ================EVALUATION AT # 135================
+2024-02-22 21:04:56,507 INFO ================EVALUATION AT # 140================
+2024-02-22 21:07:34,320 INFO ================EVALUATION AT # 145================
+2024-02-22 21:10:12,276 INFO ================EVALUATION AT # 150================
+2024-02-22 21:12:50,520 INFO ================EVALUATION AT # 155================
+2024-02-22 21:15:28,447 INFO ================EVALUATION AT # 160================
+2024-02-22 21:18:05,495 INFO ================EVALUATION AT # 165================
+2024-02-22 21:20:42,711 INFO ================EVALUATION AT # 170================
+2024-02-22 21:23:20,372 INFO ================EVALUATION AT # 175================
+2024-02-22 21:25:58,065 INFO ================EVALUATION AT # 180================
+2024-02-22 21:28:31,368 INFO ================EVALUATION AT # 185================
+2024-02-22 21:30:58,577 INFO ================EVALUATION AT # 190================
+2024-02-22 21:33:27,445 INFO ================EVALUATION AT # 195================
+2024-02-22 21:35:56,146 INFO ================EVALUATION AT # 200================
+2024-02-22 21:38:38,176 INFO ================EVALUATION AT # 205================
+2024-02-22 21:41:18,002 INFO ================EVALUATION AT # 210================
+2024-02-22 21:44:01,463 INFO ================EVALUATION AT # 215================
+2024-02-22 21:46:42,156 INFO ================EVALUATION AT # 220================
+2024-02-22 21:49:27,329 INFO ================EVALUATION AT # 225================
+2024-02-22 21:52:10,240 INFO ================EVALUATION AT # 230================
+2024-02-22 21:54:48,392 INFO ================EVALUATION AT # 235================
+2024-02-22 21:57:29,577 INFO ================EVALUATION AT # 240================
+2024-02-22 22:00:16,229 INFO ================EVALUATION AT # 245================
+2024-02-22 22:03:10,098 INFO ================EVALUATION AT # 250================
+2024-02-22 22:06:03,033 INFO ================EVALUATION AT # 255================
+2024-02-22 22:09:02,354 INFO ================EVALUATION AT # 260================
+2024-02-22 22:11:53,819 INFO ================EVALUATION AT # 265================
+2024-02-22 22:14:39,734 INFO ================EVALUATION AT # 270================
+2024-02-22 22:17:33,605 INFO ================EVALUATION AT # 275================
+2024-02-22 22:20:14,309 INFO ================EVALUATION AT # 280================
+2024-02-22 22:22:51,649 INFO ================EVALUATION AT # 285================
+2024-02-22 22:25:30,928 INFO ================EVALUATION AT # 290================
+2024-02-22 22:28:13,365 INFO ================EVALUATION AT # 295================
+2024-02-22 22:30:56,011 INFO ================EVALUATION AT # 300================
+2024-02-22 22:33:40,668 INFO ================EVALUATION AT # 305================
+2024-02-22 22:36:22,089 INFO ================EVALUATION AT # 310================
+2024-02-22 22:39:06,333 INFO ================EVALUATION AT # 315================
+2024-02-22 22:41:45,848 INFO ================EVALUATION AT # 320================
+2024-02-22 22:44:29,441 INFO ================EVALUATION AT # 325================
+2024-02-22 22:47:15,819 INFO ================EVALUATION AT # 330================
+2024-02-22 22:49:58,659 INFO ================EVALUATION AT # 335================
+2024-02-22 22:52:42,984 INFO ================EVALUATION AT # 340================
+2024-02-22 22:55:22,955 INFO ================EVALUATION AT # 345================
+2024-02-22 22:58:06,138 INFO ================EVALUATION AT # 350================
+2024-02-22 23:00:47,868 INFO ================EVALUATION AT # 355================
+2024-02-22 23:03:29,314 INFO ================EVALUATION AT # 360================
+2024-02-22 23:06:14,793 INFO ================EVALUATION AT # 365================
+2024-02-22 23:09:03,882 INFO ================EVALUATION AT # 370================
+2024-02-22 23:11:49,635 INFO ================EVALUATION AT # 375================
+2024-02-22 23:14:36,345 INFO ================EVALUATION AT # 380================
+2024-02-22 23:17:09,623 INFO ================EVALUATION AT # 385================
+2024-02-22 23:19:50,724 INFO ================EVALUATION AT # 390================
+2024-02-22 23:22:30,233 INFO ================EVALUATION AT # 395================
+2024-02-22 23:25:19,596 INFO ================EVALUATION AT # 400================
+2024-02-22 23:27:58,014 INFO ================EVALUATION AT # 405================
+2024-02-22 23:30:42,497 INFO ================EVALUATION AT # 410================
+2024-02-22 23:33:28,477 INFO ================EVALUATION AT # 415================
+2024-02-22 23:36:06,201 INFO ================EVALUATION AT # 420================
+2024-02-22 23:38:48,555 INFO ================EVALUATION AT # 425================
+2024-02-22 23:41:21,276 INFO ================EVALUATION AT # 430================
+2024-02-22 23:43:53,727 INFO ================EVALUATION AT # 435================
+2024-02-22 23:46:26,914 INFO ================EVALUATION AT # 440================
+2024-02-22 23:48:59,628 INFO ================EVALUATION AT # 445================
+2024-02-22 23:51:33,891 INFO ================EVALUATION AT # 450================
+2024-02-22 23:54:10,771 INFO ================EVALUATION AT # 455================
+2024-02-22 23:56:43,755 INFO ================EVALUATION AT # 460================
+2024-02-22 23:59:16,010 INFO ================EVALUATION AT # 465================
+2024-02-23 00:01:48,175 INFO ================EVALUATION AT # 470================
+2024-02-23 00:04:21,063 INFO ================EVALUATION AT # 475================
+2024-02-23 00:06:57,709 INFO ================EVALUATION AT # 480================
+2024-02-23 00:09:26,126 INFO ================EVALUATION AT # 485================
+2024-02-23 00:11:57,260 INFO ================EVALUATION AT # 490================
+2024-02-23 00:14:28,562 INFO ================EVALUATION AT # 495================
+2024-02-23 00:16:59,759 INFO ================EVALUATION AT # 500================
+2024-02-23 00:19:30,124 INFO ================EVALUATION AT # 505================
+2024-02-23 00:22:02,384 INFO ================EVALUATION AT # 510================
+2024-02-23 00:24:34,817 INFO ================EVALUATION AT # 515================
+2024-02-23 00:27:06,796 INFO ================EVALUATION AT # 520================
+2024-02-23 00:29:47,160 INFO ================EVALUATION AT # 525================
+2024-02-23 00:32:25,731 INFO ================EVALUATION AT # 530================
+2024-02-23 00:35:14,534 INFO ================EVALUATION AT # 535================
+2024-02-23 00:38:03,007 INFO ================EVALUATION AT # 540================
+2024-02-23 00:40:41,615 INFO ================EVALUATION AT # 545================
+2024-02-23 00:43:13,172 INFO ================EVALUATION AT # 550================
+2024-02-23 00:45:47,424 INFO ================EVALUATION AT # 555================
+2024-02-23 00:48:21,394 INFO ================EVALUATION AT # 560================
+2024-02-23 00:50:57,484 INFO ================EVALUATION AT # 565================
+2024-02-23 00:53:46,111 INFO ================EVALUATION AT # 570================
+2024-02-23 00:56:34,328 INFO ================EVALUATION AT # 575================
+2024-02-23 00:59:14,910 INFO ================EVALUATION AT # 580================
+2024-02-23 01:01:59,606 INFO ================EVALUATION AT # 585================
+2024-02-23 01:04:48,872 INFO ================EVALUATION AT # 590================
+2024-02-23 01:07:35,019 INFO ================EVALUATION AT # 595================
+2024-02-23 01:10:15,999 INFO ================EVALUATION AT # 600================
+2024-02-23 01:12:57,460 INFO ================EVALUATION AT # 605================
+2024-02-23 01:15:40,474 INFO ================EVALUATION AT # 610================
+2024-02-23 01:18:21,190 INFO ================EVALUATION AT # 615================
+2024-02-23 01:21:07,963 INFO ================EVALUATION AT # 620================
+2024-02-23 01:23:55,475 INFO ================EVALUATION AT # 625================
+2024-02-23 01:26:46,012 INFO ================EVALUATION AT # 630================
+2024-02-23 01:29:41,553 INFO ================EVALUATION AT # 635================
+2024-02-23 01:32:06,467 INFO ================EVALUATION AT # 640================
+2024-02-23 01:34:32,381 INFO ================EVALUATION AT # 645================
+2024-02-23 01:37:00,082 INFO ================EVALUATION AT # 650================
+2024-02-23 01:39:29,195 INFO ================EVALUATION AT # 655================
+2024-02-23 01:41:54,447 INFO ================EVALUATION AT # 660================
+2024-02-23 01:44:19,939 INFO ================EVALUATION AT # 665================
+2024-02-23 01:46:44,986 INFO ================EVALUATION AT # 670================
+2024-02-23 01:49:22,359 INFO ================EVALUATION AT # 675================
+2024-02-23 01:52:04,482 INFO ================EVALUATION AT # 680================
+2024-02-23 01:54:43,513 INFO ================EVALUATION AT # 685================
+2024-02-23 01:57:11,729 INFO ================EVALUATION AT # 690================
+2024-02-23 01:59:40,728 INFO ================EVALUATION AT # 695================
+2024-02-23 02:02:09,247 INFO ================EVALUATION AT # 700================
+2024-02-23 02:04:36,616 INFO ================EVALUATION AT # 705================
+2024-02-23 02:07:03,913 INFO ================EVALUATION AT # 710================
+2024-02-23 02:09:31,157 INFO ================EVALUATION AT # 715================
+2024-02-23 02:11:57,569 INFO ================EVALUATION AT # 720================
+2024-02-23 02:14:25,058 INFO ================EVALUATION AT # 725================
+2024-02-23 02:16:51,206 INFO ================EVALUATION AT # 730================
+2024-02-23 02:19:18,095 INFO ================EVALUATION AT # 735================
+2024-02-23 02:21:46,293 INFO ================EVALUATION AT # 740================
+2024-02-23 02:24:15,910 INFO ================EVALUATION AT # 745================
+2024-02-23 02:26:43,419 INFO ================EVALUATION AT # 750================
+2024-02-23 02:29:10,019 INFO ================EVALUATION AT # 755================
+2024-02-23 02:31:36,997 INFO ================EVALUATION AT # 760================
+2024-02-23 02:34:05,031 INFO ================EVALUATION AT # 765================
+2024-02-23 02:36:33,595 INFO ================EVALUATION AT # 770================
+2024-02-23 02:39:01,751 INFO ================EVALUATION AT # 775================
+2024-02-23 02:41:49,308 INFO ================EVALUATION AT # 780================
+2024-02-23 02:44:31,944 INFO ================EVALUATION AT # 785================
+2024-02-23 02:47:18,265 INFO ================EVALUATION AT # 790================
+2024-02-23 02:50:08,497 INFO ================EVALUATION AT # 795================
+2024-02-23 02:52:48,464 INFO ================EVALUATION AT # 800================
+2024-02-23 02:53:18,760 INFO =============A WHOLE TRAINING PERIOD ENDED=============
+2024-02-23 02:53:18,767 INFO agent_timesteps_total: 819200
+connector_metrics:
+  ObsPreprocessorConnector_ms: 0.007817506790161133
+  StateBufferConnector_ms: 0.002782583236694336
+  ViewRequirementAgentConnector_ms: 0.07033848762512207
+counters:
+  num_agent_steps_sampled: 819200
+  num_agent_steps_trained: 819200
+  num_env_steps_sampled: 819200
+  num_env_steps_trained: 819200
+custom_metrics: {}
+date: 2024-02-23_02-53-18
+done: false
+episode_len_mean: 20.0
+episode_media: {}
+episode_reward_max: -272.3549864614954
+episode_reward_mean: -2517.1822295625457
+episode_reward_min: -3756.6211251235313
+episodes_this_iter: 50
+episodes_total: 40964
+evaluation:
+  connector_metrics:
+    ObsPreprocessorConnector_ms: 0.001430511474609375
+    StateBufferConnector_ms: 0.0012874603271484375
+    ViewRequirementAgentConnector_ms: 0.029166539510091145
+  custom_metrics: {}
+  episode_len_mean: 20.0
+  episode_media: {}
+  episode_reward_max: -1120.1576201698779
+  episode_reward_mean: -2330.258784539586
+  episode_reward_min: -3000.198926981712
+  episodes_this_iter: 3
+  hist_stats:
+    episode_lengths:
+    - 20
+    - 20
+    - 20
+    episode_reward:
+    - -2870.4198064671677
+    - -1120.1576201698779
+    - -3000.198926981712
+  num_agent_steps_sampled_this_iter: 60
+  num_env_steps_sampled_this_iter: 60
+  num_faulty_episodes: 0
+  num_healthy_workers: 0
+  num_in_flight_async_reqs: 0
+  num_remote_worker_restarts: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.036075107505726026
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 10.935081540141402
+    mean_inference_ms: 0.4337979485474332
+    mean_raw_obs_processing_ms: 0.13414212483041624
+  sampler_results:
+    connector_metrics:
+      ObsPreprocessorConnector_ms: 0.001430511474609375
+      StateBufferConnector_ms: 0.0012874603271484375
+      ViewRequirementAgentConnector_ms: 0.029166539510091145
+    custom_metrics: {}
+    episode_len_mean: 20.0
+    episode_media: {}
+    episode_reward_max: -1120.1576201698779
+    episode_reward_mean: -2330.258784539586
+    episode_reward_min: -3000.198926981712
+    episodes_this_iter: 3
+    hist_stats:
+      episode_lengths:
+      - 20
+      - 20
+      - 20
+      episode_reward:
+      - -2870.4198064671677
+      - -1120.1576201698779
+      - -3000.198926981712
+    num_faulty_episodes: 0
+    policy_reward_max: {}
+    policy_reward_mean: {}
+    policy_reward_min: {}
+    sampler_perf:
+      mean_action_processing_ms: 0.036075107505726026
+      mean_env_render_ms: 0.0
+      mean_env_wait_ms: 10.935081540141402
+      mean_inference_ms: 0.4337979485474332
+      mean_raw_obs_processing_ms: 0.13414212483041624
+  timesteps_this_iter: 60
+hostname: OrangeBookPro14.lan
+info:
+  learner:
+    default_policy:
+      custom_metrics: {}
+      diff_num_grad_updates_vs_sampler_policy: 59.5
+      learner_stats:
+        allreduce_latency: 0.0
+        cur_kl_coeff: 0.004370056651609245
+        cur_lr: 1.0e-05
+        entropy: 0.46846919356224437
+        entropy_coeff: 0.0
+        grad_gnorm: 0.7034661247283415
+        kl: 0.0012972943314225086
+        policy_loss: -0.007589339651167393
+        total_loss: 9.992416230837504
+        vf_explained_var: -7.504721482594808e-06
+        vf_loss: 10.0
+      model: {}
+      num_agent_steps_trained: 8.0
+      num_grad_updates_lifetime: 3071940.5
+  num_agent_steps_sampled: 819200
+  num_agent_steps_trained: 819200
+  num_env_steps_sampled: 819200
+  num_env_steps_trained: 819200
+iterations_since_restore: 800
+node_ip: 127.0.0.1
+num_agent_steps_sampled: 819200
+num_agent_steps_trained: 819200
+num_env_steps_sampled: 819200
+num_env_steps_sampled_this_iter: 1024
+num_env_steps_sampled_throughput_per_sec: 34.58930230985656
+num_env_steps_trained: 819200
+num_env_steps_trained_this_iter: 1024
+num_env_steps_trained_throughput_per_sec: 34.58930230985656
+num_faulty_episodes: 0
+num_healthy_workers: 4
+num_in_flight_async_reqs: 0
+num_remote_worker_restarts: 0
+num_steps_trained_this_iter: 1024
+perf:
+  cpu_util_percent: 28.325581395348838
+  ram_util_percent: 77.31860465116279
+pid: 8702
+policy_reward_max: {}
+policy_reward_mean: {}
+policy_reward_min: {}
+sampler_perf:
+  mean_action_processing_ms: 0.045448909555362765
+  mean_env_render_ms: 0.0
+  mean_env_wait_ms: 9.418087131211546
+  mean_inference_ms: 0.6753273923241281
+  mean_raw_obs_processing_ms: 0.2776718331867969
+sampler_results:
+  connector_metrics:
+    ObsPreprocessorConnector_ms: 0.007817506790161133
+    StateBufferConnector_ms: 0.002782583236694336
+    ViewRequirementAgentConnector_ms: 0.07033848762512207
+  custom_metrics: {}
+  episode_len_mean: 20.0
+  episode_media: {}
+  episode_reward_max: -272.3549864614954
+  episode_reward_mean: -2517.1822295625457
+  episode_reward_min: -3756.6211251235313
+  episodes_this_iter: 50
+  hist_stats:
+    episode_lengths: [20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20]
+    episode_reward: [-2494.806130178212, -1381.6504112789605, -2770.0, -2925.895759938962,
+      -2685.7358552246083, -1115.139419883527, -2937.853027239253, -2579.4182110716783,
+      -2838.3595560468866, -1419.7669102286054, -3117.793664279147, -3156.2621983083927,
+      -2980.1624198095215, -3232.0480422297483, -2838.3595560468866, -1221.0169768410656,
+      -3274.256368125246, -2450.3604614807095, -2466.6243908376273, -2418.9158493299537,
+      -3106.3871289238, -2559.90035028819, -3756.6211251235313, -2727.597448159377,
+      -3468.5244492586958, -2596.863720927116, -1223.0679286326194, -2902.5507158694736,
+      -2992.277724214764, -1489.0169768410665, -2720.6659275674583, -3025.205832509385,
+      -1018.3297567789525, -1232.5507158694718, -2961.9129471453293, -2851.166314423326,
+      -2615.491246732178, -1407.9954193435135, -3096.010988928053, -926.6342439892263,
+      -2981.4477994640447, -3204.2468448052637, -2866.777178564959, -2518.3564212655265,
+      -3025.205832509385, -1366.2777242147647, -1127.9999999999998, -2413.1077027627484,
+      -3064.657355607051, -2622.475920832573, -2717.7358552246087, -2838.3595560468866,
+      -2600.4104611466146, -3167.152823843989, -1283.224520712844, -2170.6549190084306,
+      -2527.38633753706, -3153.999999999999, -2428.7083075883947, -827.0589071449374,
+      -2971.0684968677665, -3024.0891564139497, -2723.4185966332607, -1165.975895536156,
+      -2945.1528238439887, -2939.2051136131495, -2424.5042131359187, -1072.2748591897664,
+      -2744.5675335663136, -1135.9937654087767, -3389.7980912173325, -2827.956784543041,
+      -2483.08017898198, -3468.5244492586958, -3005.3664636426297, -2749.0166568919885,
+      -2568.6342439892264, -2364.8854381999818, -3134.9379331573978, -2750.8768014512207,
+      -2829.619368923694, -2867.2099788303067, -2419.9370590994668, -1386.122245341753,
+      -3059.401153701775, -3014.5629906907197, -3073.0789656434144, -2938.5565981523423,
+      -3327.1419257183243, -2773.7358552246073, -2933.756723055381, -2918.0487786742683,
+      -2697.1726674375723, -2568.000000000001, -2988.802627300768, -2364.8854381999818,
+      -3159.45203648207, -272.3549864614954, -2771.8937625582475, -1576.7216610312348]
+  num_faulty_episodes: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.045448909555362765
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 9.418087131211546
+    mean_inference_ms: 0.6753273923241281
+    mean_raw_obs_processing_ms: 0.2776718331867969
+time_since_restore: 25122.475940704346
+time_this_iter_s: 30.286498069763184
+time_total_s: 25122.475940704346
+timers:
+  learn_throughput: 38.789
+  learn_time_ms: 824.967
+  load_throughput: 133789.601
+  load_time_ms: 0.239
+  sample_time_ms: 92.32
+  synch_weights_time_ms: 6.244
+  training_iteration_time_ms: 923.967
+timestamp: 1708685598
+timesteps_total: 819200
+training_iteration: 800
+trial_id: default
+
+2024-02-23 02:53:18,767 DEBUG {'env': {'coefficient_dict': {'p_b': 1.0, 'p_d': 1.0, 'r_c': 0.1}, 'cropped_map_size': 64, 'n_maps': 400, 'n_steps_per_map': 20, 'no_masking': True, 'original_map_path': './resource/usc.png', 'original_map_scale': 3.4375, 'preset_map_path': './resource/setup_400.json', 'ratio_coverage': 0.0125}, 'eval': {'evaluation_config': {'env_config': {'evaluation': True, 'n_maps': 3, 'preset_map_path': None}, 'explore': False}, 'evaluation_duration': 3, 'evaluation_interval': 5}, 'explore': {'exploration_config': {'epsilon_timesteps': 100000, 'final_epsilon': 0.02, 'initial_epsilon': 1.0, 'type': 'EpsilonGreedy'}, 'explore': True}, 'report': {'min_sample_timesteps_per_iteration': 1000}, 'resource': {'num_cpus_per_worker': 2, 'num_gpus': 0, 'num_gpus_per_worker': 0}, 'rollout': {'num_envs_per_worker': 1, 'num_rollout_workers': 4}, 'stop': {'training_iteration': 800}, 'train': {'lr': 1e-05, 'gamma': 0.9, 'grad_clip': 40.0, 'train_batch_size': 32, 'sgd_minibatch_size': 8, 'num_sgd_iter': 30}}
+2024-02-23 02:53:36,379 INFO average coverage reward for test 0: 498.0, optimal reward: 706
+2024-02-23 02:53:36,860 INFO average coverage reward for test 1: 638.8, optimal reward: 782
+2024-02-23 02:53:37,303 INFO average coverage reward for test 2: 661.95, optimal reward: 748
+2024-02-23 05:01:04,415 INFO ================EVALUATION AT # 5================
+2024-02-23 05:03:57,552 INFO ================EVALUATION AT # 10================
+2024-02-23 05:06:48,283 INFO ================EVALUATION AT # 15================
+2024-02-23 05:09:33,732 INFO ================EVALUATION AT # 20================
+2024-02-23 05:12:17,978 INFO ================EVALUATION AT # 25================
+2024-02-23 05:15:06,174 INFO ================EVALUATION AT # 30================
+2024-02-23 05:17:57,061 INFO ================EVALUATION AT # 35================
+2024-02-23 05:20:41,945 INFO ================EVALUATION AT # 40================
+2024-02-23 05:23:34,457 INFO ================EVALUATION AT # 45================
+2024-02-23 05:26:12,920 INFO ================EVALUATION AT # 50================
+2024-02-23 05:29:07,629 INFO ================EVALUATION AT # 55================
+2024-02-23 05:32:02,657 INFO ================EVALUATION AT # 60================
+2024-02-23 05:34:47,960 INFO ================EVALUATION AT # 65================
+2024-02-23 05:37:32,901 INFO ================EVALUATION AT # 70================
+2024-02-23 05:40:23,131 INFO ================EVALUATION AT # 75================
+2024-02-23 05:43:01,248 INFO ================EVALUATION AT # 80================
+2024-02-23 05:45:39,415 INFO ================EVALUATION AT # 85================
+2024-02-23 05:48:18,414 INFO ================EVALUATION AT # 90================
+2024-02-23 05:50:52,100 INFO ================EVALUATION AT # 95================
+2024-02-23 05:53:32,418 INFO ================EVALUATION AT # 100================
+2024-02-23 05:56:22,962 INFO ================EVALUATION AT # 105================
+2024-02-23 05:59:06,163 INFO ================EVALUATION AT # 110================
+2024-02-23 06:01:50,968 INFO ================EVALUATION AT # 115================
+2024-02-23 06:04:32,900 INFO ================EVALUATION AT # 120================
+2024-02-23 06:07:08,130 INFO ================EVALUATION AT # 125================
+2024-02-23 06:09:46,508 INFO ================EVALUATION AT # 130================
+2024-02-23 06:12:21,125 INFO ================EVALUATION AT # 135================
+2024-02-23 06:14:56,830 INFO ================EVALUATION AT # 140================
+2024-02-23 06:17:33,940 INFO ================EVALUATION AT # 145================
+2024-02-23 06:20:11,736 INFO ================EVALUATION AT # 150================
+2024-02-23 06:22:46,524 INFO ================EVALUATION AT # 155================
+2024-02-23 06:25:23,617 INFO ================EVALUATION AT # 160================
+2024-02-23 06:28:01,861 INFO ================EVALUATION AT # 165================
+2024-02-23 06:30:38,209 INFO ================EVALUATION AT # 170================
+2024-02-23 06:33:16,130 INFO ================EVALUATION AT # 175================
+2024-02-23 06:35:55,667 INFO ================EVALUATION AT # 180================
+2024-02-23 06:38:34,669 INFO ================EVALUATION AT # 185================
+2024-02-23 06:41:13,562 INFO ================EVALUATION AT # 190================
+2024-02-23 06:43:50,917 INFO ================EVALUATION AT # 195================
+2024-02-23 06:46:29,081 INFO ================EVALUATION AT # 200================
+2024-02-23 06:49:08,995 INFO ================EVALUATION AT # 205================
+2024-02-23 06:51:47,917 INFO ================EVALUATION AT # 210================
+2024-02-23 06:54:27,488 INFO ================EVALUATION AT # 215================
+2024-02-23 06:57:06,681 INFO ================EVALUATION AT # 220================
+2024-02-23 06:59:48,275 INFO ================EVALUATION AT # 225================
+2024-02-23 07:02:33,807 INFO ================EVALUATION AT # 230================
+2024-02-23 07:05:07,603 INFO ================EVALUATION AT # 235================
+2024-02-23 07:07:40,733 INFO ================EVALUATION AT # 240================
+2024-02-23 07:10:13,549 INFO ================EVALUATION AT # 245================
+2024-02-23 07:12:46,551 INFO ================EVALUATION AT # 250================
+2024-02-23 07:15:18,514 INFO ================EVALUATION AT # 255================
+2024-02-23 07:17:50,844 INFO ================EVALUATION AT # 260================
+2024-02-23 07:20:23,302 INFO ================EVALUATION AT # 265================
+2024-02-23 07:22:55,114 INFO ================EVALUATION AT # 270================
+2024-02-23 07:25:26,744 INFO ================EVALUATION AT # 275================
+2024-02-23 07:27:58,665 INFO ================EVALUATION AT # 280================
+2024-02-23 07:30:31,466 INFO ================EVALUATION AT # 285================
+2024-02-23 07:33:12,247 INFO ================EVALUATION AT # 290================
+2024-02-23 07:35:59,677 INFO ================EVALUATION AT # 295================
+2024-02-23 07:38:48,043 INFO ================EVALUATION AT # 300================
+2024-02-23 07:41:30,700 INFO ================EVALUATION AT # 305================
+2024-02-23 07:44:18,264 INFO ================EVALUATION AT # 310================
+2024-02-23 08:05:07,823 INFO ================EVALUATION AT # 315================
+2024-02-23 08:09:34,406 INFO ================EVALUATION AT # 320================
+2024-02-23 08:28:28,670 INFO ================EVALUATION AT # 325================
+2024-02-23 09:03:20,461 INFO ================EVALUATION AT # 330================
+2024-02-23 09:06:07,477 INFO ================EVALUATION AT # 335================
+2024-02-23 09:10:05,284 INFO ================EVALUATION AT # 340================
+2024-02-23 09:24:26,697 INFO ================EVALUATION AT # 345================
+2024-02-23 09:42:57,456 INFO ================EVALUATION AT # 350================
+2024-02-23 09:47:30,042 INFO ================EVALUATION AT # 355================
+2024-02-23 09:50:24,088 INFO ================EVALUATION AT # 360================
+2024-02-23 09:53:21,971 INFO ================EVALUATION AT # 365================
+2024-02-23 09:56:10,411 INFO ================EVALUATION AT # 370================
+2024-02-23 09:59:07,741 INFO ================EVALUATION AT # 375================
+2024-02-23 10:01:58,696 INFO ================EVALUATION AT # 380================
+2024-02-23 10:04:47,049 INFO ================EVALUATION AT # 385================
+2024-02-23 10:07:28,434 INFO ================EVALUATION AT # 390================
+2024-02-23 10:10:11,825 INFO ================EVALUATION AT # 395================
+2024-02-23 10:12:57,543 INFO ================EVALUATION AT # 400================
+2024-02-23 10:15:42,524 INFO ================EVALUATION AT # 405================
+2024-02-23 10:18:24,412 INFO ================EVALUATION AT # 410================
+2024-02-23 10:21:03,465 INFO ================EVALUATION AT # 415================
+2024-02-23 10:23:42,686 INFO ================EVALUATION AT # 420================
+2024-02-23 10:26:22,455 INFO ================EVALUATION AT # 425================
+2024-02-23 10:29:02,420 INFO ================EVALUATION AT # 430================
+2024-02-23 10:31:44,225 INFO ================EVALUATION AT # 435================
+2024-02-23 10:34:23,666 INFO ================EVALUATION AT # 440================
+2024-02-23 10:37:04,231 INFO ================EVALUATION AT # 445================
+2024-02-23 10:45:38,051 INFO ================EVALUATION AT # 450================
+2024-02-23 11:04:17,851 INFO ================EVALUATION AT # 455================
+2024-02-23 11:06:57,533 INFO ================EVALUATION AT # 460================
+2024-02-23 11:09:43,273 INFO ================EVALUATION AT # 465================
+2024-02-23 11:12:28,223 INFO ================EVALUATION AT # 470================
+2024-02-23 11:15:06,732 INFO ================EVALUATION AT # 475================
+2024-02-23 11:17:37,416 INFO ================EVALUATION AT # 480================
+2024-02-23 11:20:19,023 INFO ================EVALUATION AT # 485================
+2024-02-23 11:23:11,328 INFO ================EVALUATION AT # 490================
+2024-02-23 11:25:52,403 INFO ================EVALUATION AT # 495================
+2024-02-23 11:28:33,639 INFO ================EVALUATION AT # 500================
+2024-02-23 11:31:10,145 INFO ================EVALUATION AT # 505================
+2024-02-23 11:33:56,256 INFO ================EVALUATION AT # 510================
+2024-02-23 11:36:39,440 INFO ================EVALUATION AT # 515================
+2024-02-23 11:39:18,456 INFO ================EVALUATION AT # 520================
+2024-02-23 11:41:57,180 INFO ================EVALUATION AT # 525================
+2024-02-23 11:44:32,518 INFO ================EVALUATION AT # 530================
+2024-02-23 11:47:12,949 INFO ================EVALUATION AT # 535================
+2024-02-23 11:50:03,841 INFO ================EVALUATION AT # 540================
+2024-02-23 11:52:38,709 INFO ================EVALUATION AT # 545================
+2024-02-23 11:55:03,324 INFO ================EVALUATION AT # 550================
+2024-02-23 11:57:29,631 INFO ================EVALUATION AT # 555================
+2024-02-23 12:06:08,745 INFO ================EVALUATION AT # 560================
+2024-02-23 12:08:36,015 INFO ================EVALUATION AT # 565================
+2024-02-23 12:17:22,961 INFO ================EVALUATION AT # 570================

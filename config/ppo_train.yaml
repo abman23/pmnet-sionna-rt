@@ -37,9 +37,11 @@ rollout:
   num_envs_per_worker: 1
   num_rollout_workers: 4
 stop:
-  training_iteration: 500
+  training_iteration: 800
 train:
-  lr: 5.0e-05
-  train_batch_size: 5000
-  sgd_minibatch_size: 128
+  lr: 3.0e-05
+  gamma: 0.0
+  grad_clip: 40.0
+  train_batch_size: 32
+  sgd_minibatch_size: 8
   num_sgd_iter: 30

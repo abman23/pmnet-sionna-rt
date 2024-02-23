@@ -39,7 +39,6 @@ class Agent(object):
 
         # evaluation data
         ep_eval = np.arange(0, num_training_step, eval_interval) + eval_interval
-        print(f"ep_eval: {ep_eval}")
         ep_reward_mean = np.empty(num_training_step // eval_interval, dtype=float)
         ep_reward_std = np.empty(num_training_step // eval_interval, dtype=float)
         # training data
@@ -86,8 +85,19 @@ class Agent(object):
                 ep_reward_mean[idx] = ep_r_mean
                 ep_reward_std[idx] = ep_r_std
 
+        # save the training and evaluation data
+        data = {
+            "ep_train": ep_train.tolist(),
+            "ep_reward_mean_train": ep_reward_mean_train.tolist(),
+            "ep_eval": ep_eval.tolist(),
+            "ep_reward_std": ep_reward_std.tolist(),
+            "ep_reward_mean": ep_reward_mean_train.tolist(),
+        }
+        json.dump(data, open(f"./data/{self.algo_name}_{datetime.now().strftime('%m%d_%H%M')}.json", 'w'))
+
         # plot the mean reward in evaluation
         fig, ax = plt.subplots()
+        fig.set_size_inches(10, 6)
         ax.plot(ep_eval, ep_reward_mean, color="blue")
         sup = list(map(lambda x, y: x + y, ep_reward_mean, ep_reward_std))
         inf = list(map(lambda x, y: x - y, ep_reward_mean, ep_reward_std))
@@ -98,6 +108,7 @@ class Agent(object):
 
         # plot mean reward in training
         fig, ax = plt.subplots()
+        fig.set_size_inches(10, 6)
         ax.plot(ep_train, ep_reward_mean_train, color='red')
         ax.set(xlabel="training_step", ylabel="mean reward per step", title=f"{self.algo_name.upper()} Training Results")
         ax.grid()
@@ -109,14 +120,45 @@ class Agent(object):
         """
         env_config: dict = json.loads(json.dumps(self.config.get("env")))
         env_config["evaluation"] = True
-        env_config["preset_map_path"] = None
-        env_config["eval_plot"] = True
-        env_config["n_maps"] = duration
+
+        # test on maps used for training
+        env_config["test_algo"] = self.algo_name + "_used"
         env_eval = BaseEnvironment(config=env_config)
 
         for i in range(duration):
+            coverage_reward_mean = 0.0
+            cnt = 0
             term, trunc = False, False
             obs, _ = env_eval.reset()
+            reward_opt = np.sum(env_eval.coverage_map_opt)
             while not (term or trunc):
                 action = self.agent.compute_single_action(obs)
+                coverage_map = env_eval.calc_coverage(action)
+                coverage_reward_mean += np.sum(coverage_map)
+                cnt += 1
                 obs, reward, term, trunc, info = env_eval.step(action)
+
+            coverage_reward_mean /= cnt
+            self.logger.info(f"average coverage reward for trained map {i}: {coverage_reward_mean}, optimal reward: {reward_opt}")
+
+        # test on new maps
+        env_config["preset_map_path"] = None
+        env_config["n_maps"] = duration
+        env_config["test_algo"] = self.algo_name + "_new"
+        env_eval = BaseEnvironment(config=env_config)
+
+        for i in range(duration):
+            coverage_reward_mean = 0.0
+            cnt = 0
+            term, trunc = False, False
+            obs, _ = env_eval.reset()
+            reward_opt = np.sum(env_eval.coverage_map_opt)
+            while not (term or trunc):
+                action = self.agent.compute_single_action(obs)
+                coverage_map = env_eval.calc_coverage(action)
+                coverage_reward_mean += np.sum(coverage_map)
+                cnt += 1
+                obs, reward, term, trunc, info = env_eval.step(action)
+
+            coverage_reward_mean /= cnt
+            self.logger.info(f"average coverage reward for new map {i}: {coverage_reward_mean}, optimal reward: {reward_opt}")

@@ -26,6 +26,8 @@ class PPOAgent(Agent):
             .training(
                 train_batch_size=config["train"].get("train_batch_size", 5000),
                 lr=config["train"].get("lr", 3e-4),
+                gamma=config["train"].get("gamma", 0.95),
+                grad_clip=config["train"].get("grad_clip"),
                 sgd_minibatch_size=config["train"].get("sgd_minibatch_size", 128),
                 num_sgd_iter=config["train"].get("num_sgd_iter", 30),
             )

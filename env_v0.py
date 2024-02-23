@@ -82,7 +82,7 @@ class BaseEnvironment(gym.Env):
         self.n_trained_maps: int = 0
 
         self.evaluation = config.get("evaluation", False)
-        self.eval_plot = config.get("eval_plot", False)
+        self.test_algo = config.get("test_algo", None)
 
         # action mask has the same shape as the action
         self.mask: np.ndarray = np.empty(map_size * map_size, dtype=np.int8)
@@ -158,7 +158,7 @@ class BaseEnvironment(gym.Env):
             "loc_tx_opt": self.loc_tx_opt,
             # "time_exhaustive_search": e - s
         }
-        logger.info(info_dict)
+        # logger.info(info_dict)
         # print(info_dict)
         # print(f"optimal coverage reward: {np.sum(self.coverage_map_opt)}")
         # print(f"RoI area: {np.sum(self.pixel_map == 0)}")
@@ -177,7 +177,7 @@ class BaseEnvironment(gym.Env):
         # print(f"action: {action}")
         row, col = divmod(action, self.cropped_map_size)
         # calculate reward
-        coverage_matrix = self._calc_coverage(row, col)
+        coverage_matrix = self.calc_coverage(action)
         r_c = np.sum(coverage_matrix)  # coverage reward
         r_e = np.sum(self.coverage_map_opt)  # optimal coverage reward
         p_d = -np.linalg.norm(np.array([row, col]) - self.loc_tx_opt)  # distance penalty
@@ -212,9 +212,9 @@ class BaseEnvironment(gym.Env):
             logger.info(info_dict)
 
         # plot the current and optimal TX locations
-        if self.eval_plot and (term or trunc):
+        if self.test_algo and (term or trunc):
             save_map(
-                f"./figures/eval_map_{self.n_trained_maps}_{datetime.now().strftime('%m%d_%H%M')}.png",
+                f"./figures/test_maps/{datetime.now().strftime('%m%d_%H%M')}_{self.test_algo}_{self.n_trained_maps}.png",
                 self.pixel_map,
                 True,
                 self.loc_tx_opt,
@@ -223,18 +223,18 @@ class BaseEnvironment(gym.Env):
 
         return observation, r, term, trunc, info_dict
 
-    def _calc_coverage(self, x_tx: int, y_tx: int) -> np.ndarray:
+    def calc_coverage(self, action: int) -> np.ndarray:
         """Calculate the coverage of a TX, given its location and a threshold.
 
         Args:
-            x_tx: The X coordinate of the TX.
-            y_tx: The Y coordinate of the TX.
+            action: 1-1 mapping of a location in the map, action = row * cropped_map_size + col
 
         Returns:
             A coverage map where 0 = uncovered, 1 = covered.
 
         """
-        return calc_coverage(x_tx, y_tx, self.pixel_map, map_scale=self.original_map_scale, threshold=self.thr_pl)
+        row, col = divmod(action, self.cropped_map_size)
+        return calc_coverage(row, col, self.pixel_map, map_scale=self.original_map_scale, threshold=self.thr_pl)
 
 
 if __name__ == "__main__":

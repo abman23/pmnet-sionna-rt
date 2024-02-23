@@ -7,5 +7,9 @@ if __name__ == '__main__':
     # json.dump(config_run_test, open('config/dqn_test.json', 'w'), indent=4)
     # json.dump(config_run_train, open('config/ppo_train.json', 'w'), indent=4)
 
-    config_json = json.load(open('config/dqn_test.json', 'r'))
-    yaml.dump(config_json, open('config/dqn_test.yaml', 'w'))
+    # config_json = json.load(open('config/dqn_test.json', 'r'))
+    # yaml.dump(config_json, open('config/dqn_test.yaml', 'w'))
+
+    # print(yaml.safe_load("lr: 0.002"))
+    resource = json.load(open('resource/setup_400.json', 'r'))
+    print(len(resource['cropped_maps']))
