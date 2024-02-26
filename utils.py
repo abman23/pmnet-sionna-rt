@@ -149,7 +149,7 @@ def crop_map(original_map: np.ndarray, map_size: int, n: int, rng: np.random.Gen
 
 
 def calc_coverage(x: int, y: int, map: np.ndarray, map_scale: float,
-                  threshold: float = -np.inf, option: str = "FSPL") -> np.ndarray:
+                  threshold: float | None = None, option: str = "FSPL") -> np.ndarray:
     """Calculate the coverage of a TX given its location and a building map.
 
     Args:
@@ -171,8 +171,8 @@ def calc_coverage(x: int, y: int, map: np.ndarray, map_scale: float,
     for i in range(n_row):
         pl_row = []
         for j in range(n_col):
-            # we ignore non-ROI area (inside buildings)
-            if map[i][j] == 1:
+            # we ignore non-ROI area (buildings pixel) when calculating the coverage
+            if map[i][j] == 1 and threshold is not None:
                 pl_row.append(0)
                 continue
 
@@ -181,12 +181,15 @@ def calc_coverage(x: int, y: int, map: np.ndarray, map_scale: float,
                 pl = calc_fspl(dis)
             else:
                 pl = 0.
-            # convert path loss value to a 0-1 indicator of coverage if a threshold is given
-            covered = 1 if pl > threshold else 0
-            pl_row.append(covered)
+            if threshold is not None:
+                # convert path loss value to a 0-1 indicator of coverage if a threshold is given
+                covered = 1 if pl > threshold else 0
+                pl_row.append(covered)
+            else:
+                pl_row.append(pl)
         values_pl.append(pl_row)
 
-    return np.array(values_pl, dtype=np.int8)
+    return np.array(values_pl, dtype=np.int8) if threshold is not None else np.array(values_pl, dtype=np.float32)
 
 
 def calc_pl_threshold(original_map: np.ndarray, map_scale: float, ratio_coverage: float, option: str = "FSPL") -> float:

@@ -13,3 +13,4 @@
 2024-02-18 20:59:45,214 INFO {'map_index': 0, 'loc_tx_opt': array([37, 46])}
 2024-02-19 14:44:14,585 INFO =============NEW ENV INITIALIZED=============
 2024-02-19 14:44:14,588 INFO {'cropped_map_shape': (64, 64), 'map_index': 86, 'loc_tx_opt': array([33, 30])}
+2024-02-24 01:10:17,041 INFO =============NEW ENV INITIALIZED=============

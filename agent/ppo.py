@@ -1,7 +1,8 @@
 from ray.rllib.algorithms import PPOConfig
+from ray.rllib.core.rl_module.rl_module import SingleAgentRLModuleSpec
 
 from agent.agent import Agent
-from env_v0 import BaseEnvironment
+from rl_module.action_mask_rlm import PPOActionMaskRLM
 
 
 class PPOAgent(Agent):
@@ -10,11 +11,13 @@ class PPOAgent(Agent):
 
         ppo_config = (
             PPOConfig()
-            .environment(env=BaseEnvironment, env_config=config.get("env"))
+            .environment(env=self.env_class, env_config=config.get("env"))
             .framework("torch")
             .rollouts(
                 num_rollout_workers=config["rollout"].get("num_rollout_workers", 1),
                 num_envs_per_worker=config["rollout"].get("num_envs_per_worker", 1),
+                rollout_fragment_length="auto",
+                batch_mode="complete_episodes",
             )
             .resources(
                 num_gpus=config["resource"].get("num_gpus", 0),
@@ -24,10 +27,10 @@ class PPOAgent(Agent):
                 exploration_config=config["explore"].get("exploration_config", {})
             )
             .training(
-                train_batch_size=config["train"].get("train_batch_size", 5000),
-                lr=config["train"].get("lr", 3e-4),
-                gamma=config["train"].get("gamma", 0.95),
-                grad_clip=config["train"].get("grad_clip"),
+                train_batch_size=config["train"].get("train_batch_size", 4000),
+                lr=config["train"].get("lr", 5e-5),
+                gamma=config["train"].get("gamma", 0.9),
+                grad_clip=config["train"].get("grad_clip", 40.0),
                 sgd_minibatch_size=config["train"].get("sgd_minibatch_size", 128),
                 num_sgd_iter=config["train"].get("num_sgd_iter", 30),
             )
@@ -35,10 +38,19 @@ class PPOAgent(Agent):
                 evaluation_interval=config["eval"].get("evaluation_interval", 1),
                 evaluation_duration=config["eval"].get("evaluation_duration", 3),
                 evaluation_config=config["eval"].get("evaluation_config", {}),
+                evaluation_num_workers=config["eval"].get("evaluation_num_workers", 3),
             )
             .reporting(
                 min_sample_timesteps_per_iteration=config["report"].get("min_sample_timesteps_per_iteration", 1000)
             )
+            .experimental(
+                _enable_new_api_stack=True,  # use rl module
+                _disable_preprocessor_api=True,  # disable flattening observation
+            )
         )
+        if not config["env"].get("no_masking", True):
+            ppo_config = ppo_config.rl_module(
+                rl_module_spec=SingleAgentRLModuleSpec(module_class=PPOActionMaskRLM),
+            )
         self.agent = ppo_config.build()
         self.algo_name = 'ppo'

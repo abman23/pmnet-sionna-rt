@@ -1,7 +1,6 @@
 from ray.rllib.algorithms import DQNConfig
 
 from agent.agent import Agent
-from env_v0 import BaseEnvironment
 
 
 class DQNAgent(Agent):
@@ -10,7 +9,7 @@ class DQNAgent(Agent):
 
         dqn_config = (
             DQNConfig()
-            .environment(env=BaseEnvironment, env_config=config.get("env"))
+            .environment(env=self.env_class, env_config=config.get("env"))
             .framework("torch")
             .rollouts(
                 num_rollout_workers=config["rollout"].get("num_rollout_workers", 1),
@@ -37,9 +36,14 @@ class DQNAgent(Agent):
                 evaluation_interval=config["eval"].get("evaluation_interval", 1),
                 evaluation_duration=config["eval"].get("evaluation_duration", 3),
                 evaluation_config=config["eval"].get("evaluation_config", {}),
+                evaluation_num_workers=config["eval"].get("evaluation_num_workers", 3),
             )
             .reporting(
                 min_sample_timesteps_per_iteration=config["report"].get("min_sample_timesteps_per_iteration", 1000)
+            )
+            .experimental(
+                _enable_new_api_stack=True,
+                _disable_preprocessor_api=True,
             )
         )
         self.agent = dqn_config.build()

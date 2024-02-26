@@ -17,15 +17,14 @@ eval:
       evaluation: true
       n_maps: 3
       preset_map_path: null
-    explore: false
+    exploration:
+      explore: false
   evaluation_duration: 3
   evaluation_interval: 5
+  evaluation_num_workers: 3
 explore:
   exploration_config:
-    epsilon_timesteps: 10
-    final_epsilon: 0.02
-    initial_epsilon: 1.0
-    type: EpsilonGreedy
+    type: StochasticSampling
   explore: true
 report:
   min_sample_timesteps_per_iteration: 10
