@@ -8,7 +8,7 @@ from matplotlib import pyplot as plt
 from ray.rllib.algorithms import Algorithm
 from ray.tune.logger import pretty_print
 
-from env_v1 import BaseEnvironment
+from env_v04 import BaseEnvironment
 
 
 class Agent(object):
@@ -61,9 +61,9 @@ class Agent(object):
             print(f"time_total_s: {result['time_total_s']}")
             if eval_interval is not None and (i + 1) % eval_interval == 0:
                 print(f"================EVALUATION AT # {i+1}================")
-            if not log:
-                # print for debug ONLY
-                print(pretty_print(result))
+            # if not log:
+            #     # print for debug ONLY
+            #     print(pretty_print(result))
 
             if i == num_training_step - 1:
                 if log:
@@ -143,6 +143,8 @@ class Agent(object):
         env_config["test_algo"] = self.algo_name + "_used"
         env_eval = self.env_class(config=env_config)
 
+        coverage_reward_mean_overall = 0.0
+        reward_opt_mean = 0.0
         for i in range(duration):
             coverage_reward_mean = 0.0
             cnt = 0
@@ -158,10 +160,13 @@ class Agent(object):
                 obs, reward, term, trunc, info = env_eval.step(action)
 
             coverage_reward_mean /= cnt
+            coverage_reward_mean_overall += coverage_reward_mean / duration
+            reward_opt_mean += reward_opt / duration
+            info = f"average coverage reward for trained map {i}: {coverage_reward_mean}, optimal reward: {reward_opt}, ratio: {coverage_reward_mean / reward_opt}"
             if log:
-                self.logger.info(f"average coverage reward for trained map {i}: {coverage_reward_mean}, optimal reward: {reward_opt}")
+                self.logger.info(info)
             else:
-                print(f"average coverage reward for trained map {i}: {coverage_reward_mean}, optimal reward: {reward_opt}")
+                print(info)
 
         # test on new maps
         env_config["preset_map_path"] = None
@@ -169,6 +174,8 @@ class Agent(object):
         env_config["test_algo"] = self.algo_name + "_new"
         env_eval = self.env_class(config=env_config)
 
+        coverage_reward_mean_overall_new = 0.0
+        reward_opt_mean_new = 0.0
         for i in range(duration):
             coverage_reward_mean = 0.0
             cnt = 0
@@ -184,7 +191,23 @@ class Agent(object):
                 obs, reward, term, trunc, info = env_eval.step(action)
 
             coverage_reward_mean /= cnt
+            coverage_reward_mean_overall_new += coverage_reward_mean / duration
+            reward_opt_mean_new += reward_opt / duration
+            info = f"average coverage reward for new map {i}: {coverage_reward_mean}, optimal reward: {reward_opt}, ratio: {coverage_reward_mean/reward_opt}"
             if log:
-                self.logger.info(f"average coverage reward for new map {i}: {coverage_reward_mean}, optimal reward: {reward_opt}")
+                self.logger.info(info)
             else:
-                print(f"average coverage reward for new map {i}: {coverage_reward_mean}, optimal reward: {reward_opt}")
+                print(info)
+
+        info1 = (f"overall average coverage reward for trained maps: {coverage_reward_mean_overall},"
+                f" average optimal reward: {reward_opt_mean},"
+                f" ratio: {coverage_reward_mean_overall / reward_opt_mean}")
+        info2 = (f"overall average coverage reward for new maps: {coverage_reward_mean_overall_new}"
+                f", average optimal reward: {reward_opt_mean_new},"
+                f" ratio: {coverage_reward_mean_overall_new / reward_opt_mean_new}")
+        if log:
+            self.logger.info(info1)
+            self.logger.info(info2)
+        else:
+            print(info1)
+            print(info2)

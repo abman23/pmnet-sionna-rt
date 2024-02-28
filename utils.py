@@ -25,7 +25,8 @@ def load_map(filepath: str) -> np.ndarray:
     return (image_array < threshold).astype(np.int8)
 
 
-def save_map(filepath: str, pixel_map: np.ndarray, reverse_color: bool = True, mark_loc: np.ndarray | None = None, **kwargs) -> None:
+def save_map(filepath: str, pixel_map: np.ndarray, reverse_color: bool = True, mark_loc: np.ndarray | None = None,
+             **kwargs) -> None:
     """Save building map array as a black-white image.
 
     Args:
@@ -83,7 +84,7 @@ def save_cropped_maps(original_map: np.ndarray, map_size: int, n: int, map_scale
     for i, cropped_map in enumerate(cropped_maps):
         loc_opt, coverage_opt = find_opt_loc(cropped_map, map_scale, threshold)
         cropped_maps[i] = cropped_map.tolist()
-        locs_opt.append(loc_opt.tolist())
+        locs_opt.append(loc_opt)
         coverages_opt.append(coverage_opt.tolist())
 
     res_dict = {
@@ -206,15 +207,14 @@ def calc_pl_threshold(original_map: np.ndarray, map_scale: float, ratio_coverage
     """
     assert 0 < ratio_coverage < 1
 
-    radius = math.sqrt(ratio_coverage * map_scale**2 * original_map.shape[0] * original_map.shape[1] / math.pi)
+    radius = math.sqrt(ratio_coverage * map_scale ** 2 * original_map.shape[0] * original_map.shape[1] / math.pi)
     if option == "FSPL":
         return calc_fspl(radius)
     else:
         return -np.inf
 
 
-def find_opt_loc(pixel_map: np.ndarray, map_scale: float, pl_threshold: float | None = None) -> Tuple[
-    np.ndarray, np.ndarray]:
+def find_opt_loc(pixel_map: np.ndarray, map_scale: float, pl_threshold: float | None = None) -> tuple[tuple, np.ndarray]:
     """Find the optimal location of TX which maximizes the overall coverage.
 
     Args:
@@ -226,7 +226,7 @@ def find_opt_loc(pixel_map: np.ndarray, map_scale: float, pl_threshold: float | 
         The optimal TX location and the corresponding coverage map.
 
     """
-    loc_opt = np.ones(2, dtype=np.int32) * -1
+    loc_opt = (-1, -1)
     coverage_sum_opt = -np.inf
     coverage_map_opt = np.empty((pixel_map.shape[0], pixel_map.shape[1]), dtype=np.int8)
     loc_center = np.array([pixel_map.shape[0] // 2, pixel_map.shape[1] // 2], dtype=np.int32)
@@ -237,7 +237,7 @@ def find_opt_loc(pixel_map: np.ndarray, map_scale: float, pl_threshold: float | 
             if pixel_map[x][y] == 1:
                 coverage_map = calc_coverage(x, y, pixel_map, map_scale, threshold=pl_threshold)
                 coverage_sum = np.sum(coverage_map)
-                loc = np.array([x, y])
+                loc = (x, y)
                 dis_center_loc = np.linalg.norm(loc - loc_center)
                 # update the optimal location if the sum of coverage is greater or the location is closer to the center
                 if (coverage_sum > coverage_sum_opt or
@@ -272,8 +272,8 @@ if __name__ == '__main__':
     original_map = load_map('./resource/usc.png')
     map_size = 64
     n = 400
-    map_scale = 880/256
-    ratio_coverage = .2/16
+    map_scale = 880 / 256
+    ratio_coverage = .2 / 16
     rng, seed = seeding.np_random(2024)
     filepath = './resource/setup_400.json'
     save_cropped_maps(original_map, map_size, n, map_scale, ratio_coverage, rng, filepath)

@@ -17,13 +17,9 @@ class BaseActionMaskRLM(TorchRLModule):
     """
 
     def __init__(self, config: RLModuleConfig):
-        if not isinstance(config.observation_space, gym.spaces.Dict):
-            raise ValueError(
-                "This model requires the environment to provide a "
-                "gym.spaces.Dict observation space."
-            )
-        # extract only the observations part as the observation space for the default model
-        config.observation_space = config.observation_space["observations"]
+        if isinstance(config.observation_space, gym.spaces.Dict):
+            # extract only the observations part as the observation space for the default model
+            config.observation_space = config.observation_space["observations"]
 
         super().__init__(config)
         self.mask_forward_fn = mask_forward_fn
@@ -33,7 +29,6 @@ class PPOActionMaskRLM(BaseActionMaskRLM, PPOTorchRLModule):
     """PPO RL module with action masking
 
     """
-
     def _forward_inference(self, batch: NestedDict, **kwargs) -> Mapping[str, Any]:
         return self.mask_forward_fn(super()._forward_inference, batch, **kwargs)
 

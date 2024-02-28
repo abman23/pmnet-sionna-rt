@@ -1,0 +1,1587 @@
+2024-02-21 23:57:31,227 INFO ================EVALUATION AT # 5================
+2024-02-22 00:01:58,163 INFO ================EVALUATION AT # 10================
+2024-02-22 00:06:25,021 INFO ================EVALUATION AT # 15================
+2024-02-22 00:10:55,275 INFO ================EVALUATION AT # 20================
+2024-02-22 00:15:25,463 INFO ================EVALUATION AT # 25================
+2024-02-22 00:19:51,847 INFO ================EVALUATION AT # 30================
+2024-02-22 00:24:20,006 INFO ================EVALUATION AT # 35================
+2024-02-22 00:28:48,346 INFO ================EVALUATION AT # 40================
+2024-02-22 00:33:26,702 INFO ================EVALUATION AT # 45================
+2024-02-22 00:38:06,532 INFO ================EVALUATION AT # 50================
+2024-02-22 00:42:42,894 INFO ================EVALUATION AT # 55================
+2024-02-22 00:47:17,638 INFO ================EVALUATION AT # 60================
+2024-02-22 00:51:55,721 INFO ================EVALUATION AT # 65================
+2024-02-22 00:56:33,978 INFO ================EVALUATION AT # 70================
+2024-02-22 01:01:10,937 INFO ================EVALUATION AT # 75================
+2024-02-22 01:05:48,472 INFO ================EVALUATION AT # 80================
+2024-02-22 01:10:25,986 INFO ================EVALUATION AT # 85================
+2024-02-22 01:15:02,533 INFO ================EVALUATION AT # 90================
+2024-02-22 01:19:34,289 INFO ================EVALUATION AT # 95================
+2024-02-22 01:24:02,349 INFO ================EVALUATION AT # 100================
+2024-02-22 01:28:29,720 INFO ================EVALUATION AT # 105================
+2024-02-22 01:33:00,503 INFO ================EVALUATION AT # 110================
+2024-02-22 01:37:29,696 INFO ================EVALUATION AT # 115================
+2024-02-22 01:42:00,824 INFO ================EVALUATION AT # 120================
+2024-02-22 01:46:28,858 INFO ================EVALUATION AT # 125================
+2024-02-22 01:51:00,067 INFO ================EVALUATION AT # 130================
+2024-02-22 01:55:26,878 INFO ================EVALUATION AT # 135================
+2024-02-22 01:59:55,792 INFO ================EVALUATION AT # 140================
+2024-02-22 02:04:25,168 INFO ================EVALUATION AT # 145================
+2024-02-22 02:08:52,514 INFO ================EVALUATION AT # 150================
+2024-02-22 02:13:20,903 INFO ================EVALUATION AT # 155================
+2024-02-22 02:17:50,241 INFO ================EVALUATION AT # 160================
+2024-02-22 02:22:18,963 INFO ================EVALUATION AT # 165================
+2024-02-22 02:26:47,778 INFO ================EVALUATION AT # 170================
+2024-02-22 02:31:16,442 INFO ================EVALUATION AT # 175================
+2024-02-22 02:35:43,457 INFO ================EVALUATION AT # 180================
+2024-02-22 02:40:09,801 INFO ================EVALUATION AT # 185================
+2024-02-22 02:44:39,984 INFO ================EVALUATION AT # 190================
+2024-02-22 02:49:11,474 INFO ================EVALUATION AT # 195================
+2024-02-22 02:53:41,148 INFO ================EVALUATION AT # 200================
+2024-02-22 02:58:09,167 INFO ================EVALUATION AT # 205================
+2024-02-22 03:02:39,819 INFO ================EVALUATION AT # 210================
+2024-02-22 03:07:06,787 INFO ================EVALUATION AT # 215================
+2024-02-22 03:11:32,011 INFO ================EVALUATION AT # 220================
+2024-02-22 03:16:00,233 INFO ================EVALUATION AT # 225================
+2024-02-22 03:20:28,418 INFO ================EVALUATION AT # 230================
+2024-02-22 03:24:58,664 INFO ================EVALUATION AT # 235================
+2024-02-22 03:29:28,245 INFO ================EVALUATION AT # 240================
+2024-02-22 03:33:58,324 INFO ================EVALUATION AT # 245================
+2024-02-22 03:38:27,014 INFO ================EVALUATION AT # 250================
+2024-02-22 03:42:57,017 INFO ================EVALUATION AT # 255================
+2024-02-22 03:47:27,493 INFO ================EVALUATION AT # 260================
+2024-02-22 03:51:58,614 INFO ================EVALUATION AT # 265================
+2024-02-22 03:56:31,119 INFO ================EVALUATION AT # 270================
+2024-02-22 04:01:00,854 INFO ================EVALUATION AT # 275================
+2024-02-22 04:05:31,270 INFO ================EVALUATION AT # 280================
+2024-02-22 04:10:01,769 INFO ================EVALUATION AT # 285================
+2024-02-22 04:14:30,659 INFO ================EVALUATION AT # 290================
+2024-02-22 04:18:59,202 INFO ================EVALUATION AT # 295================
+2024-02-22 04:23:29,625 INFO ================EVALUATION AT # 300================
+2024-02-22 04:27:59,316 INFO ================EVALUATION AT # 305================
+2024-02-22 04:32:25,631 INFO ================EVALUATION AT # 310================
+2024-02-22 04:36:52,415 INFO ================EVALUATION AT # 315================
+2024-02-22 04:41:19,656 INFO ================EVALUATION AT # 320================
+2024-02-22 04:45:50,269 INFO ================EVALUATION AT # 325================
+2024-02-22 04:50:18,501 INFO ================EVALUATION AT # 330================
+2024-02-22 04:54:46,030 INFO ================EVALUATION AT # 335================
+2024-02-22 04:59:11,168 INFO ================EVALUATION AT # 340================
+2024-02-22 05:03:39,728 INFO ================EVALUATION AT # 345================
+2024-02-22 05:08:08,966 INFO ================EVALUATION AT # 350================
+2024-02-22 05:12:39,158 INFO ================EVALUATION AT # 355================
+2024-02-22 05:17:06,921 INFO ================EVALUATION AT # 360================
+2024-02-22 05:21:34,260 INFO ================EVALUATION AT # 365================
+2024-02-22 05:26:03,152 INFO ================EVALUATION AT # 370================
+2024-02-22 05:30:30,404 INFO ================EVALUATION AT # 375================
+2024-02-22 05:35:00,116 INFO ================EVALUATION AT # 380================
+2024-02-22 05:39:29,401 INFO ================EVALUATION AT # 385================
+2024-02-22 05:43:55,167 INFO ================EVALUATION AT # 390================
+2024-02-22 05:48:19,810 INFO ================EVALUATION AT # 395================
+2024-02-22 05:52:48,203 INFO ================EVALUATION AT # 400================
+2024-02-22 05:57:17,773 INFO ================EVALUATION AT # 405================
+2024-02-22 06:01:46,590 INFO ================EVALUATION AT # 410================
+2024-02-22 06:06:16,404 INFO ================EVALUATION AT # 415================
+2024-02-22 06:10:42,913 INFO ================EVALUATION AT # 420================
+2024-02-22 06:15:08,807 INFO ================EVALUATION AT # 425================
+2024-02-22 06:19:37,229 INFO ================EVALUATION AT # 430================
+2024-02-22 06:24:04,419 INFO ================EVALUATION AT # 435================
+2024-02-22 06:28:31,418 INFO ================EVALUATION AT # 440================
+2024-02-22 06:33:00,245 INFO ================EVALUATION AT # 445================
+2024-02-22 06:37:29,008 INFO ================EVALUATION AT # 450================
+2024-02-22 06:41:57,903 INFO ================EVALUATION AT # 455================
+2024-02-22 06:46:28,705 INFO ================EVALUATION AT # 460================
+2024-02-22 06:50:53,924 INFO ================EVALUATION AT # 465================
+2024-02-22 06:55:22,309 INFO ================EVALUATION AT # 470================
+2024-02-22 06:59:49,235 INFO ================EVALUATION AT # 475================
+2024-02-22 07:04:15,190 INFO ================EVALUATION AT # 480================
+2024-02-22 07:08:41,372 INFO ================EVALUATION AT # 485================
+2024-02-22 07:13:05,990 INFO ================EVALUATION AT # 490================
+2024-02-22 07:17:31,592 INFO ================EVALUATION AT # 495================
+2024-02-22 07:21:57,782 INFO ================EVALUATION AT # 500================
+2024-02-22 07:22:53,122 INFO =============A WHOLE TRAINING PERIOD ENDED=============
+2024-02-22 07:22:53,155 INFO agent_timesteps_total: 2500000
+connector_metrics:
+  ObsPreprocessorConnector_ms: 0.0111907958984375
+  StateBufferConnector_ms: 0.00639810562133789
+  ViewRequirementAgentConnector_ms: 0.17618513107299805
+counters:
+  num_agent_steps_sampled: 2500000
+  num_agent_steps_trained: 2500000
+  num_env_steps_sampled: 2500000
+  num_env_steps_trained: 2500000
+custom_metrics: {}
+date: 2024-02-22_07-22-53
+done: false
+episode_len_mean: 19.924
+episode_media: {}
+episode_reward_max: 0.0
+episode_reward_mean: -2393.2139120269967
+episode_reward_min: -3546.276253029821
+episodes_this_iter: 250
+episodes_total: 125306
+evaluation:
+  connector_metrics:
+    ObsPreprocessorConnector_ms: 0.010387102762858072
+    StateBufferConnector_ms: 0.006175041198730469
+    ViewRequirementAgentConnector_ms: 0.1698017120361328
+  custom_metrics: {}
+  episode_len_mean: 20.0
+  episode_media: {}
+  episode_reward_max: -375.0589287593183
+  episode_reward_mean: -1860.1905305666687
+  episode_reward_min: -2917.6637831516923
+  episodes_this_iter: 3
+  hist_stats:
+    episode_lengths:
+    - 20
+    - 20
+    - 20
+    episode_reward:
+    - -375.0589287593183
+    - -2287.8488797889954
+    - -2917.6637831516923
+  num_agent_steps_sampled_this_iter: 60
+  num_env_steps_sampled_this_iter: 60
+  num_faulty_episodes: 0
+  num_healthy_workers: 0
+  num_in_flight_async_reqs: 0
+  num_remote_worker_restarts: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.16244771658947144
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 36.835507857086384
+    mean_inference_ms: 2.3578643163151196
+    mean_raw_obs_processing_ms: 0.7189080985739439
+  sampler_results:
+    connector_metrics:
+      ObsPreprocessorConnector_ms: 0.010387102762858072
+      StateBufferConnector_ms: 0.006175041198730469
+      ViewRequirementAgentConnector_ms: 0.1698017120361328
+    custom_metrics: {}
+    episode_len_mean: 20.0
+    episode_media: {}
+    episode_reward_max: -375.0589287593183
+    episode_reward_mean: -1860.1905305666687
+    episode_reward_min: -2917.6637831516923
+    episodes_this_iter: 3
+    hist_stats:
+      episode_lengths:
+      - 20
+      - 20
+      - 20
+      episode_reward:
+      - -375.0589287593183
+      - -2287.8488797889954
+      - -2917.6637831516923
+    num_faulty_episodes: 0
+    policy_reward_max: {}
+    policy_reward_mean: {}
+    policy_reward_min: {}
+    sampler_perf:
+      mean_action_processing_ms: 0.16244771658947144
+      mean_env_render_ms: 0.0
+      mean_env_wait_ms: 36.835507857086384
+      mean_inference_ms: 2.3578643163151196
+      mean_raw_obs_processing_ms: 0.7189080985739439
+  timesteps_this_iter: 60
+hostname: 919a2ef74a60
+info:
+  learner:
+    default_policy:
+      custom_metrics: {}
+      diff_num_grad_updates_vs_sampler_policy: 584.5
+      learner_stats:
+        cur_kl_coeff: 1.0407147746642484e-114
+        cur_lr: 5.000000000000001e-05
+        entropy: 1.6087520278417147
+        entropy_coeff: 0.0
+        kl: 0.003226919976151758
+        policy_loss: -0.052065837531326674
+        total_loss: 9.945931246341804
+        vf_explained_var: -4.4900790238991764e-05
+        vf_loss: 9.997997084234514
+      model: {}
+      num_grad_updates_lifetime: 584415.5
+  num_agent_steps_sampled: 2500000
+  num_agent_steps_trained: 2500000
+  num_env_steps_sampled: 2500000
+  num_env_steps_trained: 2500000
+iterations_since_restore: 500
+node_ip: 172.28.0.12
+num_agent_steps_sampled: 2500000
+num_agent_steps_trained: 2500000
+num_env_steps_sampled: 2500000
+num_env_steps_sampled_this_iter: 5000
+num_env_steps_sampled_throughput_per_sec: 94.45758940254915
+num_env_steps_trained: 2500000
+num_env_steps_trained_this_iter: 5000
+num_env_steps_trained_throughput_per_sec: 94.45758940254915
+num_faulty_episodes: 0
+num_healthy_workers: 4
+num_in_flight_async_reqs: 0
+num_remote_worker_restarts: 0
+num_steps_trained_this_iter: 5000
+perf:
+  cpu_util_percent: 47.90657894736842
+  gpu_util_percent0: 0.06526315789473684
+  ram_util_percent: 14.044736842105264
+  vram_util_percent0: 0.06894531250000002
+pid: 33885
+policy_reward_max: {}
+policy_reward_mean: {}
+policy_reward_min: {}
+sampler_perf:
+  mean_action_processing_ms: 0.16999201150277185
+  mean_env_render_ms: 0.0
+  mean_env_wait_ms: 30.55320931940915
+  mean_inference_ms: 2.8086096132345064
+  mean_raw_obs_processing_ms: 0.6758148737712751
+sampler_results:
+  connector_metrics:
+    ObsPreprocessorConnector_ms: 0.0111907958984375
+    StateBufferConnector_ms: 0.00639810562133789
+    ViewRequirementAgentConnector_ms: 0.17618513107299805
+  custom_metrics: {}
+  episode_len_mean: 19.924
+  episode_media: {}
+  episode_reward_max: 0.0
+  episode_reward_mean: -2393.2139120269967
+  episode_reward_min: -3546.276253029821
+  episodes_this_iter: 250
+  hist_stats:
+    episode_lengths: [20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 1, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20]
+    episode_reward: [-2807.7431662493686, -778.2622246293479, -2474.173040933696,
+      -2351.606797749979, -2664.432870116696, -2640.4345773288524, -2307.359245282264,
+      -1797.521635355732, -2336.8243718731387, -1153.9543120718445, -2842.06896658225,
+      -2391.2380757938117, -2720.4903099319413, -3251.3318551349157, -1201.901951359278,
+      -2773.321374946371, -2597.0589287593166, -1226.8203932499366, -2740.0112603430625,
+      -1175.767958637583, -2336.9355048564753, -3546.276253029821, -2222.8332812825274,
+      -2401.9349550499546, -2344.3908891458577, -3306.769801807342, -2468.751250597119,
+      -2435.343157837112, -2491.22056690714, -2822.969134626331, -3503.9999999999986,
+      -2070.3154621172785, -2812.944258028673, -3144.227243386615, -1851.869910099908,
+      -3251.3318551349157, -2792.461658466319, -3076.010988928053, -2830.1905536451645,
+      -1261.8340244605586, -2521.8706951623076, -3407.0108823397068, -1252.1222453417524,
+      -2838.3937925449172, -2324.592922409337, -2764.6750159486064, -575.6308338453882,
+      -1683.6246839182834, -2589.213595499959, -3546.276253029821, -3392.4000000000015,
+      -2667.6637831516923, -1337.8927727036687, -2709.32137494637, -1202.1165120441926,
+      -2770.251219906978, -3114.8964600958975, -830.3281572999751, -749.4441010848846,
+      -2816.9463863518345, -3093.2051136131486, -2240.0, -2770.130783645188, -2251.5713407098806,
+      -2851.08872901425, -2715.238075793813, -2581.321838943783, -2612.187454245971,
+      -2114.093998214393, -2814.2609708239333, -836.1635729364533, -2709.32137494637,
+      -642.8061301782109, -3093.2051136131486, -2958.6402247190526, -3122.2257748298553,
+      -2885.418211071677, -2717.3231082882457, -3470.368349641339, -2118.7680962081054,
+      -2462.262224629348, -934.4761515876237, -2703.321374946371, -2070.3154621172785,
+      -830.3281572999751, -2787.074417675063, -2401.9349550499546, -2843.181208709839,
+      -3302.9931086925803, -2592.016948848238, -1162.037561463441, -3143.332306111358,
+      -3198.000000000001, -3003.9070645427755, -2516.8566507328856, -2391.2380757938117,
+      -2589.213595499959, -3291.2110101926623, -3152.2257748298553, -2573.9999999999995,
+      -2352.81318457076, -2226.3908891458586, -2999.5202996254015, -2775.3231082882453,
+      -2324.592922409337, -3060.919299732615, -833.8144406874904, -3122.2257748298553,
+      -3296.820393249937, -2188.885438199983, -360.0, -3535.3486688265975, -1268.6369996040487,
+      -2299.815260918707, -2822.400902933387, -3233.637585982667, -3155.5361924162116,
+      -2306.0939982143923, -1362.0122338006443, -2940.6342439892255, -2192.9771560359222,
+      -3166.0918313565066, -2215.7366596101024, -2749.8844642414897, -2201.655250605964,
+      -1917.9900496896707, -746.4345773288534, -3394.010988928051, 0.0, -1276.5565981523418,
+      -450.49223594996204, -911.8472019555185, -3273.372565289617, -1252.3378891539949,
+      -2238.475920832572, -3034.5164807134497, -2017.2610922848037, -3091.4515274618875,
+      -2979.7354648979126, -2899.4500931320968, -2927.5232557131253, -3503.9999999999986,
+      -2979.7354648979126, -2687.586277206802, -375.07248094147405, -2920.093010681704,
+      -2752.458941603815, -2100.619037896905, -2816.227766016837, -2264.885438199982,
+      -3368.562990690719, -2900.4922359499606, -3109.0772935672253, -2704.344855372474,
+      -3123.195575757965, -2980.771917165335, -2692.0350850198274, -3486.219674120873,
+      -2331.0170206602056, -2573.9999999999995, -2740.3297567789527, -2673.2517558197464,
+      -973.7378084592203, -3394.010988928051, -3022.057764143501, -560.3297567789517,
+      -2815.4785966073473, -2452.2277660168393, -2400.2277660168384, -2290.390596406296,
+      -859.1170738539859, -2912.179752590594, -3491.450481775601, -2337.130956466132,
+      -1353.6936408468862, -2950.0103242207233, -2592.016948848238, -3069.139984323511,
+      -2773.321374946371, -2898.6309242345574, -2156.679622641132, -288.17792032740135,
+      -3260.2568905704225, -2789.444101084883, -2387.2964612046685, -2672.434577328853,
+      -928.5877273185276, -1401.8009243891588, -1318.1118142183193, -2277.1681137981564,
+      -3249.94601355107, -478.09301068170504, -2948.000000000001, -2898.6309242345574,
+      -2933.6637831516928, -928.5877273185276, -2528.010988928053, -949.1767361255983,
+      -1054.0388679233959, -2511.6564165517957, -2688.6354821103178, -2982.0588203494185,
+      -2228.578556493756, -2432.7128425310543, -2336.718872423572, -1326.1063265711566,
+      -1045.3140911315356, -2099.6067977499793, -2669.887284390551, -2118.7680962081054,
+      -680.8326112068519, -2768.0107805972475, -3219.8009243891584, -2604.390889145858,
+      -2524.3908891458577, -2056.852813742385, -3224.929730001234, -3002.7027354082265,
+      -2324.592922409337, -2264.4759208325736, -3403.767588763066, -2808.1879964287864,
+      -2728.9691346263317, -1696.6804291051635, -3357.2350158843915, -2473.04951684997,
+      -2704.1513395043175, -817.9443946741386, -2904.099463490856, -2485.0589071449367,
+      -830.3281572999751, -1082.3094525588642, -2683.172667437574, -2967.4441010848846,
+      -2485.0589071449367, -2211.690133138508, -2958.6402247190526, -3122.2257748298553,
+      -2362.110957846475, -2801.780512545963, -3296.117814289874, -2473.12766645749,
+      -2940.2561182632426, -2806.592922409336, -931.90046219458, -2450.5992304738606,
+      -2728.9691346263317, -2381.2096757754625, -2982.7076812334262, -3389.7403296678426]
+  num_faulty_episodes: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.16999201150277185
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 30.55320931940915
+    mean_inference_ms: 2.8086096132345064
+    mean_raw_obs_processing_ms: 0.6758148737712751
+time_since_restore: 26920.864006519318
+time_this_iter_s: 55.29385948181152
+time_total_s: 26920.864006519318
+timers:
+  learn_throughput: 558.189
+  learn_time_ms: 8957.539
+  load_throughput: 53063.546
+  load_time_ms: 94.227
+  sample_time_ms: 43550.514
+  synch_weights_time_ms: 25.767
+  training_iteration_time_ms: 52631.461
+timestamp: 1708615373
+timesteps_total: 2500000
+training_iteration: 500
+trial_id: default
+
+2024-02-22 07:22:53,157 DEBUG {'env': {'coefficient_dict': {'p_b': 1.0, 'p_d': 1.0, 'r_c': 0.1}, 'cropped_map_size': 64, 'n_maps': 400, 'n_steps_per_map': 20, 'no_masking': True, 'original_map_path': './resource/usc.png', 'original_map_scale': 3.4375, 'preset_map_path': './resource/setup_400.json', 'ratio_coverage': 0.0125}, 'eval': {'evaluation_config': {'env_config': {'evaluation': True, 'n_maps': 3, 'preset_map_path': None}, 'explore': False}, 'evaluation_duration': 3, 'evaluation_interval': 5}, 'explore': {'exploration_config': {'epsilon_timesteps': 100000, 'final_epsilon': 0.02, 'initial_epsilon': 1.0, 'type': 'EpsilonGreedy'}, 'explore': True}, 'report': {'min_sample_timesteps_per_iteration': 1000}, 'resource': {'num_cpus_per_worker': 2, 'num_gpus': 1, 'num_gpus_per_worker': 0}, 'rollout': {'num_envs_per_worker': 1, 'num_rollout_workers': 4}, 'stop': {'training_iteration': 500}, 'train': {'lr': 5e-05, 'train_batch_size': 5000, 'sgd_minibatch_size': 128, 'num_sgd_iter': 30}}
+2024-02-25 18:01:08,662 INFO agent_timesteps_total: 512000
+connector_metrics:
+  StateBufferConnector_ms: 0.006257534027099609
+  ViewRequirementAgentConnector_ms: 0.31021761894226074
+counters:
+  num_agent_steps_sampled: 512000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 512000
+  num_env_steps_trained: 0
+custom_metrics: {}
+date: 2024-02-25_18-01-08
+done: false
+episode_len_mean: 100.0
+episode_media: {}
+episode_reward_max: 96.46496700247889
+episode_reward_mean: 58.094724928197486
+episode_reward_min: 11.27835615838327
+episodes_this_iter: 12
+episodes_total: 5120
+evaluation:
+  connector_metrics:
+    StateBufferConnector_ms: 0.0054836273193359375
+    ViewRequirementAgentConnector_ms: 0.28697649637858075
+  custom_metrics: {}
+  episode_len_mean: 100.0
+  episode_media: {}
+  episode_reward_max: 69.72780383751987
+  episode_reward_mean: 52.71425038532169
+  episode_reward_min: 35.422426756575405
+  episodes_this_iter: 3
+  hist_stats:
+    episode_lengths:
+    - 100
+    - 100
+    - 100
+    episode_reward:
+    - 35.422426756575405
+    - 52.9925205618698
+    - 69.72780383751987
+  num_agent_steps_sampled_this_iter: 300
+  num_env_steps_sampled_this_iter: 300
+  num_faulty_episodes: 0
+  num_healthy_workers: 3
+  num_in_flight_async_reqs: 0
+  num_remote_worker_restarts: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.1338728705203617
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 33.121609788725614
+    mean_inference_ms: 2.7100849647472387
+    mean_raw_obs_processing_ms: 0.9467226145478307
+  sampler_results:
+    connector_metrics:
+      StateBufferConnector_ms: 0.0054836273193359375
+      ViewRequirementAgentConnector_ms: 0.28697649637858075
+    custom_metrics: {}
+    episode_len_mean: 100.0
+    episode_media: {}
+    episode_reward_max: 69.72780383751987
+    episode_reward_mean: 52.71425038532169
+    episode_reward_min: 35.422426756575405
+    episodes_this_iter: 3
+    hist_stats:
+      episode_lengths:
+      - 100
+      - 100
+      - 100
+      episode_reward:
+      - 35.422426756575405
+      - 52.9925205618698
+      - 69.72780383751987
+    num_faulty_episodes: 0
+    policy_reward_max: {}
+    policy_reward_mean: {}
+    policy_reward_min: {}
+    sampler_perf:
+      mean_action_processing_ms: 0.1338728705203617
+      mean_env_render_ms: 0.0
+      mean_env_wait_ms: 33.121609788725614
+      mean_inference_ms: 2.7100849647472387
+      mean_raw_obs_processing_ms: 0.9467226145478307
+  timesteps_this_iter: 300
+hostname: 1b301366a31f
+info:
+  learner:
+    __all__:
+      num_agent_steps_trained: 128.0
+      num_env_steps_trained: 256.0
+      total_loss: 0.7888326751378675
+    default_policy:
+      curr_entropy_coeff: 0.0
+      curr_kl_coeff: 2.309206008911133
+      curr_lr: 5.0e-05
+      default_optimizer_lr: 5.0000000000000016e-05
+      entropy: 2.8399128913879395
+      gradients_default_optimizer_global_norm: 6.18944375415643
+      mean_kl_loss: 0.012757985980715602
+      policy_loss: -0.09408663908640544
+      total_loss: 0.7888326751378675
+      vf_explained_var: 0.427415398756663
+      vf_loss: 0.8534584949413936
+      vf_loss_unclipped: 0.8537826249996822
+  num_agent_steps_sampled: 512000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 512000
+  num_env_steps_trained: 0
+iterations_since_restore: 500
+node_ip: 172.28.0.12
+num_agent_steps_sampled: 512000
+num_agent_steps_trained: 0
+num_env_steps_sampled: 512000
+num_env_steps_sampled_this_iter: 1024
+num_env_steps_sampled_throughput_per_sec: 56.302125773404725
+num_env_steps_trained: 0
+num_env_steps_trained_this_iter: 0
+num_env_steps_trained_throughput_per_sec: 0.0
+num_faulty_episodes: 0
+num_healthy_workers: 4
+num_in_flight_async_reqs: 0
+num_remote_worker_restarts: 0
+num_steps_trained_this_iter: 0
+perf:
+  cpu_util_percent: 52.429032258064524
+  gpu_util_percent0: 0.0
+  ram_util_percent: 12.748387096774191
+  vram_util_percent0: 0.00019531250000000007
+pid: 5395
+policy_reward_max: {}
+policy_reward_mean: {}
+policy_reward_min: {}
+sampler_perf:
+  mean_action_processing_ms: 0.13661383241638703
+  mean_env_render_ms: 0.0
+  mean_env_wait_ms: 34.21841155012202
+  mean_inference_ms: 2.8468685884183844
+  mean_raw_obs_processing_ms: 1.019098590237985
+sampler_results:
+  connector_metrics:
+    StateBufferConnector_ms: 0.006257534027099609
+    ViewRequirementAgentConnector_ms: 0.31021761894226074
+  custom_metrics: {}
+  episode_len_mean: 100.0
+  episode_media: {}
+  episode_reward_max: 96.46496700247889
+  episode_reward_mean: 58.094724928197486
+  episode_reward_min: 11.27835615838327
+  episodes_this_iter: 12
+  hist_stats:
+    episode_lengths: [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+      100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+      100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+      100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+      100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+      100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+      100, 100, 100, 100, 100, 100, 100, 100]
+    episode_reward: [67.19244479750394, 68.9445816334576, 52.93805408302159, 36.46182608125385,
+      80.79602854407038, 57.451695838793164, 45.76916267514359, 52.216774543634784,
+      74.1740501667154, 60.97505219611929, 88.392748527228, 94.96342300133641, 37.85727526589441,
+      73.1677667624465, 31.515991914850332, 58.81079357003287, 72.42099077802119,
+      60.92801148949339, 81.45879522202289, 57.00040975276156, 60.71474577873588,
+      58.841944954265784, 55.450430758648224, 62.57415933951715, 17.16499557603612,
+      45.39846009505005, 64.99826612975595, 96.46496700247889, 60.04405708154857,
+      21.623631130531177, 70.15771475027273, 62.9264064094195, 64.68763819450153,
+      72.05094725451453, 27.81602120092654, 50.58933577872489, 74.46433787610597,
+      80.04832275911568, 44.51623328597902, 20.917477746721605, 52.121489103562624,
+      72.10468306737138, 85.83559721857574, 49.58376804163558, 81.09082532763439,
+      56.357312628643484, 75.73421079910318, 45.98156249869161, 22.09398597711824,
+      70.41536195852821, 42.82973651061022, 65.45991028673913, 65.13212564879991,
+      53.51006069968807, 57.20836797759488, 73.27090473462512, 65.90639094565879,
+      44.7687582893161, 52.32358354106875, 38.44550949302276, 55.608308485570284,
+      76.58501167863345, 49.8662151758407, 19.594677407843424, 82.12024766932636,
+      88.89187829793404, 55.32841267585292, 53.51036712436449, 53.32081652038121,
+      74.65146680011142, 61.96816204788411, 79.97832298205853, 47.84801127280247,
+      58.76237208772236, 28.281175419887347, 55.07520229391631, 83.09044008225767,
+      66.14975172415846, 71.88807765044481, 52.256737514384696, 50.803166456130285,
+      35.59805787918259, 68.5880673550719, 50.91244868169906, 61.190824264931834,
+      74.51215391860879, 53.79966941039594, 74.64632391542418, 66.43500316405166,
+      76.58441129769416, 48.93710335682741, 11.27835615838327, 48.75769048438107,
+      32.951196503374504, 19.66450806501264, 79.14951254954521, 58.38484596396819,
+      36.26421921064555, 34.2192676438165, 76.9598969345894]
+  num_faulty_episodes: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.13661383241638703
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 34.21841155012202
+    mean_inference_ms: 2.8468685884183844
+    mean_raw_obs_processing_ms: 1.019098590237985
+time_since_restore: 9188.144627332687
+time_this_iter_s: 22.252821445465088
+time_total_s: 9188.144627332687
+timers:
+  sample_time_ms: 2694.016
+  synch_weights_time_ms: 20.12
+  training_iteration_time_ms: 4472.954
+timestamp: 1708912868
+timesteps_total: 512000
+training_iteration: 500
+trial_id: default
+
+2024-02-25 18:01:08,662 INFO agent_timesteps_total: 512000
+connector_metrics:
+  StateBufferConnector_ms: 0.006257534027099609
+  ViewRequirementAgentConnector_ms: 0.31021761894226074
+counters:
+  num_agent_steps_sampled: 512000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 512000
+  num_env_steps_trained: 0
+custom_metrics: {}
+date: 2024-02-25_18-01-08
+done: false
+episode_len_mean: 100.0
+episode_media: {}
+episode_reward_max: 96.46496700247889
+episode_reward_mean: 58.094724928197486
+episode_reward_min: 11.27835615838327
+episodes_this_iter: 12
+episodes_total: 5120
+evaluation:
+  connector_metrics:
+    StateBufferConnector_ms: 0.0054836273193359375
+    ViewRequirementAgentConnector_ms: 0.28697649637858075
+  custom_metrics: {}
+  episode_len_mean: 100.0
+  episode_media: {}
+  episode_reward_max: 69.72780383751987
+  episode_reward_mean: 52.71425038532169
+  episode_reward_min: 35.422426756575405
+  episodes_this_iter: 3
+  hist_stats:
+    episode_lengths:
+    - 100
+    - 100
+    - 100
+    episode_reward:
+    - 35.422426756575405
+    - 52.9925205618698
+    - 69.72780383751987
+  num_agent_steps_sampled_this_iter: 300
+  num_env_steps_sampled_this_iter: 300
+  num_faulty_episodes: 0
+  num_healthy_workers: 3
+  num_in_flight_async_reqs: 0
+  num_remote_worker_restarts: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.1338728705203617
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 33.121609788725614
+    mean_inference_ms: 2.7100849647472387
+    mean_raw_obs_processing_ms: 0.9467226145478307
+  sampler_results:
+    connector_metrics:
+      StateBufferConnector_ms: 0.0054836273193359375
+      ViewRequirementAgentConnector_ms: 0.28697649637858075
+    custom_metrics: {}
+    episode_len_mean: 100.0
+    episode_media: {}
+    episode_reward_max: 69.72780383751987
+    episode_reward_mean: 52.71425038532169
+    episode_reward_min: 35.422426756575405
+    episodes_this_iter: 3
+    hist_stats:
+      episode_lengths:
+      - 100
+      - 100
+      - 100
+      episode_reward:
+      - 35.422426756575405
+      - 52.9925205618698
+      - 69.72780383751987
+    num_faulty_episodes: 0
+    policy_reward_max: {}
+    policy_reward_mean: {}
+    policy_reward_min: {}
+    sampler_perf:
+      mean_action_processing_ms: 0.1338728705203617
+      mean_env_render_ms: 0.0
+      mean_env_wait_ms: 33.121609788725614
+      mean_inference_ms: 2.7100849647472387
+      mean_raw_obs_processing_ms: 0.9467226145478307
+  timesteps_this_iter: 300
+hostname: 1b301366a31f
+info:
+  learner:
+    __all__:
+      num_agent_steps_trained: 128.0
+      num_env_steps_trained: 256.0
+      total_loss: 0.7888326751378675
+    default_policy:
+      curr_entropy_coeff: 0.0
+      curr_kl_coeff: 2.309206008911133
+      curr_lr: 5.0e-05
+      default_optimizer_lr: 5.0000000000000016e-05
+      entropy: 2.8399128913879395
+      gradients_default_optimizer_global_norm: 6.18944375415643
+      mean_kl_loss: 0.012757985980715602
+      policy_loss: -0.09408663908640544
+      total_loss: 0.7888326751378675
+      vf_explained_var: 0.427415398756663
+      vf_loss: 0.8534584949413936
+      vf_loss_unclipped: 0.8537826249996822
+  num_agent_steps_sampled: 512000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 512000
+  num_env_steps_trained: 0
+iterations_since_restore: 500
+node_ip: 172.28.0.12
+num_agent_steps_sampled: 512000
+num_agent_steps_trained: 0
+num_env_steps_sampled: 512000
+num_env_steps_sampled_this_iter: 1024
+num_env_steps_sampled_throughput_per_sec: 56.302125773404725
+num_env_steps_trained: 0
+num_env_steps_trained_this_iter: 0
+num_env_steps_trained_throughput_per_sec: 0.0
+num_faulty_episodes: 0
+num_healthy_workers: 4
+num_in_flight_async_reqs: 0
+num_remote_worker_restarts: 0
+num_steps_trained_this_iter: 0
+perf:
+  cpu_util_percent: 52.429032258064524
+  gpu_util_percent0: 0.0
+  ram_util_percent: 12.748387096774191
+  vram_util_percent0: 0.00019531250000000007
+pid: 5395
+policy_reward_max: {}
+policy_reward_mean: {}
+policy_reward_min: {}
+sampler_perf:
+  mean_action_processing_ms: 0.13661383241638703
+  mean_env_render_ms: 0.0
+  mean_env_wait_ms: 34.21841155012202
+  mean_inference_ms: 2.8468685884183844
+  mean_raw_obs_processing_ms: 1.019098590237985
+sampler_results:
+  connector_metrics:
+    StateBufferConnector_ms: 0.006257534027099609
+    ViewRequirementAgentConnector_ms: 0.31021761894226074
+  custom_metrics: {}
+  episode_len_mean: 100.0
+  episode_media: {}
+  episode_reward_max: 96.46496700247889
+  episode_reward_mean: 58.094724928197486
+  episode_reward_min: 11.27835615838327
+  episodes_this_iter: 12
+  hist_stats:
+    episode_lengths: [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+      100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+      100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+      100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+      100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+      100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+      100, 100, 100, 100, 100, 100, 100, 100]
+    episode_reward: [67.19244479750394, 68.9445816334576, 52.93805408302159, 36.46182608125385,
+      80.79602854407038, 57.451695838793164, 45.76916267514359, 52.216774543634784,
+      74.1740501667154, 60.97505219611929, 88.392748527228, 94.96342300133641, 37.85727526589441,
+      73.1677667624465, 31.515991914850332, 58.81079357003287, 72.42099077802119,
+      60.92801148949339, 81.45879522202289, 57.00040975276156, 60.71474577873588,
+      58.841944954265784, 55.450430758648224, 62.57415933951715, 17.16499557603612,
+      45.39846009505005, 64.99826612975595, 96.46496700247889, 60.04405708154857,
+      21.623631130531177, 70.15771475027273, 62.9264064094195, 64.68763819450153,
+      72.05094725451453, 27.81602120092654, 50.58933577872489, 74.46433787610597,
+      80.04832275911568, 44.51623328597902, 20.917477746721605, 52.121489103562624,
+      72.10468306737138, 85.83559721857574, 49.58376804163558, 81.09082532763439,
+      56.357312628643484, 75.73421079910318, 45.98156249869161, 22.09398597711824,
+      70.41536195852821, 42.82973651061022, 65.45991028673913, 65.13212564879991,
+      53.51006069968807, 57.20836797759488, 73.27090473462512, 65.90639094565879,
+      44.7687582893161, 52.32358354106875, 38.44550949302276, 55.608308485570284,
+      76.58501167863345, 49.8662151758407, 19.594677407843424, 82.12024766932636,
+      88.89187829793404, 55.32841267585292, 53.51036712436449, 53.32081652038121,
+      74.65146680011142, 61.96816204788411, 79.97832298205853, 47.84801127280247,
+      58.76237208772236, 28.281175419887347, 55.07520229391631, 83.09044008225767,
+      66.14975172415846, 71.88807765044481, 52.256737514384696, 50.803166456130285,
+      35.59805787918259, 68.5880673550719, 50.91244868169906, 61.190824264931834,
+      74.51215391860879, 53.79966941039594, 74.64632391542418, 66.43500316405166,
+      76.58441129769416, 48.93710335682741, 11.27835615838327, 48.75769048438107,
+      32.951196503374504, 19.66450806501264, 79.14951254954521, 58.38484596396819,
+      36.26421921064555, 34.2192676438165, 76.9598969345894]
+  num_faulty_episodes: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.13661383241638703
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 34.21841155012202
+    mean_inference_ms: 2.8468685884183844
+    mean_raw_obs_processing_ms: 1.019098590237985
+time_since_restore: 9188.144627332687
+time_this_iter_s: 22.252821445465088
+time_total_s: 9188.144627332687
+timers:
+  sample_time_ms: 2694.016
+  synch_weights_time_ms: 20.12
+  training_iteration_time_ms: 4472.954
+timestamp: 1708912868
+timesteps_total: 512000
+training_iteration: 500
+trial_id: default
+
+2024-02-25 18:01:09,275 DEBUG {'env': {'coefficient_dict': {'p_b': 1.0, 'p_d': 1.0, 'r_c': 1.0}, 'cropped_map_size': 64, 'action_space_size': 32, 'n_maps': 400, 'n_steps_per_map': 100, 'no_masking': False, 'original_map_path': './resource/usc.png', 'original_map_scale': 3.4375, 'preset_map_path': './resource/setup_400.json', 'ratio_coverage': 0.0125}, 'eval': {'evaluation_config': {'env_config': {'evaluation': True, 'n_maps': 1, 'preset_map_path': None}, 'exploration': {'explore': False}}, 'evaluation_duration': 3, 'evaluation_interval': 5, 'evaluation_num_workers': 3}, 'explore': {'exploration_config': {'type': 'StochasticSampling'}, 'explore': True}, 'report': {'min_sample_timesteps_per_iteration': 1000}, 'resource': {'num_cpus_per_worker': 2, 'num_gpus': 0, 'num_gpus_per_worker': 0}, 'rollout': {'num_envs_per_worker': 1, 'num_rollout_workers': 4}, 'stop': {'training_iteration': 500}, 'train': {'lr': 5e-05, 'gamma': 0.9, 'grad_clip': 40.0, 'train_batch_size': 256, 'sgd_minibatch_size': 128, 'num_sgd_iter': 30}}
+2024-02-25 18:01:09,275 DEBUG {'env': {'coefficient_dict': {'p_b': 1.0, 'p_d': 1.0, 'r_c': 1.0}, 'cropped_map_size': 64, 'action_space_size': 32, 'n_maps': 400, 'n_steps_per_map': 100, 'no_masking': False, 'original_map_path': './resource/usc.png', 'original_map_scale': 3.4375, 'preset_map_path': './resource/setup_400.json', 'ratio_coverage': 0.0125}, 'eval': {'evaluation_config': {'env_config': {'evaluation': True, 'n_maps': 1, 'preset_map_path': None}, 'exploration': {'explore': False}}, 'evaluation_duration': 3, 'evaluation_interval': 5, 'evaluation_num_workers': 3}, 'explore': {'exploration_config': {'type': 'StochasticSampling'}, 'explore': True}, 'report': {'min_sample_timesteps_per_iteration': 1000}, 'resource': {'num_cpus_per_worker': 2, 'num_gpus': 0, 'num_gpus_per_worker': 0}, 'rollout': {'num_envs_per_worker': 1, 'num_rollout_workers': 4}, 'stop': {'training_iteration': 500}, 'train': {'lr': 5e-05, 'gamma': 0.9, 'grad_clip': 40.0, 'train_batch_size': 256, 'sgd_minibatch_size': 128, 'num_sgd_iter': 30}}
+2024-02-25 18:01:09,278 INFO =============TRAINING ENDED=============
+2024-02-25 18:01:09,278 INFO =============TRAINING ENDED=============
+2024-02-26 14:21:25,417 INFO agent_timesteps_total: 512000
+connector_metrics:
+  StateBufferConnector_ms: 0.009068012237548828
+  ViewRequirementAgentConnector_ms: 0.4126856327056885
+counters:
+  num_agent_steps_sampled: 512000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 512000
+  num_env_steps_trained: 0
+custom_metrics: {}
+date: 2024-02-26_14-21-25
+done: false
+episode_len_mean: 96.24
+episode_media: {}
+episode_reward_max: 0.0
+episode_reward_mean: -8247.203678803235
+episode_reward_min: -42035.20982896265
+episodes_this_iter: 11
+episodes_total: 5324
+evaluation:
+  connector_metrics:
+    StateBufferConnector_ms: 0.009298324584960938
+    ViewRequirementAgentConnector_ms: 0.3450632095336914
+  custom_metrics: {}
+  episode_len_mean: 100.0
+  episode_media: {}
+  episode_reward_max: -16900.08878446782
+  episode_reward_mean: -24850.94440849819
+  episode_reward_min: -37328.404718320206
+  episodes_this_iter: 3
+  hist_stats:
+    episode_lengths:
+    - 100
+    - 100
+    - 100
+    episode_reward:
+    - -37328.404718320206
+    - -16900.08878446782
+    - -20324.339722706543
+  num_agent_steps_sampled_this_iter: 300
+  num_env_steps_sampled_this_iter: 300
+  num_faulty_episodes: 0
+  num_healthy_workers: 3
+  num_in_flight_async_reqs: 0
+  num_remote_worker_restarts: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.14895137844805106
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 35.733634450065516
+    mean_inference_ms: 3.134035655923718
+    mean_raw_obs_processing_ms: 1.102496661376505
+  sampler_results:
+    connector_metrics:
+      StateBufferConnector_ms: 0.009298324584960938
+      ViewRequirementAgentConnector_ms: 0.3450632095336914
+    custom_metrics: {}
+    episode_len_mean: 100.0
+    episode_media: {}
+    episode_reward_max: -16900.08878446782
+    episode_reward_mean: -24850.94440849819
+    episode_reward_min: -37328.404718320206
+    episodes_this_iter: 3
+    hist_stats:
+      episode_lengths:
+      - 100
+      - 100
+      - 100
+      episode_reward:
+      - -37328.404718320206
+      - -16900.08878446782
+      - -20324.339722706543
+    num_faulty_episodes: 0
+    policy_reward_max: {}
+    policy_reward_mean: {}
+    policy_reward_min: {}
+    sampler_perf:
+      mean_action_processing_ms: 0.14895137844805106
+      mean_env_render_ms: 0.0
+      mean_env_wait_ms: 35.733634450065516
+      mean_inference_ms: 3.134035655923718
+      mean_raw_obs_processing_ms: 1.102496661376505
+  timesteps_this_iter: 300
+hostname: 0d8bcfbe7588
+info:
+  learner:
+    __all__:
+      num_agent_steps_trained: 8.0
+      num_env_steps_trained: 32.0
+      total_loss: 8.905473935604096
+    default_policy:
+      curr_entropy_coeff: 0.0
+      curr_kl_coeff: 1.4829413890838623
+      curr_lr: 1.0e-05
+      default_optimizer_lr: 1.0e-05
+      entropy: 1.451394903411468
+      gradients_default_optimizer_global_norm: 2.6426877745116752
+      mean_kl_loss: 0.014690160916749543
+      policy_loss: -0.11451717888315519
+      total_loss: 8.905473935604096
+      vf_explained_var: -1.0311603546142579e-06
+      vf_loss: 8.99820647239685
+      vf_loss_unclipped: 17746.003512064617
+  num_agent_steps_sampled: 512000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 512000
+  num_env_steps_trained: 0
+iterations_since_restore: 500
+node_ip: 172.28.0.12
+num_agent_steps_sampled: 512000
+num_agent_steps_trained: 0
+num_env_steps_sampled: 512000
+num_env_steps_sampled_this_iter: 1024
+num_env_steps_sampled_throughput_per_sec: 11.796599424009
+num_env_steps_trained: 0
+num_env_steps_trained_this_iter: 0
+num_env_steps_trained_throughput_per_sec: 0.0
+num_faulty_episodes: 0
+num_healthy_workers: 4
+num_in_flight_async_reqs: 0
+num_remote_worker_restarts: 0
+num_steps_trained_this_iter: 0
+perf:
+  cpu_util_percent: 54.64885496183206
+  ram_util_percent: 12.157251908396947
+pid: 2609
+policy_reward_max: {}
+policy_reward_mean: {}
+policy_reward_min: {}
+sampler_perf:
+  mean_action_processing_ms: 0.1638375876941443
+  mean_env_render_ms: 0.0
+  mean_env_wait_ms: 38.33462832861463
+  mean_inference_ms: 3.4523477606948045
+  mean_raw_obs_processing_ms: 1.5575403818745068
+sampler_results:
+  connector_metrics:
+    StateBufferConnector_ms: 0.009068012237548828
+    ViewRequirementAgentConnector_ms: 0.4126856327056885
+  custom_metrics: {}
+  episode_len_mean: 96.24
+  episode_media: {}
+  episode_reward_max: 0.0
+  episode_reward_mean: -8247.203678803235
+  episode_reward_min: -42035.20982896265
+  episodes_this_iter: 11
+  hist_stats:
+    episode_lengths: [100, 100, 100, 100, 100, 2, 100, 100, 100, 100, 100, 100, 100,
+      100, 100, 100, 100, 1, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+      100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+      100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+      100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100,
+      100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 18, 100, 100, 100, 100, 100,
+      100, 3, 100, 100, 100, 100, 100]
+    episode_reward: [-20489.94786031714, -2354.7276572475516, -6585.665232268048,
+      -5145.597337879475, -3111.2372905483926, -56.47213595499958, -4208.075003758696,
+      -6620.802773110724, -6319.629495811227, -1323.6067977499786, -10191.362319901828,
+      -5045.966509947593, -5211.477053095517, -17402.299953524423, -14570.321949388936,
+      -13527.550174677059, -8497.741886899183, 0.0, -2845.0822341305334, -400.0, -15573.258467991745,
+      -9626.069146549886, -5369.712884157226, -16573.323778461985, -12176.512749209096,
+      -6779.13634620234, -3765.247584249849, -6431.370536323151, -12380.53999382725,
+      -200.0, -6035.182091222721, -9698.355336327018, -10816.971883490261, -4743.789888459561,
+      -5974.978695260153, -400.0, -3273.3709798785876, -35160.26635485037, -100.0,
+      -1823.6067977499767, -4819.527232279137, -11262.379821791752, -11079.373534345661,
+      -10729.994522760688, -3977.560688886462, -7202.598136486756, -16658.045588588087,
+      -11620.59960077496, -6752.00943749005, -6505.852183359429, -8784.221728475575,
+      -3775.0001008888844, -33819.111375841516, -4972.23160737142, -7348.004155436565,
+      -5096.936958526425, -5710.9858548367565, -5869.940384001723, -13060.785535073075,
+      -3531.6643128036744, -7096.864805040439, -6811.242610560825, -1997.9564264743879,
+      -7543.947128368137, -6830.243956714332, -316.2277660168381, -21197.64652842329,
+      -24391.327917260165, -2517.901951359279, -9432.58299282861, -2981.7247036350936,
+      -400.0, -1170.7445651649732, -9839.334097841229, -223.60679774997928, -5312.010092496137,
+      -6057.0779844999715, -12829.405385939788, -12988.80266391296, -3879.2882662460497,
+      -19523.786411377147, -10277.682061462976, -5877.531598548259, -5365.738643937385,
+      -42035.20982896265, -5639.07149950579, -25006.598745181127, -871.1524482407623,
+      -8491.883834493037, -7640.702626819826, -15910.439124410894, -3967.3440249954606,
+      -4738.685547543193, -8209.146918071596, -85.6124969497314, -9688.466241192418,
+      -5611.254776839936, -3743.398113205652, -2264.8451933862566, -12567.801164225813]
+  num_faulty_episodes: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.1638375876941443
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 38.33462832861463
+    mean_inference_ms: 3.4523477606948045
+    mean_raw_obs_processing_ms: 1.5575403818745068
+time_since_restore: 43835.104845285416
+time_this_iter_s: 91.26492929458618
+time_total_s: 43835.104845285416
+timers:
+  sample_time_ms: 385.666
+  synch_weights_time_ms: 20.364
+  training_iteration_time_ms: 2867.303
+timestamp: 1708986085
+timesteps_total: 512000
+training_iteration: 500
+trial_id: default
+
+2024-02-26 14:21:26,128 DEBUG {'env': {'coefficient_dict': {'p_b': 1.0, 'p_d': 1.0, 'r_c': 1.0}, 'cropped_map_size': 64, 'action_space_size': 32, 'n_maps': 400, 'n_steps_per_map': 100, 'no_masking': False, 'original_map_path': './resource/usc.png', 'original_map_scale': 3.4375, 'preset_map_path': './resource/setup_400.json', 'ratio_coverage': 0.0125}, 'eval': {'evaluation_config': {'env_config': {'evaluation': True, 'n_maps': 1, 'preset_map_path': None}, 'exploration': {'explore': False}}, 'evaluation_duration': 3, 'evaluation_interval': 5, 'evaluation_num_workers': 3}, 'explore': {'exploration_config': {'type': 'StochasticSampling'}, 'explore': True}, 'report': {'min_sample_timesteps_per_iteration': 1000}, 'resource': {'num_cpus_per_worker': 2, 'num_gpus': 1, 'num_gpus_per_worker': 0}, 'rollout': {'num_envs_per_worker': 1, 'num_rollout_workers': 4}, 'stop': {'training_iteration': 500}, 'train': {'lr': 1e-05, 'gamma': 0.1, 'grad_clip': 40.0, 'train_batch_size': 32, 'sgd_minibatch_size': 8, 'num_sgd_iter': 30}}
+2024-02-26 14:21:26,129 INFO =============TRAINING ENDED=============
+2024-02-26 14:21:34,985 INFO average coverage reward for trained map 0: 643.56, optimal reward: 703, ratio: 0.9154480796586059
+2024-02-26 14:21:43,066 INFO average coverage reward for trained map 1: 742.78, optimal reward: 770, ratio: 0.9646493506493506
+2024-02-26 14:21:50,818 INFO average coverage reward for trained map 2: 742.78, optimal reward: 767, ratio: 0.9684224250325945
+2024-02-26 14:22:39,835 INFO average coverage reward for new map 0: 716.0, optimal reward: 716, ratio: 1.0
+2024-02-26 14:22:47,613 INFO average coverage reward for new map 1: 534.7, optimal reward: 786, ratio: 0.6802798982188296
+2024-02-26 14:22:55,788 INFO average coverage reward for new map 2: 612.52, optimal reward: 773, ratio: 0.7923932729624839
+2024-02-26 16:40:18,848 INFO average coverage reward for trained map 0: 620.82, optimal reward: 703, ratio: 0.8831009957325747
+2024-02-26 16:40:18,848 INFO average coverage reward for trained map 0: 620.82, optimal reward: 703, ratio: 0.8831009957325747
+2024-02-26 16:40:27,323 INFO average coverage reward for trained map 1: 627.28, optimal reward: 770, ratio: 0.8146493506493506
+2024-02-26 16:40:27,323 INFO average coverage reward for trained map 1: 627.28, optimal reward: 770, ratio: 0.8146493506493506
+2024-02-26 16:40:35,156 INFO average coverage reward for trained map 2: 694.21, optimal reward: 767, ratio: 0.9050977835723599
+2024-02-26 16:40:35,156 INFO average coverage reward for trained map 2: 694.21, optimal reward: 767, ratio: 0.9050977835723599
+2024-02-26 16:40:43,127 INFO average coverage reward for trained map 3: 390.32, optimal reward: 722, ratio: 0.5406094182825485
+2024-02-26 16:40:43,127 INFO average coverage reward for trained map 3: 390.32, optimal reward: 722, ratio: 0.5406094182825485
+2024-02-26 16:40:51,157 INFO average coverage reward for trained map 4: 712.7, optimal reward: 741, ratio: 0.9618083670715251
+2024-02-26 16:40:51,157 INFO average coverage reward for trained map 4: 712.7, optimal reward: 741, ratio: 0.9618083670715251
+2024-02-26 16:40:59,311 INFO average coverage reward for trained map 5: 703.73, optimal reward: 766, ratio: 0.9187075718015666
+2024-02-26 16:40:59,311 INFO average coverage reward for trained map 5: 703.73, optimal reward: 766, ratio: 0.9187075718015666
+2024-02-26 16:41:07,353 INFO average coverage reward for trained map 6: 757.0, optimal reward: 773, ratio: 0.9793014230271668
+2024-02-26 16:41:07,353 INFO average coverage reward for trained map 6: 757.0, optimal reward: 773, ratio: 0.9793014230271668
+2024-02-26 16:41:15,468 INFO average coverage reward for trained map 7: 744.55, optimal reward: 768, ratio: 0.9694661458333332
+2024-02-26 16:41:15,468 INFO average coverage reward for trained map 7: 744.55, optimal reward: 768, ratio: 0.9694661458333332
+2024-02-26 16:41:23,224 INFO average coverage reward for trained map 8: 764.94, optimal reward: 770, ratio: 0.9934285714285715
+2024-02-26 16:41:23,224 INFO average coverage reward for trained map 8: 764.94, optimal reward: 770, ratio: 0.9934285714285715
+2024-02-26 16:41:30,890 INFO average coverage reward for trained map 9: 598.19, optimal reward: 786, ratio: 0.7610559796437659
+2024-02-26 16:41:30,890 INFO average coverage reward for trained map 9: 598.19, optimal reward: 786, ratio: 0.7610559796437659
+2024-02-26 16:41:38,304 INFO average coverage reward for trained map 10: 627.05, optimal reward: 728, ratio: 0.8613324175824175
+2024-02-26 16:41:38,304 INFO average coverage reward for trained map 10: 627.05, optimal reward: 728, ratio: 0.8613324175824175
+2024-02-26 16:41:45,471 INFO average coverage reward for trained map 11: 711.47, optimal reward: 739, ratio: 0.9627469553450609
+2024-02-26 16:41:45,471 INFO average coverage reward for trained map 11: 711.47, optimal reward: 739, ratio: 0.9627469553450609
+2024-02-26 16:41:53,575 INFO average coverage reward for trained map 12: 480.59, optimal reward: 485, ratio: 0.9909072164948453
+2024-02-26 16:41:53,575 INFO average coverage reward for trained map 12: 480.59, optimal reward: 485, ratio: 0.9909072164948453
+2024-02-26 16:42:00,567 INFO average coverage reward for trained map 13: 637.57, optimal reward: 733, ratio: 0.8698090040927695
+2024-02-26 16:42:00,567 INFO average coverage reward for trained map 13: 637.57, optimal reward: 733, ratio: 0.8698090040927695
+2024-02-26 16:42:08,639 INFO average coverage reward for trained map 14: 660.0, optimal reward: 689, ratio: 0.9579100145137881
+2024-02-26 16:42:08,639 INFO average coverage reward for trained map 14: 660.0, optimal reward: 689, ratio: 0.9579100145137881
+2024-02-26 16:42:16,569 INFO average coverage reward for trained map 15: 697.23, optimal reward: 732, ratio: 0.9525
+2024-02-26 16:42:16,569 INFO average coverage reward for trained map 15: 697.23, optimal reward: 732, ratio: 0.9525
+2024-02-26 16:42:24,447 INFO average coverage reward for trained map 16: 724.5, optimal reward: 741, ratio: 0.9777327935222672
+2024-02-26 16:42:24,447 INFO average coverage reward for trained map 16: 724.5, optimal reward: 741, ratio: 0.9777327935222672
+2024-02-26 16:42:32,363 INFO average coverage reward for trained map 17: 605.75, optimal reward: 690, ratio: 0.8778985507246376
+2024-02-26 16:42:32,363 INFO average coverage reward for trained map 17: 605.75, optimal reward: 690, ratio: 0.8778985507246376
+2024-02-26 16:42:39,588 INFO average coverage reward for trained map 18: 610.51, optimal reward: 733, ratio: 0.8328922237380627
+2024-02-26 16:42:39,588 INFO average coverage reward for trained map 18: 610.51, optimal reward: 733, ratio: 0.8328922237380627
+2024-02-26 16:42:47,579 INFO average coverage reward for trained map 19: 666.77, optimal reward: 763, ratio: 0.8738794233289646
+2024-02-26 16:42:47,579 INFO average coverage reward for trained map 19: 666.77, optimal reward: 763, ratio: 0.8738794233289646
+2024-02-26 16:42:55,954 INFO average coverage reward for trained map 20: 748.0, optimal reward: 768, ratio: 0.9739583333333334
+2024-02-26 16:42:55,954 INFO average coverage reward for trained map 20: 748.0, optimal reward: 768, ratio: 0.9739583333333334
+2024-02-26 16:43:03,401 INFO average coverage reward for trained map 21: 580.22, optimal reward: 741, ratio: 0.7830229419703104
+2024-02-26 16:43:03,401 INFO average coverage reward for trained map 21: 580.22, optimal reward: 741, ratio: 0.7830229419703104
+2024-02-26 16:43:10,981 INFO average coverage reward for trained map 22: 675.14, optimal reward: 770, ratio: 0.8768051948051948
+2024-02-26 16:43:10,981 INFO average coverage reward for trained map 22: 675.14, optimal reward: 770, ratio: 0.8768051948051948
+2024-02-26 16:43:18,738 INFO average coverage reward for trained map 23: 647.17, optimal reward: 691, ratio: 0.9365701881331403
+2024-02-26 16:43:18,738 INFO average coverage reward for trained map 23: 647.17, optimal reward: 691, ratio: 0.9365701881331403
+2024-02-26 16:43:26,823 INFO average coverage reward for trained map 24: 744.09, optimal reward: 773, ratio: 0.9626002587322122
+2024-02-26 16:43:26,823 INFO average coverage reward for trained map 24: 744.09, optimal reward: 773, ratio: 0.9626002587322122
+2024-02-26 16:43:34,529 INFO average coverage reward for trained map 25: 655.76, optimal reward: 760, ratio: 0.8628421052631579
+2024-02-26 16:43:34,529 INFO average coverage reward for trained map 25: 655.76, optimal reward: 760, ratio: 0.8628421052631579
+2024-02-26 16:43:42,205 INFO average coverage reward for trained map 26: 663.0, optimal reward: 712, ratio: 0.9311797752808989
+2024-02-26 16:43:42,205 INFO average coverage reward for trained map 26: 663.0, optimal reward: 712, ratio: 0.9311797752808989
+2024-02-26 16:43:48,995 INFO average coverage reward for trained map 27: 607.07, optimal reward: 705, ratio: 0.8610921985815604
+2024-02-26 16:43:48,995 INFO average coverage reward for trained map 27: 607.07, optimal reward: 705, ratio: 0.8610921985815604
+2024-02-26 16:43:57,253 INFO average coverage reward for trained map 28: 769.27, optimal reward: 786, ratio: 0.9787150127226463
+2024-02-26 16:43:57,253 INFO average coverage reward for trained map 28: 769.27, optimal reward: 786, ratio: 0.9787150127226463
+2024-02-26 16:44:05,091 INFO average coverage reward for trained map 29: 782.0, optimal reward: 782, ratio: 1.0
+2024-02-26 16:44:05,091 INFO average coverage reward for trained map 29: 782.0, optimal reward: 782, ratio: 1.0
+2024-02-26 16:44:12,133 INFO average coverage reward for trained map 30: 636.74, optimal reward: 734, ratio: 0.8674931880108991
+2024-02-26 16:44:12,133 INFO average coverage reward for trained map 30: 636.74, optimal reward: 734, ratio: 0.8674931880108991
+2024-02-26 16:44:20,212 INFO average coverage reward for trained map 31: 501.11, optimal reward: 765, ratio: 0.6550457516339869
+2024-02-26 16:44:20,212 INFO average coverage reward for trained map 31: 501.11, optimal reward: 765, ratio: 0.6550457516339869
+2024-02-26 16:44:27,342 INFO average coverage reward for trained map 32: 596.61, optimal reward: 693, ratio: 0.860909090909091
+2024-02-26 16:44:27,342 INFO average coverage reward for trained map 32: 596.61, optimal reward: 693, ratio: 0.860909090909091
+2024-02-26 16:44:34,462 INFO average coverage reward for trained map 33: 496.32, optimal reward: 746, ratio: 0.6653083109919571
+2024-02-26 16:44:34,462 INFO average coverage reward for trained map 33: 496.32, optimal reward: 746, ratio: 0.6653083109919571
+2024-02-26 16:44:41,417 INFO average coverage reward for trained map 34: 674.22, optimal reward: 715, ratio: 0.942965034965035
+2024-02-26 16:44:41,417 INFO average coverage reward for trained map 34: 674.22, optimal reward: 715, ratio: 0.942965034965035
+2024-02-26 16:44:48,855 INFO average coverage reward for trained map 35: 578.1, optimal reward: 750, ratio: 0.7708
+2024-02-26 16:44:48,855 INFO average coverage reward for trained map 35: 578.1, optimal reward: 750, ratio: 0.7708
+2024-02-26 16:44:55,845 INFO average coverage reward for trained map 36: 407.07, optimal reward: 733, ratio: 0.5553478854024556
+2024-02-26 16:44:55,845 INFO average coverage reward for trained map 36: 407.07, optimal reward: 733, ratio: 0.5553478854024556
+2024-02-26 16:45:03,313 INFO average coverage reward for trained map 37: 654.94, optimal reward: 727, ratio: 0.9008803301237965
+2024-02-26 16:45:03,313 INFO average coverage reward for trained map 37: 654.94, optimal reward: 727, ratio: 0.9008803301237965
+2024-02-26 16:45:10,700 INFO average coverage reward for trained map 38: 595.58, optimal reward: 730, ratio: 0.8158630136986302
+2024-02-26 16:45:10,700 INFO average coverage reward for trained map 38: 595.58, optimal reward: 730, ratio: 0.8158630136986302
+2024-02-26 16:45:18,227 INFO average coverage reward for trained map 39: 476.6, optimal reward: 782, ratio: 0.6094629156010231
+2024-02-26 16:45:18,227 INFO average coverage reward for trained map 39: 476.6, optimal reward: 782, ratio: 0.6094629156010231
+2024-02-26 16:45:26,141 INFO average coverage reward for trained map 40: 725.94, optimal reward: 767, ratio: 0.9464667535853978
+2024-02-26 16:45:26,141 INFO average coverage reward for trained map 40: 725.94, optimal reward: 767, ratio: 0.9464667535853978
+2024-02-26 16:45:33,841 INFO average coverage reward for trained map 41: 794.87, optimal reward: 797, ratio: 0.99732747804266
+2024-02-26 16:45:33,841 INFO average coverage reward for trained map 41: 794.87, optimal reward: 797, ratio: 0.99732747804266
+2024-02-26 16:45:40,915 INFO average coverage reward for trained map 42: 611.12, optimal reward: 735, ratio: 0.8314557823129252
+2024-02-26 16:45:40,915 INFO average coverage reward for trained map 42: 611.12, optimal reward: 735, ratio: 0.8314557823129252
+2024-02-26 16:45:47,857 INFO average coverage reward for trained map 43: 685.43, optimal reward: 738, ratio: 0.9287669376693767
+2024-02-26 16:45:47,857 INFO average coverage reward for trained map 43: 685.43, optimal reward: 738, ratio: 0.9287669376693767
+2024-02-26 16:45:55,630 INFO average coverage reward for trained map 44: 722.3, optimal reward: 770, ratio: 0.938051948051948
+2024-02-26 16:45:55,630 INFO average coverage reward for trained map 44: 722.3, optimal reward: 770, ratio: 0.938051948051948
+2024-02-26 16:46:03,033 INFO average coverage reward for trained map 45: 665.96, optimal reward: 728, ratio: 0.9147802197802198
+2024-02-26 16:46:03,033 INFO average coverage reward for trained map 45: 665.96, optimal reward: 728, ratio: 0.9147802197802198
+2024-02-26 16:46:10,974 INFO average coverage reward for trained map 46: 686.6, optimal reward: 786, ratio: 0.8735368956743003
+2024-02-26 16:46:10,974 INFO average coverage reward for trained map 46: 686.6, optimal reward: 786, ratio: 0.8735368956743003
+2024-02-26 16:46:17,979 INFO average coverage reward for trained map 47: 615.61, optimal reward: 716, ratio: 0.8597905027932962
+2024-02-26 16:46:17,979 INFO average coverage reward for trained map 47: 615.61, optimal reward: 716, ratio: 0.8597905027932962
+2024-02-26 16:46:26,203 INFO average coverage reward for trained map 48: 722.94, optimal reward: 786, ratio: 0.9197709923664122
+2024-02-26 16:46:26,203 INFO average coverage reward for trained map 48: 722.94, optimal reward: 786, ratio: 0.9197709923664122
+2024-02-26 16:46:34,623 INFO average coverage reward for trained map 49: 782.0, optimal reward: 782, ratio: 1.0
+2024-02-26 16:46:34,623 INFO average coverage reward for trained map 49: 782.0, optimal reward: 782, ratio: 1.0
+2024-02-26 16:46:42,150 INFO average coverage reward for trained map 50: 669.21, optimal reward: 697, ratio: 0.96012912482066
+2024-02-26 16:46:42,150 INFO average coverage reward for trained map 50: 669.21, optimal reward: 697, ratio: 0.96012912482066
+2024-02-26 16:46:48,929 INFO average coverage reward for trained map 51: 371.93, optimal reward: 655, ratio: 0.5678320610687023
+2024-02-26 16:46:48,929 INFO average coverage reward for trained map 51: 371.93, optimal reward: 655, ratio: 0.5678320610687023
+2024-02-26 16:46:55,869 INFO average coverage reward for trained map 52: 558.41, optimal reward: 737, ratio: 0.7576797829036634
+2024-02-26 16:46:55,869 INFO average coverage reward for trained map 52: 558.41, optimal reward: 737, ratio: 0.7576797829036634
+2024-02-26 16:47:04,261 INFO average coverage reward for trained map 53: 389.86, optimal reward: 697, ratio: 0.5593400286944046
+2024-02-26 16:47:04,261 INFO average coverage reward for trained map 53: 389.86, optimal reward: 697, ratio: 0.5593400286944046
+2024-02-26 16:47:11,262 INFO average coverage reward for trained map 54: 722.23, optimal reward: 756, ratio: 0.9553306878306879
+2024-02-26 16:47:11,262 INFO average coverage reward for trained map 54: 722.23, optimal reward: 756, ratio: 0.9553306878306879
+2024-02-26 16:47:18,371 INFO average coverage reward for trained map 55: 648.18, optimal reward: 733, ratio: 0.8842837653478853
+2024-02-26 16:47:18,371 INFO average coverage reward for trained map 55: 648.18, optimal reward: 733, ratio: 0.8842837653478853
+2024-02-26 16:47:26,156 INFO average coverage reward for trained map 56: 687.65, optimal reward: 770, ratio: 0.893051948051948
+2024-02-26 16:47:26,156 INFO average coverage reward for trained map 56: 687.65, optimal reward: 770, ratio: 0.893051948051948
+2024-02-26 16:47:34,372 INFO average coverage reward for trained map 57: 685.96, optimal reward: 763, ratio: 0.899030144167759
+2024-02-26 16:47:34,372 INFO average coverage reward for trained map 57: 685.96, optimal reward: 763, ratio: 0.899030144167759
+2024-02-26 16:47:42,231 INFO average coverage reward for trained map 58: 750.78, optimal reward: 797, ratio: 0.9420075282308658
+2024-02-26 16:47:42,231 INFO average coverage reward for trained map 58: 750.78, optimal reward: 797, ratio: 0.9420075282308658
+2024-02-26 16:47:50,132 INFO average coverage reward for trained map 59: 680.09, optimal reward: 723, ratio: 0.9406500691562932
+2024-02-26 16:47:50,132 INFO average coverage reward for trained map 59: 680.09, optimal reward: 723, ratio: 0.9406500691562932
+2024-02-26 16:47:57,220 INFO average coverage reward for trained map 60: 641.39, optimal reward: 733, ratio: 0.8750204638472032
+2024-02-26 16:47:57,220 INFO average coverage reward for trained map 60: 641.39, optimal reward: 733, ratio: 0.8750204638472032
+2024-02-26 16:48:04,110 INFO average coverage reward for trained map 61: 402.19, optimal reward: 684, ratio: 0.5879970760233918
+2024-02-26 16:48:04,110 INFO average coverage reward for trained map 61: 402.19, optimal reward: 684, ratio: 0.5879970760233918
+2024-02-26 16:48:10,675 INFO average coverage reward for trained map 62: 394.42, optimal reward: 662, ratio: 0.5958006042296072
+2024-02-26 16:48:10,675 INFO average coverage reward for trained map 62: 394.42, optimal reward: 662, ratio: 0.5958006042296072
+2024-02-26 16:48:18,549 INFO average coverage reward for trained map 63: 683.93, optimal reward: 741, ratio: 0.9229824561403508
+2024-02-26 16:48:18,549 INFO average coverage reward for trained map 63: 683.93, optimal reward: 741, ratio: 0.9229824561403508
+2024-02-26 16:48:26,361 INFO average coverage reward for trained map 64: 792.0, optimal reward: 797, ratio: 0.9937264742785445
+2024-02-26 16:48:26,361 INFO average coverage reward for trained map 64: 792.0, optimal reward: 797, ratio: 0.9937264742785445
+2024-02-26 16:48:34,315 INFO average coverage reward for trained map 65: 685.14, optimal reward: 767, ratio: 0.8932724902216428
+2024-02-26 16:48:34,315 INFO average coverage reward for trained map 65: 685.14, optimal reward: 767, ratio: 0.8932724902216428
+2024-02-26 16:48:41,019 INFO average coverage reward for trained map 66: 609.07, optimal reward: 710, ratio: 0.8578450704225353
+2024-02-26 16:48:41,019 INFO average coverage reward for trained map 66: 609.07, optimal reward: 710, ratio: 0.8578450704225353
+2024-02-26 16:48:48,532 INFO average coverage reward for trained map 67: 669.03, optimal reward: 707, ratio: 0.9462942008486562
+2024-02-26 16:48:48,532 INFO average coverage reward for trained map 67: 669.03, optimal reward: 707, ratio: 0.9462942008486562
+2024-02-26 16:48:56,664 INFO average coverage reward for trained map 68: 777.1, optimal reward: 782, ratio: 0.9937340153452686
+2024-02-26 16:48:56,664 INFO average coverage reward for trained map 68: 777.1, optimal reward: 782, ratio: 0.9937340153452686
+2024-02-26 16:49:05,009 INFO average coverage reward for trained map 69: 691.36, optimal reward: 786, ratio: 0.8795928753180662
+2024-02-26 16:49:05,009 INFO average coverage reward for trained map 69: 691.36, optimal reward: 786, ratio: 0.8795928753180662
+2024-02-26 16:49:14,006 INFO average coverage reward for trained map 70: 657.0, optimal reward: 657, ratio: 1.0
+2024-02-26 16:49:14,006 INFO average coverage reward for trained map 70: 657.0, optimal reward: 657, ratio: 1.0
+2024-02-26 16:49:22,169 INFO average coverage reward for trained map 71: 419.0, optimal reward: 721, ratio: 0.5811373092926491
+2024-02-26 16:49:22,169 INFO average coverage reward for trained map 71: 419.0, optimal reward: 721, ratio: 0.5811373092926491
+2024-02-26 16:49:30,231 INFO average coverage reward for trained map 72: 725.92, optimal reward: 786, ratio: 0.923562340966921
+2024-02-26 16:49:30,231 INFO average coverage reward for trained map 72: 725.92, optimal reward: 786, ratio: 0.923562340966921
+2024-02-26 16:49:38,446 INFO average coverage reward for trained map 73: 730.81, optimal reward: 770, ratio: 0.949103896103896
+2024-02-26 16:49:38,446 INFO average coverage reward for trained map 73: 730.81, optimal reward: 770, ratio: 0.949103896103896
+2024-02-26 16:49:45,898 INFO average coverage reward for trained map 74: 667.99, optimal reward: 728, ratio: 0.9175686813186813
+2024-02-26 16:49:45,898 INFO average coverage reward for trained map 74: 667.99, optimal reward: 728, ratio: 0.9175686813186813
+2024-02-26 16:49:53,437 INFO average coverage reward for trained map 75: 652.8, optimal reward: 745, ratio: 0.876241610738255
+2024-02-26 16:49:53,437 INFO average coverage reward for trained map 75: 652.8, optimal reward: 745, ratio: 0.876241610738255
+2024-02-26 16:50:01,138 INFO average coverage reward for trained map 76: 635.0, optimal reward: 714, ratio: 0.8893557422969187
+2024-02-26 16:50:01,138 INFO average coverage reward for trained map 76: 635.0, optimal reward: 714, ratio: 0.8893557422969187
+2024-02-26 16:50:08,762 INFO average coverage reward for trained map 77: 642.22, optimal reward: 750, ratio: 0.8562933333333334
+2024-02-26 16:50:08,762 INFO average coverage reward for trained map 77: 642.22, optimal reward: 750, ratio: 0.8562933333333334
+2024-02-26 16:50:15,974 INFO average coverage reward for trained map 78: 614.03, optimal reward: 709, ratio: 0.8660507757404795
+2024-02-26 16:50:15,974 INFO average coverage reward for trained map 78: 614.03, optimal reward: 709, ratio: 0.8660507757404795
+2024-02-26 16:50:23,837 INFO average coverage reward for trained map 79: 739.43, optimal reward: 768, ratio: 0.9627994791666666
+2024-02-26 16:50:23,837 INFO average coverage reward for trained map 79: 739.43, optimal reward: 768, ratio: 0.9627994791666666
+2024-02-26 16:50:31,519 INFO average coverage reward for trained map 80: 518.77, optimal reward: 729, ratio: 0.7116186556927298
+2024-02-26 16:50:31,519 INFO average coverage reward for trained map 80: 518.77, optimal reward: 729, ratio: 0.7116186556927298
+2024-02-26 16:50:38,260 INFO average coverage reward for trained map 81: 421.79, optimal reward: 625, ratio: 0.674864
+2024-02-26 16:50:38,260 INFO average coverage reward for trained map 81: 421.79, optimal reward: 625, ratio: 0.674864
+2024-02-26 16:50:45,595 INFO average coverage reward for trained map 82: 591.92, optimal reward: 750, ratio: 0.7892266666666666
+2024-02-26 16:50:45,595 INFO average coverage reward for trained map 82: 591.92, optimal reward: 750, ratio: 0.7892266666666666
+2024-02-26 16:50:52,853 INFO average coverage reward for trained map 83: 645.13, optimal reward: 709, ratio: 0.9099153737658674
+2024-02-26 16:50:52,853 INFO average coverage reward for trained map 83: 645.13, optimal reward: 709, ratio: 0.9099153737658674
+2024-02-26 16:51:01,101 INFO average coverage reward for trained map 84: 760.12, optimal reward: 776, ratio: 0.9795360824742269
+2024-02-26 16:51:01,101 INFO average coverage reward for trained map 84: 760.12, optimal reward: 776, ratio: 0.9795360824742269
+2024-02-26 16:51:08,738 INFO average coverage reward for trained map 85: 570.97, optimal reward: 737, ratio: 0.7747218453188602
+2024-02-26 16:51:08,738 INFO average coverage reward for trained map 85: 570.97, optimal reward: 737, ratio: 0.7747218453188602
+2024-02-26 16:51:16,567 INFO average coverage reward for trained map 86: 515.89, optimal reward: 786, ratio: 0.6563486005089059
+2024-02-26 16:51:16,567 INFO average coverage reward for trained map 86: 515.89, optimal reward: 786, ratio: 0.6563486005089059
+2024-02-26 16:51:23,566 INFO average coverage reward for trained map 87: 671.49, optimal reward: 706, ratio: 0.9511189801699717
+2024-02-26 16:51:23,566 INFO average coverage reward for trained map 87: 671.49, optimal reward: 706, ratio: 0.9511189801699717
+2024-02-26 16:51:31,214 INFO average coverage reward for trained map 88: 578.34, optimal reward: 786, ratio: 0.7358015267175573
+2024-02-26 16:51:31,214 INFO average coverage reward for trained map 88: 578.34, optimal reward: 786, ratio: 0.7358015267175573
+2024-02-26 16:51:38,316 INFO average coverage reward for trained map 89: 650.93, optimal reward: 703, ratio: 0.925931721194879
+2024-02-26 16:51:38,316 INFO average coverage reward for trained map 89: 650.93, optimal reward: 703, ratio: 0.925931721194879
+2024-02-26 16:51:45,891 INFO average coverage reward for trained map 90: 664.02, optimal reward: 771, ratio: 0.8612451361867705
+2024-02-26 16:51:45,891 INFO average coverage reward for trained map 90: 664.02, optimal reward: 771, ratio: 0.8612451361867705
+2024-02-26 16:51:54,141 INFO average coverage reward for trained map 91: 766.0, optimal reward: 782, ratio: 0.979539641943734
+2024-02-26 16:51:54,141 INFO average coverage reward for trained map 91: 766.0, optimal reward: 782, ratio: 0.979539641943734
+2024-02-26 16:52:01,302 INFO average coverage reward for trained map 92: 672.9, optimal reward: 735, ratio: 0.9155102040816326
+2024-02-26 16:52:01,302 INFO average coverage reward for trained map 92: 672.9, optimal reward: 735, ratio: 0.9155102040816326
+2024-02-26 16:52:08,565 INFO average coverage reward for trained map 93: 684.31, optimal reward: 797, ratio: 0.8586072772898368
+2024-02-26 16:52:08,565 INFO average coverage reward for trained map 93: 684.31, optimal reward: 797, ratio: 0.8586072772898368
+2024-02-26 16:52:15,683 INFO average coverage reward for trained map 94: 666.35, optimal reward: 706, ratio: 0.9438385269121813
+2024-02-26 16:52:15,683 INFO average coverage reward for trained map 94: 666.35, optimal reward: 706, ratio: 0.9438385269121813
+2024-02-26 16:52:23,547 INFO average coverage reward for trained map 95: 755.0, optimal reward: 770, ratio: 0.9805194805194806
+2024-02-26 16:52:23,547 INFO average coverage reward for trained map 95: 755.0, optimal reward: 770, ratio: 0.9805194805194806
+2024-02-26 16:52:31,380 INFO average coverage reward for trained map 96: 726.52, optimal reward: 762, ratio: 0.9534383202099738
+2024-02-26 16:52:31,380 INFO average coverage reward for trained map 96: 726.52, optimal reward: 762, ratio: 0.9534383202099738
+2024-02-26 16:52:39,125 INFO average coverage reward for trained map 97: 670.68, optimal reward: 743, ratio: 0.902664872139973
+2024-02-26 16:52:39,125 INFO average coverage reward for trained map 97: 670.68, optimal reward: 743, ratio: 0.902664872139973
+2024-02-26 16:52:47,553 INFO average coverage reward for trained map 98: 405.03, optimal reward: 456, ratio: 0.8882236842105262
+2024-02-26 16:52:47,553 INFO average coverage reward for trained map 98: 405.03, optimal reward: 456, ratio: 0.8882236842105262
+2024-02-26 16:52:54,608 INFO average coverage reward for trained map 99: 596.4, optimal reward: 716, ratio: 0.8329608938547486
+2024-02-26 16:52:54,608 INFO average coverage reward for trained map 99: 596.4, optimal reward: 716, ratio: 0.8329608938547486
+2024-02-26 17:22:42,790 INFO average coverage reward for new map 0: 776.69, optimal reward: 782, ratio: 0.9932097186700768
+2024-02-26 17:22:42,790 INFO average coverage reward for new map 0: 776.69, optimal reward: 782, ratio: 0.9932097186700768
+2024-02-26 17:22:50,659 INFO average coverage reward for new map 1: 580.46, optimal reward: 768, ratio: 0.7558072916666667
+2024-02-26 17:22:50,659 INFO average coverage reward for new map 1: 580.46, optimal reward: 768, ratio: 0.7558072916666667
+2024-02-26 17:22:58,712 INFO average coverage reward for new map 2: 627.18, optimal reward: 773, ratio: 0.8113583441138421
+2024-02-26 17:22:58,712 INFO average coverage reward for new map 2: 627.18, optimal reward: 773, ratio: 0.8113583441138421
+2024-02-26 17:23:06,058 INFO average coverage reward for new map 3: 728.92, optimal reward: 770, ratio: 0.9466493506493506
+2024-02-26 17:23:06,058 INFO average coverage reward for new map 3: 728.92, optimal reward: 770, ratio: 0.9466493506493506
+2024-02-26 17:23:13,397 INFO average coverage reward for new map 4: 631.07, optimal reward: 745, ratio: 0.8470738255033557
+2024-02-26 17:23:13,397 INFO average coverage reward for new map 4: 631.07, optimal reward: 745, ratio: 0.8470738255033557
+2024-02-26 17:23:20,708 INFO average coverage reward for new map 5: 684.52, optimal reward: 728, ratio: 0.9402747252747252
+2024-02-26 17:23:20,708 INFO average coverage reward for new map 5: 684.52, optimal reward: 728, ratio: 0.9402747252747252
+2024-02-26 17:23:28,364 INFO average coverage reward for new map 6: 703.26, optimal reward: 741, ratio: 0.9490688259109311
+2024-02-26 17:23:28,364 INFO average coverage reward for new map 6: 703.26, optimal reward: 741, ratio: 0.9490688259109311
+2024-02-26 17:23:35,288 INFO average coverage reward for new map 7: 627.51, optimal reward: 730, ratio: 0.8596027397260274
+2024-02-26 17:23:35,288 INFO average coverage reward for new map 7: 627.51, optimal reward: 730, ratio: 0.8596027397260274
+2024-02-26 17:23:42,591 INFO average coverage reward for new map 8: 483.25, optimal reward: 737, ratio: 0.6556987788331072
+2024-02-26 17:23:42,591 INFO average coverage reward for new map 8: 483.25, optimal reward: 737, ratio: 0.6556987788331072
+2024-02-26 17:23:49,843 INFO average coverage reward for new map 9: 594.35, optimal reward: 734, ratio: 0.809741144414169
+2024-02-26 17:23:49,843 INFO average coverage reward for new map 9: 594.35, optimal reward: 734, ratio: 0.809741144414169
+2024-02-26 17:23:57,351 INFO average coverage reward for new map 10: 293.92, optimal reward: 781, ratio: 0.3763380281690141
+2024-02-26 17:23:57,351 INFO average coverage reward for new map 10: 293.92, optimal reward: 781, ratio: 0.3763380281690141
+2024-02-26 17:24:05,347 INFO average coverage reward for new map 11: 634.0, optimal reward: 768, ratio: 0.8255208333333334
+2024-02-26 17:24:05,347 INFO average coverage reward for new map 11: 634.0, optimal reward: 768, ratio: 0.8255208333333334
+2024-02-26 17:24:12,025 INFO average coverage reward for new map 12: 536.18, optimal reward: 737, ratio: 0.7275169606512889
+2024-02-26 17:24:12,025 INFO average coverage reward for new map 12: 536.18, optimal reward: 737, ratio: 0.7275169606512889
+2024-02-26 17:24:18,858 INFO average coverage reward for new map 13: 625.74, optimal reward: 709, ratio: 0.8825669957686884
+2024-02-26 17:24:18,858 INFO average coverage reward for new map 13: 625.74, optimal reward: 709, ratio: 0.8825669957686884
+2024-02-26 17:24:26,651 INFO average coverage reward for new map 14: 692.2, optimal reward: 770, ratio: 0.8989610389610391
+2024-02-26 17:24:26,651 INFO average coverage reward for new map 14: 692.2, optimal reward: 770, ratio: 0.8989610389610391
+2024-02-26 17:24:34,280 INFO average coverage reward for new map 15: 677.55, optimal reward: 737, ratio: 0.9193351424694708
+2024-02-26 17:24:34,280 INFO average coverage reward for new map 15: 677.55, optimal reward: 737, ratio: 0.9193351424694708
+2024-02-26 17:24:42,448 INFO average coverage reward for new map 16: 664.5, optimal reward: 745, ratio: 0.8919463087248322
+2024-02-26 17:24:42,448 INFO average coverage reward for new map 16: 664.5, optimal reward: 745, ratio: 0.8919463087248322
+2024-02-26 17:24:50,139 INFO average coverage reward for new map 17: 618.01, optimal reward: 723, ratio: 0.8547856154910096
+2024-02-26 17:24:50,139 INFO average coverage reward for new map 17: 618.01, optimal reward: 723, ratio: 0.8547856154910096
+2024-02-26 17:24:58,155 INFO average coverage reward for new map 18: 674.0, optimal reward: 737, ratio: 0.9145183175033921
+2024-02-26 17:24:58,155 INFO average coverage reward for new map 18: 674.0, optimal reward: 737, ratio: 0.9145183175033921
+2024-02-26 17:25:05,090 INFO average coverage reward for new map 19: 631.25, optimal reward: 730, ratio: 0.8647260273972602
+2024-02-26 17:25:05,090 INFO average coverage reward for new map 19: 631.25, optimal reward: 730, ratio: 0.8647260273972602
+2024-02-26 17:25:12,089 INFO average coverage reward for new map 20: 460.97, optimal reward: 738, ratio: 0.6246205962059621
+2024-02-26 17:25:12,089 INFO average coverage reward for new map 20: 460.97, optimal reward: 738, ratio: 0.6246205962059621
+2024-02-26 17:25:19,212 INFO average coverage reward for new map 21: 546.55, optimal reward: 782, ratio: 0.6989130434782608
+2024-02-26 17:25:19,212 INFO average coverage reward for new map 21: 546.55, optimal reward: 782, ratio: 0.6989130434782608
+2024-02-26 17:25:27,243 INFO average coverage reward for new map 22: 737.47, optimal reward: 783, ratio: 0.9418518518518519
+2024-02-26 17:25:27,243 INFO average coverage reward for new map 22: 737.47, optimal reward: 783, ratio: 0.9418518518518519
+2024-02-26 17:25:33,774 INFO average coverage reward for new map 23: 624.55, optimal reward: 690, ratio: 0.9051449275362318
+2024-02-26 17:25:33,774 INFO average coverage reward for new map 23: 624.55, optimal reward: 690, ratio: 0.9051449275362318
+2024-02-26 17:25:40,378 INFO average coverage reward for new map 24: 654.55, optimal reward: 706, ratio: 0.9271246458923512
+2024-02-26 17:25:40,378 INFO average coverage reward for new map 24: 654.55, optimal reward: 706, ratio: 0.9271246458923512
+2024-02-26 17:25:48,610 INFO average coverage reward for new map 25: 564.0, optimal reward: 674, ratio: 0.8367952522255193
+2024-02-26 17:25:48,610 INFO average coverage reward for new map 25: 564.0, optimal reward: 674, ratio: 0.8367952522255193
+2024-02-26 17:25:55,886 INFO average coverage reward for new map 26: 514.85, optimal reward: 786, ratio: 0.6550254452926209
+2024-02-26 17:25:55,886 INFO average coverage reward for new map 26: 514.85, optimal reward: 786, ratio: 0.6550254452926209
+2024-02-26 17:26:03,661 INFO average coverage reward for new map 27: 694.78, optimal reward: 741, ratio: 0.9376248313090418
+2024-02-26 17:26:03,661 INFO average coverage reward for new map 27: 694.78, optimal reward: 741, ratio: 0.9376248313090418
+2024-02-26 17:26:11,043 INFO average coverage reward for new map 28: 509.53, optimal reward: 676, ratio: 0.7537426035502958
+2024-02-26 17:26:11,043 INFO average coverage reward for new map 28: 509.53, optimal reward: 676, ratio: 0.7537426035502958
+2024-02-26 17:26:18,137 INFO average coverage reward for new map 29: 640.88, optimal reward: 693, ratio: 0.9247907647907648
+2024-02-26 17:26:18,137 INFO average coverage reward for new map 29: 640.88, optimal reward: 693, ratio: 0.9247907647907648
+2024-02-26 17:26:25,338 INFO average coverage reward for new map 30: 649.74, optimal reward: 705, ratio: 0.9216170212765957
+2024-02-26 17:26:25,338 INFO average coverage reward for new map 30: 649.74, optimal reward: 705, ratio: 0.9216170212765957
+2024-02-26 17:26:33,201 INFO average coverage reward for new map 31: 681.59, optimal reward: 737, ratio: 0.9248168249660788
+2024-02-26 17:26:33,201 INFO average coverage reward for new map 31: 681.59, optimal reward: 737, ratio: 0.9248168249660788
+2024-02-26 17:26:40,296 INFO average coverage reward for new map 32: 514.95, optimal reward: 748, ratio: 0.6884358288770054
+2024-02-26 17:26:40,296 INFO average coverage reward for new map 32: 514.95, optimal reward: 748, ratio: 0.6884358288770054
+2024-02-26 17:26:48,098 INFO average coverage reward for new map 33: 543.7, optimal reward: 729, ratio: 0.7458161865569274
+2024-02-26 17:26:48,098 INFO average coverage reward for new map 33: 543.7, optimal reward: 729, ratio: 0.7458161865569274
+2024-02-26 17:26:54,595 INFO average coverage reward for new map 34: 603.26, optimal reward: 709, ratio: 0.8508603667136813
+2024-02-26 17:26:54,595 INFO average coverage reward for new map 34: 603.26, optimal reward: 709, ratio: 0.8508603667136813
+2024-02-26 17:27:02,134 INFO average coverage reward for new map 35: 700.54, optimal reward: 767, ratio: 0.9133507170795306
+2024-02-26 17:27:02,134 INFO average coverage reward for new map 35: 700.54, optimal reward: 767, ratio: 0.9133507170795306
+2024-02-26 17:27:09,658 INFO average coverage reward for new map 36: 688.0, optimal reward: 785, ratio: 0.8764331210191083
+2024-02-26 17:27:09,658 INFO average coverage reward for new map 36: 688.0, optimal reward: 785, ratio: 0.8764331210191083
+2024-02-26 17:27:17,431 INFO average coverage reward for new map 37: 690.74, optimal reward: 770, ratio: 0.8970649350649351
+2024-02-26 17:27:17,431 INFO average coverage reward for new map 37: 690.74, optimal reward: 770, ratio: 0.8970649350649351
+2024-02-26 17:27:25,836 INFO average coverage reward for new map 38: 566.0, optimal reward: 611, ratio: 0.9263502454991817
+2024-02-26 17:27:25,836 INFO average coverage reward for new map 38: 566.0, optimal reward: 611, ratio: 0.9263502454991817
+2024-02-26 17:27:33,904 INFO average coverage reward for new map 39: 782.0, optimal reward: 782, ratio: 1.0
+2024-02-26 17:27:33,904 INFO average coverage reward for new map 39: 782.0, optimal reward: 782, ratio: 1.0
+2024-02-26 17:27:41,499 INFO average coverage reward for new map 40: 667.91, optimal reward: 723, ratio: 0.9238035961272475
+2024-02-26 17:27:41,499 INFO average coverage reward for new map 40: 667.91, optimal reward: 723, ratio: 0.9238035961272475
+2024-02-26 17:27:49,188 INFO average coverage reward for new map 41: 665.16, optimal reward: 767, ratio: 0.8672229465449804
+2024-02-26 17:27:49,188 INFO average coverage reward for new map 41: 665.16, optimal reward: 767, ratio: 0.8672229465449804
+2024-02-26 17:27:56,300 INFO average coverage reward for new map 42: 657.58, optimal reward: 741, ratio: 0.8874224021592443
+2024-02-26 17:27:56,300 INFO average coverage reward for new map 42: 657.58, optimal reward: 741, ratio: 0.8874224021592443
+2024-02-26 17:28:03,227 INFO average coverage reward for new map 43: 643.93, optimal reward: 706, ratio: 0.9120821529745041
+2024-02-26 17:28:03,227 INFO average coverage reward for new map 43: 643.93, optimal reward: 706, ratio: 0.9120821529745041
+2024-02-26 17:28:10,056 INFO average coverage reward for new map 44: 640.82, optimal reward: 706, ratio: 0.9076770538243627
+2024-02-26 17:28:10,056 INFO average coverage reward for new map 44: 640.82, optimal reward: 706, ratio: 0.9076770538243627
+2024-02-26 17:28:17,900 INFO average coverage reward for new map 45: 681.83, optimal reward: 797, ratio: 0.855495608531995
+2024-02-26 17:28:17,900 INFO average coverage reward for new map 45: 681.83, optimal reward: 797, ratio: 0.855495608531995
+2024-02-26 17:28:24,775 INFO average coverage reward for new map 46: 621.84, optimal reward: 693, ratio: 0.8973160173160174
+2024-02-26 17:28:24,775 INFO average coverage reward for new map 46: 621.84, optimal reward: 693, ratio: 0.8973160173160174
+2024-02-26 17:28:32,371 INFO average coverage reward for new map 47: 715.01, optimal reward: 797, ratio: 0.8971267252195734
+2024-02-26 17:28:32,371 INFO average coverage reward for new map 47: 715.01, optimal reward: 797, ratio: 0.8971267252195734
+2024-02-26 17:28:40,264 INFO average coverage reward for new map 48: 714.29, optimal reward: 741, ratio: 0.9639541160593792
+2024-02-26 17:28:40,264 INFO average coverage reward for new map 48: 714.29, optimal reward: 741, ratio: 0.9639541160593792
+2024-02-26 17:28:47,295 INFO average coverage reward for new map 49: 630.07, optimal reward: 732, ratio: 0.8607513661202186
+2024-02-26 17:28:47,295 INFO average coverage reward for new map 49: 630.07, optimal reward: 732, ratio: 0.8607513661202186
+2024-02-26 17:28:54,193 INFO average coverage reward for new map 50: 637.0, optimal reward: 741, ratio: 0.8596491228070176
+2024-02-26 17:28:54,193 INFO average coverage reward for new map 50: 637.0, optimal reward: 741, ratio: 0.8596491228070176
+2024-02-26 17:29:01,384 INFO average coverage reward for new map 51: 549.66, optimal reward: 721, ratio: 0.7623578363384188
+2024-02-26 17:29:01,384 INFO average coverage reward for new map 51: 549.66, optimal reward: 721, ratio: 0.7623578363384188
+2024-02-26 17:29:08,603 INFO average coverage reward for new map 52: 669.09, optimal reward: 748, ratio: 0.8945053475935829
+2024-02-26 17:29:08,603 INFO average coverage reward for new map 52: 669.09, optimal reward: 748, ratio: 0.8945053475935829
+2024-02-26 17:29:15,947 INFO average coverage reward for new map 53: 604.14, optimal reward: 715, ratio: 0.8449510489510489
+2024-02-26 17:29:15,947 INFO average coverage reward for new map 53: 604.14, optimal reward: 715, ratio: 0.8449510489510489
+2024-02-26 17:29:23,348 INFO average coverage reward for new map 54: 778.47, optimal reward: 797, ratio: 0.9767503136762861
+2024-02-26 17:29:23,348 INFO average coverage reward for new map 54: 778.47, optimal reward: 797, ratio: 0.9767503136762861
+2024-02-26 17:29:30,328 INFO average coverage reward for new map 55: 636.22, optimal reward: 698, ratio: 0.911489971346705
+2024-02-26 17:29:30,328 INFO average coverage reward for new map 55: 636.22, optimal reward: 698, ratio: 0.911489971346705
+2024-02-26 17:29:37,467 INFO average coverage reward for new map 56: 673.5, optimal reward: 730, ratio: 0.9226027397260274
+2024-02-26 17:29:37,467 INFO average coverage reward for new map 56: 673.5, optimal reward: 730, ratio: 0.9226027397260274
+2024-02-26 17:29:45,363 INFO average coverage reward for new map 57: 624.0, optimal reward: 743, ratio: 0.8398384925975774
+2024-02-26 17:29:45,363 INFO average coverage reward for new map 57: 624.0, optimal reward: 743, ratio: 0.8398384925975774
+2024-02-26 17:29:52,456 INFO average coverage reward for new map 58: 619.88, optimal reward: 719, ratio: 0.8621418636995828
+2024-02-26 17:29:52,456 INFO average coverage reward for new map 58: 619.88, optimal reward: 719, ratio: 0.8621418636995828
+2024-02-26 17:30:00,158 INFO average coverage reward for new map 59: 515.01, optimal reward: 776, ratio: 0.6636726804123712
+2024-02-26 17:30:00,158 INFO average coverage reward for new map 59: 515.01, optimal reward: 776, ratio: 0.6636726804123712
+2024-02-26 17:30:07,423 INFO average coverage reward for new map 60: 689.01, optimal reward: 745, ratio: 0.9248456375838926
+2024-02-26 17:30:07,423 INFO average coverage reward for new map 60: 689.01, optimal reward: 745, ratio: 0.9248456375838926
+2024-02-26 17:30:13,785 INFO average coverage reward for new map 61: 426.84, optimal reward: 733, ratio: 0.582319236016371
+2024-02-26 17:30:13,785 INFO average coverage reward for new map 61: 426.84, optimal reward: 733, ratio: 0.582319236016371
+2024-02-26 17:30:20,875 INFO average coverage reward for new map 62: 622.21, optimal reward: 715, ratio: 0.8702237762237762
+2024-02-26 17:30:20,875 INFO average coverage reward for new map 62: 622.21, optimal reward: 715, ratio: 0.8702237762237762
+2024-02-26 17:30:28,011 INFO average coverage reward for new map 63: 482.84, optimal reward: 738, ratio: 0.6542547425474254
+2024-02-26 17:30:28,011 INFO average coverage reward for new map 63: 482.84, optimal reward: 738, ratio: 0.6542547425474254
+2024-02-26 17:30:34,994 INFO average coverage reward for new map 64: 649.24, optimal reward: 738, ratio: 0.8797289972899729
+2024-02-26 17:30:34,994 INFO average coverage reward for new map 64: 649.24, optimal reward: 738, ratio: 0.8797289972899729
+2024-02-26 17:30:42,382 INFO average coverage reward for new map 65: 635.81, optimal reward: 701, ratio: 0.9070042796005705
+2024-02-26 17:30:42,382 INFO average coverage reward for new map 65: 635.81, optimal reward: 701, ratio: 0.9070042796005705
+2024-02-26 17:30:49,340 INFO average coverage reward for new map 66: 381.28, optimal reward: 730, ratio: 0.5223013698630137
+2024-02-26 17:30:49,340 INFO average coverage reward for new map 66: 381.28, optimal reward: 730, ratio: 0.5223013698630137
+2024-02-26 17:30:56,898 INFO average coverage reward for new map 67: 585.33, optimal reward: 786, ratio: 0.7446946564885497
+2024-02-26 17:30:56,898 INFO average coverage reward for new map 67: 585.33, optimal reward: 786, ratio: 0.7446946564885497
+2024-02-26 17:31:04,824 INFO average coverage reward for new map 68: 583.02, optimal reward: 768, ratio: 0.759140625
+2024-02-26 17:31:04,824 INFO average coverage reward for new map 68: 583.02, optimal reward: 768, ratio: 0.759140625
+2024-02-26 17:31:12,382 INFO average coverage reward for new map 69: 706.7, optimal reward: 745, ratio: 0.9485906040268457
+2024-02-26 17:31:12,382 INFO average coverage reward for new map 69: 706.7, optimal reward: 745, ratio: 0.9485906040268457
+2024-02-26 17:31:18,824 INFO average coverage reward for new map 70: 569.8, optimal reward: 733, ratio: 0.7773533424283765
+2024-02-26 17:31:18,824 INFO average coverage reward for new map 70: 569.8, optimal reward: 733, ratio: 0.7773533424283765
+2024-02-26 17:31:25,544 INFO average coverage reward for new map 71: 633.26, optimal reward: 706, ratio: 0.8969688385269121
+2024-02-26 17:31:25,544 INFO average coverage reward for new map 71: 633.26, optimal reward: 706, ratio: 0.8969688385269121
+2024-02-26 17:31:33,049 INFO average coverage reward for new map 72: 653.79, optimal reward: 684, ratio: 0.9558333333333333
+2024-02-26 17:31:33,049 INFO average coverage reward for new map 72: 653.79, optimal reward: 684, ratio: 0.9558333333333333
+2024-02-26 17:31:39,578 INFO average coverage reward for new map 73: 405.47, optimal reward: 733, ratio: 0.5531650750341065
+2024-02-26 17:31:39,578 INFO average coverage reward for new map 73: 405.47, optimal reward: 733, ratio: 0.5531650750341065
+2024-02-26 17:31:46,257 INFO average coverage reward for new map 74: 619.31, optimal reward: 723, ratio: 0.8565836791147994
+2024-02-26 17:31:46,257 INFO average coverage reward for new map 74: 619.31, optimal reward: 723, ratio: 0.8565836791147994
+2024-02-26 17:31:54,043 INFO average coverage reward for new map 75: 743.83, optimal reward: 770, ratio: 0.9660129870129871
+2024-02-26 17:31:54,043 INFO average coverage reward for new map 75: 743.83, optimal reward: 770, ratio: 0.9660129870129871
+2024-02-26 17:32:01,451 INFO average coverage reward for new map 76: 659.6, optimal reward: 743, ratio: 0.8877523553162854
+2024-02-26 17:32:01,451 INFO average coverage reward for new map 76: 659.6, optimal reward: 743, ratio: 0.8877523553162854
+2024-02-26 17:32:08,074 INFO average coverage reward for new map 77: 613.83, optimal reward: 716, ratio: 0.857304469273743
+2024-02-26 17:32:08,074 INFO average coverage reward for new map 77: 613.83, optimal reward: 716, ratio: 0.857304469273743
+2024-02-26 17:32:15,417 INFO average coverage reward for new map 78: 723.43, optimal reward: 770, ratio: 0.9395194805194804
+2024-02-26 17:32:15,417 INFO average coverage reward for new map 78: 723.43, optimal reward: 770, ratio: 0.9395194805194804
+2024-02-26 17:32:22,187 INFO average coverage reward for new map 79: 587.42, optimal reward: 660, ratio: 0.890030303030303
+2024-02-26 17:32:22,187 INFO average coverage reward for new map 79: 587.42, optimal reward: 660, ratio: 0.890030303030303
+2024-02-26 17:32:30,280 INFO average coverage reward for new map 80: 717.74, optimal reward: 773, ratio: 0.9285122897800776
+2024-02-26 17:32:30,280 INFO average coverage reward for new map 80: 717.74, optimal reward: 773, ratio: 0.9285122897800776
+2024-02-26 17:32:37,146 INFO average coverage reward for new map 81: 626.74, optimal reward: 691, ratio: 0.9070043415340087
+2024-02-26 17:32:37,146 INFO average coverage reward for new map 81: 626.74, optimal reward: 691, ratio: 0.9070043415340087
+2024-02-26 17:32:43,437 INFO average coverage reward for new map 82: 419.56, optimal reward: 630, ratio: 0.665968253968254
+2024-02-26 17:32:43,437 INFO average coverage reward for new map 82: 419.56, optimal reward: 630, ratio: 0.665968253968254
+2024-02-26 17:32:51,722 INFO average coverage reward for new map 83: 779.76, optimal reward: 782, ratio: 0.9971355498721227
+2024-02-26 17:32:51,722 INFO average coverage reward for new map 83: 779.76, optimal reward: 782, ratio: 0.9971355498721227
+2024-02-26 17:32:58,836 INFO average coverage reward for new map 84: 607.02, optimal reward: 706, ratio: 0.8598016997167138
+2024-02-26 17:32:58,836 INFO average coverage reward for new map 84: 607.02, optimal reward: 706, ratio: 0.8598016997167138
+2024-02-26 17:33:06,298 INFO average coverage reward for new map 85: 582.02, optimal reward: 692, ratio: 0.8410693641618496
+2024-02-26 17:33:06,298 INFO average coverage reward for new map 85: 582.02, optimal reward: 692, ratio: 0.8410693641618496
+2024-02-26 17:33:14,017 INFO average coverage reward for new map 86: 616.65, optimal reward: 741, ratio: 0.8321862348178137
+2024-02-26 17:33:14,017 INFO average coverage reward for new map 86: 616.65, optimal reward: 741, ratio: 0.8321862348178137
+2024-02-26 17:33:21,523 INFO average coverage reward for new map 87: 624.18, optimal reward: 703, ratio: 0.8878805120910384
+2024-02-26 17:33:21,523 INFO average coverage reward for new map 87: 624.18, optimal reward: 703, ratio: 0.8878805120910384
+2024-02-26 17:33:28,995 INFO average coverage reward for new map 88: 596.48, optimal reward: 720, ratio: 0.8284444444444444
+2024-02-26 17:33:28,995 INFO average coverage reward for new map 88: 596.48, optimal reward: 720, ratio: 0.8284444444444444
+2024-02-26 17:33:37,145 INFO average coverage reward for new map 89: 660.6, optimal reward: 726, ratio: 0.9099173553719009
+2024-02-26 17:33:37,145 INFO average coverage reward for new map 89: 660.6, optimal reward: 726, ratio: 0.9099173553719009
+2024-02-26 17:33:45,163 INFO average coverage reward for new map 90: 680.25, optimal reward: 724, ratio: 0.9395718232044199
+2024-02-26 17:33:45,163 INFO average coverage reward for new map 90: 680.25, optimal reward: 724, ratio: 0.9395718232044199
+2024-02-26 17:33:53,343 INFO average coverage reward for new map 91: 741.46, optimal reward: 773, ratio: 0.9591979301423028
+2024-02-26 17:33:53,343 INFO average coverage reward for new map 91: 741.46, optimal reward: 773, ratio: 0.9591979301423028
+2024-02-26 17:34:00,304 INFO average coverage reward for new map 92: 614.74, optimal reward: 706, ratio: 0.8707365439093484
+2024-02-26 17:34:00,304 INFO average coverage reward for new map 92: 614.74, optimal reward: 706, ratio: 0.8707365439093484
+2024-02-26 17:34:07,271 INFO average coverage reward for new map 93: 627.03, optimal reward: 716, ratio: 0.8757402234636871
+2024-02-26 17:34:07,271 INFO average coverage reward for new map 93: 627.03, optimal reward: 716, ratio: 0.8757402234636871
+2024-02-26 17:34:14,501 INFO average coverage reward for new map 94: 540.84, optimal reward: 730, ratio: 0.7408767123287672
+2024-02-26 17:34:14,501 INFO average coverage reward for new map 94: 540.84, optimal reward: 730, ratio: 0.7408767123287672
+2024-02-26 17:34:21,204 INFO average coverage reward for new map 95: 364.21, optimal reward: 660, ratio: 0.5518333333333333
+2024-02-26 17:34:21,204 INFO average coverage reward for new map 95: 364.21, optimal reward: 660, ratio: 0.5518333333333333
+2024-02-26 17:34:28,406 INFO average coverage reward for new map 96: 623.2, optimal reward: 724, ratio: 0.8607734806629835
+2024-02-26 17:34:28,406 INFO average coverage reward for new map 96: 623.2, optimal reward: 724, ratio: 0.8607734806629835
+2024-02-26 17:34:35,634 INFO average coverage reward for new map 97: 655.48, optimal reward: 706, ratio: 0.9284419263456091
+2024-02-26 17:34:35,634 INFO average coverage reward for new map 97: 655.48, optimal reward: 706, ratio: 0.9284419263456091
+2024-02-26 17:34:43,043 INFO average coverage reward for new map 98: 555.14, optimal reward: 727, ratio: 0.7636038514442915
+2024-02-26 17:34:43,043 INFO average coverage reward for new map 98: 555.14, optimal reward: 727, ratio: 0.7636038514442915
+2024-02-26 17:34:50,722 INFO average coverage reward for new map 99: 713.29, optimal reward: 786, ratio: 0.9074936386768447
+2024-02-26 17:34:50,722 INFO average coverage reward for new map 99: 713.29, optimal reward: 786, ratio: 0.9074936386768447
+2024-02-26 17:34:50,723 INFO overall average coverage reward for trained maps: 640.6365000000003, average optimal reward: 736.5700000000003, ratio: 0.8697564386276933
+2024-02-26 17:34:50,723 INFO overall average coverage reward for trained maps: 640.6365000000003, average optimal reward: 736.5700000000003, ratio: 0.8697564386276933
+2024-02-26 17:34:50,725 INFO overall average coverage reward for new maps: 621.1702999999999, average optimal reward: 734.0100000000001, ratio: 0.8462695331126276
+2024-02-26 17:34:50,725 INFO overall average coverage reward for new maps: 621.1702999999999, average optimal reward: 734.0100000000001, ratio: 0.8462695331126276
+2024-02-26 19:23:12,497 INFO average coverage reward for trained map 0: 540.0, optimal reward: 703, ratio: 0.7681365576102418
+2024-02-26 19:23:22,259 INFO average coverage reward for trained map 1: 742.84, optimal reward: 770, ratio: 0.9647272727272728
+2024-02-26 19:23:30,897 INFO average coverage reward for trained map 2: 710.57, optimal reward: 767, ratio: 0.9264276401564537
+2024-02-26 19:23:40,019 INFO average coverage reward for trained map 3: 484.74, optimal reward: 722, ratio: 0.6713850415512466
+2024-02-26 19:23:48,973 INFO average coverage reward for trained map 4: 729.8, optimal reward: 741, ratio: 0.984885290148448
+2024-02-26 19:23:58,092 INFO average coverage reward for trained map 5: 730.36, optimal reward: 766, ratio: 0.9534725848563969
+2024-02-26 19:24:07,316 INFO average coverage reward for trained map 6: 701.11, optimal reward: 773, ratio: 0.9069987063389392
+2024-02-26 19:24:16,362 INFO average coverage reward for trained map 7: 616.83, optimal reward: 768, ratio: 0.8031640625
+2024-02-26 19:24:25,293 INFO average coverage reward for trained map 8: 767.98, optimal reward: 770, ratio: 0.9973766233766234
+2024-02-26 19:24:33,841 INFO average coverage reward for trained map 9: 544.44, optimal reward: 786, ratio: 0.6926717557251909
+2024-02-26 19:24:42,036 INFO average coverage reward for trained map 10: 623.08, optimal reward: 728, ratio: 0.8558791208791209
+2024-02-26 19:24:50,380 INFO average coverage reward for trained map 11: 659.63, optimal reward: 739, ratio: 0.8925981055480379
+2024-02-26 19:24:59,710 INFO average coverage reward for trained map 12: 482.31, optimal reward: 485, ratio: 0.9944536082474227
+2024-02-26 19:25:07,798 INFO average coverage reward for trained map 13: 505.98, optimal reward: 733, ratio: 0.6902864938608458
+2024-02-26 19:25:17,308 INFO average coverage reward for trained map 14: 606.16, optimal reward: 689, ratio: 0.8797677793904208
+2024-02-26 19:25:25,995 INFO average coverage reward for trained map 15: 606.69, optimal reward: 732, ratio: 0.8288114754098361
+2024-02-26 19:25:34,728 INFO average coverage reward for trained map 16: 693.01, optimal reward: 741, ratio: 0.9352361673414304
+2024-02-26 19:25:43,157 INFO average coverage reward for trained map 17: 604.45, optimal reward: 690, ratio: 0.8760144927536233
+2024-02-26 19:25:51,096 INFO average coverage reward for trained map 18: 609.3, optimal reward: 733, ratio: 0.8312414733969986
+2024-02-26 19:25:59,694 INFO average coverage reward for trained map 19: 687.7, optimal reward: 763, ratio: 0.9013106159895151
+2024-02-26 19:26:09,163 INFO average coverage reward for trained map 20: 684.09, optimal reward: 768, ratio: 0.8907421875
+2024-02-26 19:26:17,242 INFO average coverage reward for trained map 21: 562.87, optimal reward: 741, ratio: 0.759608636977058
+2024-02-26 19:26:25,837 INFO average coverage reward for trained map 22: 679.28, optimal reward: 770, ratio: 0.8821818181818182
+2024-02-26 19:26:34,613 INFO average coverage reward for trained map 23: 614.26, optimal reward: 691, ratio: 0.8889435600578871
+2024-02-26 19:26:34,964 INFO average coverage reward for trained map 24: 747.6666666666666, optimal reward: 773, ratio: 0.9672272531263475
+2024-02-26 19:26:43,347 INFO average coverage reward for trained map 25: 655.03, optimal reward: 760, ratio: 0.8618815789473684
+2024-02-26 19:26:51,977 INFO average coverage reward for trained map 26: 576.96, optimal reward: 712, ratio: 0.8103370786516855
+2024-02-26 19:26:59,809 INFO average coverage reward for trained map 27: 667.73, optimal reward: 705, ratio: 0.9471347517730496
+2024-02-26 19:27:08,892 INFO average coverage reward for trained map 28: 757.02, optimal reward: 786, ratio: 0.9631297709923664
+2024-02-26 19:27:09,043 INFO average coverage reward for trained map 29: 782.0, optimal reward: 782, ratio: 1.0
+2024-02-26 19:27:17,194 INFO average coverage reward for trained map 30: 664.87, optimal reward: 734, ratio: 0.9058174386920981
+2024-02-26 19:27:26,600 INFO average coverage reward for trained map 31: 449.7, optimal reward: 765, ratio: 0.5878431372549019
+2024-02-26 19:27:34,473 INFO average coverage reward for trained map 32: 632.61, optimal reward: 693, ratio: 0.9128571428571429
+2024-02-26 19:27:42,298 INFO average coverage reward for trained map 33: 649.78, optimal reward: 746, ratio: 0.8710187667560322
+2024-02-26 19:27:50,290 INFO average coverage reward for trained map 34: 693.21, optimal reward: 715, ratio: 0.9695244755244756
+2024-02-26 19:27:58,702 INFO average coverage reward for trained map 35: 633.46, optimal reward: 750, ratio: 0.8446133333333333
+2024-02-26 19:28:06,229 INFO average coverage reward for trained map 36: 598.36, optimal reward: 733, ratio: 0.8163165075034107
+2024-02-26 19:28:14,703 INFO average coverage reward for trained map 37: 610.65, optimal reward: 727, ratio: 0.839958734525447
+2024-02-26 19:28:22,888 INFO average coverage reward for trained map 38: 532.91, optimal reward: 730, ratio: 0.730013698630137
+2024-02-26 19:28:23,023 INFO average coverage reward for trained map 39: 782.0, optimal reward: 782, ratio: 1.0
+2024-02-26 19:28:31,709 INFO average coverage reward for trained map 40: 699.22, optimal reward: 767, ratio: 0.9116297262059975
+2024-02-26 19:28:40,324 INFO average coverage reward for trained map 41: 793.94, optimal reward: 797, ratio: 0.9961606022584694
+2024-02-26 19:28:48,474 INFO average coverage reward for trained map 42: 549.59, optimal reward: 735, ratio: 0.7477414965986395
+2024-02-26 19:28:56,241 INFO average coverage reward for trained map 43: 640.31, optimal reward: 738, ratio: 0.8676287262872628
+2024-02-26 19:29:05,072 INFO average coverage reward for trained map 44: 676.44, optimal reward: 770, ratio: 0.8784935064935065
+2024-02-26 19:29:13,356 INFO average coverage reward for trained map 45: 683.16, optimal reward: 728, ratio: 0.9384065934065934
+2024-02-26 19:29:22,457 INFO average coverage reward for trained map 46: 779.56, optimal reward: 786, ratio: 0.9918066157760813
+2024-02-26 19:29:30,578 INFO average coverage reward for trained map 47: 599.04, optimal reward: 716, ratio: 0.8366480446927373
+2024-02-26 19:29:39,886 INFO average coverage reward for trained map 48: 726.34, optimal reward: 786, ratio: 0.9240966921119593
+2024-02-26 19:29:47,559 INFO average coverage reward for trained map 49: 782.0, optimal reward: 782, ratio: 1.0
+2024-02-26 19:29:55,688 INFO average coverage reward for trained map 50: 603.62, optimal reward: 697, ratio: 0.866025824964132
+2024-02-26 19:30:03,589 INFO average coverage reward for trained map 51: 498.19, optimal reward: 655, ratio: 0.7605954198473283
+2024-02-26 19:30:11,314 INFO average coverage reward for trained map 52: 670.77, optimal reward: 737, ratio: 0.9101356852103121
+2024-02-26 19:30:20,618 INFO average coverage reward for trained map 53: 395.7, optimal reward: 697, ratio: 0.5677187948350072
+2024-02-26 19:30:28,535 INFO average coverage reward for trained map 54: 723.83, optimal reward: 756, ratio: 0.95744708994709
+2024-02-26 19:30:36,526 INFO average coverage reward for trained map 55: 671.1, optimal reward: 733, ratio: 0.9155525238744885
+2024-02-26 19:30:45,566 INFO average coverage reward for trained map 56: 756.99, optimal reward: 770, ratio: 0.9831038961038961
+2024-02-26 19:30:54,527 INFO average coverage reward for trained map 57: 687.79, optimal reward: 763, ratio: 0.9014285714285714
+2024-02-26 19:31:02,968 INFO average coverage reward for trained map 58: 590.22, optimal reward: 797, ratio: 0.7405520702634881
+2024-02-26 19:31:12,244 INFO average coverage reward for trained map 59: 684.87, optimal reward: 723, ratio: 0.9472614107883818
+2024-02-26 19:31:20,167 INFO average coverage reward for trained map 60: 570.71, optimal reward: 733, ratio: 0.7785948158253753
+2024-02-26 19:31:27,992 INFO average coverage reward for trained map 61: 359.47, optimal reward: 684, ratio: 0.5255409356725147
+2024-02-26 19:31:35,591 INFO average coverage reward for trained map 62: 358.79, optimal reward: 662, ratio: 0.5419788519637463
+2024-02-26 19:31:43,823 INFO average coverage reward for trained map 63: 677.1111111111111, optimal reward: 741, ratio: 0.9137801769380717
+2024-02-26 19:31:52,850 INFO average coverage reward for trained map 64: 710.33, optimal reward: 797, ratio: 0.8912547051442912
+2024-02-26 19:32:02,076 INFO average coverage reward for trained map 65: 693.79, optimal reward: 767, ratio: 0.9045501955671447
+2024-02-26 19:32:09,679 INFO average coverage reward for trained map 66: 582.17, optimal reward: 710, ratio: 0.8199577464788732
+2024-02-26 19:32:18,639 INFO average coverage reward for trained map 67: 656.15, optimal reward: 707, ratio: 0.928076379066478
+2024-02-26 19:32:28,089 INFO average coverage reward for trained map 68: 782.0, optimal reward: 782, ratio: 1.0
+2024-02-26 19:32:37,594 INFO average coverage reward for trained map 69: 754.52, optimal reward: 786, ratio: 0.9599491094147582
+2024-02-26 19:32:37,736 INFO average coverage reward for trained map 70: 657.0, optimal reward: 657, ratio: 1.0
+2024-02-26 19:32:47,000 INFO average coverage reward for trained map 71: 461.77, optimal reward: 721, ratio: 0.6404576976421636
+2024-02-26 19:32:56,318 INFO average coverage reward for trained map 72: 758.0, optimal reward: 786, ratio: 0.9643765903307888
+2024-02-26 19:33:05,425 INFO average coverage reward for trained map 73: 747.88, optimal reward: 770, ratio: 0.9712727272727273
+2024-02-26 19:33:13,940 INFO average coverage reward for trained map 74: 541.25, optimal reward: 728, ratio: 0.7434752747252747
+2024-02-26 19:33:22,852 INFO average coverage reward for trained map 75: 692.11, optimal reward: 745, ratio: 0.929006711409396
+2024-02-26 19:33:31,605 INFO average coverage reward for trained map 76: 688.39, optimal reward: 714, ratio: 0.9641316526610644
+2024-02-26 19:33:40,201 INFO average coverage reward for trained map 77: 688.36, optimal reward: 750, ratio: 0.9178133333333334
+2024-02-26 19:33:48,396 INFO average coverage reward for trained map 78: 609.86, optimal reward: 709, ratio: 0.8601692524682651
+2024-02-26 19:33:57,464 INFO average coverage reward for trained map 79: 519.46, optimal reward: 768, ratio: 0.6763802083333333
+2024-02-26 19:34:06,150 INFO average coverage reward for trained map 80: 577.44, optimal reward: 729, ratio: 0.7920987654320989
+2024-02-26 19:34:13,611 INFO average coverage reward for trained map 81: 397.74, optimal reward: 625, ratio: 0.6363840000000001
+2024-02-26 19:34:22,397 INFO average coverage reward for trained map 82: 670.02, optimal reward: 750, ratio: 0.8933599999999999
+2024-02-26 19:34:30,590 INFO average coverage reward for trained map 83: 633.82, optimal reward: 709, ratio: 0.893963328631876
+2024-02-26 19:34:39,900 INFO average coverage reward for trained map 84: 753.41, optimal reward: 776, ratio: 0.9708891752577319
+2024-02-26 19:34:48,772 INFO average coverage reward for trained map 85: 574.73, optimal reward: 737, ratio: 0.7798236092265943
+2024-02-26 19:34:57,424 INFO average coverage reward for trained map 86: 447.64, optimal reward: 786, ratio: 0.5695165394402035
+2024-02-26 19:35:05,718 INFO average coverage reward for trained map 87: 646.1, optimal reward: 706, ratio: 0.9151558073654391
+2024-02-26 19:35:14,297 INFO average coverage reward for trained map 88: 601.03, optimal reward: 786, ratio: 0.7646692111959287
+2024-02-26 19:35:22,565 INFO average coverage reward for trained map 89: 648.68, optimal reward: 703, ratio: 0.9227311522048364
+2024-02-26 19:35:31,018 INFO average coverage reward for trained map 90: 652.11, optimal reward: 771, ratio: 0.8457976653696498
+2024-02-26 19:35:31,351 INFO average coverage reward for trained map 91: 771.3333333333334, optimal reward: 782, ratio: 0.9863597612958227
+2024-02-26 19:35:39,873 INFO average coverage reward for trained map 92: 668.71, optimal reward: 735, ratio: 0.9098095238095238
+2024-02-26 19:35:48,379 INFO average coverage reward for trained map 93: 670.43, optimal reward: 797, ratio: 0.8411919698870765
+2024-02-26 19:35:56,513 INFO average coverage reward for trained map 94: 649.85, optimal reward: 706, ratio: 0.9204674220963173
+2024-02-26 19:36:05,675 INFO average coverage reward for trained map 95: 729.62, optimal reward: 770, ratio: 0.9475584415584416
+2024-02-26 19:36:14,738 INFO average coverage reward for trained map 96: 689.04, optimal reward: 762, ratio: 0.904251968503937
+2024-02-26 19:36:23,291 INFO average coverage reward for trained map 97: 651.24, optimal reward: 743, ratio: 0.8765006729475101
+2024-02-26 19:36:32,844 INFO average coverage reward for trained map 98: 416.0, optimal reward: 456, ratio: 0.9122807017543859
+2024-02-26 19:36:41,085 INFO average coverage reward for trained map 99: 664.42, optimal reward: 716, ratio: 0.9279608938547486
+2024-02-26 20:11:05,945 INFO average coverage reward for new map 0: 752.75, optimal reward: 770, ratio: 0.9775974025974026
+2024-02-26 20:11:14,684 INFO average coverage reward for new map 1: 739.11, optimal reward: 773, ratio: 0.9561578266494178
+2024-02-26 20:11:22,293 INFO average coverage reward for new map 2: 554.99, optimal reward: 670, ratio: 0.8283432835820895
+2024-02-26 20:11:30,405 INFO average coverage reward for new map 3: 689.62, optimal reward: 733, ratio: 0.940818553888131
+2024-02-26 20:11:38,744 INFO average coverage reward for new map 4: 570.59, optimal reward: 745, ratio: 0.7658926174496645
+2024-02-26 20:11:47,759 INFO average coverage reward for new map 5: 613.21, optimal reward: 691, ratio: 0.8874240231548481
+2024-02-26 20:11:57,694 INFO average coverage reward for new map 6: 782.0, optimal reward: 782, ratio: 1.0
+2024-02-26 20:12:06,099 INFO average coverage reward for new map 7: 684.07, optimal reward: 759, ratio: 0.901277997364954
+2024-02-26 20:12:14,276 INFO average coverage reward for new map 8: 648.24, optimal reward: 706, ratio: 0.9181869688385269
+2024-02-26 20:12:21,849 INFO average coverage reward for new map 9: 421.43, optimal reward: 733, ratio: 0.5749386084583902
+2024-02-26 20:12:29,919 INFO average coverage reward for new map 10: 590.92, optimal reward: 723, ratio: 0.8173167358229598
+2024-02-26 20:12:38,716 INFO average coverage reward for new map 11: 531.38, optimal reward: 786, ratio: 0.6760559796437658
+2024-02-26 20:12:47,420 INFO average coverage reward for new map 12: 538.38, optimal reward: 716, ratio: 0.751927374301676
+2024-02-26 20:12:56,514 INFO average coverage reward for new map 13: 392.73, optimal reward: 732, ratio: 0.536516393442623
+2024-02-26 20:13:04,931 INFO average coverage reward for new map 14: 567.0, optimal reward: 715, ratio: 0.793006993006993
+2024-02-26 20:13:12,556 INFO average coverage reward for new map 15: 637.51, optimal reward: 723, ratio: 0.8817565698478561
+2024-02-26 20:13:20,906 INFO average coverage reward for new map 16: 608.68, optimal reward: 745, ratio: 0.8170201342281879
+2024-02-26 20:13:29,690 INFO average coverage reward for new map 17: 465.43, optimal reward: 741, ratio: 0.628110661268556
+2024-02-26 20:13:39,065 INFO average coverage reward for new map 18: 349.81, optimal reward: 389, ratio: 0.899254498714653
+2024-02-26 20:13:47,322 INFO average coverage reward for new map 19: 651.87, optimal reward: 745, ratio: 0.874993288590604
+2024-02-26 20:13:55,772 INFO average coverage reward for new map 20: 589.18, optimal reward: 738, ratio: 0.7983468834688346
+2024-02-26 20:14:03,808 INFO average coverage reward for new map 21: 555.2, optimal reward: 710, ratio: 0.7819718309859156
+2024-02-26 20:14:12,949 INFO average coverage reward for new map 22: 247.72, optimal reward: 739, ratio: 0.33520974289580513
+2024-02-26 20:14:22,382 INFO average coverage reward for new map 23: 671.98, optimal reward: 740, ratio: 0.9080810810810811
+2024-02-26 20:14:30,763 INFO average coverage reward for new map 24: 645.0, optimal reward: 728, ratio: 0.885989010989011
+2024-02-26 20:14:39,140 INFO average coverage reward for new map 25: 641.41, optimal reward: 745, ratio: 0.8609530201342281
+2024-02-26 20:14:47,038 INFO average coverage reward for new map 26: 580.69, optimal reward: 715, ratio: 0.8121538461538462
+2024-02-26 20:14:56,245 INFO average coverage reward for new map 27: 681.95, optimal reward: 737, ratio: 0.9253052917232022
+2024-02-26 20:15:04,915 INFO average coverage reward for new map 28: 528.51, optimal reward: 782, ratio: 0.675843989769821
+2024-02-26 20:15:13,930 INFO average coverage reward for new map 29: 480.97, optimal reward: 786, ratio: 0.6119211195928753
+2024-02-26 20:15:22,666 INFO average coverage reward for new map 30: 671.24, optimal reward: 728, ratio: 0.922032967032967
+2024-02-26 20:15:31,537 INFO average coverage reward for new map 31: 763.26, optimal reward: 770, ratio: 0.9912467532467533
+2024-02-26 20:15:40,647 INFO average coverage reward for new map 32: 571.91, optimal reward: 797, ratio: 0.7175784190715182
+2024-02-26 20:15:50,030 INFO average coverage reward for new map 33: 432.39, optimal reward: 696, ratio: 0.62125
+2024-02-26 20:15:58,889 INFO average coverage reward for new map 34: 723.53, optimal reward: 767, ratio: 0.9433246414602346
+2024-02-26 20:16:06,695 INFO average coverage reward for new map 35: 648.86, optimal reward: 699, ratio: 0.9282689556509299
+2024-02-26 20:16:15,392 INFO average coverage reward for new map 36: 737.51, optimal reward: 767, ratio: 0.9615514993481095
+2024-02-26 20:16:24,173 INFO average coverage reward for new map 37: 737.96, optimal reward: 756, ratio: 0.9761375661375662
+2024-02-26 20:16:25,185 INFO average coverage reward for new map 38: 735.6, optimal reward: 765, ratio: 0.9615686274509804
+2024-02-26 20:16:33,718 INFO average coverage reward for new map 39: 711.31, optimal reward: 770, ratio: 0.9237792207792207
+2024-02-26 20:16:42,000 INFO average coverage reward for new map 40: 606.03, optimal reward: 698, ratio: 0.8682378223495701
+2024-02-26 20:16:51,175 INFO average coverage reward for new map 41: 625.36, optimal reward: 747, ratio: 0.8371619812583668
+2024-02-26 20:16:58,754 INFO average coverage reward for new map 42: 413.29, optimal reward: 653, ratio: 0.6329096477794793
+2024-02-26 20:17:07,635 INFO average coverage reward for new map 43: 678.66, optimal reward: 729, ratio: 0.9309465020576131
+2024-02-26 20:17:16,674 INFO average coverage reward for new map 44: 724.98, optimal reward: 770, ratio: 0.9415324675324676
+2024-02-26 20:17:24,681 INFO average coverage reward for new map 45: 386.69, optimal reward: 715, ratio: 0.5408251748251748
+2024-02-26 20:17:33,939 INFO average coverage reward for new map 46: 666.68, optimal reward: 737, ratio: 0.9045861601085481
+2024-02-26 20:17:41,605 INFO average coverage reward for new map 47: 512.18, optimal reward: 710, ratio: 0.7213802816901408
+2024-02-26 20:17:49,485 INFO average coverage reward for new map 48: 596.01, optimal reward: 699, ratio: 0.8526609442060086
+2024-02-26 20:17:57,510 INFO average coverage reward for new map 49: 647.14, optimal reward: 706, ratio: 0.9166288951841359
+2024-02-26 20:18:06,419 INFO average coverage reward for new map 50: 598.92, optimal reward: 772, ratio: 0.7758031088082901
+2024-02-26 20:18:15,107 INFO average coverage reward for new map 51: 598.03, optimal reward: 797, ratio: 0.7503513174404015
+2024-02-26 20:18:23,687 INFO average coverage reward for new map 52: 644.48, optimal reward: 735, ratio: 0.876843537414966
+2024-02-26 20:18:31,101 INFO average coverage reward for new map 53: 518.88, optimal reward: 681, ratio: 0.7619383259911894
+2024-02-26 20:18:40,351 INFO average coverage reward for new map 54: 743.27, optimal reward: 767, ratio: 0.9690612777053454
+2024-02-26 20:18:49,398 INFO average coverage reward for new map 55: 359.47, optimal reward: 689, ratio: 0.5217271407837446
+2024-02-26 20:18:58,709 INFO average coverage reward for new map 56: 574.2, optimal reward: 661, ratio: 0.8686838124054463
+2024-02-26 20:19:07,998 INFO average coverage reward for new map 57: 548.01, optimal reward: 768, ratio: 0.7135546875
+2024-02-26 20:19:16,174 INFO average coverage reward for new map 58: 655.83, optimal reward: 715, ratio: 0.9172447552447553
+2024-02-26 20:19:25,284 INFO average coverage reward for new map 59: 707.16, optimal reward: 768, ratio: 0.92078125
+2024-02-26 20:19:33,256 INFO average coverage reward for new map 60: 572.78, optimal reward: 717, ratio: 0.7988563458856346
+2024-02-26 20:19:41,514 INFO average coverage reward for new map 61: 620.43, optimal reward: 731, ratio: 0.8487414500683994
+2024-02-26 20:19:41,669 INFO average coverage reward for new map 62: 443.0, optimal reward: 443, ratio: 1.0
+2024-02-26 20:19:50,509 INFO average coverage reward for new map 63: 534.81, optimal reward: 721, ratio: 0.741761442441054
+2024-02-26 20:19:59,011 INFO average coverage reward for new map 64: 603.5, optimal reward: 693, ratio: 0.8708513708513709
+2024-02-26 20:20:07,703 INFO average coverage reward for new map 65: 648.34, optimal reward: 706, ratio: 0.9183286118980171
+2024-02-26 20:20:16,844 INFO average coverage reward for new map 66: 782.0, optimal reward: 782, ratio: 1.0
+2024-02-26 20:20:25,130 INFO average coverage reward for new map 67: 689.78, optimal reward: 729, ratio: 0.9462002743484225
+2024-02-26 20:20:33,118 INFO average coverage reward for new map 68: 669.53, optimal reward: 713, ratio: 0.9390322580645161
+2024-02-26 20:20:41,513 INFO average coverage reward for new map 69: 609.74, optimal reward: 745, ratio: 0.8184429530201343
+2024-02-26 20:20:50,903 INFO average coverage reward for new map 70: 734.35, optimal reward: 771, ratio: 0.9524643320363165
+2024-02-26 20:20:59,494 INFO average coverage reward for new map 71: 736.54, optimal reward: 750, ratio: 0.9820533333333333
+2024-02-26 20:21:07,519 INFO average coverage reward for new map 72: 552.27, optimal reward: 687, ratio: 0.8038864628820961
+2024-02-26 20:21:17,033 INFO average coverage reward for new map 73: 573.2, optimal reward: 786, ratio: 0.7292620865139949
+2024-02-26 20:21:24,349 INFO average coverage reward for new map 74: 395.76, optimal reward: 704, ratio: 0.5621590909090909
+2024-02-26 20:21:32,902 INFO average coverage reward for new map 75: 616.66, optimal reward: 750, ratio: 0.8222133333333332
+2024-02-26 20:21:41,046 INFO average coverage reward for new map 76: 461.35, optimal reward: 693, ratio: 0.6657287157287157
+2024-02-26 20:21:48,238 INFO average coverage reward for new map 77: 421.1, optimal reward: 733, ratio: 0.5744884038199182
+2024-02-26 20:21:56,579 INFO average coverage reward for new map 78: 625.12, optimal reward: 733, ratio: 0.8528240109140518
+2024-02-26 20:22:04,845 INFO average coverage reward for new map 79: 655.22, optimal reward: 703, ratio: 0.9320341394025605
+2024-02-26 20:22:13,601 INFO average coverage reward for new map 80: 634.7, optimal reward: 765, ratio: 0.8296732026143792
+2024-02-26 20:22:21,564 INFO average coverage reward for new map 81: 469.56, optimal reward: 729, ratio: 0.6441152263374486
+2024-02-26 20:22:30,761 INFO average coverage reward for new map 82: 378.29, optimal reward: 754, ratio: 0.501710875331565
+2024-02-26 20:22:38,928 INFO average coverage reward for new map 83: 636.41, optimal reward: 729, ratio: 0.8729903978052126
+2024-02-26 20:22:47,945 INFO average coverage reward for new map 84: 662.9, optimal reward: 741, ratio: 0.8946018893387314
+2024-02-26 20:22:56,215 INFO average coverage reward for new map 85: 670.55, optimal reward: 744, ratio: 0.9012768817204301
+2024-02-26 20:23:05,500 INFO average coverage reward for new map 86: 640.45, optimal reward: 797, ratio: 0.8035759096612297
+2024-02-26 20:23:06,088 INFO average coverage reward for new map 87: 601.6666666666666, optimal reward: 797, ratio: 0.7549142618151401
+2024-02-26 20:23:14,344 INFO average coverage reward for new map 88: 627.99, optimal reward: 738, ratio: 0.8509349593495935
+2024-02-26 20:23:22,702 INFO average coverage reward for new map 89: 726.38, optimal reward: 770, ratio: 0.9433506493506494
+2024-02-26 20:23:31,112 INFO average coverage reward for new map 90: 645.79, optimal reward: 719, ratio: 0.8981780250347705
+2024-02-26 20:23:40,800 INFO average coverage reward for new map 91: 621.71, optimal reward: 786, ratio: 0.7909796437659034
+2024-02-26 20:23:48,722 INFO average coverage reward for new map 92: 570.16, optimal reward: 715, ratio: 0.7974265734265734
+2024-02-26 20:23:57,450 INFO average coverage reward for new map 93: 600.41, optimal reward: 706, ratio: 0.8504390934844193
+2024-02-26 20:24:06,995 INFO average coverage reward for new map 94: 367.43, optimal reward: 420, ratio: 0.8748333333333334
+2024-02-26 20:24:15,488 INFO average coverage reward for new map 95: 451.58, optimal reward: 750, ratio: 0.6021066666666667
+2024-02-26 20:24:24,240 INFO average coverage reward for new map 96: 697.53, optimal reward: 797, ratio: 0.875194479297365
+2024-02-26 20:24:32,374 INFO average coverage reward for new map 97: 544.09, optimal reward: 703, ratio: 0.7739544807965861
+2024-02-26 20:24:39,962 INFO average coverage reward for new map 98: 589.43, optimal reward: 731, ratio: 0.8063337893296852
+2024-02-26 20:24:48,991 INFO average coverage reward for new map 99: 640.77, optimal reward: 797, ratio: 0.8039774153074027
+2024-02-26 20:24:48,993 INFO overall average coverage reward for trained maps: 638.5660111111112, average optimal reward: 736.5700000000003, ratio: 0.8669454513639042
+2024-02-26 20:24:48,995 INFO overall average coverage reward for new maps: 596.7444666666667, average optimal reward: 728.07, ratio: 0.8196251276205127

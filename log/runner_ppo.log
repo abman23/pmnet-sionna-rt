@@ -1710,3 +1710,428 @@ trial_id: default
 
 2024-02-25 15:47:47,701 DEBUG {'env': {'coefficient_dict': {'p_b': 1.0, 'p_d': 1.0, 'r_c': 1.0}, 'cropped_map_size': 64, 'action_space_size': 32, 'n_maps': 400, 'n_steps_per_map': 100, 'no_masking': False, 'original_map_path': './resource/usc.png', 'original_map_scale': 3.4375, 'preset_map_path': './resource/setup_400.json', 'ratio_coverage': 0.0125}, 'eval': {'evaluation_config': {'env_config': {'evaluation': True, 'n_maps': 1, 'preset_map_path': None}, 'exploration': {'explore': False}}, 'evaluation_duration': 3, 'evaluation_interval': 5, 'evaluation_num_workers': 3}, 'explore': {'exploration_config': {'type': 'StochasticSampling'}, 'explore': True}, 'report': {'min_sample_timesteps_per_iteration': 1000}, 'resource': {'num_cpus_per_worker': 2, 'num_gpus': 0, 'num_gpus_per_worker': 0}, 'rollout': {'num_envs_per_worker': 1, 'num_rollout_workers': 4}, 'stop': {'training_iteration': 500}, 'train': {'lr': 5e-05, 'gamma': 0.9, 'grad_clip': 40.0, 'train_batch_size': 256, 'sgd_minibatch_size': 128, 'num_sgd_iter': 30}}
 2024-02-25 15:47:47,701 INFO =============TRAINING ENDED=============
+2024-02-25 23:22:54,776 INFO agent_timesteps_total: 520000
+connector_metrics:
+  StateBufferConnector_ms: 0.0022783279418945312
+  ViewRequirementAgentConnector_ms: 0.09671854972839355
+counters:
+  num_agent_steps_sampled: 520000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 520000
+  num_env_steps_trained: 0
+custom_metrics: {}
+date: 2024-02-25_23-22-54
+done: false
+episode_len_mean: 20.0
+episode_media: {}
+episode_reward_max: 20.0
+episode_reward_mean: 13.505365687031826
+episode_reward_min: 3.802486680656591
+episodes_this_iter: 52
+episodes_total: 26000
+evaluation:
+  connector_metrics:
+    StateBufferConnector_ms: 0.002193450927734375
+    ViewRequirementAgentConnector_ms: 0.09483496348063152
+  custom_metrics: {}
+  episode_len_mean: 20.0
+  episode_media: {}
+  episode_reward_max: 11.500277770831982
+  episode_reward_mean: 11.231445866304009
+  episode_reward_min: 10.882890607661922
+  episodes_this_iter: 3
+  hist_stats:
+    episode_lengths:
+    - 20
+    - 20
+    - 20
+    episode_reward:
+    - 11.311169220418128
+    - 11.500277770831982
+    - 10.882890607661922
+  num_agent_steps_sampled_this_iter: 60
+  num_env_steps_sampled_this_iter: 60
+  num_faulty_episodes: 0
+  num_healthy_workers: 3
+  num_in_flight_async_reqs: 0
+  num_remote_worker_restarts: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.052881304391241064
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 11.618766946711581
+    mean_inference_ms: 0.9346470204508545
+    mean_raw_obs_processing_ms: 1.025705640959021
+  sampler_results:
+    connector_metrics:
+      StateBufferConnector_ms: 0.002193450927734375
+      ViewRequirementAgentConnector_ms: 0.09483496348063152
+    custom_metrics: {}
+    episode_len_mean: 20.0
+    episode_media: {}
+    episode_reward_max: 11.500277770831982
+    episode_reward_mean: 11.231445866304009
+    episode_reward_min: 10.882890607661922
+    episodes_this_iter: 3
+    hist_stats:
+      episode_lengths:
+      - 20
+      - 20
+      - 20
+      episode_reward:
+      - 11.311169220418128
+      - 11.500277770831982
+      - 10.882890607661922
+    num_faulty_episodes: 0
+    policy_reward_max: {}
+    policy_reward_mean: {}
+    policy_reward_min: {}
+    sampler_perf:
+      mean_action_processing_ms: 0.052881304391241064
+      mean_env_render_ms: 0.0
+      mean_env_wait_ms: 11.618766946711581
+      mean_inference_ms: 0.9346470204508545
+      mean_raw_obs_processing_ms: 1.025705640959021
+  timesteps_this_iter: 60
+hostname: OrangeBookPro14.lan
+info:
+  learner:
+    __all__:
+      num_agent_steps_trained: 8.0
+      num_env_steps_trained: 80.0
+      total_loss: -0.03526782759775718
+    default_policy:
+      curr_entropy_coeff: 0.0
+      curr_kl_coeff: 2.1112682819366455
+      curr_lr: 1.0e-05
+      default_optimizer_lr: 1.0e-05
+      entropy: 1.8161107244218389
+      gradients_default_optimizer_global_norm: 3.7223698790868123
+      mean_kl_loss: 0.013700494990572073
+      policy_loss: -0.10890257436782122
+      total_loss: -0.03526782759775718
+      vf_explained_var: .nan
+      vf_loss: 0.04470932834005604
+      vf_loss_unclipped: 0.04470932834005604
+  num_agent_steps_sampled: 520000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 520000
+  num_env_steps_trained: 0
+iterations_since_restore: 500
+node_ip: 127.0.0.1
+num_agent_steps_sampled: 520000
+num_agent_steps_trained: 0
+num_env_steps_sampled: 520000
+num_env_steps_sampled_this_iter: 1040
+num_env_steps_sampled_throughput_per_sec: 34.23778715422225
+num_env_steps_trained: 0
+num_env_steps_trained_this_iter: 0
+num_env_steps_trained_throughput_per_sec: 0.0
+num_faulty_episodes: 0
+num_healthy_workers: 4
+num_in_flight_async_reqs: 0
+num_remote_worker_restarts: 0
+num_steps_trained_this_iter: 0
+perf:
+  cpu_util_percent: 29.825
+  ram_util_percent: 81.225
+pid: 53411
+policy_reward_max: {}
+policy_reward_mean: {}
+policy_reward_min: {}
+sampler_perf:
+  mean_action_processing_ms: 0.04221096373754368
+  mean_env_render_ms: 0.0
+  mean_env_wait_ms: 11.904524849078111
+  mean_inference_ms: 0.728942239546846
+  mean_raw_obs_processing_ms: 0.9279475984941609
+sampler_results:
+  connector_metrics:
+    StateBufferConnector_ms: 0.0022783279418945312
+    ViewRequirementAgentConnector_ms: 0.09671854972839355
+  custom_metrics: {}
+  episode_len_mean: 20.0
+  episode_media: {}
+  episode_reward_max: 20.0
+  episode_reward_mean: 13.505365687031826
+  episode_reward_min: 3.802486680656591
+  episodes_this_iter: 52
+  hist_stats:
+    episode_lengths: [20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20]
+    episode_reward: [17.972346342471123, 17.64074500449394, 6.960517713069274, 13.247759448328134,
+      9.665456071367585, 11.310793374973198, 11.71402184054301, 10.647769197546655,
+      14.302456380499724, 10.013398438600865, 9.165031507881372, 11.359807742824357,
+      18.709906878856394, 8.745479350789115, 14.062619903670386, 15.121659169558683,
+      12.145251772317787, 8.38465132861036, 18.182263024120385, 13.664958767230193,
+      11.257178225231236, 19.488492882929986, 19.53797748286737, 18.137566848092277,
+      13.82392034650843, 16.543286233912657, 15.064494411624066, 9.12872382264041,
+      16.951052526863, 18.621998540645926, 11.266141723423361, 4.451009819280308,
+      18.316123930520916, 9.707528324995653, 12.144630793825485, 9.385798702229422,
+      9.148642720736412, 10.569068644400001, 18.31488002363554, 19.281495778845954,
+      11.062186044296867, 19.07602824735212, 10.00311659539229, 13.218846724609563,
+      7.858214008690961, 18.239250490717282, 15.950931315023075, 9.972887051567229,
+      18.945721784630223, 13.451486209069001, 14.146015993439315, 12.656384819651244,
+      11.528781001026905, 20.0, 17.728767928414698, 13.097043822039385, 11.038385447135436,
+      20.0, 6.1935639239499976, 18.876445040010136, 10.963096075909608, 11.428325728014961,
+      13.204074631233913, 20.0, 11.454545713793403, 12.149408641127026, 14.136458527851122,
+      16.754811602811078, 18.438312357514306, 12.407174603212718, 7.673503063187484,
+      15.302591535549833, 15.362760990825045, 17.718381838052146, 14.555995592015313,
+      18.27227087071803, 9.903211631933612, 10.961018765718913, 11.384490366906036,
+      19.44511212498637, 14.09285616409981, 16.733122622683293, 3.802486680656591,
+      13.520723348300027, 13.125529781128154, 18.17022535941271, 10.155456661276883,
+      19.382812536317356, 11.155750505725917, 14.91252139499121, 20.0, 4.722062666865007,
+      13.625279798787323, 14.88146110541587, 11.398367026807312, 6.738668972821513,
+      12.75269300062399, 17.42234463880306, 4.367470329143291, 10.860229959985665]
+  num_faulty_episodes: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.04221096373754368
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 11.904524849078111
+    mean_inference_ms: 0.728942239546846
+    mean_raw_obs_processing_ms: 0.9279475984941609
+time_since_restore: 16320.399999141693
+time_this_iter_s: 30.66309404373169
+time_total_s: 16320.399999141693
+timers:
+  sample_time_ms: 283.987
+  synch_weights_time_ms: 5.97
+  training_iteration_time_ms: 2330.732
+timestamp: 1708932174
+timesteps_total: 520000
+training_iteration: 500
+trial_id: default
+
+2024-02-25 23:22:54,781 DEBUG {'env': {'coefficient_dict': {'p_b': 1.0, 'p_d': 1.0, 'r_c': 1.0}, 'cropped_map_size': 64, 'action_space_size': 32, 'n_maps': 400, 'n_steps_per_map': 20, 'no_masking': False, 'original_map_path': './resource/usc.png', 'original_map_scale': 3.4375, 'preset_map_path': './resource/setup_400.json', 'ratio_coverage': 0.0125}, 'eval': {'evaluation_config': {'env_config': {'evaluation': True, 'n_maps': 1, 'preset_map_path': None}, 'exploration': {'explore': False}}, 'evaluation_duration': 3, 'evaluation_interval': 5, 'evaluation_num_workers': 3}, 'explore': {'exploration_config': {'type': 'StochasticSampling'}, 'explore': True}, 'report': {'min_sample_timesteps_per_iteration': 1000}, 'resource': {'num_cpus_per_worker': 2, 'num_gpus': 0, 'num_gpus_per_worker': 0}, 'rollout': {'num_envs_per_worker': 1, 'num_rollout_workers': 4}, 'stop': {'training_iteration': 500}, 'train': {'lr': 1e-05, 'gamma': 0.1, 'grad_clip': 40.0, 'train_batch_size': 32, 'sgd_minibatch_size': 8, 'num_sgd_iter': 30}}
+2024-02-25 23:22:54,781 INFO =============TRAINING ENDED=============
+2024-02-25 23:22:56,233 INFO average coverage reward for trained map 0: 658.1, optimal reward: 703
+2024-02-25 23:22:56,753 INFO average coverage reward for trained map 1: 444.1, optimal reward: 770
+2024-02-25 23:22:57,229 INFO average coverage reward for trained map 2: 711.0, optimal reward: 767
+2024-02-25 23:23:15,089 INFO average coverage reward for new map 0: 574.35, optimal reward: 682
+2024-02-25 23:23:15,528 INFO average coverage reward for new map 1: 639.4, optimal reward: 693
+2024-02-25 23:23:16,040 INFO average coverage reward for new map 2: 489.6, optimal reward: 533
+2024-02-26 01:54:53,159 INFO average coverage reward for trained map 0: 673.15, optimal reward: 703, ratio: 0.9575391180654338
+2024-02-26 01:54:53,678 INFO average coverage reward for trained map 1: 586.85, optimal reward: 770, ratio: 0.7621428571428571
+2024-02-26 01:54:54,163 INFO average coverage reward for trained map 2: 730.0, optimal reward: 767, ratio: 0.9517601043024772
+2024-02-26 01:55:15,063 INFO average coverage reward for new map 0: 762.5, optimal reward: 786, ratio: 0.9701017811704835
+2024-02-26 01:55:15,505 INFO average coverage reward for new map 1: 444.8, optimal reward: 700, ratio: 0.6354285714285715
+2024-02-26 01:55:15,990 INFO average coverage reward for new map 2: 653.4, optimal reward: 719, ratio: 0.9087621696801113
+2024-02-26 06:38:59,285 INFO agent_timesteps_total: 520000
+connector_metrics:
+  StateBufferConnector_ms: 0.002833843231201172
+  ViewRequirementAgentConnector_ms: 0.10750508308410645
+counters:
+  num_agent_steps_sampled: 520000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 520000
+  num_env_steps_trained: 0
+custom_metrics: {}
+date: 2024-02-26_06-38-59
+done: false
+episode_len_mean: 20.0
+episode_media: {}
+episode_reward_max: 19.702682341501124
+episode_reward_mean: 13.990610877075444
+episode_reward_min: -6.983418381499163
+episodes_this_iter: 52
+episodes_total: 26000
+evaluation:
+  connector_metrics:
+    StateBufferConnector_ms: 0.0024557113647460938
+    ViewRequirementAgentConnector_ms: 0.1024166742960612
+  custom_metrics: {}
+  episode_len_mean: 20.0
+  episode_media: {}
+  episode_reward_max: 13.76799909545398
+  episode_reward_mean: 12.194841527748727
+  episode_reward_min: 11.174321002639603
+  episodes_this_iter: 3
+  hist_stats:
+    episode_lengths:
+    - 20
+    - 20
+    - 20
+    episode_reward:
+    - 13.76799909545398
+    - 11.642204485152593
+    - 11.174321002639603
+  num_agent_steps_sampled_this_iter: 60
+  num_env_steps_sampled_this_iter: 60
+  num_faulty_episodes: 0
+  num_healthy_workers: 3
+  num_in_flight_async_reqs: 0
+  num_remote_worker_restarts: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.054072483805602894
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 12.013555784414516
+    mean_inference_ms: 0.9266882563916203
+    mean_raw_obs_processing_ms: 1.0211154776335993
+  sampler_results:
+    connector_metrics:
+      StateBufferConnector_ms: 0.0024557113647460938
+      ViewRequirementAgentConnector_ms: 0.1024166742960612
+    custom_metrics: {}
+    episode_len_mean: 20.0
+    episode_media: {}
+    episode_reward_max: 13.76799909545398
+    episode_reward_mean: 12.194841527748727
+    episode_reward_min: 11.174321002639603
+    episodes_this_iter: 3
+    hist_stats:
+      episode_lengths:
+      - 20
+      - 20
+      - 20
+      episode_reward:
+      - 13.76799909545398
+      - 11.642204485152593
+      - 11.174321002639603
+    num_faulty_episodes: 0
+    policy_reward_max: {}
+    policy_reward_mean: {}
+    policy_reward_min: {}
+    sampler_perf:
+      mean_action_processing_ms: 0.054072483805602894
+      mean_env_render_ms: 0.0
+      mean_env_wait_ms: 12.013555784414516
+      mean_inference_ms: 0.9266882563916203
+      mean_raw_obs_processing_ms: 1.0211154776335993
+  timesteps_this_iter: 60
+hostname: OrangeBookPro14.lan
+info:
+  learner:
+    __all__:
+      num_agent_steps_trained: 8.0
+      num_env_steps_trained: 80.0
+      total_loss: 0.0003334343961129586
+    default_policy:
+      curr_entropy_coeff: 0.0
+      curr_kl_coeff: 1.4507486820220947
+      curr_lr: 1.0e-05
+      default_optimizer_lr: 1.0e-05
+      entropy: 0.5212108367729199
+      gradients_default_optimizer_global_norm: 4.527411999901136
+      mean_kl_loss: 0.0021993141890861777
+      policy_loss: -0.03801671673854192
+      total_loss: 0.0003334343961129586
+      vf_explained_var: .nan
+      vf_loss: 0.031968853600944085
+      vf_loss_unclipped: 0.031968853600944085
+  num_agent_steps_sampled: 520000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 520000
+  num_env_steps_trained: 0
+iterations_since_restore: 500
+node_ip: 127.0.0.1
+num_agent_steps_sampled: 520000
+num_agent_steps_trained: 0
+num_env_steps_sampled: 520000
+num_env_steps_sampled_this_iter: 1040
+num_env_steps_sampled_throughput_per_sec: 31.973069558111455
+num_env_steps_trained: 0
+num_env_steps_trained_this_iter: 0
+num_env_steps_trained_throughput_per_sec: 0.0
+num_faulty_episodes: 0
+num_healthy_workers: 4
+num_in_flight_async_reqs: 0
+num_remote_worker_restarts: 0
+num_steps_trained_this_iter: 0
+perf:
+  cpu_util_percent: 40.64565217391304
+  ram_util_percent: 82.90217391304348
+pid: 58715
+policy_reward_max: {}
+policy_reward_mean: {}
+policy_reward_min: {}
+sampler_perf:
+  mean_action_processing_ms: 0.043533633242109085
+  mean_env_render_ms: 0.0
+  mean_env_wait_ms: 11.953610367018518
+  mean_inference_ms: 0.7426808031176242
+  mean_raw_obs_processing_ms: 0.9345033472358353
+sampler_results:
+  connector_metrics:
+    StateBufferConnector_ms: 0.002833843231201172
+    ViewRequirementAgentConnector_ms: 0.10750508308410645
+  custom_metrics: {}
+  episode_len_mean: 20.0
+  episode_media: {}
+  episode_reward_max: 19.702682341501124
+  episode_reward_mean: 13.990610877075444
+  episode_reward_min: -6.983418381499163
+  episodes_this_iter: 52
+  hist_stats:
+    episode_lengths: [20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20]
+    episode_reward: [11.621485459594705, 15.71407396869379, 15.97282497213874, 16.68445774720378,
+      16.21519985596001, 16.68445774720378, 9.4867332927063, 16.48558201897488, 12.618479620544358,
+      16.877143644582763, 16.371834333473117, 13.598135006441831, 9.784689439720854,
+      10.169476318045595, 10.824360871286846, 15.603215140381819, 15.971197298827368,
+      15.9529695141856, 10.179345556224003, 12.702216329219425, 14.188660211670516,
+      12.127721993982497, 18.63563798351848, 12.501746739524428, 10.681227420134396,
+      17.205540166204976, 19.518727227041097, 13.661895470153935, 13.979567824468218,
+      11.137592113569164, 12.255947236891375, 17.475813073246066, 10.810850070633194,
+      5.476798024278032, 11.976149911662596, 13.178499217965888, 19.560439844858216,
+      4.294715360039957, 12.472709837858627, 15.387121892281657, 15.736726943565671,
+      12.405684932865057, 2.360153951001269, 17.50160236137353, 11.149635477903985,
+      18.95180571281959, 13.540812906510146, 19.168144408480764, 10.300957879988525,
+      18.014804908356943, 11.453942941818406, 14.074691586978059, 14.679562085449907,
+      9.206693467236821, 12.113289314439156, 16.01858211616097, 9.853640315878623,
+      -6.983418381499163, 18.014804908356943, 16.01858211616097, 17.494567054996857,
+      18.1707073212749, 19.560439844858216, 14.831274808178565, 14.557571010763036,
+      19.62835292687642, 16.084641477484823, 5.625903350921088, 11.637612084854771,
+      19.168144408480764, 14.393341597393471, 18.76667965056243, 10.834042613285119,
+      17.672310385374896, 15.861704839565004, 19.075553440291458, 14.411632576119104,
+      13.3464502677081, 15.659146467039568, 14.010352119734506, 18.556268285763892,
+      15.986129615490414, 19.702682341501124, 12.146174554870182, 19.459708263523304,
+      9.053018409409944, 16.705236646494324, 10.564709579833373, 12.32472967022165,
+      17.655904945867626, 11.980974057717583, 15.463108454799432, 17.901095435590005,
+      9.98355732170203, 10.400545720769394, 13.31741095913166, 17.348352066627793,
+      11.812882953896857, 16.450249438023956, 11.831981031307844]
+  num_faulty_episodes: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.043533633242109085
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 11.953610367018518
+    mean_inference_ms: 0.7426808031176242
+    mean_raw_obs_processing_ms: 0.9345033472358353
+time_since_restore: 16014.918388843536
+time_this_iter_s: 32.839133977890015
+time_total_s: 16014.918388843536
+timers:
+  sample_time_ms: 288.514
+  synch_weights_time_ms: 5.828
+  training_iteration_time_ms: 2504.18
+timestamp: 1708958339
+timesteps_total: 520000
+training_iteration: 500
+trial_id: default
+
+2024-02-26 06:38:59,286 DEBUG {'env': {'coefficient_dict': {'p_b': 1.0, 'p_d': 1.0, 'r_c': 1.0}, 'cropped_map_size': 64, 'action_space_size': 32, 'n_maps': 400, 'n_steps_per_map': 20, 'no_masking': False, 'original_map_path': './resource/usc.png', 'original_map_scale': 3.4375, 'preset_map_path': './resource/setup_400.json', 'ratio_coverage': 0.0125}, 'eval': {'evaluation_config': {'env_config': {'evaluation': True, 'n_maps': 1, 'preset_map_path': None}, 'exploration': {'explore': False}}, 'evaluation_duration': 3, 'evaluation_interval': 5, 'evaluation_num_workers': 3}, 'explore': {'exploration_config': {'type': 'StochasticSampling'}, 'explore': True}, 'report': {'min_sample_timesteps_per_iteration': 1000}, 'resource': {'num_cpus_per_worker': 2, 'num_gpus': 0, 'num_gpus_per_worker': 0}, 'rollout': {'num_envs_per_worker': 1, 'num_rollout_workers': 4}, 'stop': {'training_iteration': 500}, 'train': {'lr': 1e-05, 'gamma': 0.1, 'grad_clip': 40.0, 'train_batch_size': 32, 'sgd_minibatch_size': 8, 'num_sgd_iter': 30}}
+2024-02-26 06:38:59,286 INFO =============TRAINING ENDED=============
+2024-02-26 06:39:00,911 INFO average coverage reward for trained map 0: 676.85, optimal reward: 703, ratio: 0.9628022759601708
+2024-02-26 06:39:01,454 INFO average coverage reward for trained map 1: 746.0, optimal reward: 770, ratio: 0.9688311688311688
+2024-02-26 06:39:01,951 INFO average coverage reward for trained map 2: 739.0, optimal reward: 767, ratio: 0.9634941329856584
+2024-02-26 06:39:16,682 INFO average coverage reward for new map 0: 309.0, optimal reward: 768, ratio: 0.40234375
+2024-02-26 06:39:17,160 INFO average coverage reward for new map 1: 708.35, optimal reward: 743, ratio: 0.9533647375504711
+2024-02-26 06:39:17,647 INFO average coverage reward for new map 2: 719.75, optimal reward: 767, ratio: 0.9383963494132985

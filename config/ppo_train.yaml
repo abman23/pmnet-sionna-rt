@@ -40,7 +40,7 @@ stop:
   training_iteration: 500
 train:
   lr: 1.0e-05
-  gamma: 0.1
+  gamma: 0.0
   grad_clip: 40.0
   train_batch_size: 32
   sgd_minibatch_size: 8

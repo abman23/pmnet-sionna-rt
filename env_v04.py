@@ -32,8 +32,9 @@ class BaseEnvironment(gym.Env):
     """
     pixel_map: np.ndarray  # current pixelated cropped map
     power_map: np.ndarray  # flatten power map corresponding to pixel map
-    loc_tx_opt: np.ndarray  # the optimal location of TX
+    loc_tx_opt: tuple  # the optimal location of TX
     coverage_map_opt: np.ndarray  # the coverage map corresponding to the optimal TX location
+    max_dis_opt: float  # the maximum distance from the optimal TX location to any pixel on the map
 
     def __init__(self, config: dict) -> None:
         """Initialize the base MDP environment.
@@ -104,13 +105,13 @@ class BaseEnvironment(gym.Env):
         # crop some resource from the original one and calculate the optimal TX location and coverage for each map
         if preset_map_path:
             self.cropped_maps = np.array(preset_config.get("cropped_maps"), dtype=np.int8)
-            self.locs_opt = np.array(preset_config.get("locs_opt"))
+            self.locs_opt: list[tuple] = preset_config.get("locs_opt")
             self.coverages_opt = np.array(preset_config.get("coverages_opt"), dtype=np.int8)
             logger.info(f"loaded {self.n_maps} maps from {preset_map_path}")
         else:
             self.cropped_maps = crop_map(self.original_map, self.cropped_map_size,
                                          self.n_maps, self.np_random)
-            self.locs_opt: list[np.ndarray] = []
+            self.locs_opt: list[tuple] = []
             self.coverages_opt: list[np.ndarray] = []
             s = time.time()
             for cropped_map in self.cropped_maps:
@@ -138,6 +139,13 @@ class BaseEnvironment(gym.Env):
         self.loc_tx_opt = self.locs_opt[map_idx]
         self.coverage_map_opt = self.coverages_opt[map_idx]
         self.n_trained_maps += 1
+
+        # calculate the maximum distance from a pixel to the optimal location
+        row_opt, col_opt = self.loc_tx_opt[0], self.loc_tx_opt[1]
+        row_dis = max(self.cropped_map_size - row_opt, row_opt)
+        col_dis = max(self.cropped_map_size - col_opt, col_opt)
+        self.max_dis_opt = np.sqrt(row_dis**2 + col_dis**2)
+
         # 1 - building, 0 - free space
         self.mask = self._calc_action_mask()
 
@@ -158,10 +166,12 @@ class BaseEnvironment(gym.Env):
             "cropped_map_shape": self.pixel_map.shape,
             "map_index": map_idx,
             "loc_tx_opt": self.loc_tx_opt,
+            "max_dis_opt": self.max_dis_opt,
             "init_action": init_action,
             "row, col": (row, col),
         }
-        # logger.info(info_dict)
+        if self.evaluation:
+            logger.info(info_dict)
         # print(info_dict)
         # print(f"optimal coverage reward: {np.sum(self.coverage_map_opt)}")
         # print(f"RoI area: {np.sum(self.pixel_map == 0)}")
@@ -179,14 +189,18 @@ class BaseEnvironment(gym.Env):
         assert 0 <= action < self.action_space.n, f"action {action} must be in the action space [0, {self.action_space.n}]"
         # print(f"action: {action}")
         row, col = self.calc_upsampling_loc(action)
+
         # calculate reward
         coverage_matrix = self.calc_coverage(row, col)
         r_c = np.sum(coverage_matrix)  # coverage reward
         r_e = np.sum(self.coverage_map_opt)  # optimal coverage reward
+
         p_d = -np.linalg.norm(np.array([row, col]) - self.loc_tx_opt)  # distance penalty
+        # calculate reward
         a = self.coefficient_dict.get("r_c", 1.)
         b = self.coefficient_dict.get("p_d", 1.)
-        r = a * (r_c - r_e) + b * p_d
+        # normalization
+        r = a * (r_c / r_e) + b * (p_d / self.max_dis_opt)
 
         term = True if r == 0 else False  # terminate if the location (action) is optimal
         self.steps += 1
@@ -206,23 +220,24 @@ class BaseEnvironment(gym.Env):
         info_dict = {
             "steps": self.steps,
             "loc": [row, col],
-            "loc_opt": self.loc_tx_opt.tolist(),
+            "loc_opt": self.loc_tx_opt,
             "reward": r,
-            "detailed_rewards": f"r_c = {r_c}, r_e = {r_e}, p_d = {p_d}",
+            "detailed_rewards": f"r_c = {r_c}, r_e = {r_e}, p_d = {p_d}, dis_max = {self.max_dis_opt}",
+            "coverage_matrix": coverage_matrix.tolist
         }
         # logger.info(info_dict)
         if self.test_algo and (self.steps % (np.ceil(self.n_steps_per_map/4)) == 0 or term or trunc):
             logger.info(info_dict)
 
         # plot the current and optimal TX locations
-        # if self.test_algo and (term or trunc):
-        #     save_map(
-        #         f"./figures/test_maps/{datetime.now().strftime('%m%d_%H%M')}_{self.test_algo}_{self.n_trained_maps}.png",
-        #         self.pixel_map,
-        #         True,
-        #         self.loc_tx_opt,
-        #         mark_locs=[[row, col]],
-        #     )
+        if self.test_algo and (term or trunc):
+            save_map(
+                f"./figures/test_maps/{datetime.now().strftime('%m%d_%H%M')}_{self.test_algo}_{self.n_trained_maps}.png",
+                self.pixel_map,
+                True,
+                self.loc_tx_opt,
+                mark_locs=[[row, col]],
+            )
 
         return observation, r, term, trunc, info_dict
 
@@ -251,7 +266,10 @@ class BaseEnvironment(gym.Env):
 
         """
         power_map = calc_coverage(row, col, self.pixel_map, map_scale=self.original_map_scale, threshold=None)
-        return power_map.reshape(-1)
+        flatten_power_map = power_map.reshape(-1)
+        return flatten_power_map
+        # # min max normalization
+        # return (flatten_power_map - flatten_power_map.min()) / (flatten_power_map.max() - flatten_power_map.min())
 
     def calc_upsampling_loc(self, action: int) -> tuple:
         """Calculate the location corresponding to a 'space-reduced' action by upsampling.
