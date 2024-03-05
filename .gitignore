@@ -1,3 +1,4 @@
 #figures/*
 #log/*
 #checkpoint/*
+.DS_Store
