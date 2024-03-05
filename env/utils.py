@@ -269,11 +269,11 @@ def calc_fspl(dis: float) -> float:
 
 if __name__ == '__main__':
     # use this script to generate cropped maps and save them as json
-    original_map = load_map('./resource/usc.png')
+    original_map = load_map('../resource/usc.png')
     map_size = 64
     n = 400
     map_scale = 880 / 256
     ratio_coverage = .2 / 16
     rng, seed = seeding.np_random(2024)
-    filepath = './resource/setup_400.json'
+    filepath = '../resource/setup_400.json'
     save_cropped_maps(original_map, map_size, n, map_scale, ratio_coverage, rng, filepath)

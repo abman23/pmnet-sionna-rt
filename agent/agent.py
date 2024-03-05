@@ -29,6 +29,7 @@ class Agent(object):
         self.logger.addHandler(handler)
         # set an environment class
         self.env_class = BaseEnvironment
+        self.version: str = BaseEnvironment.version
 
     def train_and_eval(self, log: bool = True):
         """Train and evaluate the agent.
@@ -51,6 +52,8 @@ class Agent(object):
         ep_train = np.arange(num_training_step)
         ep_reward_mean_train = np.empty(num_training_step, dtype=float)
 
+        timestamp = datetime.now().strftime('%m%d_%H%M')
+
         for i in range(num_training_step):
             # one training step (may include multiple environment episodes)
             result = self.agent.train()
@@ -72,7 +75,7 @@ class Agent(object):
                     self.logger.debug(self.config)
                     self.logger.info("=============TRAINING ENDED=============")
                     checkpoint_dir = self.agent.save(
-                        f"./checkpoint/{self.algo_name}_{datetime.now().strftime('%m%d_%H%M')}").checkpoint.path
+                        f"./checkpoint/{self.algo_name}_{timestamp}").checkpoint.path
                     print(f"Checkpoint saved in directory {checkpoint_dir}")
                 else:
                     print("=============TRAINING ENDED=============")
@@ -106,7 +109,7 @@ class Agent(object):
                 "ep_reward_std": ep_reward_std.tolist(),
                 "ep_reward_mean": ep_reward_mean_train.tolist(),
             }
-            json.dump(data, open(f"./data/{self.algo_name}_{datetime.now().strftime('%m%d_%H%M')}.json", 'w'))
+            json.dump(data, open(f"./data/{self.algo_name}_{timestamp}.json", 'w'))
 
         if eval_interval is not None:
             # plot the mean reward in evaluation
@@ -119,7 +122,7 @@ class Agent(object):
             ax.set(xlabel="training_step", ylabel="mean reward per step", title=f"{self.algo_name.upper()} Evaluation Results")
             ax.grid()
             if log:
-                fig.savefig(f"./figures/{self.algo_name}_eval_{datetime.now().strftime('%m%d_%H%M')}.png")
+                fig.savefig(f"./figures/{self.version}_{self.algo_name}_{timestamp}_eval.png")
 
         # plot mean reward in training
         fig, ax = plt.subplots()
@@ -128,7 +131,7 @@ class Agent(object):
         ax.set(xlabel="training_step", ylabel="mean reward per step", title=f"{self.algo_name.upper()} Training Results")
         ax.grid()
         if log:
-            fig.savefig(f"./figures/{self.algo_name}_train_{datetime.now().strftime('%m%d_%H%M')}.png")
+            fig.savefig(f"./figures/{self.version}_{self.algo_name}_{timestamp}_train.png")
 
         plt.show()
 
@@ -163,10 +166,7 @@ class Agent(object):
             coverage_reward_mean_overall += coverage_reward_mean / duration
             reward_opt_mean += reward_opt / duration
             info = f"average coverage reward for trained map {i}: {coverage_reward_mean}, optimal reward: {reward_opt}, ratio: {coverage_reward_mean / reward_opt}"
-            if log:
-                self.logger.info(info)
-            else:
-                print(info)
+            print(info)
 
         # test on new maps
         env_config["preset_map_path"] = None
@@ -194,10 +194,7 @@ class Agent(object):
             coverage_reward_mean_overall_new += coverage_reward_mean / duration
             reward_opt_mean_new += reward_opt / duration
             info = f"average coverage reward for new map {i}: {coverage_reward_mean}, optimal reward: {reward_opt}, ratio: {coverage_reward_mean/reward_opt}"
-            if log:
-                self.logger.info(info)
-            else:
-                print(info)
+            print(info)
 
         info1 = (f"overall average coverage reward for trained maps: {coverage_reward_mean_overall},"
                 f" average optimal reward: {reward_opt_mean},"
