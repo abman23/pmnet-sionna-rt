@@ -1,16 +1,17 @@
 import time
 import yaml
 
-from agent.dqn import DQNAgent
+from agent.sac import SACAgent
 
 
 if __name__ == "__main__":
     start = time.time()
-    config = yaml.safe_load(open('config/dqn_test.yaml', 'r'))
-    dqn = DQNAgent(config=config, log_file='log/runner_dqn.log')
+    config = yaml.safe_load(open('../config/sac_train.yaml', 'r'))
+    # print(config)
+    sac = SACAgent(config=config, log_file='../log/runner_sac.log')
 
     # train the agent and evaluate every some steps
-    dqn.train_and_eval()
+    # sac.train_and_eval()
     # tuner = tune.Tuner(
     #     "DQN",
     #     param_space=dqn_config.to_dict(),
@@ -21,8 +22,8 @@ if __name__ == "__main__":
     # tuner.fit()
 
     # plot the action (TX location) of the trained agent vs. the optimal TX location
-    # dqn.agent.restore("./checkpoint/dqn_0220_1342")
-    dqn.eval_plot()
+    sac.agent.restore("./checkpoint/sac_0222_0617")
+    sac.test()
 
     end = time.time()
     print(f"total runtime: {end - start}s")

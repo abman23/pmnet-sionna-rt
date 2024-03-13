@@ -43,5 +43,5 @@ class SACAgent(Agent):
                 min_sample_timesteps_per_iteration=config["report"].get("min_sample_timesteps_per_iteration", 1000)
             )
         )
-        self.agent = sac_config.build()
+        self.agent_config = sac_config
         self.algo_name = 'sac'

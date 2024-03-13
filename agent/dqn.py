@@ -46,6 +46,6 @@ class DQNAgent(Agent):
                 _disable_preprocessor_api=True,
             )
         )
-        self.agent = dqn_config.build()
+        self.agent_config = dqn_config
         self.algo_name = 'dqn'
 

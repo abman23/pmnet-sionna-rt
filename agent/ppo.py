@@ -1,4 +1,6 @@
+import torch
 from ray.rllib.algorithms import PPOConfig
+from ray.rllib.examples.rl_module.action_masking_rlm import TorchActionMaskRLM
 from ray.rllib.core.rl_module.rl_module import SingleAgentRLModuleSpec
 
 from agent.agent import Agent
@@ -6,8 +8,8 @@ from rl_module.action_mask_rlm import PPOActionMaskRLM
 
 
 class PPOAgent(Agent):
-    def __init__(self, config: dict, log_file: str) -> None:
-        super().__init__(config, log_file)
+    def __init__(self, config: dict, log_file: str, version: str) -> None:
+        super().__init__(config, log_file, version)
 
         ppo_config = (
             PPOConfig()
@@ -17,10 +19,11 @@ class PPOAgent(Agent):
                 num_rollout_workers=config["rollout"].get("num_rollout_workers", 1),
                 num_envs_per_worker=config["rollout"].get("num_envs_per_worker", 1),
                 rollout_fragment_length="auto",
-                batch_mode="complete_episodes",
+                # batch_mode="complete_episodes",
             )
             .resources(
-                num_gpus=config["resource"].get("num_gpus", 0),
+                # num_gpus=config["resource"].get("num_gpus", 0),
+                num_gpus=torch.cuda.device_count(),
             )
             .exploration(
                 explore=True,
@@ -33,6 +36,7 @@ class PPOAgent(Agent):
                 grad_clip=config["train"].get("grad_clip", 40.0),
                 sgd_minibatch_size=config["train"].get("sgd_minibatch_size", 128),
                 num_sgd_iter=config["train"].get("num_sgd_iter", 30),
+                model=config["train"].get("model", {"fcnet_activation": "relu"})
             )
             .evaluation(
                 evaluation_interval=config["eval"].get("evaluation_interval", 1),
@@ -48,9 +52,9 @@ class PPOAgent(Agent):
                 _disable_preprocessor_api=True,  # disable flattening observation
             )
         )
-        if not config["env"].get("no_masking", True):
-            ppo_config = ppo_config.rl_module(
-                rl_module_spec=SingleAgentRLModuleSpec(module_class=PPOActionMaskRLM),
-            )
-        self.agent = ppo_config.build()
+        # if not config["env"].get("no_masking", True):
+        ppo_config = ppo_config.rl_module(
+            rl_module_spec=SingleAgentRLModuleSpec(module_class=PPOActionMaskRLM),
+        )
+        self.agent_config = ppo_config
         self.algo_name = 'ppo'

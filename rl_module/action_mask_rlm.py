@@ -61,7 +61,7 @@ def mask_forward_fn(forward_fn, batch, **kwargs):
     # Mask logits
     logits = outputs[SampleBatch.ACTION_DIST_INPUTS]
     # Convert action_mask into a [0.0 || -inf]-type mask.
-    inf_mask = th.clamp(th.log(action_mask), min=FLOAT_MIN)
+    inf_mask = th.clamp(th.log(action_mask), min=-1e10)
     masked_logits = logits + inf_mask
 
     # Replace original values with masked values.

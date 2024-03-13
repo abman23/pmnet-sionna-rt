@@ -3586,3 +3586,6 @@
 2024-02-26 06:39:17,410 INFO {'steps': 10, 'loc': [16, 16], 'loc_opt': (24, 35), 'reward': 0.5860552302472076, 'detailed_rewards': 'r_c = 747, r_e = 767, p_d = -20.615528128088304, dis_max = 53.150729063673246', 'coverage_matrix': <built-in method tolist of numpy.ndarray object at 0x3499f9050>}
 2024-02-26 06:39:17,529 INFO {'steps': 15, 'loc': [32, 34], 'loc_opt': (24, 35), 'reward': 0.7818204885930705, 'detailed_rewards': 'r_c = 716, r_e = 767, p_d = -8.06225774829855, dis_max = 53.150729063673246', 'coverage_matrix': <built-in method tolist of numpy.ndarray object at 0x2a1d5ec10>}
 2024-02-26 06:39:17,647 INFO {'steps': 20, 'loc': [32, 34], 'loc_opt': (24, 35), 'reward': 0.7818204885930705, 'detailed_rewards': 'r_c = 716, r_e = 767, p_d = -8.06225774829855, dis_max = 53.150729063673246', 'coverage_matrix': <built-in method tolist of numpy.ndarray object at 0x3499730f0>}
+2024-03-09 12:46:29,209 INFO =============NEW ENV INITIALIZED=============
+2024-03-09 12:48:16,534 INFO =============NEW ENV INITIALIZED=============
+2024-03-09 12:49:46,995 INFO =============NEW ENV INITIALIZED=============

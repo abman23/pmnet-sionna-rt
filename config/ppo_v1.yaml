@@ -1,0 +1,44 @@
+env:
+  coefficient_dict:
+    p_d: 1.0
+    r_c: 1.0
+  map_size: 256
+  action_space_size: 64
+  n_maps: 100
+  n_steps_per_map: 32
+  dataset_dir: resource/usc_old/
+eval:
+  evaluation_config:
+    env_config:
+      evaluation: true
+      n_maps: 50
+    exploration:
+      explore: false
+  evaluation_duration: 3
+  evaluation_interval: 5
+  evaluation_num_workers: 1
+explore:
+  exploration_config:
+    type: StochasticSampling
+  explore: true
+report:
+  min_sample_timesteps_per_iteration: 32  # keep it the same as batch size
+resource:
+  num_cpus_per_worker: 1
+  num_gpus: 0
+  num_gpus_per_worker: 0
+rollout:
+  num_envs_per_worker: 1
+  num_rollout_workers: 1
+stop:
+  training_iteration: 1000
+train:
+  lr: 1.0e-05
+  gamma: 0
+  grad_clip: 1.0
+  train_batch_size: 32
+  sgd_minibatch_size: 8
+  num_sgd_iter: 30
+  model:
+#    fcnet_hiddens: [ 128, 128 ]
+    fcnet_activation: relu

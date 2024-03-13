@@ -1,5 +1,4 @@
 import math
-from typing import Tuple
 from PIL import Image, ImageDraw
 import numpy as np
 import json
@@ -214,7 +213,8 @@ def calc_pl_threshold(original_map: np.ndarray, map_scale: float, ratio_coverage
         return -np.inf
 
 
-def find_opt_loc(pixel_map: np.ndarray, map_scale: float, pl_threshold: float | None = None) -> tuple[tuple, np.ndarray]:
+def find_opt_loc(pixel_map: np.ndarray, map_scale: float, pl_threshold: float | None = None) -> tuple[
+    tuple, np.ndarray]:
     """Find the optimal location of TX which maximizes the overall coverage.
 
     Args:
