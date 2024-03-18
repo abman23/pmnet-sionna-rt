@@ -3,5 +3,5 @@
   <component name="Black">
     <option name="sdkName" value="wides" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="wides" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="autobs" project-jdk-type="Python SDK" />
 </project>

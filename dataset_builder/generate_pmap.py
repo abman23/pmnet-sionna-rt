@@ -133,24 +133,27 @@ if __name__ == "__main__":
     # idx, tensors = create_dataset(input_dir_base='usc', indices=np.arange(1, dtype=int), device=device)
     # inference_and_save(model=model, idx=idx, tensors=tensors, batch_size=8, dir_base='usc/pmap/')
 
-    idx_start, idx_end = 3, 3 + 32 * 100
+    idx_start, idx_end = 1, 1 + 32 * 100
     # only do inference on one map at one time in case of OutOfMemoeryError
     for idx_eval in tqdm(range(idx_start, idx_end, 32)):
-        idx, tensors = create_dataset(input_dir_base='resource/usc_old', output_dir_base='resource/usc_old',
+        idx, tensors = create_dataset(input_dir_base='resource/usc_old', output_dir_base='resource/usc_old_2',
                                       suffix="train", indices=np.arange(idx_eval, idx_eval + 1, dtype=int),
-                                      tx_size=12, upsampling_factor=4, device=device)
-        inference_and_save(model=model, idx=idx, tensors=tensors, batch_size=4, dir_base='resource/usc_old', dir_img='pmap_train')
+                                      tx_size=12, upsampling_factor=8, device=device)
+        inference_and_save(model=model, idx=idx, tensors=tensors, batch_size=4, dir_base='resource/usc_old_2',
+                           dir_img='pmap_train')
 
-        # calculate optimal TX location based on power map and save all information to json
-        calc_coverages_and_save(dataset_dir='resource/usc_old', output_dir='resource/usc_old_json',
-                                map_indices=np.arange(idx_eval, idx_eval + 1, dtype=int), map_suffix='train',
-                                coverage_threshold=220./255, upsampling_factor=256//64)
+    idx_start, idx_end = 2, 2 + 32 * 50
+    # only do inference on one map at one time in case of OutOfMemoeryError
+    for idx_eval in tqdm(range(idx_start, idx_end, 32)):
+        idx, tensors = create_dataset(input_dir_base='resource/usc_old', output_dir_base='resource/usc_old_2',
+                                      suffix="test", indices=np.arange(idx_eval, idx_eval + 1, dtype=int),
+                                      tx_size=12, upsampling_factor=8, device=device)
+        inference_and_save(model=model, idx=idx, tensors=tensors, batch_size=4, dir_base='resource/usc_old_2',
+                           dir_img='pmap_test')
 
-    # train_indices = np.arange(1, 1+32*100, 32)
-    # calc_coverages_and_save(dataset_dir='resource/usc_old', output_dir='resource/usc_old_json',
-    #                         map_indices=train_indices, map_suffix='train',
-    #                         coverage_threshold=220. / 255, upsampling_factor=256 // 64)
-    # test_indices = np.arange(2, 2 + 32 * 50, 32)
-    # calc_coverages_and_save(dataset_dir='resource/usc_old', output_dir='resource/usc_old_json',
-    #                         map_indices=train_indices, map_suffix='test',
-    #                         coverage_threshold=220. / 255, upsampling_factor=256 // 64)
+        # Do not pre-calculate and store environment stepping-related data in json because
+        # reading data from json files is slower than reading from images + calculating these data.
+        # # calculate optimal TX location based on power map and save all information to json
+        # calc_coverages_and_save(dataset_dir='resource/usc_old', output_dir='resource/usc_old_json',
+        #                         map_indices=np.arange(idx_eval, idx_eval + 1, dtype=int), map_suffix='test',
+        #                         coverage_threshold=220./255, upsampling_factor=256//64)

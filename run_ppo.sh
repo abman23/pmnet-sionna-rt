@@ -5,7 +5,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=2
 #SBATCH --gpus-per-task=v100:1
-#SBATCH --mem=24G
+#SBATCH --mem=32G
 #SBATCH --time=24:00:00
 #SBATCH --mail-type=end,fail
 #SBATCH --mail-user=ylu62702@usc.edu
@@ -13,5 +13,7 @@ module purge
 eval "$(conda shell.bash hook)"
 conda activate autobs
 
+nvidia-smi
+
 export PYTHONPATH=$PWD:$PYTHONPATH
-python runner/runner_ppo.py
+python runner/run_ppo.py

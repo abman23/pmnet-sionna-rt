@@ -1,3 +1,4 @@
+import json
 import logging
 import os
 from typing import Any, SupportsFloat
@@ -32,7 +33,7 @@ class BaseEnvironment(gym.Env):
     power_map: np.ndarray  # flatten power map corresponding to pixel map
     loc_tx_opt: tuple  # the optimal location of TX
     coverage_opt: int  # the coverage reward corresponding to the optimal TX location
-    coverage_matrices: dict[int, np.ndarray]  # coverage matrices corresponding to each valid TX location
+    coverage_rewards: dict[int, int]  # coverage matrices corresponding to each valid TX location
     power_maps: dict[int, np.ndarray]  # power maps corresponding to each TX location
     max_dis_opt: float  # the maximum distance from the optimal TX location to any pixel on the map
     version: str = "v12"
@@ -50,8 +51,8 @@ class BaseEnvironment(gym.Env):
         # training or test env
         self.map_suffix = "test" if evaluation_mode else "train"
         # indices of maps used for training or test
-        self.map_indices: np.ndarray = np.arange(2, 2 + 32 * 100, 32) if evaluation_mode else np.arange(1, 1 + 32 * 100,
-                                                                                                        32)
+        self.map_indices: np.ndarray = np.arange(4, 4 + 32 * 50, 32) if evaluation_mode else np.arange(3, 3 + 32 * 100,
+                                                                                                       32)
         # the threshold of luminance (larger power value, brighter pixel) that we consider a pixel as 'covered' by TX
         self.coverage_threshold: float = 220. / 255  # todo: may need to be changed for the new dataset
 
@@ -73,14 +74,18 @@ class BaseEnvironment(gym.Env):
         self.action_space_size: int = action_space_size
         # action mask has the same shape as the action
         self.mask: np.ndarray = np.empty(action_space_size ** 2, dtype=np.int8)
+        self.no_masking: bool = config.get("no_masking", False)
 
         self.action_space: Discrete = Discrete(action_space_size ** 2)
-        self.observation_space: Dict = Dict(
-            {
-                "observations": Box(low=-np.inf, high=np.inf, shape=(map_size ** 2,)),
-                "action_mask": MultiBinary(action_space_size ** 2)
-            }
-        )
+        if self.no_masking:
+            self.observation_space: Box = Box(low=0., high=1., shape=(map_size ** 2,))
+        else:
+            self.observation_space: Dict = Dict(
+                {
+                    "observations": Box(low=0., high=1., shape=(map_size ** 2,), dtype=np.float32),
+                    "action_mask": MultiBinary(action_space_size ** 2)
+                }
+            )
 
         # fix a random seed
         self._np_random, seed = seeding.np_random(RANDOM_SEED)
@@ -95,11 +100,11 @@ class BaseEnvironment(gym.Env):
 
         self.steps = 0
         # map_idx uniquely determines a map in the dataset
-        # choose the map in sequence in evaluation
+        # choose the map in sequence in training while randomly choose in evaluation
         if self.evaluation:
-            map_idx = self.map_indices[self.n_trained_maps % self.n_maps]
-        else:
             map_idx = self.np_random.choice(self.map_indices)
+        else:
+            map_idx = self.map_indices[self.n_trained_maps % self.n_maps]
         self.n_trained_maps += 1
 
         # get map array, calculate the coverage-related information by the map index
@@ -108,8 +113,15 @@ class BaseEnvironment(gym.Env):
         self.pixel_map = info_tuple[0]
         self.loc_tx_opt = info_tuple[1]
         self.coverage_opt = info_tuple[2]
-        self.coverage_matrices = info_tuple[3]
+        self.coverage_rewards = info_tuple[3]
         self.power_maps = info_tuple[4]
+        # info_filename = os.path.join(ROOT_DIR, self.dataset_dir, f"dataset_{map_idx}.json")
+        # info_dict: dict = json.load(open(info_filename))
+        # self.pixel_map = np.array(info_dict['map'], dtype=np.int8)
+        # self.loc_tx_opt = info_dict['loc_opt']
+        # self.coverage_opt = info_dict['coverage_opt']
+        # self.coverage_rewards = info_dict['coverage_rewards']
+        # self.power_maps = info_dict['pmaps']
 
         # calculate the maximum distance from a pixel to the optimal location
         row_opt, col_opt = self.loc_tx_opt[0], self.loc_tx_opt[1]
@@ -120,6 +132,7 @@ class BaseEnvironment(gym.Env):
         # 1 - building, 0 - free space
         self.mask = self._calc_action_mask()
         if self.mask.sum() < 1:
+            print("retry")
             raise Exception("mask sum < 1, no available action")
         # if self.evaluation:
         #     print(f"sum of mask in evaluation: {self.mask.sum()}")
@@ -131,16 +144,20 @@ class BaseEnvironment(gym.Env):
         row, col = self.calc_upsampling_loc(init_action)
         self.power_map = self._get_power_map(row, col)
 
-        observation = {
-            "observations": self.power_map,
-            "action_mask": self.mask
-        }
+        if self.no_masking:
+            observation = self.power_map
+        else:
+            observation = {
+                "observations": self.power_map,
+                "action_mask": self.mask
+            }
         info_dict = {
             # "action_mask": self.mask,
             # "cropped_map_shape": self.pixel_map.shape,
             "map_index": map_idx,
             "loc_tx_opt": self.loc_tx_opt,
             "max_dis_opt": self.max_dis_opt,
+            "coverage_opt": self.coverage_opt,
             "init_action": (row, col),
         }
         # if self.evaluation:
@@ -155,8 +172,7 @@ class BaseEnvironment(gym.Env):
         row, col = self.calc_upsampling_loc(action)
 
         # calculate reward
-        coverage_matrix = self.calc_coverage(row, col)
-        r_c = np.sum(coverage_matrix)  # coverage reward
+        r_c = self.calc_coverage(row, col)  # coverage reward
         r_e = self.coverage_opt  # optimal coverage reward
         # coverage reward only
         # The reward value should be in the range [0,1]
@@ -165,22 +181,23 @@ class BaseEnvironment(gym.Env):
         term = True if r == 1. else False  # terminate if the location (action) is optimal
         self.steps += 1
         trunc = self.steps >= self.n_steps_per_map  # truncate if reach the step limit
-        # # change a different map and count the number of used resource
-        # if self.steps % self.n_steps_per_map == 0:
-        #     self.n_trained_maps += 1
-        #     self.pixel_map = self.cropped_maps[self.n_trained_maps % self.n_maps]
 
-        observation = {
-            "observations": self.power_map,
-            "action_mask": self.mask
-        }
+        self.power_map = self._get_power_map(row, col)
+        if self.no_masking:
+            observation = self.power_map
+        else:
+            observation = {
+                "observations": self.power_map,
+                "action_mask": self.mask
+            }
 
         info_dict = {
             "steps": self.steps,
             "loc": [row, col],
             "loc_opt": self.loc_tx_opt,
             "reward": r,
-            "detailed_rewards": f"r_c = {r_c}, r_e = {r_e}",
+            "r_c": r_c,
+            # "detailed_rewards": f"r_c = {r_c}, r_e = {r_e}",
         }
         # logger.info(info_dict)
         if self.test_algo and (self.steps % (np.ceil(self.n_steps_per_map / 4)) == 0 or term or trunc):
@@ -198,19 +215,23 @@ class BaseEnvironment(gym.Env):
 
         return observation, r, term, trunc, info_dict
 
-    def calc_coverage(self, row: int, col: int) -> np.ndarray:
-        """Calculate the coverage of a TX, given its location.
+    def calc_coverage(self, row: int, col: int) -> int:
+        """Calculate the coverage reward of a TX, given its location.
 
         Args:
             row: The row coordinate of the location.
             col: The column coordinate of the location.
 
         Returns:
-            A coverage map where 0 = uncovered, 1 = covered.
+            Number of covered pixels in the map.
 
         """
         tx_idx = row * self.map_size + col
-        return self.coverage_matrices[tx_idx]
+        if tx_idx in self.coverage_rewards.keys():
+            return self.coverage_rewards[tx_idx]
+        else:
+            # invalid TX location gets a huge penalty
+            return -int(1e5)
 
     def _get_power_map(self, row: int, col: int) -> np.ndarray:
         """Get the power map given a TX location.
@@ -224,7 +245,11 @@ class BaseEnvironment(gym.Env):
 
         """
         tx_idx = row * self.map_size + col
-        power_map = self.power_maps[tx_idx]
+        if tx_idx in self.power_maps.keys():
+            power_map = self.power_maps[tx_idx]
+        else:
+            # return building map for invalid TX location
+            power_map = self.pixel_map.astype(np.float32)
         return power_map.reshape(-1)
 
     def calc_upsampling_loc(self, action: int) -> tuple:

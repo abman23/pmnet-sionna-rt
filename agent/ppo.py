@@ -1,6 +1,6 @@
 import torch
 from ray.rllib.algorithms import PPOConfig
-from ray.rllib.examples.rl_module.action_masking_rlm import TorchActionMaskRLM
+from ray.rllib.examples.rl_module.action_masking_rlm import TorchActionMaskRLM, TFActionMaskRLM
 from ray.rllib.core.rl_module.rl_module import SingleAgentRLModuleSpec
 
 from agent.agent import Agent
@@ -33,7 +33,7 @@ class PPOAgent(Agent):
                 train_batch_size=config["train"].get("train_batch_size", 4000),
                 lr=config["train"].get("lr", 5e-5),
                 gamma=config["train"].get("gamma", 0.9),
-                grad_clip=config["train"].get("grad_clip", 40.0),
+                grad_clip=config["train"].get("grad_clip", None),
                 sgd_minibatch_size=config["train"].get("sgd_minibatch_size", 128),
                 num_sgd_iter=config["train"].get("num_sgd_iter", 30),
                 model=config["train"].get("model", {"fcnet_activation": "relu"})
@@ -52,9 +52,9 @@ class PPOAgent(Agent):
                 _disable_preprocessor_api=True,  # disable flattening observation
             )
         )
-        # if not config["env"].get("no_masking", True):
-        ppo_config = ppo_config.rl_module(
-            rl_module_spec=SingleAgentRLModuleSpec(module_class=PPOActionMaskRLM),
-        )
+        if not config["env"].get("no_masking", True):
+            ppo_config = ppo_config.rl_module(
+                rl_module_spec=SingleAgentRLModuleSpec(module_class=PPOActionMaskRLM),
+            )
         self.agent_config = ppo_config
         self.algo_name = 'ppo'

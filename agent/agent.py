@@ -35,6 +35,8 @@ class Agent(object):
             from env.env_v11 import BaseEnvironment
         elif version == "v12":
             from env.env_v12 import BaseEnvironment
+        elif version == "v13":
+            from env.env_v13 import BaseEnvironment
         else:
             from env.env_v04 import BaseEnvironment
         self.env_class = BaseEnvironment
@@ -46,8 +48,9 @@ class Agent(object):
 
         """
         self.agent = self.agent_config.build()
-        num_training_step = self.config["stop"].get("training_iteration", 10)
+        num_episode = self.config["stop"].get("training_iteration", 10)
         eval_interval = self.config["eval"].get("evaluation_interval", 5)
+        data_saving_interval = self.config["agent"].get("data_saving_interval", 10)
 
         # evaluation data
         if eval_interval is None:
@@ -55,20 +58,20 @@ class Agent(object):
             ep_reward_mean = np.empty(0, dtype=float)
             ep_reward_std = np.empty(0, dtype=float)
         else:
-            ep_eval = np.arange(0, num_training_step, eval_interval) + eval_interval
-            ep_reward_mean = np.empty(num_training_step // eval_interval, dtype=float)
-            ep_reward_std = np.empty(num_training_step // eval_interval, dtype=float)
+            ep_eval = np.arange(0, num_episode, eval_interval) + eval_interval
+            ep_reward_mean = np.empty(num_episode // eval_interval, dtype=float)
+            ep_reward_std = np.empty(num_episode // eval_interval, dtype=float)
         # training data
-        ep_train = np.arange(num_training_step)
-        ep_reward_mean_train = np.empty(num_training_step, dtype=float)
+        ep_train = np.arange(num_episode)
+        ep_reward_mean_train = np.empty(num_episode, dtype=float)
 
         timestamp = datetime.now().strftime('%m%d_%H%M')
-        start_info = f"===========train and eval started at {timestamp}==========="
+        start_info = f"==========={self.algo_name} train and eval started at {timestamp}==========="
         if log:
             self.logger.info(start_info)
         print(start_info)
 
-        for i in range(num_training_step):
+        for i in range(num_episode):
             # one training step (may include multiple environment episodes)
             result = self.agent.train()
 
@@ -82,7 +85,7 @@ class Agent(object):
             #     # print for debug ONLY
             #     print(pretty_print(result))
 
-            if i == num_training_step - 1:
+            if i == num_episode - 1:
                 if log:
                     # save the result and checkpoint
                     self.logger.info(pretty_print(result))
@@ -114,7 +117,7 @@ class Agent(object):
                 ep_reward_mean[idx] = ep_r_mean
                 ep_reward_std[idx] = ep_r_std
 
-            if log and (i + 1) % 50 == 0:
+            if log and ((i + 1) % data_saving_interval == 0 or i == num_episode - 1):
                 # save the training and evaluation data periodically
                 data = {
                     "ep_train": ep_train.tolist(),
@@ -172,8 +175,8 @@ class Agent(object):
             while not (term or trunc):
                 action = self.agent.compute_single_action(obs)
                 row, col = env_eval.calc_upsampling_loc(action)
-                coverage_map = env_eval.calc_coverage(row, col)
-                coverage_reward_mean += np.sum(coverage_map)
+                coverage_reward = env_eval.calc_coverage(row, col)
+                coverage_reward_mean += coverage_reward
                 cnt += 1
                 obs, reward, term, trunc, info = env_eval.step(action)
 
@@ -199,8 +202,8 @@ class Agent(object):
             while not (term or trunc):
                 action = self.agent.compute_single_action(obs)
                 row, col = env_eval.calc_upsampling_loc(action)
-                coverage_map = env_eval.calc_coverage(row, col)
-                coverage_reward_mean += np.sum(coverage_map)
+                coverage_reward = env_eval.calc_coverage(row, col)
+                coverage_reward_mean += coverage_reward
                 cnt += 1
                 obs, reward, term, trunc, info = env_eval.step(action)
 

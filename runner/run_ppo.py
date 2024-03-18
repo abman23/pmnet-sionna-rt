@@ -12,7 +12,7 @@ if __name__ == "__main__":
 
     start = time.time()
     config_ppo = yaml.safe_load(open(os.path.join(ROOT_DIR, 'config/ppo_v1.yaml'), 'r'))
-    ppo = PPOAgent(config=config_ppo, log_file=os.path.join(ROOT_DIR, 'log/runner_ppo.log'), version="v11")
+    ppo = PPOAgent(config=config_ppo, log_file=os.path.join(ROOT_DIR, 'log/runner_ppo.log'), version="v13")
 
     # ppo.param_tuning(
     #     # lr_schedule=[1e-4, 5e-5, 1e-5],
