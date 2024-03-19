@@ -16,7 +16,7 @@ def load_map_normalized(filepath: str) -> np.ndarray:
 
     """
     image = Image.open(filepath).convert('L')
-    image_arr = np.array(image, dtype=np.float32) / 255
+    image_arr = np.array(image, dtype=np.float64) / 255
 
     return image_arr
 
@@ -122,7 +122,7 @@ def calc_optimal_locations(dataset_dir: str, map_suffix: str, map_idx: int,
         Returns:
             Index of the optimal location.
 
-        """
+    """
     map_dir = os.path.join(ROOT_DIR, dataset_dir, 'map')
     pmap_dir = os.path.join(ROOT_DIR, dataset_dir, 'pmap_' + map_suffix)
 

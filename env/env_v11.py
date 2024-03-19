@@ -82,11 +82,11 @@ class BaseEnvironment(gym.Env):
 
         self.action_space: Discrete = Discrete(action_space_size ** 2)
         if self.no_masking:
-            self.observation_space: Box = Box(low=0., high=1., shape=(map_size ** 2,))
+            self.observation_space: Box = Box(low=0., high=1., shape=(map_size ** 2,), dtype=np.float64)
         else:
             self.observation_space: Dict = Dict(
                 {
-                    "observations": Box(low=0., high=1., shape=(map_size ** 2,), dtype=np.float32),
+                    "observations": Box(low=0., high=1., shape=(map_size ** 2,), dtype=np.float64),
                     "action_mask": MultiBinary(action_space_size ** 2)
                 }
             )
