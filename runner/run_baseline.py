@@ -19,13 +19,13 @@ if __name__ == "__main__":
     config_random = yaml.safe_load(open(os.path.join(ROOT_DIR, 'config/ppo_v1.yaml'), 'r'))
     random_agent = RandomAgent(config=config_random, log_file=os.path.join(ROOT_DIR, 'log/runner_random.log'),
                                version="v13")
-    # brute-force, search over every pixel
+    # brute-force, pick one pixel in a 4x4 block
     config_bf_dense = yaml.safe_load(open(os.path.join(ROOT_DIR, 'config/ppo_v1.yaml')))
-    config_bf_dense['env']['action_space_size'] = config_bf_dense['env']['map_size']
     bf_dense = BruteForceAgent(config=config_bf_dense, log_file=os.path.join(ROOT_DIR, 'log/runner_bf_dense.log'),
                                version="v13")
-    # brute-force, skip some pixel with a fixed interval
+    # brute-force, pick one pixel in a 8x8 block
     config_bf_sparse = yaml.safe_load(open(os.path.join(ROOT_DIR, 'config/ppo_v1.yaml')))
+    config_bf_sparse['env']['action_space_size'] = config_bf_sparse['env']['map_size'] // 8
     bf_sparse = BruteForceAgent(config=config_bf_sparse, log_file=os.path.join(ROOT_DIR, 'log/runner_bf_sparse.log'),
                                 version="v13")
 

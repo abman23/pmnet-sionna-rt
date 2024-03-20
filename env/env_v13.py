@@ -24,7 +24,7 @@ logger.addHandler(handler)
 
 
 class BaseEnvironment(gym.Env):
-    """MDP environment of autoBS, version 1.2.
+    """MDP environment of autoBS, version 1.3.
     Reward function : coverage reward (normalized)
 
     """
@@ -48,7 +48,7 @@ class BaseEnvironment(gym.Env):
         # training or test env
         self.map_suffix = "test" if evaluation_mode else "train"
         # indices of maps used for training or test
-        self.map_indices: np.ndarray = np.arange(4, 4 + 32 * 50, 32) if evaluation_mode else np.arange(3, 3 + 32 * 100,
+        self.map_indices: np.ndarray = np.arange(2, 2 + 32 * 50, 32) if evaluation_mode else np.arange(1, 1 + 32 * 100,
                                                                                                        32)
         # the threshold of luminance (larger power value, brighter pixel) that we consider a pixel as 'covered' by TX
         self.coverage_threshold: float = 220. / 255
@@ -133,10 +133,10 @@ class BaseEnvironment(gym.Env):
         row, col = self.calc_upsampling_loc(init_action)
 
         if self.no_masking:
-            observation = self.pixel_map.reshape(-1).astype(np.float32)
+            observation = self.pixel_map.reshape(-1).astype(np.float64)
         else:
             observation = {
-                "observations": self.pixel_map.reshape(-1).astype(np.float32),
+                "observations": self.pixel_map.reshape(-1).astype(np.float64),
                 "action_mask": self.mask
             }
         info_dict = {
@@ -171,10 +171,10 @@ class BaseEnvironment(gym.Env):
         trunc = self.steps >= self.n_steps_per_map  # truncate if reach the step limit
 
         if self.no_masking:
-            observation = self.pixel_map.reshape(-1).astype(np.float32)
+            observation = self.pixel_map.reshape(-1).astype(np.float64)
         else:
             observation = {
-                "observations": self.pixel_map.reshape(-1).astype(np.float32),
+                "observations": self.pixel_map.reshape(-1).astype(np.float64),
                 "action_mask": self.mask
             }
 

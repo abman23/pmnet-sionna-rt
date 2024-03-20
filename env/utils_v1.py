@@ -120,7 +120,7 @@ def calc_optimal_locations(dataset_dir: str, map_suffix: str, map_idx: int,
     """Calculate the optimal TX location given a map index.
 
         Returns:
-            Index of the optimal location.
+            Action index corresponding to the optimal location.
 
     """
     map_dir = os.path.join(ROOT_DIR, dataset_dir, 'map')
@@ -146,9 +146,9 @@ def calc_optimal_locations(dataset_dir: str, map_suffix: str, map_idx: int,
                 # exhaustively search the optimal TX location
                 if coverage > coverage_opt:
                     coverage_opt = coverage
-                    loc_opt = (y, x)
+                    loc_opt = (row, col)
 
-    return loc_opt[0] * map_size + loc_opt[1]
+    return loc_opt[0] * n_steps + loc_opt[1]
 
 
 def plot_rewards(output_name: str, algo_names: list[str], data_filenames: list[str], version: str,
@@ -189,10 +189,12 @@ def plot_rewards(output_name: str, algo_names: list[str], data_filenames: list[s
         ax.set(xlabel="training_step", ylabel="mean reward per step",
                title=f"Evaluation Results")
         ax.grid()
+        ax.legend()
     ax = axes[0] if evaluation else axes
     ax.set(xlabel="training_step", ylabel="mean reward per step",
            title=f"Training Results")
     ax.grid()
+    ax.legend()
 
     timestamp = datetime.now().strftime('%m%d_%H%M')
     if log:

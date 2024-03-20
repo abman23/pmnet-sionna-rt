@@ -40,7 +40,7 @@ class BruteForceAgent(Agent):
         ep_reward_mean_train = np.empty(num_episode, dtype=float)
 
         timestamp = datetime.now().strftime('%m%d_%H%M')
-        start_info = f"===========train and eval started at {timestamp}==========="
+        start_info = f"==========={self.algo_name} train and eval started at {timestamp}==========="
         if log:
             self.logger.info(start_info)
         print(start_info)
@@ -54,7 +54,7 @@ class BruteForceAgent(Agent):
             action = calc_optimal_locations(env_train.dataset_dir, env_train.map_suffix, info_dict["map_index"],
                                             env_train.coverage_threshold, env_train.upsampling_factor)
             obs, reward, terminated, truncated, info = env_train.step(action)
-            ep_reward_mean_train[i] = info['reward']  # not normalized coverage reward
+            ep_reward_mean_train[i] = info['r_c']  # not normalized coverage reward
             time_total_s = time.time() - time_train_start
             print("\n")
             print(f"================TRAINING # {i + 1}================")
@@ -64,11 +64,11 @@ class BruteForceAgent(Agent):
                 # test
                 for _ in range(eval_duration):
                     env_eval = self.env_class(config=env_config_eval)
-                    env_eval.reset()
+                    _, info_dict = env_eval.reset()
                     action = calc_optimal_locations(env_eval.dataset_dir, env_eval.map_suffix, info_dict["map_index"],
                                                     env_eval.coverage_threshold, env_eval.upsampling_factor)
                     obs, reward, terminated, truncated, info = env_eval.step(action)
-                    reward_eval.append(info['reward'])
+                    reward_eval.append(info['r_c'])
                 ep_r_mean, ep_r_std = np.mean(reward_eval), np.std(reward_eval)
                 idx = (i + 1) // eval_interval - 1
                 ep_reward_mean[idx] = ep_r_mean
@@ -92,7 +92,7 @@ class BruteForceAgent(Agent):
                     "ep_reward_mean_train": ep_reward_mean_train.tolist(),
                     "ep_eval": ep_eval.tolist(),
                     "ep_reward_std": ep_reward_std.tolist(),
-                    "ep_reward_mean": ep_reward_mean_train.tolist(),
+                    "ep_reward_mean": ep_reward_mean.tolist(),
                 }
                 json.dump(data, open(os.path.join(ROOT_DIR, f"data/{self.algo_name}_{timestamp}.json"), 'w'))
 

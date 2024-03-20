@@ -41,7 +41,7 @@ class RandomAgent(Agent):
         ep_reward_mean_train = np.empty(num_episode, dtype=float)
 
         timestamp = datetime.now().strftime('%m%d_%H%M')
-        start_info = f"===========train and eval started at {timestamp}==========="
+        start_info = f"==========={self.algo_name} train and eval started at {timestamp}==========="
         if log:
             self.logger.info(start_info)
         print(start_info)
@@ -59,7 +59,7 @@ class RandomAgent(Agent):
                     env_train.reset()
                 action = env_train.np_random.choice(np.where(env_train.mask == 1)[0])
                 obs, reward, terminated, truncated, info = env_train.step(action)
-                reward_train_mean += info['reward'] / num_steps_per_episode
+                reward_train_mean += info['r_c'] / num_steps_per_episode
             ep_reward_mean_train[i] = reward_train_mean
             time_total_s = time.time() - time_train_start
             print("\n")
@@ -77,7 +77,7 @@ class RandomAgent(Agent):
                     while not term and not trunc:
                         action = env_eval.np_random.choice(np.where(env_eval.mask == 1)[0])
                         obs, reward, term, trunc, info = env_eval.step(action)
-                        reward_per_ep += info['reward']
+                        reward_per_ep += info['r_c']
                         num_steps += 1
                     reward_eval.append(reward_per_ep / num_steps)
                 ep_r_mean, ep_r_std = np.mean(reward_eval), np.std(reward_eval)
@@ -103,7 +103,7 @@ class RandomAgent(Agent):
                     "ep_reward_mean_train": ep_reward_mean_train.tolist(),
                     "ep_eval": ep_eval.tolist(),
                     "ep_reward_std": ep_reward_std.tolist(),
-                    "ep_reward_mean": ep_reward_mean_train.tolist(),
+                    "ep_reward_mean": ep_reward_mean.tolist(),
                 }
                 json.dump(data, open(os.path.join(ROOT_DIR, f"data/{self.algo_name}_{timestamp}.json"), 'w'))
 

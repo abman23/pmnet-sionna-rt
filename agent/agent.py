@@ -10,7 +10,7 @@ from ray import train, tune
 from ray.rllib.algorithms import Algorithm, AlgorithmConfig
 from ray.tune.logger import pretty_print
 
-from env.utils_v1 import ROOT_DIR
+from env.utils_v1 import ROOT_DIR, dict_update
 
 
 class Agent(object):
@@ -66,7 +66,7 @@ class Agent(object):
         ep_reward_mean_train = np.empty(num_episode, dtype=float)
 
         timestamp = datetime.now().strftime('%m%d_%H%M')
-        start_info = f"==========={self.algo_name} train and eval started at {timestamp}==========="
+        start_info = f"==========={self.algo_name.upper()} train and eval started at {timestamp}==========="
         if log:
             self.logger.info(start_info)
         print(start_info)
@@ -187,7 +187,7 @@ class Agent(object):
             print(info)
 
         # test on new maps
-        env_config["evaluation"] = True
+        env_config = dict_update(env_config, self.config['eval']['evaluation_config']['env_config'])
         env_config["test_algo"] = self.algo_name + "_new"
         env_eval = self.env_class(config=env_config)
 
