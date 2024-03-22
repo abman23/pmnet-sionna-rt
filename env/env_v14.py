@@ -9,7 +9,7 @@ from gymnasium.spaces import Discrete, MultiBinary, Dict, Box
 from gymnasium.utils import seeding
 from retrying import retry
 
-from env.utils_v1 import ROOT_DIR, calc_coverages
+from env.utils_v1 import ROOT_DIR, calc_coverages, load_map_normalized, calc_optimal_locations
 
 RANDOM_SEED: int | None = None  # manually set random seed
 
@@ -29,11 +29,9 @@ class BaseEnvironment(gym.Env):
 
     """
     pixel_map: np.ndarray  # current building map
-    loc_tx_opt: tuple  # the optimal location of TX
-    coverage_opt: int  # the coverage reward corresponding to the optimal TX location
-    coverage_rewards: dict[int, int]  # coverage matrices corresponding to each valid TX location
     version: str = "v14"
     steps: int
+    map_idx: int  # index of the current building map
 
     def __init__(self, config: dict) -> None:
         """Initialize the base MDP environment.
@@ -54,7 +52,9 @@ class BaseEnvironment(gym.Env):
 
         self.n_maps: int = config.get("n_maps", 1)
         # number of continuous steps using one cropped map
-        self.n_steps_per_map: int = config.get("n_steps_per_map", 10)
+        self.n_episodes_per_map: int = config.get("n_episodes_per_map", 10)
+        self.n_steps_truncate: int = config.get("n_steps_truncate", 10)
+        self.n_episodes: int = 0
         # coefficients of reward items
         self.coefficient_dict = config.get("coefficient_dict", {})
         # count the number of used cropped maps
@@ -85,7 +85,8 @@ class BaseEnvironment(gym.Env):
 
         # fix a random seed
         self._np_random, seed = seeding.np_random(RANDOM_SEED)
-        # logger.info("=============NEW ENV INITIALIZED=============")
+        if not evaluation_mode:
+            logger.info(f"=============NEW ENV {self.version.upper()} INITIALIZED=============")
 
     # retry if action mask contains no 1 (no valid action in the reduced action space)
     @retry(stop_max_attempt_number=3)
@@ -95,31 +96,25 @@ class BaseEnvironment(gym.Env):
         super().reset(seed=seed, options=options)
 
         self.steps = 0
-        # map_idx uniquely determines a map in the dataset
-        # choose the map in sequence in training while randomly choose in evaluation
-        if self.evaluation:
-            map_idx = self.np_random.choice(self.map_indices)
-        else:
-            map_idx = self.map_indices[self.n_trained_maps % self.n_maps]
-        self.n_trained_maps += 1
-
-        # get map array, calculate the coverage-related information by the map index
-        info_tuple = calc_coverages(self.dataset_dir, self.map_suffix, map_idx, self.coverage_threshold,
-                                    self.upsampling_factor)
-        self.pixel_map = info_tuple[0]
-        self.loc_tx_opt = info_tuple[1]
-        self.coverage_opt = info_tuple[2]
-        self.coverage_rewards = info_tuple[3]
-
-        # 1 - building, 0 - free space
-        self.mask = self._calc_action_mask()
-        if self.mask.sum() < 1:
-            print("retry")
-            raise Exception("mask sum < 1, no available action")
-        # if self.evaluation:
-        #     print(f"sum of mask in evaluation: {self.mask.sum()}")
-        # else:
-        #     print(f"sum of mask in training: {self.mask.sum()}")
+        if self.n_episodes % self.n_episodes_per_map == 0:
+            # switch the building map
+            # map_idx uniquely determines a map in the dataset
+            # choose the map in sequence in training while randomly choose in evaluation
+            # if self.evaluation:
+            #     self.map_idx = self.np_random.choice(self.map_indices)
+            # else:
+            #     self.map_idx = int(self.map_indices[self.n_trained_maps % self.n_maps])
+            self.map_idx = int(self.map_indices[self.n_trained_maps % self.n_maps])
+            self.n_trained_maps += 1
+            # update map and action mask
+            map_path = os.path.join(ROOT_DIR, self.dataset_dir, 'map', str(self.map_idx) + '.png')
+            self.pixel_map = load_map_normalized(map_path)
+            # 1 - building, 0 - free space
+            self.mask = self._calc_action_mask()
+            if self.mask.sum() < 1:
+                print("retry")
+                raise Exception("mask sum < 1, no available action")
+        self.n_episodes += 1
 
         # choose a random initial action
         init_action = self.np_random.choice(np.where(self.mask == 1)[0])
@@ -132,16 +127,17 @@ class BaseEnvironment(gym.Env):
                 "observations": self.pixel_map.reshape(-1).astype(np.float64),
                 "action_mask": self.mask
             }
+
         info_dict = {
-            # "action_mask": self.mask,
-            # "cropped_map_shape": self.pixel_map.shape,
-            "map_index": map_idx,
-            "loc_tx_opt": self.loc_tx_opt,
-            "coverage_opt": self.coverage_opt,
+            "n_episodes": self.n_episodes,
+            "n_trained_maps": self.n_trained_maps,
+            "map_suffix": self.map_suffix,
+            "map_index": self.map_idx,
             "init_action": (row, col),
         }
-        # if self.evaluation:
-        #     logger.info(info_dict)
+        if self.n_episodes % 5 == 0:
+            logger.info(info_dict)
+
         return observation, info_dict
 
     def step(
@@ -157,7 +153,7 @@ class BaseEnvironment(gym.Env):
         r = r_c
 
         self.steps += 1
-        trunc = self.steps >= self.n_steps_per_map  # truncate if reach the step limit
+        trunc = self.steps >= self.n_steps_truncate  # truncate if reach the step limit
 
         if self.no_masking:
             observation = self.pixel_map.reshape(-1).astype(np.float64)
@@ -170,24 +166,15 @@ class BaseEnvironment(gym.Env):
         info_dict = {
             "steps": self.steps,
             "loc": [row, col],
-            "loc_opt": self.loc_tx_opt,
+            # "loc_opt": self.loc_tx_opt,
             "reward": r,
             "r_c": r_c,
+            "test_algo": self.test_algo,
             # "detailed_rewards": f"r_c = {r_c}, r_e = {r_e}",
         }
         # logger.info(info_dict)
-        if self.test_algo and (self.steps % (np.ceil(self.n_steps_per_map / 4)) == 0 or trunc):
-            logger.info(info_dict)
-
-        # # plot the current and optimal TX locations
-        # if self.test_algo and (term or trunc):
-        #     save_map(
-        #         f"./figures/test_maps/{datetime.now().strftime('%m%d_%H%M')}_{self.test_algo}_{self.n_trained_maps}.png",
-        #         self.pixel_map,
-        #         True,
-        #         self.loc_tx_opt,
-        #         mark_locs=[[row, col]],
-        #     )
+        # if self.test_algo and (self.steps % (np.ceil(self.n_steps_per_map / 4)) == 0 or trunc):
+        #     logger.info(info_dict)
 
         return observation, r, False, trunc, info_dict
 
@@ -203,9 +190,14 @@ class BaseEnvironment(gym.Env):
 
         """
         tx_idx = row * self.map_size + col
-        if tx_idx in self.coverage_rewards.keys():
-            return self.coverage_rewards[tx_idx]
-        else:
+        try:
+            pmap_path = os.path.join(ROOT_DIR, self.dataset_dir, 'pmap_' + self.map_suffix,
+                                     'pmap_' + str(self.map_idx) + '_' + str(tx_idx) + '.png')
+            pmap_arr = load_map_normalized(pmap_path)
+            coverage_matrix = np.where(pmap_arr >= self.coverage_threshold, 1, 0)
+            coverage = int(coverage_matrix.sum())
+            return coverage
+        except Exception:
             # invalid TX location gets a huge penalty
             return -int(1e5)
 
@@ -232,4 +224,4 @@ class BaseEnvironment(gym.Env):
 
         """
         idx = np.arange((self.upsampling_factor - 1) // 2, self.map_size, self.upsampling_factor)
-        return self.pixel_map[idx][:, idx].reshape(-1)
+        return self.pixel_map[idx][:, idx].reshape(-1).astype(np.int8)

@@ -115,12 +115,13 @@ def dict_update(old_dict: dict, new_dict: dict) -> dict:
     return returned_dict
 
 
+# todo: this method can be moved into env class
 def calc_optimal_locations(dataset_dir: str, map_suffix: str, map_idx: int,
-                           coverage_threshold: float, upsampling_factor: int) -> int:
+                           coverage_threshold: float, upsampling_factor: int) -> tuple[int, int]:
     """Calculate the optimal TX location given a map index.
 
         Returns:
-            Action index corresponding to the optimal location.
+            (action index, optimal coverage reward).
 
     """
     map_dir = os.path.join(ROOT_DIR, dataset_dir, 'map')
@@ -148,7 +149,7 @@ def calc_optimal_locations(dataset_dir: str, map_suffix: str, map_idx: int,
                     coverage_opt = coverage
                     loc_opt = (row, col)
 
-    return loc_opt[0] * n_steps + loc_opt[1]
+    return loc_opt[0] * n_steps + loc_opt[1], coverage_opt
 
 
 def plot_rewards(output_name: str, algo_names: list[str], data_filenames: list[str], version: str,
@@ -172,6 +173,8 @@ def plot_rewards(output_name: str, algo_names: list[str], data_filenames: list[s
             ep_eval = algo_data['ep_eval']
             ep_reward_mean = algo_data['ep_reward_mean']
             ep_reward_std = algo_data['ep_reward_std']
+            # print(algo_name)
+            # print(len(ep_eval), len(ep_reward_mean))
             ax = axes[1]
             ax.plot(ep_eval, ep_reward_mean, label=algo_name.upper())
             sup = list(map(lambda x, y: x + y, ep_reward_mean, ep_reward_std))

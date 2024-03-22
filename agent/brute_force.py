@@ -25,6 +25,7 @@ class BruteForceAgent(Agent):
         env_config_train = self.config['env']
         env_train = self.env_class(config=env_config_train)
         env_config_eval = dict_update(self.config['env'], self.config['eval']['evaluation_config']['env_config'])
+        env_eval = self.env_class(config=env_config_eval)
 
         # evaluation data
         if eval_interval is None:
@@ -51,24 +52,23 @@ class BruteForceAgent(Agent):
             reward_eval = []
 
             # training
-            action = calc_optimal_locations(env_train.dataset_dir, env_train.map_suffix, info_dict["map_index"],
-                                            env_train.coverage_threshold, env_train.upsampling_factor)
-            obs, reward, terminated, truncated, info = env_train.step(action)
-            ep_reward_mean_train[i] = info['r_c']  # not normalized coverage reward
+            action, reward = calc_optimal_locations(env_train.dataset_dir, env_train.map_suffix, info_dict["map_index"],
+                                                    env_train.coverage_threshold, env_train.upsampling_factor)
+            ep_reward_mean_train[i] = reward  # not normalized coverage reward
             time_total_s = time.time() - time_train_start
             print("\n")
             print(f"================TRAINING # {i + 1}================")
             print(f"time_total_s: {time_total_s}")
 
+            _, info_dict = env_eval.reset()
             if eval_interval is not None and (i + 1) % eval_interval == 0:
-                # test
-                for _ in range(eval_duration):
-                    env_eval = self.env_class(config=env_config_eval)
-                    _, info_dict = env_eval.reset()
-                    action = calc_optimal_locations(env_eval.dataset_dir, env_eval.map_suffix, info_dict["map_index"],
-                                                    env_eval.coverage_threshold, env_eval.upsampling_factor)
-                    obs, reward, terminated, truncated, info = env_eval.step(action)
-                    reward_eval.append(info['r_c'])
+                # evaluation
+                # now it only supports evaluating for one episode
+                # because we want to use the same map as that in agent training
+                action, reward = calc_optimal_locations(env_eval.dataset_dir, env_eval.map_suffix,
+                                                        info_dict["map_index"],
+                                                        env_eval.coverage_threshold, env_eval.upsampling_factor)
+                reward_eval.append(reward)
                 ep_r_mean, ep_r_std = np.mean(reward_eval), np.std(reward_eval)
                 idx = (i + 1) // eval_interval - 1
                 ep_reward_mean[idx] = ep_r_mean

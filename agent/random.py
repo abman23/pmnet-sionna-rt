@@ -26,6 +26,7 @@ class RandomAgent(Agent):
         env_config_train = self.config['env']
         env_train = self.env_class(config=env_config_train)
         env_config_eval = dict_update(self.config['env'], self.config['eval']['evaluation_config']['env_config'])
+        env_eval = self.env_class(config=env_config_eval)
 
         # evaluation data
         if eval_interval is None:
@@ -66,20 +67,20 @@ class RandomAgent(Agent):
             print(f"================TRAINING # {i + 1}================")
             print(f"time_total_s: {time_total_s}")
 
+            env_eval.reset()
             if eval_interval is not None and (i + 1) % eval_interval == 0:
                 # evaluation
-                for _ in range(eval_duration):
-                    env_eval = self.env_class(config=env_config_eval)
-                    env_eval.reset()
-                    term, trunc = False, False
-                    reward_per_ep = 0.
-                    num_steps = 0
-                    while not term and not trunc:
-                        action = env_eval.np_random.choice(np.where(env_eval.mask == 1)[0])
-                        obs, reward, term, trunc, info = env_eval.step(action)
-                        reward_per_ep += info['r_c']
-                        num_steps += 1
-                    reward_eval.append(reward_per_ep / num_steps)
+                # now it only supports evaluating for one episode
+                # because we want to use the same map as that in agent training
+                term, trunc = False, False
+                reward_per_ep = 0.
+                num_steps = 0
+                while not term and not trunc:
+                    action = env_eval.np_random.choice(np.where(env_eval.mask == 1)[0])
+                    obs, reward, term, trunc, info = env_eval.step(action)
+                    reward_per_ep += info['r_c']
+                    num_steps += 1
+                reward_eval.append(reward_per_ep / num_steps)
                 ep_r_mean, ep_r_std = np.mean(reward_eval), np.std(reward_eval)
                 idx = (i + 1) // eval_interval - 1
                 ep_reward_mean[idx] = ep_r_mean

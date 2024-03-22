@@ -3170,3 +3170,807 @@ trial_id: default
 2024-03-19 19:11:50,529 INFO =============TRAINING ENDED=============
 2024-03-19 19:12:43,047 INFO overall average coverage reward for trained maps: 7196.81668013468, average optimal reward: 11217.0, ratio: 0.6415990621498333
 2024-03-19 19:12:43,048 INFO overall average coverage reward for new maps: 6836.183351177355, average optimal reward: 10783.0, ratio: 0.6339778680494625
+2024-03-21 01:41:13,734 INFO ===========PPO train and eval started at 0321_0141===========
+2024-03-21 04:08:30,979 INFO agent_timesteps_total: 200000
+connector_metrics:
+  StateBufferConnector_ms: 0.0022325515747070312
+  ViewRequirementAgentConnector_ms: 0.11675572395324707
+counters:
+  num_agent_steps_sampled: 200000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 200000
+  num_env_steps_trained: 0
+custom_metrics: {}
+date: 2024-03-21_04-08-30
+done: false
+episode_len_mean: 2000.0
+episode_media: {}
+episode_reward_max: 18673459.0
+episode_reward_mean: 13718365.98
+episode_reward_min: 8478987.0
+episodes_this_iter: 1
+episodes_total: 100
+evaluation:
+  connector_metrics:
+    StateBufferConnector_ms: 0.002288818359375
+    ViewRequirementAgentConnector_ms: 0.1178741455078125
+  custom_metrics: {}
+  episode_len_mean: 2000.0
+  episode_media: {}
+  episode_reward_max: 13716637.0
+  episode_reward_mean: 13716637.0
+  episode_reward_min: 13716637.0
+  episodes_this_iter: 1
+  hist_stats:
+    episode_lengths:
+    - 2000
+    episode_reward:
+    - 13716637.0
+  num_agent_steps_sampled_this_iter: 2000
+  num_env_steps_sampled_this_iter: 2000
+  num_faulty_episodes: 0
+  num_healthy_workers: 0
+  num_in_flight_async_reqs: 0
+  num_remote_worker_restarts: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.0482999051541961
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 1.64392556474464
+    mean_inference_ms: 2.798333251116583
+    mean_raw_obs_processing_ms: 0.6596196612990864
+  sampler_results:
+    connector_metrics:
+      StateBufferConnector_ms: 0.002288818359375
+      ViewRequirementAgentConnector_ms: 0.1178741455078125
+    custom_metrics: {}
+    episode_len_mean: 2000.0
+    episode_media: {}
+    episode_reward_max: 13716637.0
+    episode_reward_mean: 13716637.0
+    episode_reward_min: 13716637.0
+    episodes_this_iter: 1
+    hist_stats:
+      episode_lengths:
+      - 2000
+      episode_reward:
+      - 13716637.0
+    num_faulty_episodes: 0
+    policy_reward_max: {}
+    policy_reward_mean: {}
+    policy_reward_min: {}
+    sampler_perf:
+      mean_action_processing_ms: 0.0482999051541961
+      mean_env_render_ms: 0.0
+      mean_env_wait_ms: 1.64392556474464
+      mean_inference_ms: 2.798333251116583
+      mean_raw_obs_processing_ms: 0.6596196612990864
+  timesteps_this_iter: 2000
+hostname: OrangeBook-Pro-14.local
+info:
+  learner:
+    __all__:
+      num_agent_steps_trained: 64.0
+      num_env_steps_trained: 2000.0
+      total_loss: 9.904384642521709
+    default_policy:
+      curr_entropy_coeff: 0.0
+      curr_kl_coeff: 5.125781536102295
+      curr_lr: 1.0e-05
+      default_optimizer_lr: 9.999999999999999e-06
+      entropy: 5.157443539165993
+      gradients_default_optimizer_global_norm: 1.927816749000346
+      mean_kl_loss: 0.011213151980667432
+      policy_loss: -0.15309151532803614
+      total_loss: 9.904384642521709
+      vf_explained_var: -1.2335238426224763e-06
+      vf_loss: 10.0
+      vf_loss_unclipped: 72004640.66950959
+  num_agent_steps_sampled: 200000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 200000
+  num_env_steps_trained: 0
+iterations_since_restore: 100
+node_ip: 127.0.0.1
+num_agent_steps_sampled: 200000
+num_agent_steps_trained: 0
+num_env_steps_sampled: 200000
+num_env_steps_sampled_this_iter: 2000
+num_env_steps_sampled_throughput_per_sec: 22.945071175099248
+num_env_steps_trained: 0
+num_env_steps_trained_this_iter: 0
+num_env_steps_trained_throughput_per_sec: 0.0
+num_faulty_episodes: 0
+num_healthy_workers: 0
+num_in_flight_async_reqs: 0
+num_remote_worker_restarts: 0
+num_steps_trained_this_iter: 0
+perf:
+  cpu_util_percent: 94.1978417266187
+  ram_util_percent: 79.41151079136691
+pid: 24896
+policy_reward_max: {}
+policy_reward_mean: {}
+policy_reward_min: {}
+sampler_perf:
+  mean_action_processing_ms: 0.04632376735850174
+  mean_env_render_ms: 0.0
+  mean_env_wait_ms: 1.655067767394991
+  mean_inference_ms: 2.784546986642765
+  mean_raw_obs_processing_ms: 0.6988193749442114
+sampler_results:
+  connector_metrics:
+    StateBufferConnector_ms: 0.0022325515747070312
+    ViewRequirementAgentConnector_ms: 0.11675572395324707
+  custom_metrics: {}
+  episode_len_mean: 2000.0
+  episode_media: {}
+  episode_reward_max: 18673459.0
+  episode_reward_mean: 13718365.98
+  episode_reward_min: 8478987.0
+  episodes_this_iter: 1
+  hist_stats:
+    episode_lengths: [2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000,
+      2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000,
+      2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000,
+      2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000,
+      2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000,
+      2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000,
+      2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000,
+      2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000]
+    episode_reward: [11464392.0, 12709067.0, 12739187.0, 13412483.0, 13119152.0, 14322921.0,
+      13010839.0, 14174905.0, 12898298.0, 13258919.0, 13298247.0, 13139538.0, 13253054.0,
+      13147356.0, 12642445.0, 13095740.0, 13311622.0, 16478009.0, 14290535.0, 14230360.0,
+      13868570.0, 12923403.0, 13244134.0, 15450014.0, 14308683.0, 13440544.0, 14146108.0,
+      16625869.0, 14993417.0, 15127398.0, 13268383.0, 13991221.0, 12894398.0, 13724701.0,
+      14060389.0, 18120729.0, 15755690.0, 14490577.0, 13888637.0, 14876546.0, 14089758.0,
+      12906174.0, 16156527.0, 16248863.0, 14508496.0, 16059795.0, 18673459.0, 13031842.0,
+      17219411.0, 9836307.0, 10133004.0, 9275563.0, 12091413.0, 13157757.0, 10966314.0,
+      9998709.0, 10140885.0, 13455314.0, 12771314.0, 13754654.0, 11395968.0, 10227836.0,
+      14389614.0, 14135047.0, 14605602.0, 12104596.0, 14240904.0, 15189719.0, 14297333.0,
+      13860421.0, 13487665.0, 14842705.0, 15941547.0, 14068051.0, 14553838.0, 14797897.0,
+      14170532.0, 14330070.0, 13283301.0, 12117543.0, 9559736.0, 11275377.0, 11883930.0,
+      14156174.0, 14487468.0, 8478987.0, 9867030.0, 17842118.0, 15541002.0, 17471004.0,
+      11271498.0, 13357410.0, 16305664.0, 14568026.0, 12677161.0, 15073354.0, 14467886.0,
+      15329379.0, 15486026.0, 15025140.0]
+  num_faulty_episodes: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.04632376735850174
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 1.655067767394991
+    mean_inference_ms: 2.784546986642765
+    mean_raw_obs_processing_ms: 0.6988193749442114
+time_since_restore: 8836.405380487442
+time_this_iter_s: 97.84524416923523
+time_total_s: 8836.405380487442
+timers:
+  sample_time_ms: 11434.061
+  synch_weights_time_ms: 53.675
+  training_iteration_time_ms: 87976.943
+timestamp: 1711019310
+timesteps_total: 200000
+training_iteration: 100
+trial_id: default
+
+2024-03-21 04:08:30,979 DEBUG {'env': {'coefficient_dict': {'p_d': 1.0, 'r_c': 1.0}, 'map_size': 256, 'action_space_size': 64, 'n_maps': 100, 'n_steps_per_map': 2000, 'dataset_dir': 'resource/usc_old', 'no_masking': False}, 'eval': {'evaluation_config': {'env_config': {'evaluation': True, 'n_maps': 50}, 'exploration': {'explore': False}}, 'evaluation_duration': 1, 'evaluation_interval': 5, 'evaluation_num_workers': 0}, 'explore': {'exploration_config': {'type': 'StochasticSampling'}, 'explore': True}, 'report': {'min_sample_timesteps_per_iteration': 2000}, 'resource': {'num_cpus_per_worker': 1, 'num_gpus': 0, 'num_gpus_per_worker': 0}, 'rollout': {'num_envs_per_worker': 1, 'num_rollout_workers': 0}, 'stop': {'training_iteration': 100}, 'train': {'lr': 1e-05, 'gamma': 0.1, 'grad_clip': 40.0, 'train_batch_size': 2000, 'sgd_minibatch_size': 64, 'num_sgd_iter': 30, 'model': {'fcnet_hiddens': [256, 256], 'fcnet_activation': 'tanh'}}, 'agent': {'data_saving_interval': 10}}
+2024-03-21 04:08:30,979 INFO =============TRAINING ENDED=============
+2024-03-21 04:08:34,109 INFO average coverage reward for trained map 0 in 10 steps: 7641.4, optimal reward: 9821, ratio: 0.7780674065777415
+2024-03-21 04:08:35,240 INFO average coverage reward for trained map 1 in 10 steps: 9105.6, optimal reward: 11241, ratio: 0.8100346944222044
+2024-03-21 04:08:36,385 INFO average coverage reward for trained map 2 in 10 steps: 7982.6, optimal reward: 11212, ratio: 0.711969318587228
+2024-03-21 04:08:38,125 INFO average coverage reward for trained map 3 in 10 steps: 6156.6, optimal reward: 8816, ratio: 0.6983439201451906
+2024-03-21 04:08:39,434 INFO average coverage reward for trained map 4 in 10 steps: 7790.1, optimal reward: 11646, ratio: 0.6689077794951056
+2024-03-21 04:08:40,692 INFO average coverage reward for new map 0: 6671.6, optimal reward: 10397, ratio: 0.6416851014715784
+2024-03-21 04:08:41,937 INFO average coverage reward for new map 1: 7100.1, optimal reward: 10159, ratio: 0.6988975292843784
+2024-03-21 04:08:42,883 INFO average coverage reward for new map 2: 6886.2, optimal reward: 10159, ratio: 0.677842307313712
+2024-03-21 04:08:44,275 INFO average coverage reward for new map 3: 6442.8, optimal reward: 10278, ratio: 0.6268534734384121
+2024-03-21 04:08:45,216 INFO average coverage reward for new map 4: 7326.2, optimal reward: 9388, ratio: 0.7803792074989347
+2024-03-21 04:08:45,218 INFO overall average coverage reward for trained maps: 7735.26, average optimal reward: 10547.2, ratio: 0.7333946450242718
+2024-03-21 04:08:45,218 INFO overall average coverage reward for test maps: 6885.379999999999, average optimal reward: 10076.2, ratio: 0.6833310176455408
+2024-03-21 05:00:04,047 INFO ===========PPO train and eval started at 0321_0500===========
+2024-03-21 06:22:12,454 INFO ===========PPO train and eval started at 0321_0622===========
+2024-03-21 09:03:43,698 INFO agent_timesteps_total: 200000
+connector_metrics:
+  StateBufferConnector_ms: 0.0018067359924316406
+  ViewRequirementAgentConnector_ms: 0.1297900676727295
+counters:
+  num_agent_steps_sampled: 200000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 200000
+  num_env_steps_trained: 0
+custom_metrics: {}
+date: 2024-03-21_09-03-43
+done: false
+episode_len_mean: 2000.0
+episode_media: {}
+episode_reward_max: 18585981.0
+episode_reward_mean: 13743224.37
+episode_reward_min: 8362104.0
+episodes_this_iter: 1
+episodes_total: 100
+evaluation:
+  connector_metrics:
+    StateBufferConnector_ms: 0.0019073486328125
+    ViewRequirementAgentConnector_ms: 0.12807846069335938
+  custom_metrics: {}
+  episode_len_mean: 2000.0
+  episode_media: {}
+  episode_reward_max: 13414757.0
+  episode_reward_mean: 13414757.0
+  episode_reward_min: 13414757.0
+  episodes_this_iter: 1
+  hist_stats:
+    episode_lengths:
+    - 2000
+    episode_reward:
+    - 13414757.0
+  num_agent_steps_sampled_this_iter: 2000
+  num_env_steps_sampled_this_iter: 2000
+  num_faulty_episodes: 0
+  num_healthy_workers: 0
+  num_in_flight_async_reqs: 0
+  num_remote_worker_restarts: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.040641281235882926
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 1.6028838695155059
+    mean_inference_ms: 2.6366416938495454
+    mean_raw_obs_processing_ms: 1.2057650843541838
+  sampler_results:
+    connector_metrics:
+      StateBufferConnector_ms: 0.0019073486328125
+      ViewRequirementAgentConnector_ms: 0.12807846069335938
+    custom_metrics: {}
+    episode_len_mean: 2000.0
+    episode_media: {}
+    episode_reward_max: 13414757.0
+    episode_reward_mean: 13414757.0
+    episode_reward_min: 13414757.0
+    episodes_this_iter: 1
+    hist_stats:
+      episode_lengths:
+      - 2000
+      episode_reward:
+      - 13414757.0
+    num_faulty_episodes: 0
+    policy_reward_max: {}
+    policy_reward_mean: {}
+    policy_reward_min: {}
+    sampler_perf:
+      mean_action_processing_ms: 0.040641281235882926
+      mean_env_render_ms: 0.0
+      mean_env_wait_ms: 1.6028838695155059
+      mean_inference_ms: 2.6366416938495454
+      mean_raw_obs_processing_ms: 1.2057650843541838
+  timesteps_this_iter: 2000
+hostname: OrangeBookPro14.lan
+info:
+  learner:
+    __all__:
+      num_agent_steps_trained: 64.0
+      num_env_steps_trained: 2000.0
+      total_loss: 9.903628684818617
+    default_policy:
+      curr_entropy_coeff: 0.0
+      curr_kl_coeff: 5.125781536102295
+      curr_lr: 1.0e-05
+      default_optimizer_lr: 9.999999999999999e-06
+      entropy: 5.232505900519235
+      gradients_default_optimizer_global_norm: 1.9646906856534831
+      mean_kl_loss: 0.011406259314590803
+      policy_loss: -0.15483727877034242
+      total_loss: 9.903628684818617
+      vf_explained_var: -9.5367431640625e-07
+      vf_loss: 10.0
+      vf_loss_unclipped: 71157507.27078891
+  num_agent_steps_sampled: 200000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 200000
+  num_env_steps_trained: 0
+iterations_since_restore: 100
+node_ip: 127.0.0.1
+num_agent_steps_sampled: 200000
+num_agent_steps_trained: 0
+num_env_steps_sampled: 200000
+num_env_steps_sampled_this_iter: 2000
+num_env_steps_sampled_throughput_per_sec: 20.596120939915945
+num_env_steps_trained: 0
+num_env_steps_trained_this_iter: 0
+num_env_steps_trained_throughput_per_sec: 0.0
+num_faulty_episodes: 0
+num_healthy_workers: 0
+num_in_flight_async_reqs: 0
+num_remote_worker_restarts: 0
+num_steps_trained_this_iter: 0
+perf:
+  cpu_util_percent: 86.92402597402598
+  ram_util_percent: 69.9038961038961
+pid: 27525
+policy_reward_max: {}
+policy_reward_mean: {}
+policy_reward_min: {}
+sampler_perf:
+  mean_action_processing_ms: 0.04132186143612127
+  mean_env_render_ms: 0.0
+  mean_env_wait_ms: 1.5569648270910934
+  mean_inference_ms: 2.6545754745465597
+  mean_raw_obs_processing_ms: 1.1792642440095016
+sampler_results:
+  connector_metrics:
+    StateBufferConnector_ms: 0.0018067359924316406
+    ViewRequirementAgentConnector_ms: 0.1297900676727295
+  custom_metrics: {}
+  episode_len_mean: 2000.0
+  episode_media: {}
+  episode_reward_max: 18585981.0
+  episode_reward_mean: 13743224.37
+  episode_reward_min: 8362104.0
+  episodes_this_iter: 1
+  hist_stats:
+    episode_lengths: [2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000,
+      2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000,
+      2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000,
+      2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000,
+      2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000,
+      2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000,
+      2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000,
+      2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000, 2000]
+    episode_reward: [11460693.0, 12536559.0, 12696548.0, 13357516.0, 13190174.0, 14246808.0,
+      13018426.0, 14123548.0, 12792667.0, 13190192.0, 13337532.0, 13004375.0, 13274017.0,
+      13070173.0, 12647891.0, 13094646.0, 13575783.0, 16562496.0, 14646833.0, 13860461.0,
+      13709941.0, 12910599.0, 13506326.0, 15497050.0, 14410981.0, 13235949.0, 14219342.0,
+      16665236.0, 15109534.0, 14808808.0, 13266495.0, 13723051.0, 12897919.0, 13550239.0,
+      14148486.0, 18567992.0, 15839173.0, 14401069.0, 13836884.0, 14686408.0, 13968521.0,
+      12872105.0, 16050696.0, 16623241.0, 14571786.0, 15989018.0, 18585981.0, 13066844.0,
+      17276241.0, 9735860.0, 10439555.0, 9180092.0, 12080434.0, 13239893.0, 11285855.0,
+      9893573.0, 10015655.0, 13441724.0, 12868651.0, 13824779.0, 11537551.0, 10433414.0,
+      14283119.0, 14116551.0, 14773499.0, 12135017.0, 14410445.0, 15380367.0, 14276670.0,
+      13756543.0, 13484363.0, 15043347.0, 16051733.0, 14352165.0, 14712605.0, 14829334.0,
+      13701358.0, 14706576.0, 13322389.0, 12238876.0, 9770855.0, 11277003.0, 12095183.0,
+      14258637.0, 14538113.0, 8362104.0, 10150088.0, 17697271.0, 15642061.0, 17533907.0,
+      11538172.0, 13212642.0, 16731686.0, 14951537.0, 12633979.0, 15181894.0, 14379653.0,
+      15215265.0, 15003003.0, 14914138.0]
+  num_faulty_episodes: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.04132186143612127
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 1.5569648270910934
+    mean_inference_ms: 2.6545754745465597
+    mean_raw_obs_processing_ms: 1.1792642440095016
+time_since_restore: 9690.510426998138
+time_this_iter_s: 108.41275787353516
+time_total_s: 9690.510426998138
+timers:
+  sample_time_ms: 11174.497
+  synch_weights_time_ms: 27.226
+  training_iteration_time_ms: 95319.075
+timestamp: 1711037023
+timesteps_total: 200000
+training_iteration: 100
+trial_id: default
+
+2024-03-21 09:03:43,698 DEBUG {'env': {'coefficient_dict': {'p_d': 1.0, 'r_c': 1.0}, 'map_size': 256, 'action_space_size': 64, 'n_maps': 100, 'n_steps_per_map': 2000, 'dataset_dir': 'resource/usc_old', 'no_masking': False}, 'eval': {'evaluation_config': {'env_config': {'evaluation': True, 'n_maps': 50}, 'exploration': {'explore': False}}, 'evaluation_duration': 1, 'evaluation_interval': 5, 'evaluation_num_workers': 0}, 'explore': {'exploration_config': {'type': 'StochasticSampling'}, 'explore': True}, 'report': {'min_sample_timesteps_per_iteration': 2000}, 'resource': {'num_cpus_per_worker': 1, 'num_gpus': 0, 'num_gpus_per_worker': 0}, 'rollout': {'num_envs_per_worker': 1, 'num_rollout_workers': 0}, 'stop': {'training_iteration': 100}, 'train': {'lr': 1e-05, 'gamma': 0.1, 'grad_clip': 40.0, 'train_batch_size': 2000, 'sgd_minibatch_size': 64, 'num_sgd_iter': 30, 'model': {'fcnet_hiddens': [256, 256], 'fcnet_activation': 'tanh'}}, 'agent': {'data_saving_interval': 10}}
+2024-03-21 09:03:43,698 INFO =============TRAINING ENDED=============
+2024-03-21 09:03:46,490 INFO average coverage reward for trained map 0 in 10 steps: 9453.8, optimal reward: 11878, ratio: 0.7959084020878935
+2024-03-21 09:03:49,483 INFO average coverage reward for trained map 1 in 10 steps: 5199.1, optimal reward: 9139, ratio: 0.5688915636284058
+2024-03-21 09:03:51,744 INFO average coverage reward for trained map 2 in 10 steps: 7793.5, optimal reward: 12468, ratio: 0.6250802053256336
+2024-03-21 09:03:54,485 INFO average coverage reward for trained map 3 in 10 steps: 6117.1, optimal reward: 9921, ratio: 0.6165809898195747
+2024-03-21 09:03:56,670 INFO average coverage reward for trained map 4 in 10 steps: 8334.9, optimal reward: 13679, ratio: 0.6093208567877768
+2024-03-21 09:03:58,888 INFO average coverage reward for test map 0 in 10 steps: 7092.3, optimal reward: 11258, ratio: 0.6299786818262569
+2024-03-21 09:04:01,191 INFO average coverage reward for test map 1 in 10 steps: 6853.0, optimal reward: 10918, ratio: 0.6276790620992856
+2024-03-21 09:04:02,998 INFO average coverage reward for test map 2 in 10 steps: 7438.4, optimal reward: 9612, ratio: 0.773866000832293
+2024-03-21 09:04:05,498 INFO average coverage reward for test map 3 in 10 steps: 7103.4, optimal reward: 11824, ratio: 0.6007611637347767
+2024-03-21 09:04:08,121 INFO average coverage reward for test map 4 in 10 steps: 7250.9, optimal reward: 11632, ratio: 0.6233579779917469
+2024-03-21 09:04:08,124 INFO overall average coverage reward for trained maps: 7379.68, average optimal reward: 11417.0, ratio: 0.6463764561618639
+2024-03-21 09:04:08,124 INFO overall average coverage reward for test maps: 7147.6, average optimal reward: 11048.800000000001, ratio: 0.6469118818333213
+2024-03-21 14:57:55,049 INFO ===========PPO train and eval started at 0321_1457===========
+2024-03-21 17:46:53,291 INFO agent_timesteps_total: 200000
+connector_metrics:
+  StateBufferConnector_ms: 0.0017867088317871094
+  ViewRequirementAgentConnector_ms: 0.1278235912322998
+counters:
+  num_agent_steps_sampled: 200000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 200000
+  num_env_steps_trained: 0
+custom_metrics: {}
+date: 2024-03-21_17-46-53
+done: false
+episode_len_mean: 200.0
+episode_media: {}
+episode_reward_max: 1886702.0
+episode_reward_mean: 1673367.72
+episode_reward_min: 1159248.0
+episodes_this_iter: 1
+episodes_total: 1000
+evaluation:
+  connector_metrics:
+    StateBufferConnector_ms: 0.002002716064453125
+    ViewRequirementAgentConnector_ms: 0.12404918670654295
+  custom_metrics: {}
+  episode_len_mean: 200.0
+  episode_media: {}
+  episode_reward_max: 1503061.0
+  episode_reward_mean: 1503061.0
+  episode_reward_min: 1503061.0
+  episodes_this_iter: 1
+  hist_stats:
+    episode_lengths:
+    - 200
+    episode_reward:
+    - 1503061.0
+  num_agent_steps_sampled_this_iter: 200
+  num_env_steps_sampled_this_iter: 200
+  num_faulty_episodes: 0
+  num_healthy_workers: 0
+  num_in_flight_async_reqs: 0
+  num_remote_worker_restarts: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.0406736338282522
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 1.593275721772117
+    mean_inference_ms: 2.6492643545861276
+    mean_raw_obs_processing_ms: 0.4505853540184933
+  sampler_results:
+    connector_metrics:
+      StateBufferConnector_ms: 0.002002716064453125
+      ViewRequirementAgentConnector_ms: 0.12404918670654295
+    custom_metrics: {}
+    episode_len_mean: 200.0
+    episode_media: {}
+    episode_reward_max: 1503061.0
+    episode_reward_mean: 1503061.0
+    episode_reward_min: 1503061.0
+    episodes_this_iter: 1
+    hist_stats:
+      episode_lengths:
+      - 200
+      episode_reward:
+      - 1503061.0
+    num_faulty_episodes: 0
+    policy_reward_max: {}
+    policy_reward_mean: {}
+    policy_reward_min: {}
+    sampler_perf:
+      mean_action_processing_ms: 0.0406736338282522
+      mean_env_render_ms: 0.0
+      mean_env_wait_ms: 1.593275721772117
+      mean_inference_ms: 2.6492643545861276
+      mean_raw_obs_processing_ms: 0.4505853540184933
+  timesteps_this_iter: 200
+hostname: OrangeBookPro14.lan
+info:
+  learner:
+    __all__:
+      num_agent_steps_trained: 64.0
+      num_env_steps_trained: 200.0
+      total_loss: 9.827460552783723
+    default_policy:
+      curr_entropy_coeff: 0.0
+      curr_kl_coeff: 9.604095038986591e-29
+      curr_lr: 1.0e-05
+      default_optimizer_lr: 1.0000000000000003e-05
+      entropy: 4.862964072126023
+      gradients_default_optimizer_global_norm: 1.048992173468813
+      mean_kl_loss: 0.049300512490903045
+      policy_loss: -0.17253952655703464
+      total_loss: 9.827460552783723
+      vf_explained_var: -9.5367431640625e-07
+      vf_loss: 10.0
+      vf_loss_unclipped: 96301392.42553191
+  num_agent_steps_sampled: 200000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 200000
+  num_env_steps_trained: 0
+iterations_since_restore: 1000
+node_ip: 127.0.0.1
+num_agent_steps_sampled: 200000
+num_agent_steps_trained: 0
+num_env_steps_sampled: 200000
+num_env_steps_sampled_this_iter: 200
+num_env_steps_sampled_throughput_per_sec: 20.419376983460676
+num_env_steps_trained: 0
+num_env_steps_trained_this_iter: 0
+num_env_steps_trained_throughput_per_sec: 0.0
+num_faulty_episodes: 0
+num_healthy_workers: 0
+num_in_flight_async_reqs: 0
+num_remote_worker_restarts: 0
+num_steps_trained_this_iter: 0
+perf:
+  cpu_util_percent: 95.51333333333334
+  ram_util_percent: 74.98
+pid: 30011
+policy_reward_max: {}
+policy_reward_mean: {}
+policy_reward_min: {}
+sampler_perf:
+  mean_action_processing_ms: 0.04294983605735094
+  mean_env_render_ms: 0.0
+  mean_env_wait_ms: 1.5268913797670738
+  mean_inference_ms: 2.71030614194587
+  mean_raw_obs_processing_ms: 0.4563202151924994
+sampler_results:
+  connector_metrics:
+    StateBufferConnector_ms: 0.0017867088317871094
+    ViewRequirementAgentConnector_ms: 0.1278235912322998
+  custom_metrics: {}
+  episode_len_mean: 200.0
+  episode_media: {}
+  episode_reward_max: 1886702.0
+  episode_reward_mean: 1673367.72
+  episode_reward_min: 1159248.0
+  episodes_this_iter: 1
+  hist_stats:
+    episode_lengths: [200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200,
+      200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200,
+      200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200,
+      200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200,
+      200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200,
+      200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200,
+      200, 200, 200, 200, 200, 200, 200, 200]
+    episode_reward: [1713880.0, 1712693.0, 1714942.0, 1713592.0, 1713366.0, 1715490.0,
+      1715000.0, 1159248.0, 1306047.0, 1377792.0, 1467344.0, 1494905.0, 1624701.0,
+      1694098.0, 1712697.0, 1799268.0, 1855973.0, 1879203.0, 1873263.0, 1873555.0,
+      1884949.0, 1883806.0, 1886702.0, 1746089.0, 1774473.0, 1871354.0, 1881490.0,
+      1201384.0, 1348544.0, 1451035.0, 1579475.0, 1614971.0, 1614024.0, 1619996.0,
+      1617107.0, 1613945.0, 1626603.0, 1319388.0, 1319319.0, 1321796.0, 1325169.0,
+      1328103.0, 1330532.0, 1331000.0, 1330844.0, 1329827.0, 1330948.0, 1703621.0,
+      1715981.0, 1715879.0, 1717988.0, 1708876.0, 1720179.0, 1725936.0, 1731424.0,
+      1728994.0, 1738482.0, 1385230.0, 1504916.0, 1621736.0, 1642359.0, 1671388.0,
+      1663393.0, 1660482.0, 1675011.0, 1692375.0, 1741026.0, 1503594.0, 1589956.0,
+      1745661.0, 1806454.0, 1865212.0, 1872249.0, 1876843.0, 1884025.0, 1886443.0,
+      1882929.0, 1592672.0, 1819433.0, 1870032.0, 1872314.0, 1871916.0, 1872170.0,
+      1865747.0, 1871916.0, 1870442.0, 1877010.0, 1512384.0, 1621505.0, 1769887.0,
+      1840286.0, 1875260.0, 1880034.0, 1875877.0, 1863019.0, 1877782.0, 1880182.0,
+      1579615.0, 1657402.0, 1741315.0]
+  num_faulty_episodes: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.04294983605735094
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 1.5268913797670738
+    mean_inference_ms: 2.71030614194587
+    mean_raw_obs_processing_ms: 0.4563202151924994
+time_since_restore: 10131.459293603897
+time_this_iter_s: 10.739691019058228
+time_total_s: 10131.459293603897
+timers:
+  sample_time_ms: 970.762
+  synch_weights_time_ms: 26.547
+  training_iteration_time_ms: 9827.558
+timestamp: 1711068413
+timesteps_total: 200000
+training_iteration: 1000
+trial_id: default
+
+2024-03-21 17:46:53,293 DEBUG {'env': {'coefficient_dict': {'p_d': 1.0, 'r_c': 1.0}, 'map_size': 256, 'action_space_size': 64, 'n_maps': 100, 'n_episodes_per_map': 10, 'n_steps_truncate': 200, 'dataset_dir': 'resource/usc_old', 'no_masking': False}, 'eval': {'evaluation_config': {'env_config': {'evaluation': True, 'n_maps': 50, 'n_episodes_per_map': 1}, 'exploration': {'explore': False}}, 'evaluation_duration': 1, 'evaluation_interval': 5, 'evaluation_num_workers': 0}, 'explore': {'exploration_config': {'type': 'StochasticSampling'}, 'explore': True}, 'report': {'min_sample_timesteps_per_iteration': 200}, 'resource': {'num_cpus_per_worker': 1, 'num_gpus': 0, 'num_gpus_per_worker': 0}, 'rollout': {'num_envs_per_worker': 1, 'num_rollout_workers': 0}, 'stop': {'training_iteration': 1000}, 'train': {'lr': 1e-05, 'gamma': 0.1, 'grad_clip': 40.0, 'train_batch_size': 200, 'sgd_minibatch_size': 64, 'num_sgd_iter': 30, 'model': {'fcnet_hiddens': [256, 256], 'fcnet_activation': 'tanh'}}, 'agent': {'data_saving_interval': 10}}
+2024-03-21 17:46:53,293 INFO =============TRAINING ENDED=============
+2024-03-21 18:09:09,938 INFO average coverage reward for trained map 0 in 10 steps: 9383.9, optimal reward: 10826, ratio: 0.8667929059671162
+2024-03-21 18:09:11,102 INFO average coverage reward for trained map 1 in 10 steps: 8472.6, optimal reward: 13206, ratio: 0.6415720127214902
+2024-03-21 18:09:12,315 INFO average coverage reward for trained map 2 in 10 steps: 6384.8, optimal reward: 12468, ratio: 0.5120949631055502
+2024-03-21 18:09:13,616 INFO average coverage reward for trained map 3 in 10 steps: 8476.6, optimal reward: 8795, ratio: 0.9637976122797044
+2024-03-21 18:09:14,855 INFO average coverage reward for trained map 4 in 10 steps: 6915.6, optimal reward: 10790, ratio: 0.6409267840593142
+2024-03-21 18:09:15,908 INFO average coverage reward for test map 0 in 10 steps: 7707.7, optimal reward: 10103, ratio: 0.7629120063347521
+2024-03-21 18:09:17,052 INFO average coverage reward for test map 1 in 10 steps: 7738.5, optimal reward: 11258, ratio: 0.6873778646295967
+2024-03-21 18:09:18,247 INFO average coverage reward for test map 2 in 10 steps: 7433.8, optimal reward: 11977, ratio: 0.6206729564999582
+2024-03-21 18:09:19,477 INFO average coverage reward for test map 3 in 10 steps: 6349.4, optimal reward: 10868, ratio: 0.584228928965771
+2024-03-21 18:09:20,688 INFO average coverage reward for test map 4 in 10 steps: 7281.6, optimal reward: 10814, ratio: 0.6733493619382283
+2024-03-21 18:09:20,690 INFO overall average coverage reward for trained maps: 7926.7, average optimal reward: 11217.0, ratio: 0.7066684496746011
+2024-03-21 18:09:20,690 INFO overall average coverage reward for test maps: 7302.200000000001, average optimal reward: 11004.0, ratio: 0.663595056343148
+2024-03-21 20:24:15,147 INFO ===========PPO train and eval started at 0321_2024===========
+2024-03-21 22:45:20,747 INFO ===========PPO train and eval started at 0321_2245===========
+2024-03-22 01:34:40,940 INFO agent_timesteps_total: 200000
+connector_metrics:
+  StateBufferConnector_ms: 0.0017402172088623047
+  ViewRequirementAgentConnector_ms: 0.13006901741027832
+counters:
+  num_agent_steps_sampled: 200000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 200000
+  num_env_steps_trained: 0
+custom_metrics: {}
+date: 2024-03-22_01-34-40
+done: false
+episode_len_mean: 200.0
+episode_media: {}
+episode_reward_max: 2065200.0
+episode_reward_mean: 1672330.96
+episode_reward_min: 1120483.0
+episodes_this_iter: 1
+episodes_total: 1000
+evaluation:
+  connector_metrics:
+    StateBufferConnector_ms: 0.0016927719116210938
+    ViewRequirementAgentConnector_ms: 0.12521743774414062
+  custom_metrics: {}
+  episode_len_mean: 200.0
+  episode_media: {}
+  episode_reward_max: 1381390.0
+  episode_reward_mean: 1381390.0
+  episode_reward_min: 1381390.0
+  episodes_this_iter: 1
+  hist_stats:
+    episode_lengths:
+    - 200
+    episode_reward:
+    - 1381390.0
+  num_agent_steps_sampled_this_iter: 200
+  num_env_steps_sampled_this_iter: 200
+  num_faulty_episodes: 0
+  num_healthy_workers: 0
+  num_in_flight_async_reqs: 0
+  num_remote_worker_restarts: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.041887535518063464
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 1.6119933236238644
+    mean_inference_ms: 2.696079086212542
+    mean_raw_obs_processing_ms: 0.4580206508764741
+  sampler_results:
+    connector_metrics:
+      StateBufferConnector_ms: 0.0016927719116210938
+      ViewRequirementAgentConnector_ms: 0.12521743774414062
+    custom_metrics: {}
+    episode_len_mean: 200.0
+    episode_media: {}
+    episode_reward_max: 1381390.0
+    episode_reward_mean: 1381390.0
+    episode_reward_min: 1381390.0
+    episodes_this_iter: 1
+    hist_stats:
+      episode_lengths:
+      - 200
+      episode_reward:
+      - 1381390.0
+    num_faulty_episodes: 0
+    policy_reward_max: {}
+    policy_reward_mean: {}
+    policy_reward_min: {}
+    sampler_perf:
+      mean_action_processing_ms: 0.041887535518063464
+      mean_env_render_ms: 0.0
+      mean_env_wait_ms: 1.6119933236238644
+      mean_inference_ms: 2.696079086212542
+      mean_raw_obs_processing_ms: 0.4580206508764741
+  timesteps_this_iter: 200
+hostname: OrangeBookPro14.lan
+info:
+  learner:
+    __all__:
+      num_agent_steps_trained: 64.0
+      num_env_steps_trained: 200.0
+      total_loss: 9.819954232966646
+    default_policy:
+      curr_entropy_coeff: 0.0
+      curr_kl_coeff: 6.223453103780825e-26
+      curr_lr: 1.0e-05
+      default_optimizer_lr: 1.0000000000000003e-05
+      entropy: 5.59208789277584
+      gradients_default_optimizer_global_norm: 1.0667243612573503
+      mean_kl_loss: 0.03885914539383288
+      policy_loss: -0.1800457608509571
+      total_loss: 9.819954232966646
+      vf_explained_var: -9.5367431640625e-07
+      vf_loss: 10.0
+      vf_loss_unclipped: 65546857.70212766
+  num_agent_steps_sampled: 200000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 200000
+  num_env_steps_trained: 0
+iterations_since_restore: 1000
+node_ip: 127.0.0.1
+num_agent_steps_sampled: 200000
+num_agent_steps_trained: 0
+num_env_steps_sampled: 200000
+num_env_steps_sampled_this_iter: 200
+num_env_steps_sampled_throughput_per_sec: 20.43827219359225
+num_env_steps_trained: 0
+num_env_steps_trained_this_iter: 0
+num_env_steps_trained_throughput_per_sec: 0.0
+num_faulty_episodes: 0
+num_healthy_workers: 0
+num_in_flight_async_reqs: 0
+num_remote_worker_restarts: 0
+num_steps_trained_this_iter: 0
+perf:
+  cpu_util_percent: 96.07999999999998
+  ram_util_percent: 72.64666666666668
+pid: 33582
+policy_reward_max: {}
+policy_reward_mean: {}
+policy_reward_min: {}
+sampler_perf:
+  mean_action_processing_ms: 0.04326030910186657
+  mean_env_render_ms: 0.0
+  mean_env_wait_ms: 1.5232836040181568
+  mean_inference_ms: 2.7227909426513968
+  mean_raw_obs_processing_ms: 0.4566269735134679
+sampler_results:
+  connector_metrics:
+    StateBufferConnector_ms: 0.0017402172088623047
+    ViewRequirementAgentConnector_ms: 0.13006901741027832
+  custom_metrics: {}
+  episode_len_mean: 200.0
+  episode_media: {}
+  episode_reward_max: 2065200.0
+  episode_reward_mean: 1672330.96
+  episode_reward_min: 1120483.0
+  episodes_this_iter: 1
+  hist_stats:
+    episode_lengths: [200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200,
+      200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200,
+      200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200,
+      200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200,
+      200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200,
+      200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200,
+      200, 200, 200, 200, 200, 200, 200, 200]
+    episode_reward: [2065200.0, 2065200.0, 2065200.0, 2065200.0, 2065200.0, 2065200.0,
+      2065200.0, 1421106.0, 1466417.0, 1534478.0, 1711585.0, 1826730.0, 1977586.0,
+      2020415.0, 2002118.0, 2011533.0, 2029322.0, 1632838.0, 1688240.0, 1812296.0,
+      1858962.0, 1871321.0, 1929041.0, 1900125.0, 1959615.0, 1948261.0, 1967561.0,
+      1120483.0, 1281794.0, 1402410.0, 1436227.0, 1450092.0, 1475302.0, 1465911.0,
+      1493616.0, 1508820.0, 1507998.0, 1646272.0, 1685600.0, 1293583.0, 1398318.0,
+      1438827.0, 1472465.0, 1551045.0, 1615717.0, 1686747.0, 1660227.0, 1673769.0,
+      1690126.0, 1700564.0, 1705306.0, 1701964.0, 1721730.0, 1704827.0, 1731259.0,
+      1731922.0, 1761593.0, 1393099.0, 1598047.0, 1603264.0, 1609072.0, 1609252.0,
+      1606167.0, 1604582.0, 1604599.0, 1602932.0, 1608968.0, 1257841.0, 1306071.0,
+      1401176.0, 1490977.0, 1532343.0, 1549097.0, 1565511.0, 1593828.0, 1609838.0,
+      1642601.0, 1832391.0, 1855711.0, 1857748.0, 1855005.0, 1858549.0, 1860428.0,
+      1851581.0, 1857983.0, 1858688.0, 1859937.0, 1453688.0, 1475224.0, 1497735.0,
+      1510502.0, 1549071.0, 1545385.0, 1570595.0, 1637704.0, 1668075.0, 1689260.0,
+      1472718.0, 1503757.0, 1581632.0]
+  num_faulty_episodes: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.04326030910186657
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 1.5232836040181568
+    mean_inference_ms: 2.7227909426513968
+    mean_raw_obs_processing_ms: 0.4566269735134679
+time_since_restore: 10153.607854127884
+time_this_iter_s: 10.753561019897461
+time_total_s: 10153.607854127884
+timers:
+  sample_time_ms: 978.839
+  synch_weights_time_ms: 27.493
+  training_iteration_time_ms: 9795.334
+timestamp: 1711096480
+timesteps_total: 200000
+training_iteration: 1000
+trial_id: default
+
+2024-03-22 01:34:40,941 DEBUG {'env': {'coefficient_dict': {'p_d': 1.0, 'r_c': 1.0}, 'map_size': 256, 'action_space_size': 64, 'n_maps': 100, 'n_episodes_per_map': 10, 'n_steps_truncate': 200, 'dataset_dir': 'resource/usc_old', 'no_masking': False}, 'eval': {'evaluation_config': {'env_config': {'evaluation': True, 'n_maps': 50, 'n_episodes_per_map': 1}, 'exploration': {'explore': False}}, 'evaluation_duration': 1, 'evaluation_interval': 5, 'evaluation_num_workers': 0}, 'explore': {'exploration_config': {'type': 'StochasticSampling'}, 'explore': True}, 'report': {'min_sample_timesteps_per_iteration': 200}, 'resource': {'num_cpus_per_worker': 1, 'num_gpus': 0, 'num_gpus_per_worker': 0}, 'rollout': {'num_envs_per_worker': 1, 'num_rollout_workers': 0}, 'stop': {'training_iteration': 1000}, 'train': {'lr': 1e-05, 'gamma': 0.0, 'grad_clip': 40.0, 'train_batch_size': 200, 'sgd_minibatch_size': 64, 'num_sgd_iter': 30, 'model': {'fcnet_hiddens': [256, 256], 'fcnet_activation': 'tanh'}}, 'agent': {'data_saving_interval': 50}}
+2024-03-22 01:34:40,941 INFO =============TRAINING ENDED=============
+2024-03-22 01:34:43,963 INFO average coverage reward for trained map 0 in 10 steps: 7915.6, optimal reward: 10826, ratio: 0.731165712174395
+2024-03-22 01:34:45,197 INFO average coverage reward for trained map 1 in 10 steps: 8954.0, optimal reward: 13206, ratio: 0.6780251400878389
+2024-03-22 01:34:46,450 INFO average coverage reward for trained map 2 in 10 steps: 7612.4, optimal reward: 12468, ratio: 0.6105550208533846
+2024-03-22 01:34:47,748 INFO average coverage reward for trained map 3 in 10 steps: 8559.3, optimal reward: 8795, ratio: 0.9732006822057987
+2024-03-22 01:34:49,015 INFO average coverage reward for trained map 4 in 10 steps: 8630.8, optimal reward: 10790, ratio: 0.7998887859128823
+2024-03-22 01:34:50,185 INFO average coverage reward for test map 0 in 10 steps: 6015.1, optimal reward: 10103, ratio: 0.5953776106107097
+2024-03-22 01:34:51,403 INFO average coverage reward for test map 1 in 10 steps: 6894.0, optimal reward: 11258, ratio: 0.6123645407710073
+2024-03-22 01:34:52,653 INFO average coverage reward for test map 2 in 10 steps: 6988.9, optimal reward: 11977, ratio: 0.58352675962261
+2024-03-22 01:34:53,931 INFO average coverage reward for test map 3 in 10 steps: 7389.6, optimal reward: 10868, ratio: 0.6799411115200589
+2024-03-22 01:34:55,242 INFO average coverage reward for test map 4 in 10 steps: 5472.3, optimal reward: 10814, ratio: 0.5060384686517477
+2024-03-22 01:34:55,245 INFO overall average coverage reward for trained maps: 8334.419999999998, average optimal reward: 11217.0, ratio: 0.7430168494249798
+2024-03-22 01:34:55,245 INFO overall average coverage reward for test maps: 6551.98, average optimal reward: 11004.0, ratio: 0.5954180298073427

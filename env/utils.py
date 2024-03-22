@@ -24,7 +24,8 @@ def load_map(filepath: str) -> np.ndarray:
     return (image_array < threshold).astype(np.int8)
 
 
-def save_map(filepath: str, pixel_map: np.ndarray, reverse_color: bool = True, mark_loc: np.ndarray | None = None,
+def save_map(filepath: str, pixel_map: np.ndarray, reverse_color: bool = True,
+             mark_size: int = 12, mark_loc: np.ndarray | tuple | list | None = None,
              **kwargs) -> None:
     """Save building map array as a black-white image.
 
@@ -32,6 +33,7 @@ def save_map(filepath: str, pixel_map: np.ndarray, reverse_color: bool = True, m
         filepath: Path of the image.
         pixel_map: Building map array.
         reverse_color: Whether to reverse the 0 1 value of each pixel or not.
+        mark_size: Size of the marker.
         mark_loc (optional): Add a marker to the image given its location.
 
     Returns:
@@ -45,18 +47,26 @@ def save_map(filepath: str, pixel_map: np.ndarray, reverse_color: bool = True, m
     if mark_loc is not None:
         image_from_array = image_from_array.convert('RGB')
         # Calculate the pixel coordinates of the top-left corner of the circle
-        xy = (mark_loc[1], mark_loc[0])
+        x, y = mark_loc[1], mark_loc[0]
+        map_size = pixel_map.shape[0]
+        top_left = (max(0, x - (mark_size - 1) // 2), max(0, y - (mark_size - 1) // 2))
+        bottom_right = (min(map_size, x + mark_size // 2 + 1), min(map_size, y + mark_size // 2 + 1))
         # Create an ImageDraw object to draw on the image
         draw = ImageDraw.Draw(image_from_array)
         # Draw the red point
-        draw.point(xy, fill='red')
+        # draw.point((x, y), fill='red')
+        draw.rectangle((top_left, bottom_right), fill="red")
 
     if "mark_locs" in kwargs.keys():
         locs = kwargs["mark_locs"]
         draw = ImageDraw.Draw(image_from_array)
         for loc in locs:
-            xy = (loc[1], loc[0])
-            draw.point(xy, fill='blue')
+            x, y = loc[1], loc[0]
+            map_size = pixel_map.shape[0]
+            top_left = (max(0, x - (mark_size - 1) // 2), max(0, y - (mark_size - 1) // 2))
+            bottom_right = (min(map_size, x + mark_size // 2 + 1), min(map_size, y + mark_size // 2 + 1))
+            # draw.point(xy, fill='blue')
+            draw.rectangle((top_left, bottom_right), fill="blue")
 
     image_from_array.save(filepath)
 
@@ -268,12 +278,4 @@ def calc_fspl(dis: float) -> float:
 
 
 if __name__ == '__main__':
-    # use this script to generate cropped maps and save them as json
-    original_map = load_map('../resource/usc.png')
-    map_size = 64
-    n = 400
-    map_scale = 880 / 256
-    ratio_coverage = .2 / 16
-    rng, seed = seeding.np_random(2024)
-    filepath = '../resource/setup_400.json'
-    save_cropped_maps(original_map, map_size, n, map_scale, ratio_coverage, rng, filepath)
+    save_map('./test.png', pixel_map=np.ones((256, 256)), reverse_color=False, mark_loc=(120, 120), mark_locs=[(120, 30)])
