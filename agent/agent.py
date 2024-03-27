@@ -40,6 +40,8 @@ class Agent(object):
             from env.env_v13 import BaseEnvironment
         elif version == "v14":
             from env.env_v14 import BaseEnvironment
+        elif version == "v15":
+            from env.env_v15 import BaseEnvironment
         else:
             from env.env_v04 import BaseEnvironment
         self.env_class = BaseEnvironment

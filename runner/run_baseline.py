@@ -30,9 +30,9 @@ if __name__ == "__main__":
                                 version="v14")
 
     # train these baseline agents and evaluate every some steps
-    filename_rand = random_agent.train_and_eval(log=True)
-    filename_bf_dense = bf_dense.train_and_eval(log=True)
-    filename_bf_sparse = bf_sparse.train_and_eval(log=True)
+    filename_rand = "random_" + random_agent.train_and_eval(log=True) + ".json"
+    filename_bf_dense = "brute-force_" + bf_dense.train_and_eval(log=True) + ".json"
+    filename_bf_sparse = "brute-force_" + bf_sparse.train_and_eval(log=True) + ".json"
 
     # plot the reward curves
     plot_rewards(output_name="rand_bf_ppo", algo_names=["random", "bf_dense", "bf_sparse", "ppo"],

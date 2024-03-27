@@ -22,8 +22,7 @@ class PPOAgent(Agent):
                 # batch_mode="complete_episodes",
             )
             .resources(
-                # num_gpus=config["resource"].get("num_gpus", 0),
-                num_gpus=torch.cuda.device_count(),
+                num_gpus=config["resource"].get("num_gpus", 0),
             )
             .exploration(
                 explore=True,

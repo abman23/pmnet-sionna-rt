@@ -100,30 +100,4 @@ class BruteForceAgent(Agent):
             time_total_s = time.time() - time_train_start
             self.logger.info(f"train and eval total time: {time_total_s}s")
 
-        return f"{self.algo_name}_{timestamp}.json"
-
-        # if eval_interval is not None:
-        #     # plot the mean reward in evaluation
-        #     fig, ax = plt.subplots()
-        #     fig.set_size_inches(10, 6)
-        #     ax.plot(ep_eval, ep_reward_mean, color="blue")
-        #     sup = list(map(lambda x, y: x + y, ep_reward_mean, ep_reward_std))
-        #     inf = list(map(lambda x, y: x - y, ep_reward_mean, ep_reward_std))
-        #     ax.fill_between(ep_eval, inf, sup, color="blue", alpha=0.2)
-        #     ax.set(xlabel="training_step", ylabel="mean reward per step",
-        #            title=f"{self.algo_name.upper()} Evaluation Results")
-        #     ax.grid()
-        #     if log:
-        #         fig.savefig(f"./figures/{self.version}_{self.algo_name}_{timestamp}_eval.png")
-        #
-        # # plot mean reward in training
-        # fig, ax = plt.subplots()
-        # fig.set_size_inches(10, 6)
-        # ax.plot(ep_train, ep_reward_mean_train, color='red')
-        # ax.set(xlabel="training_step", ylabel="mean reward per step",
-        #        title=f"{self.algo_name.upper()} Training Results")
-        # ax.grid()
-        # if log:
-        #     fig.savefig(f"./figures/{self.version}_{self.algo_name}_{timestamp}_train.png")
-        #
-        # plt.show()
+        return timestamp

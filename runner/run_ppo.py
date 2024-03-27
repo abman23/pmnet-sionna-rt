@@ -11,8 +11,8 @@ if __name__ == "__main__":
     Distribution.set_default_validate_args(False)
 
     start = time.time()
-    config_ppo = yaml.safe_load(open(os.path.join(ROOT_DIR, 'config/ppo_v14.yaml'), 'r'))
-    ppo = PPOAgent(config=config_ppo, log_file=os.path.join(ROOT_DIR, 'log/runner_ppo.log'), version="v14")
+    config_ppo = yaml.safe_load(open(os.path.join(ROOT_DIR, 'config/ppo_v15.yaml'), 'r'))
+    ppo = PPOAgent(config=config_ppo, log_file=os.path.join(ROOT_DIR, 'log/runner_ppo.log'), version="v15")
 
     # ppo.param_tuning(
     #     # lr_schedule=[1e-4, 5e-5, 1e-5],

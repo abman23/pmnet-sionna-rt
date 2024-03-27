@@ -153,7 +153,7 @@ def calc_optimal_locations(dataset_dir: str, map_suffix: str, map_idx: int,
 
 
 def plot_rewards(output_name: str, algo_names: list[str], data_filenames: list[str], version: str,
-                 evaluation: bool = True, log: bool = False):
+                 evaluation: bool = True, log: bool = False, n_epi: int = 10):
     """Plot rewards curve of multiple algorithms.
 
     """
@@ -170,9 +170,9 @@ def plot_rewards(output_name: str, algo_names: list[str], data_filenames: list[s
 
         if evaluation:
             # plot reward in evaluation
-            ep_eval = algo_data['ep_eval']
-            ep_reward_mean = algo_data['ep_reward_mean']
-            ep_reward_std = algo_data['ep_reward_std']
+            ep_eval = algo_data['ep_eval'][:n_epi//5]
+            ep_reward_mean = algo_data['ep_reward_mean'][:n_epi//5]
+            ep_reward_std = algo_data['ep_reward_std'][:n_epi//5]
             # print(algo_name)
             # print(len(ep_eval), len(ep_reward_mean))
             ax = axes[1]
@@ -182,8 +182,8 @@ def plot_rewards(output_name: str, algo_names: list[str], data_filenames: list[s
             ax.fill_between(ep_eval, inf, sup, alpha=0.2)
 
         # plot reward in training
-        ep_train = algo_data['ep_train']
-        ep_reward_mean_train = algo_data['ep_reward_mean_train']
+        ep_train = algo_data['ep_train'][:n_epi]
+        ep_reward_mean_train = algo_data['ep_reward_mean_train'][:n_epi]
         ax = axes[0] if evaluation else axes
         ax.plot(ep_train, ep_reward_mean_train, label=algo_name.upper())
 
@@ -203,3 +203,9 @@ def plot_rewards(output_name: str, algo_names: list[str], data_filenames: list[s
     if log:
         fig.savefig(os.path.join(ROOT_DIR, f"figures/compare/{version}_{output_name}_{timestamp}.png"))
     plt.show()
+
+
+if __name__ == "__main__":
+    plot_rewards(output_name="rand_bf_ppo", algo_names=["random", "bf_sparse", 'ppo_15', 'ppo_14'],
+                 data_filenames=['random_0322_0203.json', 'brute-force_0322_0231.json', 'ppo_0326_0442.json', 'ppo_0321_2245.json'],
+                 version='v15', evaluation=True, log=True, n_epi=1000)
