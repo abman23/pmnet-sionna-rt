@@ -83,7 +83,7 @@ class BaseEnvironment(gym.Env):
         self.n_trained_maps: int = 0
 
         self.evaluation = config.get("evaluation", False)
-        self.test_algo = config.get("test_algo", None)
+        self.test_algo = config.get("algo_name", None)
 
         # action mask has the same shape as the action
         self.mask: np.ndarray = np.empty(map_size * map_size, dtype=np.int8)

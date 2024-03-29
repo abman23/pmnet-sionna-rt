@@ -8,7 +8,7 @@ env:
   n_episodes_per_map: 5
   n_steps_truncate: 100
   dataset_dir: resource/usc_old_sparse
-  no_masking: false
+  no_masking: falsen
 eval:
   evaluation_config:
     env_config:
@@ -28,13 +28,13 @@ report:
   min_sample_timesteps_per_iteration: 100  # keep it the same as n_steps_truncate
 resource:
   num_cpus_per_worker: 1
-  num_gpus: 0.2
-  num_gpus_per_worker: 0.4
+  num_gpus: 0
+  num_gpus_per_worker: 0
 rollout:
   num_envs_per_worker: 1
   num_rollout_workers: 1
 stop:
-  training_iteration: 10
+  training_iteration: 2500
 train:
   lr: 1.0e-05
   gamma: 0.1

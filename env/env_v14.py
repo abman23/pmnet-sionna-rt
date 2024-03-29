@@ -41,7 +41,7 @@ class BaseEnvironment(gym.Env):
         self.dataset_dir = config.get("dataset_dir", "resource/usc_old")
         evaluation_mode = config.get("evaluation", False)
         self.evaluation = evaluation_mode
-        self.test_algo = config.get("test_algo", None)
+        self.test_algo = config.get("algo_name", None)
         # training or test env
         self.map_suffix = "test" if evaluation_mode else "train"
         # indices of maps used for training or test
@@ -169,11 +169,11 @@ class BaseEnvironment(gym.Env):
             # "loc_opt": self.loc_tx_opt,
             "reward": r,
             "r_c": r_c,
-            "test_algo": self.test_algo,
+            "algo_name": self.test_algo,
             # "detailed_rewards": f"r_c = {r_c}, r_e = {r_e}",
         }
         # logger.info(info_dict)
-        # if self.test_algo and (self.steps % (np.ceil(self.n_steps_per_map / 4)) == 0 or trunc):
+        # if self.algo_name and (self.steps % (np.ceil(self.n_steps_per_map / 4)) == 0 or trunc):
         #     logger.info(info_dict)
 
         return observation, r, False, trunc, info_dict

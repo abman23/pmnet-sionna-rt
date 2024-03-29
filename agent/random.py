@@ -122,7 +122,7 @@ class RandomAgent(Agent):
         env_config: dict = json.loads(json.dumps(self.config.get("env")))
 
         # test on training maps
-        env_config["test_algo"] = self.algo_name + "_used"
+        env_config["algo_name"] = self.algo_name + "_used"
         env_config["n_episodes_per_map"] = 1
         env_eval = self.env_class(config=env_config)
         env_eval.evaluation = True  # randomly select map at each reset
@@ -156,7 +156,7 @@ class RandomAgent(Agent):
             if log:
                 self.logger.info(info)
             print(info)
-            if i == 0 or i == duration - 1:
+            if log and (i == 0 or i == duration - 1):
                 # plot the optimal TX location and location corresponding the best action in STEP_PER_MAP steps
                 test_map_path = os.path.join(ROOT_DIR, 'figures/test_maps',
                                              self.version + '_' + timestamp + '_' + self.algo_name + '_train_' + str(
@@ -166,7 +166,7 @@ class RandomAgent(Agent):
 
         # test on new maps
         env_config = dict_update(env_config, self.config['eval']['evaluation_config']['env_config'])
-        env_config["test_algo"] = self.algo_name + "_new"
+        env_config["algo_name"] = self.algo_name + "_new"
         env_eval = self.env_class(config=env_config)
 
         coverage_reward_mean_overall_new = 0.0
@@ -198,7 +198,7 @@ class RandomAgent(Agent):
             if log:
                 self.logger.info(info)
             print(info)
-            if i == 0 or i == duration - 1:
+            if log and (i == 0 or i == duration - 1):
                 # plot the optimal TX location and location corresponding the best action in STEP_PER_MAP steps
                 test_map_path = os.path.join(ROOT_DIR, 'figures/test_maps',
                                              self.version + '_' + timestamp + '_' + self.algo_name + '_test_' + str(

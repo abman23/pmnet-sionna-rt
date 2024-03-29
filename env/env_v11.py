@@ -51,7 +51,7 @@ class BaseEnvironment(gym.Env):
         self.dataset_dir = config.get("dataset_dir", "resource/usc_old")
         evaluation_mode = config.get("evaluation", False)
         self.evaluation = evaluation_mode
-        self.test_algo = config.get("test_algo", None)
+        self.test_algo = config.get("algo_name", None)
         # training or test env
         self.map_suffix = "test" if evaluation_mode else "train"
         # indices of maps used for training or test
@@ -213,9 +213,9 @@ class BaseEnvironment(gym.Env):
             logger.info(info_dict)
 
         # # plot the current and optimal TX locations
-        # if self.test_algo and (term or trunc):
+        # if self.algo_name and (term or trunc):
         #     save_map(
-        #         f"./figures/test_maps/{datetime.now().strftime('%m%d_%H%M')}_{self.test_algo}_{self.n_trained_maps}.png",
+        #         f"./figures/test_maps/{datetime.now().strftime('%m%d_%H%M')}_{self.algo_name}_{self.n_trained_maps}.png",
         #         self.pixel_map,
         #         True,
         #         self.loc_tx_opt,

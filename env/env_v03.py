@@ -77,7 +77,7 @@ class BaseEnvironment(gym.Env):
         self.n_trained_maps: int = 0
 
         self.evaluation = config.get("evaluation", False)
-        self.test_algo = config.get("test_algo", None)
+        self.test_algo = config.get("algo_name", None)
 
         action_space_size = config.get("action_space_size", 32)
         assert map_size % action_space_size == 0, f"map_size {map_size} must be divisible by action_space_size {action_space_size}"
@@ -228,9 +228,9 @@ class BaseEnvironment(gym.Env):
             logger.info(info_dict)
 
         # # plot the current and optimal TX locations
-        # if self.test_algo and (term or trunc):
+        # if self.algo_name and (term or trunc):
         #     save_map(
-        #         f"./figures/test_maps/{datetime.now().strftime('%m%d_%H%M')}_{self.test_algo}_{self.n_trained_maps}.png",
+        #         f"./figures/test_maps/{datetime.now().strftime('%m%d_%H%M')}_{self.algo_name}_{self.n_trained_maps}.png",
         #         self.pixel_map,
         #         True,
         #         self.loc_tx_opt,

@@ -167,7 +167,7 @@ class Agent(object):
         env_config: dict = json.loads(json.dumps(self.config.get("env")))
 
         # test on training maps
-        env_config["test_algo"] = self.algo_name + "_used"
+        env_config["algo_name"] = self.algo_name + "_used"
         env_config["n_episodes_per_map"] = 1
         env_eval = self.env_class(config=env_config)
         env_eval.evaluation = True  # randomly select map at each reset
@@ -200,18 +200,19 @@ class Agent(object):
             info = f"average coverage reward for trained map {i} in {cnt} steps: {coverage_reward_mean}, optimal reward: {reward_opt}, ratio: {coverage_reward_mean / reward_opt}"
             if log:
                 self.logger.info(info)
+                if i == 0 or i == duration - 1:
+                    # plot the optimal TX location and location corresponding the best action in STEP_PER_MAP steps
+                    test_map_path = os.path.join(ROOT_DIR, 'figures/test_maps',
+                                                 self.version + '_' + timestamp + '_' + self.algo_name + '_train_' + str(
+                                                     i) + '.png')
+                    save_map(filepath=test_map_path, pixel_map=env_eval.pixel_map, reverse_color=False,
+                             mark_size=5, mark_loc=loc_opt, mark_locs=[loc_highest])
             print(info)
-            if i == 0 or i == duration - 1:
-                # plot the optimal TX location and location corresponding the best action in STEP_PER_MAP steps
-                test_map_path = os.path.join(ROOT_DIR, 'figures/test_maps',
-                                             self.version + '_' + timestamp + '_' + self.algo_name + '_train_' + str(
-                                                 i) + '.png')
-                save_map(filepath=test_map_path, pixel_map=env_eval.pixel_map, reverse_color=False,
-                         mark_size=5, mark_loc=loc_opt, mark_locs=[loc_highest])
+
 
         # test on new maps
         env_config = dict_update(env_config, self.config['eval']['evaluation_config']['env_config'])
-        env_config["test_algo"] = self.algo_name + "_new"
+        env_config["algo_name"] = self.algo_name + "_new"
         env_eval = self.env_class(config=env_config)
 
         coverage_reward_mean_overall_new = 0.0
@@ -242,14 +243,14 @@ class Agent(object):
             info = f"average coverage reward for test map {i} in {cnt} steps: {coverage_reward_mean}, optimal reward: {reward_opt}, ratio: {coverage_reward_mean / reward_opt}"
             if log:
                 self.logger.info(info)
+                if i == 0 or i == duration - 1:
+                    # plot the optimal TX location and location corresponding the best action in STEP_PER_MAP steps
+                    test_map_path = os.path.join(ROOT_DIR, 'figures/test_maps',
+                                                 self.version + '_' + timestamp + '_' + self.algo_name + '_test_' + str(
+                                                     i) + '.png')
+                    save_map(filepath=test_map_path, pixel_map=env_eval.pixel_map, reverse_color=False,
+                             mark_size=5, mark_loc=loc_opt, mark_locs=[loc_highest])
             print(info)
-            if i == 0 or i == duration - 1:
-                # plot the optimal TX location and location corresponding the best action in STEP_PER_MAP steps
-                test_map_path = os.path.join(ROOT_DIR, 'figures/test_maps',
-                                             self.version + '_' + timestamp + '_' + self.algo_name + '_test_' + str(
-                                                 i) + '.png')
-                save_map(filepath=test_map_path, pixel_map=env_eval.pixel_map, reverse_color=False,
-                         mark_size=5, mark_loc=loc_opt, mark_locs=[loc_highest])
 
         info1 = (f"overall average coverage reward for trained maps: {coverage_reward_mean_overall},"
                  f" average optimal reward: {reward_opt_mean},"

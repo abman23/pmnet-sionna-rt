@@ -158,7 +158,7 @@ def crop_map(original_map: np.ndarray, map_size: int, n: int, rng: np.random.Gen
     return maps
 
 
-def calc_coverage(x: int, y: int, map: np.ndarray, map_scale: float,
+def calc_coverage(x: int, y: int, map: np.ndarray, map_scale: float = 880/256,
                   threshold: float | None = None, option: str = "FSPL") -> np.ndarray:
     """Calculate the coverage of a TX given its location and a building map.
 
@@ -182,7 +182,7 @@ def calc_coverage(x: int, y: int, map: np.ndarray, map_scale: float,
         pl_row = []
         for j in range(n_col):
             # we ignore non-ROI area (buildings pixel) when calculating the coverage
-            if map[i][j] == 1 and threshold is not None:
+            if map[i][j] != 0 and threshold is not None:
                 pl_row.append(0)
                 continue
 

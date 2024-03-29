@@ -9,9 +9,9 @@
 #SBATCH --time=24:00:00
 #SBATCH --mail-type=end,fail
 #SBATCH --mail-user=ylu62702@usc.edu
-#module purge
-#eval "$(conda shell.bash hook)"
-#conda activate autobs
+module purge
+eval "$(conda shell.bash hook)"
+conda activate autobs
 
 nvidia-smi
 

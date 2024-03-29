@@ -5,15 +5,19 @@ from ray.rllib.core.rl_module.rl_module import SingleAgentRLModuleSpec
 
 from agent.agent import Agent
 from rl_module.action_mask_rlm import PPOActionMaskRLM
+from env.utils_v1 import dict_update
 
 
 class PPOAgent(Agent):
     def __init__(self, config: dict, log_file: str, version: str) -> None:
         super().__init__(config, log_file, version)
 
+        self.algo_name = 'ppo'
+        env_config = dict_update(config.get("env"), {"algo_name": self.algo_name})
+
         ppo_config = (
             PPOConfig()
-            .environment(env=self.env_class, env_config=config.get("env"))
+            .environment(env=self.env_class, env_config=env_config)
             .framework("torch")
             .rollouts(
                 num_rollout_workers=config["rollout"].get("num_rollout_workers", 1),
@@ -56,4 +60,4 @@ class PPOAgent(Agent):
                 rl_module_spec=SingleAgentRLModuleSpec(module_class=PPOActionMaskRLM),
             )
         self.agent_config = ppo_config
-        self.algo_name = 'ppo'
+

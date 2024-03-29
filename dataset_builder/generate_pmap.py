@@ -174,7 +174,7 @@ def generate_pmaps(map_idx: int, upsampling_factor: int, mark_tx: bool, save: bo
     # Generate power maps using PMNet
     idx, tensors, tx_layers = create_dataset(input_dir_base='resource/usc_old', index=map_idx, tx_size=12,
                                              upsampling_factor=upsampling_factor, device=device)
-    power_maps = inference(model=model, idx=idx, tensors=tensors, batch_size=128, mark_tx=mark_tx, tx_layers=tx_layers,
+    power_maps = inference(model=model, idx=idx, tensors=tensors, batch_size=64, mark_tx=mark_tx, tx_layers=tx_layers,
                            save=save, **kwargs)
 
     return power_maps

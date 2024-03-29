@@ -16,7 +16,7 @@ def load_map_normalized(filepath: str) -> np.ndarray:
 
     """
     image = Image.open(filepath).convert('L')
-    image_arr = np.array(image, dtype=np.float64) / 255
+    image_arr = np.array(image, dtype=np.float32) / 255
 
     return image_arr
 
