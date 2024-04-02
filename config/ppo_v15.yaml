@@ -1,14 +1,11 @@
 env:
-  coefficient_dict:
-    p_d: 1.0
-    r_c: 1.0
   map_size: 256
   action_space_size: 32
   n_maps: 500
   n_episodes_per_map: 5
   n_steps_truncate: 100
   dataset_dir: resource/usc_old_sparse
-  no_masking: falsen
+  no_masking: false
 eval:
   evaluation_config:
     env_config:

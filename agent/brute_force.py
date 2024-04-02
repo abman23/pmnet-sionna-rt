@@ -16,8 +16,9 @@ class BruteForceAgent(Agent):
 
         self.algo_name = 'brute-force'
 
-    def train_and_eval(self, log: bool = True):
+    def train_and_eval(self, log: bool = True, **kwargs):
         num_episode = self.config["stop"].get("training_iteration", 10)
+        num_steps_per_episode = self.config['report'].get('min_sample_timesteps_per_iteration', 2000)
         eval_interval = self.config["eval"].get("evaluation_interval", 5)
         eval_duration = self.config["eval"].get("evaluation_duration", 1)
         data_saving_interval = self.config["agent"].get("data_saving_interval", 10)
@@ -40,35 +41,38 @@ class BruteForceAgent(Agent):
         ep_train = np.arange(num_episode)
         ep_reward_mean_train = np.empty(num_episode, dtype=float)
 
-        timestamp = datetime.now().strftime('%m%d_%H%M')
-        start_info = f"==========={self.algo_name} train and eval started at {timestamp}==========="
+        timestamp = kwargs["timestamp"]
+        start_info = f"==========={self.algo_name.upper()} train and eval started at {timestamp}==========="
         if log:
             self.logger.info(start_info)
         print(start_info)
 
         time_train_start = time.time()
         for i in range(num_episode):
-            _, info_dict = env_train.reset()
+            reward_train_mean = 0.
             reward_eval = []
+            num_maps = num_steps_per_episode // env_train.n_steps_truncate
+            for j in range(num_maps):
+                _, info_dict = env_train.reset()
 
-            # training
-            action, reward = calc_optimal_locations(env_train.dataset_dir, env_train.map_suffix, info_dict["map_index"],
-                                                    env_train.coverage_threshold, env_train.upsampling_factor)
-            ep_reward_mean_train[i] = reward  # not normalized coverage reward
+                # training
+                action, reward = calc_optimal_locations(env_train.dataset_dir, env_train.map_suffix, info_dict["map_index"],
+                                                        env_train.coverage_threshold, env_train.upsampling_factor)
+                reward_train_mean += reward / num_maps
+            ep_reward_mean_train[i] = reward_train_mean
             time_total_s = time.time() - time_train_start
             print("\n")
             print(f"================TRAINING # {i + 1}================")
             print(f"time_total_s: {time_total_s}")
 
-            _, info_dict = env_eval.reset()
             if eval_interval is not None and (i + 1) % eval_interval == 0:
                 # evaluation
-                # now it only supports evaluating for one episode
-                # because we want to use the same map as that in agent training
-                action, reward = calc_optimal_locations(env_eval.dataset_dir, env_eval.map_suffix,
-                                                        info_dict["map_index"],
-                                                        env_eval.coverage_threshold, env_eval.upsampling_factor)
-                reward_eval.append(reward)
+                for j in range(eval_duration):
+                    _, info_dict = env_eval.reset()
+                    action, reward = calc_optimal_locations(env_eval.dataset_dir, env_eval.map_suffix,
+                                                            info_dict["map_index"],
+                                                            env_eval.coverage_threshold, env_eval.upsampling_factor)
+                    reward_eval.append(reward)
                 ep_r_mean, ep_r_std = np.mean(reward_eval), np.std(reward_eval)
                 idx = (i + 1) // eval_interval - 1
                 ep_reward_mean[idx] = ep_r_mean
@@ -99,5 +103,3 @@ class BruteForceAgent(Agent):
         if log:
             time_total_s = time.time() - time_train_start
             self.logger.info(f"train and eval total time: {time_total_s}s")
-
-        return timestamp

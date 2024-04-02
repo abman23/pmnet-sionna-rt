@@ -10,14 +10,13 @@ from gymnasium.utils import seeding
 from retrying import retry
 
 from env.utils_v1 import ROOT_DIR, calc_coverages, load_map_normalized, calc_optimal_locations
-from dataset_builder.generate_pmap import generate_pmaps
 
 RANDOM_SEED: int | None = None  # manually set random seed
 
 # set a logger
-logger = logging.getLogger("env_v15")
+logger = logging.getLogger("env_v16")
 logger.setLevel(logging.INFO)
-log_path = os.path.join(ROOT_DIR, "log/env_v15.log")
+log_path = os.path.join(ROOT_DIR, "log/env_v16.log")
 handler = logging.FileHandler(log_path, encoding='utf-8', mode='a')
 formatter = logging.Formatter("%(asctime)s %(levelname)s %(message)s")
 handler.setFormatter(formatter)
@@ -25,17 +24,14 @@ logger.addHandler(handler)
 
 
 class BaseEnvironment(gym.Env):
-    """MDP environment of autoBS, version 1.5.
+    """MDP environment of autoBS, version 1.6.
     Reward function : coverage reward (not normalized)
-    State: building map + power map
 
     """
     pixel_map: np.ndarray  # current building map
-    version: str = "v15"
+    version: str = "v16"
     steps: int
     map_idx: int  # index of the current building map
-    power_maps: dict[int, np.ndarray]
-    obs: np.ndarray  # observation, flatten building map concatenated by flatten power maps with random TX locations
 
     def __init__(self, config: dict) -> None:
         """Initialize the base MDP environment.
@@ -49,18 +45,18 @@ class BaseEnvironment(gym.Env):
         # training or test env
         self.map_suffix = "test" if evaluation_mode else "train"
         # indices of maps used for training or test
-        self.map_indices: np.ndarray = np.arange(2, 2 + 32 * 100, 32) if evaluation_mode else np.arange(1, 1 + 32 * 500,
-                                                                                                        32)
+        self.map_indices: np.ndarray = np.arange(2, 2 + 32 * 100, 32) if evaluation_mode else np.arange(1, 1 + 16 * 1000,
+                                                                                                        16)
         # the threshold of luminance (larger power value, brighter pixel) that we consider a pixel as 'covered' by TX
-        self.coverage_threshold: float = 220. / 255
-        # number of power maps stacked to the observation
-        self.n_power_maps_obs: int = 3
+        self.coverage_threshold: float = 240. / 255
 
         self.n_maps: int = config.get("n_maps", 1)
         # number of continuous steps using one cropped map
         self.n_episodes_per_map: int = config.get("n_episodes_per_map", 10)
         self.n_steps_truncate: int = config.get("n_steps_truncate", 10)
         self.n_episodes: int = 0
+        # coefficients of reward items
+        self.coefficient_dict = config.get("coefficient_dict", {})
         # count the number of used cropped maps
         self.n_trained_maps: int = 0
 
@@ -78,21 +74,19 @@ class BaseEnvironment(gym.Env):
 
         self.action_space: Discrete = Discrete(action_space_size ** 2)
         if self.no_masking:
-            self.observation_space: Box = Box(low=0., high=1.,
-                                              shape=(map_size ** 2 * (self.n_power_maps_obs + 1),), dtype=np.float32)
+            self.observation_space: Box = Box(low=0., high=1., shape=(map_size ** 2,), dtype=np.float32)
         else:
             self.observation_space: Dict = Dict(
                 {
-                    "observations": Box(low=0., high=1.,
-                                        shape=(map_size ** 2 * (self.n_power_maps_obs + 1),), dtype=np.float32),
+                    "observations": Box(low=0., high=1., shape=(map_size ** 2,), dtype=np.float32),
                     "action_mask": MultiBinary(action_space_size ** 2)
                 }
             )
 
         # fix a random seed
         self._np_random, seed = seeding.np_random(RANDOM_SEED)
-        if not evaluation_mode:
-            logger.info(f"=============NEW ENV {self.version.upper()} INITIALIZED=============")
+        # if not evaluation_mode:
+        #     logger.info(f"=============NEW ENV {self.version.upper()} INITIALIZED=============")
 
     # retry if action mask contains no 1 (no valid action in the reduced action space)
     @retry(stop_max_attempt_number=3)
@@ -110,7 +104,7 @@ class BaseEnvironment(gym.Env):
             #     self.map_idx = self.np_random.choice(self.map_indices)
             # else:
             #     self.map_idx = int(self.map_indices[self.n_trained_maps % self.n_maps])
-            self.map_idx = int(self.map_indices[self.n_trained_maps % self.n_maps])
+            self.map_idx = self.np_random.choice(self.map_indices)
             self.n_trained_maps += 1
             # update map and action mask
             map_path = os.path.join(ROOT_DIR, self.dataset_dir, 'map', str(self.map_idx) + '.png')
@@ -120,26 +114,17 @@ class BaseEnvironment(gym.Env):
             if self.mask.sum() < 1:
                 print("retry")
                 raise Exception("mask sum < 1, no available action")
-            # generate power maps
-            # self.power_maps = generate_pmaps(self.map_idx, self.upsampling_factor, True, save=False)
-            self.load_pmaps()
         self.n_episodes += 1
 
         # choose a random initial action
-        init_action = self.np_random.choice(np.where(self.mask == 1)[0])
+        init_action = np.random.choice(np.where(self.mask == 1)[0])
         row, col = self.calc_upsampling_loc(init_action)
-        # choose some random initial TX locations
-        init_tx_locs = self.np_random.choice(list(self.power_maps.keys()), self.n_power_maps_obs)
-        init_power_maps = [self.power_maps[tx_idx].reshape(-1).astype(np.float32) for tx_idx in init_tx_locs]
-        obs = [self.pixel_map.reshape(-1).astype(np.float32)]
-        obs.extend(init_power_maps)
-        self.obs = np.concatenate(obs)
 
         if self.no_masking:
-            observation = self.obs
+            observation = self.pixel_map.reshape(-1).astype(np.float32)
         else:
             observation = {
-                "observations": self.obs,
+                "observations": self.pixel_map.reshape(-1).astype(np.float32),
                 "action_mask": self.mask
             }
 
@@ -150,8 +135,8 @@ class BaseEnvironment(gym.Env):
             "map_index": self.map_idx,
             "init_action": (row, col),
         }
-        if self.n_episodes % 5 == 0:
-            logger.info(info_dict)
+        # if self.n_episodes % 5 == 0:
+        #     logger.info(info_dict)
 
         return observation, info_dict
 
@@ -171,10 +156,10 @@ class BaseEnvironment(gym.Env):
         trunc = self.steps >= self.n_steps_truncate  # truncate if reach the step limit
 
         if self.no_masking:
-            observation = self.obs
+            observation = self.pixel_map.reshape(-1).astype(np.float32)
         else:
             observation = {
-                "observations": self.obs,
+                "observations": self.pixel_map.reshape(-1).astype(np.float32),
                 "action_mask": self.mask
             }
 
@@ -206,7 +191,9 @@ class BaseEnvironment(gym.Env):
         """
         tx_idx = row * self.map_size + col
         try:
-            pmap_arr = self.power_maps[tx_idx]
+            pmap_path = os.path.join(ROOT_DIR, self.dataset_dir, 'pmap_' + self.map_suffix,
+                                     'pmap_' + str(self.map_idx) + '_' + str(tx_idx) + '.png')
+            pmap_arr = load_map_normalized(pmap_path)
             coverage_matrix = np.where(pmap_arr >= self.coverage_threshold, 1, 0)
             coverage = int(coverage_matrix.sum())
             return coverage
@@ -238,17 +225,3 @@ class BaseEnvironment(gym.Env):
         """
         idx = np.arange((self.upsampling_factor - 1) // 2, self.map_size, self.upsampling_factor)
         return self.pixel_map[idx][:, idx].reshape(-1).astype(np.int8)
-
-    def load_pmaps(self):
-        """Load power maps corresponding to the current building map from images.
-
-        """
-        self.power_maps = {}
-        for action in range(self.action_space_size ** 2):
-            row, col = self.calc_upsampling_loc(action)
-            if self.pixel_map[row, col] == 1.:
-                tx_idx = row * self.map_size + col
-                pmap_path = os.path.join(ROOT_DIR, self.dataset_dir, 'pmap_' + self.map_suffix,
-                                         'pmap_' + str(self.map_idx) + '_' + str(tx_idx) + '.png')
-                pmap_arr = load_map_normalized(pmap_path)
-                self.power_maps[tx_idx] = pmap_arr

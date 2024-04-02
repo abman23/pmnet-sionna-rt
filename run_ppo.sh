@@ -4,7 +4,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=2
-#SBATCH --gpus-per-task=v100:1
+#SBATCH --gpus-per-task=p100:1
 #SBATCH --mem=16G
 #SBATCH --time=24:00:00
 #SBATCH --mail-type=end,fail

@@ -23,10 +23,12 @@ class PPOAgent(Agent):
                 num_rollout_workers=config["rollout"].get("num_rollout_workers", 1),
                 num_envs_per_worker=config["rollout"].get("num_envs_per_worker", 1),
                 rollout_fragment_length="auto",
-                # batch_mode="complete_episodes",
+                batch_mode=config["rollout"].get("batch_mode", "truncate_episodes"),
+                remote_worker_envs=False,
             )
             .resources(
-                num_gpus=config["resource"].get("num_gpus", 0),
+                # num_gpus=config["resource"].get("num_gpus", 0),
+                num_gpus=torch.cuda.device_count(),
             )
             .exploration(
                 explore=True,
@@ -60,4 +62,5 @@ class PPOAgent(Agent):
                 rl_module_spec=SingleAgentRLModuleSpec(module_class=PPOActionMaskRLM),
             )
         self.agent_config = ppo_config
+        self.agent = self.agent_config.build()
 

@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
 from gymnasium.spaces import Dict, Tuple
+from ray.rllib.algorithms.dqn.dqn_torch_model import DQNTorchModel
 
 from ray.rllib.models.torch.torch_modelv2 import TorchModelV2
 from ray.rllib.models.torch.fcnet import FullyConnectedNetwork as TorchFC
@@ -60,7 +61,7 @@ class ActionMaskPolicyModel(TorchModelV2, nn.Module):
         return self.internal_model.value_function()
 
 
-class ActionMaskQModel(TorchModelV2, nn.Module):
+class ActionMaskQModel(DQNTorchModel):
     """Q model when using action masking.
 
     """
@@ -70,7 +71,8 @@ class ActionMaskQModel(TorchModelV2, nn.Module):
             action_space,
             num_outputs,
             model_config,
-            name
+            name,
+            **kwargs
     ):
         orig_space = getattr(obs_space, "original_space", obs_space)
         assert (
@@ -79,8 +81,8 @@ class ActionMaskQModel(TorchModelV2, nn.Module):
                 and "observations" in orig_space.spaces
         )
 
-        TorchModelV2.__init__(self, obs_space, action_space, num_outputs, model_config, name)
-        nn.Module.__init__(self)
+        DQNTorchModel.__init__(self, obs_space, action_space, num_outputs,
+                               model_config, name, **kwargs)
 
         # Use only the observations part as observation space
         self.internal_model = TorchFC(
@@ -92,10 +94,18 @@ class ActionMaskQModel(TorchModelV2, nn.Module):
         )
 
     def forward(self, input_dict, state, seq_lens):
+        # Extract the available actions tensor from the observation.
+        action_mask = input_dict["obs"]["action_mask"]
+
         # Compute the logits.
         logits, _ = self.internal_model({"obs": input_dict["obs"]["observations"]})
 
-        return logits, state
+        # Convert action_mask into a [0.0 || -inf]-type mask.
+        inf_mask = torch.clamp(torch.log(action_mask), min=FLOAT_MIN)
+        masked_logits = logits + inf_mask
+
+        # Return masked logits.
+        return masked_logits, state
 
     def value_function(self):
         return self.internal_model.value_function()

@@ -1,23 +1,20 @@
 env:
-  coefficient_dict:
-    p_d: 1.0
-    r_c: 1.0
   map_size: 256
-  action_space_size: 64
-  n_maps: 100
-  n_episodes_per_map: 10
-  n_steps_truncate: 200
-  dataset_dir: resource/usc_old
+  action_space_size: 32
+  n_maps: 500
+  n_episodes_per_map: 1
+  n_steps_truncate: 500
+  dataset_dir: resource/usc_old_sparse
   no_masking: false
 eval:
   evaluation_config:
     env_config:
       evaluation: true
-      n_maps: 50
+      n_maps: 100
       n_episodes_per_map: 1
     exploration:
       explore: false
-  evaluation_duration: 1
+  evaluation_duration: 5
   evaluation_interval: 5
   evaluation_num_workers: 0
 explore:
@@ -25,36 +22,37 @@ explore:
     type: StochasticSampling
   explore: true
 report:
-  min_sample_timesteps_per_iteration: 200  # keep it the same as n_steps_truncate
+  min_sample_timesteps_per_iteration: 2000  # keep it the same as n_steps_truncate * num_rollout_workers
 resource:
   num_cpus_per_worker: 1
   num_gpus: 0
   num_gpus_per_worker: 0
 rollout:
   num_envs_per_worker: 1
-  num_rollout_workers: 0
+  num_rollout_workers: 4
+  batch_mode: truncate_episodes
 stop:
-  training_iteration: 1000
+  training_iteration: 500
 train:
   optimization_config:
     actor_learning_rate: 0.00005
     critic_learning_rate: 0.0005
     entropy_learning_rate: 0.00005
-  grad_clip: null
-  gamma: 0.0
+  grad_clip: 40.0
+  gamma: 0.1
   target_network_update_freq: 0
-  tau: 0.005
+  tau: 0.02
   num_steps_sampled_before_learning_starts: 2000
   replay_buffer_config:
     capacity: 5000
     _enable_replay_buffer_api: true
     type: MultiAgentReplayBuffer
   train_batch_size: 256
-#  policy_model_config:
-#    custom_model: action_mask_policy
-#  q_model_config:
-#    custom_model: action_mask_policy
-#    custom_model_config:
-#      masked_value: 0
+  policy_model_config:
+    custom_model: action_mask_policy
+  q_model_config:
+    custom_model: action_mask_policy
+    custom_model_config:
+      masked_value: 0
 agent:
   data_saving_interval: 50

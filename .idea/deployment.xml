@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="On explicit save action" serverName="wides_carc" confirmBeforeUploading="false" confirmBeforeDeletion="false" autoUploadExternalChanges="true">
+  <component name="PublishConfigData" autoUpload="On explicit save action" serverName="carc_proj" confirmBeforeUploading="false" confirmBeforeDeletion="false" autoUploadExternalChanges="true">
     <option name="confirmBeforeDeletion" value="false" />
     <option name="confirmBeforeUploading" value="false" />
     <serverData>
-      <paths name="wides_carc">
+      <paths name="carc_proj">
+        <serverdata>
+          <mappings>
+            <mapping deploy="BS_Deployment" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/checkpoint" />
+            <excludedPath local="true" path="$PROJECT_DIR$/resource" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+      <paths name="carc_scratch">
         <serverdata>
           <mappings>
             <mapping deploy="/BS_Deployment" local="$PROJECT_DIR$" web="/" />

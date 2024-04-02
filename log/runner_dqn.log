@@ -1455,3 +1455,57 @@ training_iteration: 10
 trial_id: default
 
 2024-02-21 16:43:04,434 DEBUG {'env': {'coefficient_dict': {'p_b': 1.0, 'p_d': 1.0, 'r_c': 0.1}, 'cropped_map_size': 64, 'n_maps': 100, 'n_steps_per_map': 10, 'no_masking': True, 'original_map_path': './resource/usc.png', 'original_map_scale': 3.4375, 'preset_map_path': './resource/setup.json', 'ratio_coverage': 0.0125}, 'eval': {'evaluation_config': {'env_config': {'evaluation': True, 'n_maps': 3, 'preset_map_path': None}, 'explore': False}, 'evaluation_duration': 3, 'evaluation_interval': 5}, 'explore': {'exploration_config': {'epsilon_timesteps': 300, 'final_epsilon': 0.02, 'initial_epsilon': 1.0, 'type': 'EpsilonGreedy'}, 'explore': True}, 'report': {'min_sample_timesteps_per_iteration': 10}, 'resource': {'num_cpus_per_worker': 2, 'num_gpus': 0, 'num_gpus_per_worker': 0}, 'rollout': {'num_envs_per_worker': 1, 'num_rollout_workers': 4}, 'stop': {'training_iteration': 10}, 'train': {'num_steps_sampled_before_learning_starts': 100, 'replay_buffer_config': {'capacity': 50000}, 'train_batch_size': 8}}
+2024-03-31 02:00:58,681 INFO 
+=============Test for DQN AFTER Training=============
+2024-03-31 02:00:58,988 INFO average coverage reward for trained map 0 in 1 steps: -100000.0, std: 0.0, optimal reward: 4124, ratio: -24.248302618816684, num_roi: 54592
+2024-03-31 02:00:59,310 INFO average coverage reward for trained map 1 in 1 steps: -100000.0, std: 0.0, optimal reward: 4586, ratio: -21.805494984736153, num_roi: 53472
+2024-03-31 02:00:59,642 INFO average coverage reward for trained map 2 in 1 steps: -100000.0, std: 0.0, optimal reward: 4616, ratio: -21.663778162911612, num_roi: 52976
+2024-03-31 02:00:59,988 INFO average coverage reward for trained map 3 in 1 steps: 3338.0, std: 0.0, optimal reward: 4332, ratio: 0.7705447830101569, num_roi: 52224
+2024-03-31 02:01:00,331 INFO average coverage reward for trained map 4 in 1 steps: -100000.0, std: 0.0, optimal reward: 4250, ratio: -23.529411764705884, num_roi: 52688
+2024-03-31 02:01:00,694 INFO average coverage reward for trained map 5 in 1 steps: -100000.0, std: 0.0, optimal reward: 4352, ratio: -22.977941176470587, num_roi: 51024
+2024-03-31 02:01:00,994 INFO average coverage reward for trained map 6 in 1 steps: -100000.0, std: 0.0, optimal reward: 4043, ratio: -24.73410833539451, num_roi: 53968
+2024-03-31 02:01:01,351 INFO average coverage reward for trained map 7 in 1 steps: -100000.0, std: 0.0, optimal reward: 4517, ratio: -22.13858755811379, num_roi: 51472
+2024-03-31 02:01:01,569 INFO average coverage reward for trained map 8 in 1 steps: -100000.0, std: 0.0, optimal reward: 4411, ratio: -22.670596236681025, num_roi: 56112
+2024-03-31 02:01:01,914 INFO average coverage reward for trained map 9 in 1 steps: -100000.0, std: 0.0, optimal reward: 4249, ratio: -23.53494939985879, num_roi: 51760
+2024-03-31 02:01:02,166 INFO average coverage reward for trained map 10 in 1 steps: -100000.0, std: 0.0, optimal reward: 4146, ratio: -24.1196333815726, num_roi: 55168
+2024-03-31 02:01:02,472 INFO average coverage reward for trained map 11 in 1 steps: -100000.0, std: 0.0, optimal reward: 4162, ratio: -24.02691013935608, num_roi: 52944
+2024-03-31 02:01:02,766 INFO average coverage reward for trained map 12 in 1 steps: -100000.0, std: 0.0, optimal reward: 4267, ratio: -23.435669088352473, num_roi: 53104
+2024-03-31 02:01:03,078 INFO average coverage reward for trained map 13 in 1 steps: -100000.0, std: 0.0, optimal reward: 4315, ratio: -23.174971031286212, num_roi: 53744
+2024-03-31 02:01:03,394 INFO average coverage reward for trained map 14 in 1 steps: -100000.0, std: 0.0, optimal reward: 4307, ratio: -23.218017181332716, num_roi: 52624
+2024-03-31 02:01:03,729 INFO average coverage reward for trained map 15 in 1 steps: -100000.0, std: 0.0, optimal reward: 4081, ratio: -24.50379808870375, num_roi: 51648
+2024-03-31 02:01:04,025 INFO average coverage reward for trained map 16 in 1 steps: -100000.0, std: 0.0, optimal reward: 3995, ratio: -25.031289111389235, num_roi: 53392
+2024-03-31 02:01:04,399 INFO average coverage reward for trained map 17 in 1 steps: -100000.0, std: 0.0, optimal reward: 4038, ratio: -24.764735017335315, num_roi: 50304
+2024-03-31 02:01:04,782 INFO average coverage reward for trained map 18 in 1 steps: 3573.0, std: 0.0, optimal reward: 4197, ratio: 0.8513223731236598, num_roi: 51344
+2024-03-31 02:01:05,152 INFO average coverage reward for trained map 19 in 1 steps: -100000.0, std: 0.0, optimal reward: 4090, ratio: -24.449877750611247, num_roi: 50608
+2024-03-31 02:01:05,371 INFO average coverage reward for trained map 20 in 1 steps: -100000.0, std: 0.0, optimal reward: 4198, ratio: -23.820867079561697, num_roi: 57088
+2024-03-31 02:01:05,662 INFO average coverage reward for trained map 21 in 1 steps: 3429.0, std: 0.0, optimal reward: 4387, ratio: 0.7816275359015272, num_roi: 54592
+2024-03-31 02:01:05,971 INFO average coverage reward for trained map 22 in 1 steps: -100000.0, std: 0.0, optimal reward: 4588, ratio: -21.79598953792502, num_roi: 53664
+2024-03-31 02:01:06,274 INFO average coverage reward for trained map 23 in 1 steps: -100000.0, std: 0.0, optimal reward: 4583, ratio: -21.81976871045167, num_roi: 53536
+2024-03-31 02:01:06,637 INFO average coverage reward for trained map 24 in 1 steps: -100000.0, std: 0.0, optimal reward: 4077, ratio: -24.527839097375523, num_roi: 50688
+2024-03-31 02:01:06,896 INFO average coverage reward for test map 0 in 1 steps: -100000.0, std:0.0, optimal reward: 4417, ratio: -22.639800769753226, num_roi: 54592
+2024-03-31 02:01:07,184 INFO average coverage reward for test map 1 in 1 steps: -100000.0, std:0.0, optimal reward: 4231, ratio: -23.63507445048452, num_roi: 53472
+2024-03-31 02:01:07,492 INFO average coverage reward for test map 2 in 1 steps: -100000.0, std:0.0, optimal reward: 4786, ratio: -20.89427496865859, num_roi: 52976
+2024-03-31 02:01:07,820 INFO average coverage reward for test map 3 in 1 steps: 3208.0, std:0.0, optimal reward: 4319, ratio: 0.7427645288261172, num_roi: 52224
+2024-03-31 02:01:08,130 INFO average coverage reward for test map 4 in 1 steps: -100000.0, std:0.0, optimal reward: 4162, ratio: -24.02691013935608, num_roi: 52688
+2024-03-31 02:01:08,477 INFO average coverage reward for test map 5 in 1 steps: -100000.0, std:0.0, optimal reward: 4877, ratio: -20.50440844781628, num_roi: 51024
+2024-03-31 02:01:08,760 INFO average coverage reward for test map 6 in 1 steps: 3676.0, std:0.0, optimal reward: 4356, ratio: 0.8438934802571166, num_roi: 53968
+2024-03-31 02:01:09,091 INFO average coverage reward for test map 7 in 1 steps: -100000.0, std:0.0, optimal reward: 4279, ratio: -23.369946249123625, num_roi: 51472
+2024-03-31 02:01:09,336 INFO average coverage reward for test map 8 in 1 steps: -100000.0, std:0.0, optimal reward: 4332, ratio: -23.08402585410896, num_roi: 56112
+2024-03-31 02:01:09,674 INFO average coverage reward for test map 9 in 1 steps: -100000.0, std:0.0, optimal reward: 4781, ratio: -20.916126333403053, num_roi: 51760
+2024-03-31 02:01:09,931 INFO average coverage reward for test map 10 in 1 steps: -100000.0, std:0.0, optimal reward: 4322, ratio: -23.137436372049976, num_roi: 55168
+2024-03-31 02:01:10,240 INFO average coverage reward for test map 11 in 1 steps: -100000.0, std:0.0, optimal reward: 4175, ratio: -23.952095808383234, num_roi: 52944
+2024-03-31 02:01:10,543 INFO average coverage reward for test map 12 in 1 steps: -100000.0, std:0.0, optimal reward: 4529, ratio: -22.079929344226098, num_roi: 53104
+2024-03-31 02:01:10,818 INFO average coverage reward for test map 13 in 1 steps: -100000.0, std:0.0, optimal reward: 4699, ratio: -21.281123643328367, num_roi: 53744
+2024-03-31 02:01:11,139 INFO average coverage reward for test map 14 in 1 steps: 2958.0, std:0.0, optimal reward: 4459, ratio: 0.663377438887643, num_roi: 52624
+2024-03-31 02:01:11,478 INFO average coverage reward for test map 15 in 1 steps: -100000.0, std:0.0, optimal reward: 4465, ratio: -22.396416573348265, num_roi: 51648
+2024-03-31 02:01:11,770 INFO average coverage reward for test map 16 in 1 steps: -100000.0, std:0.0, optimal reward: 4321, ratio: -23.142791020597084, num_roi: 53392
+2024-03-31 02:01:12,138 INFO average coverage reward for test map 17 in 1 steps: 2745.0, std:0.0, optimal reward: 4303, ratio: 0.6379270276551243, num_roi: 50304
+2024-03-31 02:01:12,476 INFO average coverage reward for test map 18 in 1 steps: -100000.0, std:0.0, optimal reward: 4603, ratio: -21.724961981316532, num_roi: 51344
+2024-03-31 02:01:12,836 INFO average coverage reward for test map 19 in 1 steps: -100000.0, std:0.0, optimal reward: 4995, ratio: -20.02002002002002, num_roi: 50608
+2024-03-31 02:01:13,021 INFO average coverage reward for test map 20 in 1 steps: 2976.0, std:0.0, optimal reward: 4219, ratio: 0.7053804219009244, num_roi: 57088
+2024-03-31 02:01:13,276 INFO average coverage reward for test map 21 in 1 steps: -100000.0, std:0.0, optimal reward: 4513, ratio: -22.158209616662973, num_roi: 54592
+2024-03-31 02:01:13,556 INFO average coverage reward for test map 22 in 1 steps: 2700.0, std:0.0, optimal reward: 4226, ratio: 0.6389020350212967, num_roi: 53664
+2024-03-31 02:01:13,850 INFO average coverage reward for test map 23 in 1 steps: -100000.0, std:0.0, optimal reward: 4817, ratio: -20.75980900975711, num_roi: 53536
+2024-03-31 02:01:14,213 INFO average coverage reward for test map 24 in 1 steps: -100000.0, std:0.0, optimal reward: 4072, ratio: -24.557956777996072, num_roi: 50688
+2024-03-31 02:01:14,213 INFO overall average coverage reward for trained maps: -87586.4, average optimal reward: 4276.44, ratio: -20.481147870658774, average number of RoI pixels: 52989.439999999995, percentage of coverage: -165.2902918015363
+2024-03-31 02:01:14,213 INFO overall average coverage reward for test maps: -75269.48, average optimal reward: 4450.32, ratio: -16.91327365223175, average number of RoI pixels: 52989.439999999995, percentage of coverage: -142.04618882554715

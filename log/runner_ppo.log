@@ -3983,3 +3983,490 @@ trial_id: default
 2024-03-24 02:23:11,976 INFO ===========SAC train and eval started at 0324_0223===========
 2024-03-24 02:26:59,818 INFO ===========SAC train and eval started at 0324_0226===========
 2024-03-25 22:35:51,730 INFO ===========PPO train and eval started at 0325_2235===========
+2024-03-30 15:24:53,771 INFO ===========PPO train and eval started at 0330_1524===========
+2024-03-30 18:24:35,653 INFO agent_timesteps_total: 1000000
+connector_metrics:
+  StateBufferConnector_ms: 0.005205631256103516
+  ViewRequirementAgentConnector_ms: 0.21616601943969727
+counters:
+  num_agent_steps_sampled: 1000000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 1000000
+  num_env_steps_trained: 0
+custom_metrics: {}
+date: 2024-03-30_18-24-35
+done: false
+episode_len_mean: 500.0
+episode_media: {}
+episode_reward_max: 2305797.0
+episode_reward_mean: 1359518.2
+episode_reward_min: 364619.0
+episodes_this_iter: 4
+episodes_total: 2000
+evaluation:
+  connector_metrics:
+    StateBufferConnector_ms: 0.0018596649169921875
+    ViewRequirementAgentConnector_ms: 0.09666919708251953
+  custom_metrics: {}
+  episode_len_mean: 500.0
+  episode_media: {}
+  episode_reward_max: 1937196.0
+  episode_reward_mean: 1832445.4
+  episode_reward_min: 1687896.0
+  episodes_this_iter: 5
+  hist_stats:
+    episode_lengths: [500, 500, 500, 500, 500]
+    episode_reward: [1818702.0, 1687896.0, 1888232.0, 1937196.0, 1830201.0]
+  num_agent_steps_sampled_this_iter: 2500
+  num_env_steps_sampled_this_iter: 2500
+  num_faulty_episodes: 0
+  num_healthy_workers: 0
+  num_in_flight_async_reqs: 0
+  num_remote_worker_restarts: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.03827522035798087
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 1.5388092649136973
+    mean_inference_ms: 1.5435850932453814
+    mean_raw_obs_processing_ms: 0.33132946997020607
+  sampler_results:
+    connector_metrics:
+      StateBufferConnector_ms: 0.0018596649169921875
+      ViewRequirementAgentConnector_ms: 0.09666919708251953
+    custom_metrics: {}
+    episode_len_mean: 500.0
+    episode_media: {}
+    episode_reward_max: 1937196.0
+    episode_reward_mean: 1832445.4
+    episode_reward_min: 1687896.0
+    episodes_this_iter: 5
+    hist_stats:
+      episode_lengths: [500, 500, 500, 500, 500]
+      episode_reward: [1818702.0, 1687896.0, 1888232.0, 1937196.0, 1830201.0]
+    num_faulty_episodes: 0
+    policy_reward_max: {}
+    policy_reward_mean: {}
+    policy_reward_min: {}
+    sampler_perf:
+      mean_action_processing_ms: 0.03827522035798087
+      mean_env_render_ms: 0.0
+      mean_env_wait_ms: 1.5388092649136973
+      mean_inference_ms: 1.5435850932453814
+      mean_raw_obs_processing_ms: 0.33132946997020607
+  timesteps_this_iter: 2500
+hostname: OrangeBook-Pro-14.local
+info:
+  learner:
+    __all__:
+      num_agent_steps_trained: 128.0
+      num_env_steps_trained: 2000.0
+      total_loss: 9.914798550712415
+    default_policy:
+      curr_entropy_coeff: 0.0
+      curr_kl_coeff: 5.548352241516113
+      curr_lr: 1.0e-05
+      default_optimizer_lr: 9.999999999999999e-06
+      entropy: 1.776793542380531
+      gradients_default_optimizer_global_norm: 14.12749269138129
+      mean_kl_loss: 0.012388895246785048
+      policy_loss: -0.15393941773893163
+      total_loss: 9.914798550712415
+      vf_explained_var: -6.390836673041883e-07
+      vf_loss: 10.0
+      vf_loss_unclipped: 14229168.862619808
+  num_agent_steps_sampled: 1000000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 1000000
+  num_env_steps_trained: 0
+iterations_since_restore: 500
+node_ip: 127.0.0.1
+num_agent_steps_sampled: 1000000
+num_agent_steps_trained: 0
+num_env_steps_sampled: 1000000
+num_env_steps_sampled_this_iter: 2000
+num_env_steps_sampled_throughput_per_sec: 85.3332352431683
+num_env_steps_trained: 0
+num_env_steps_trained_this_iter: 0
+num_env_steps_trained_throughput_per_sec: 0.0
+num_faulty_episodes: 0
+num_healthy_workers: 4
+num_in_flight_async_reqs: 0
+num_remote_worker_restarts: 0
+num_steps_trained_this_iter: 0
+perf:
+  cpu_util_percent: 71.07291666666667
+  ram_util_percent: 78.57708333333333
+pid: 17969
+policy_reward_max: {}
+policy_reward_mean: {}
+policy_reward_min: {}
+sampler_perf:
+  mean_action_processing_ms: 0.0699466525683635
+  mean_env_render_ms: 0.0
+  mean_env_wait_ms: 1.8077495789372537
+  mean_inference_ms: 3.7942839687446006
+  mean_raw_obs_processing_ms: 1.099289098813248
+sampler_results:
+  connector_metrics:
+    StateBufferConnector_ms: 0.005205631256103516
+    ViewRequirementAgentConnector_ms: 0.21616601943969727
+  custom_metrics: {}
+  episode_len_mean: 500.0
+  episode_media: {}
+  episode_reward_max: 2305797.0
+  episode_reward_mean: 1359518.2
+  episode_reward_min: 364619.0
+  episodes_this_iter: 4
+  hist_stats:
+    episode_lengths: [500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500,
+      500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500,
+      500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500,
+      500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500,
+      500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500,
+      500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500, 500,
+      500, 500, 500, 500, 500, 500, 500, 500]
+    episode_reward: [853393.0, 786360.0, 787898.0, 843500.0, 390899.0, 375089.0, 375316.0,
+      364619.0, 1007089.0, 979690.0, 1011970.0, 994187.0, 1293585.0, 1296903.0, 1301936.0,
+      1289385.0, 467914.0, 511010.0, 502302.0, 520527.0, 1545088.0, 1555470.0, 1550318.0,
+      1552251.0, 1606411.0, 1612781.0, 1581481.0, 1599632.0, 1014870.0, 1018312.0,
+      1030823.0, 1040058.0, 1572583.0, 1596689.0, 1572593.0, 1588546.0, 1481747.0,
+      1476165.0, 1474478.0, 1484769.0, 1263292.0, 1298051.0, 1294601.0, 1275570.0,
+      1603559.0, 1603134.0, 1614431.0, 1612819.0, 2282730.0, 2284510.0, 2305797.0,
+      2297516.0, 964993.0, 948680.0, 932980.0, 940531.0, 984285.0, 1006549.0, 986165.0,
+      979796.0, 1515934.0, 1556293.0, 1555089.0, 1537425.0, 1412148.0, 1412534.0,
+      1408669.0, 1412398.0, 1941132.0, 1941511.0, 1953281.0, 1951761.0, 1310323.0,
+      1302926.0, 1290815.0, 1283978.0, 1253346.0, 1244138.0, 1245832.0, 1251440.0,
+      1525033.0, 1516273.0, 1520660.0, 1539899.0, 1383110.0, 1398013.0, 1353179.0,
+      1359233.0, 1784425.0, 1782274.0, 1782970.0, 1771246.0, 1818268.0, 1820726.0,
+      1821231.0, 1827771.0, 1689762.0, 1696572.0, 1696102.0, 1695474.0]
+  num_faulty_episodes: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.0699466525683635
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 1.8077495789372537
+    mean_inference_ms: 3.7942839687446006
+    mean_raw_obs_processing_ms: 1.099289098813248
+time_since_restore: 10778.05262851715
+time_this_iter_s: 33.73409676551819
+time_total_s: 10778.05262851715
+timers:
+  sample_time_ms: 3892.667
+  synch_weights_time_ms: 61.28
+  training_iteration_time_ms: 21047.373
+timestamp: 1711848275
+timesteps_total: 1000000
+training_iteration: 500
+trial_id: default
+
+2024-03-30 18:24:35,653 DEBUG {'env': {'map_size': 256, 'action_space_size': 32, 'n_maps': 500, 'n_episodes_per_map': 1, 'n_steps_truncate': 500, 'dataset_dir': 'resource/usc_old_sparse', 'no_masking': False}, 'eval': {'evaluation_config': {'env_config': {'evaluation': True, 'n_maps': 100, 'n_episodes_per_map': 1}, 'exploration': {'explore': False}}, 'evaluation_duration': 5, 'evaluation_interval': 5, 'evaluation_num_workers': 0}, 'explore': {'exploration_config': {'type': 'StochasticSampling'}, 'explore': True}, 'report': {'min_sample_timesteps_per_iteration': 2000}, 'resource': {'num_cpus_per_worker': 1, 'num_gpus': 0, 'num_gpus_per_worker': 0}, 'rollout': {'num_envs_per_worker': 1, 'num_rollout_workers': 4, 'batch_mode': 'truncate_episodes'}, 'stop': {'training_iteration': 500}, 'train': {'lr': 1e-05, 'gamma': 0.1, 'grad_clip': 40.0, 'train_batch_size': 2000, 'sgd_minibatch_size': 128, 'num_sgd_iter': 20, 'model': {'fcnet_hiddens': [128, 128], 'fcnet_activation': 'relu'}}, 'agent': {'data_saving_interval': 50}}
+2024-03-30 18:24:35,653 INFO =============TRAINING ENDED=============
+2024-03-30 18:24:37,445 INFO average coverage reward for trained map 0 in 100 steps: 3561.88, std: 199.04568721778423, optimal reward: 4124, ratio: 0.8636954413191077, num_roi: 54592
+2024-03-30 18:24:38,690 INFO average coverage reward for trained map 1 in 100 steps: 3645.27, std: 188.1914905090026, optimal reward: 4586, ratio: 0.7948691670300916, num_roi: 53472
+2024-03-30 18:24:39,575 INFO average coverage reward for trained map 2 in 100 steps: 3404.96, std: 236.646103707625, optimal reward: 4616, ratio: 0.7376429809358752, num_roi: 52976
+2024-03-30 18:24:40,384 INFO average coverage reward for trained map 3 in 100 steps: 3200.18, std: 205.93641640079105, optimal reward: 4332, ratio: 0.7387303785780239, num_roi: 52224
+2024-03-30 18:24:41,193 INFO average coverage reward for trained map 4 in 100 steps: 3999.33, std: 290.57381351388153, optimal reward: 4250, ratio: 0.9410188235294118, num_roi: 52688
+2024-03-30 18:24:42,005 INFO average coverage reward for trained map 5 in 100 steps: 3943.85, std: 302.6420451622676, optimal reward: 4352, ratio: 0.9062155330882353, num_roi: 51024
+2024-03-30 18:24:42,790 INFO average coverage reward for trained map 6 in 100 steps: 3452.74, std: 133.53835553877394, optimal reward: 4043, ratio: 0.8540044521395003, num_roi: 53968
+2024-03-30 18:24:43,578 INFO average coverage reward for trained map 7 in 100 steps: 4273.38, std: 308.01804427663, optimal reward: 4517, ratio: 0.9460659729909232, num_roi: 51472
+2024-03-30 18:24:44,239 INFO average coverage reward for trained map 8 in 100 steps: 4093.96, std: 368.36386684907086, optimal reward: 4411, ratio: 0.9281251416912265, num_roi: 56112
+2024-03-30 18:24:45,022 INFO average coverage reward for trained map 9 in 100 steps: 4025.95, std: 111.2230529162008, optimal reward: 4249, ratio: 0.9475052953636149, num_roi: 51760
+2024-03-30 18:24:45,682 INFO average coverage reward for trained map 10 in 100 steps: 3790.37, std: 113.17222760023769, optimal reward: 4146, ratio: 0.9142233478051134, num_roi: 55168
+2024-03-30 18:24:46,419 INFO average coverage reward for trained map 11 in 100 steps: 3638.09, std: 187.88608756371505, optimal reward: 4162, ratio: 0.8741206150888996, num_roi: 52944
+2024-03-30 18:24:47,189 INFO average coverage reward for trained map 12 in 100 steps: 3656.69, std: 161.7880524019002, optimal reward: 4267, ratio: 0.8569697679868761, num_roi: 53104
+2024-03-30 18:24:47,926 INFO average coverage reward for trained map 13 in 100 steps: 3614.97, std: 279.41197021602346, optimal reward: 4315, ratio: 0.837768250289687, num_roi: 53744
+2024-03-30 18:24:48,694 INFO average coverage reward for trained map 14 in 100 steps: 3521.59, std: 369.83904864143267, optimal reward: 4307, ratio: 0.8176433712560948, num_roi: 52624
+2024-03-30 18:24:49,469 INFO average coverage reward for trained map 15 in 100 steps: 3839.65, std: 243.43156635900775, optimal reward: 4081, ratio: 0.9408600833129135, num_roi: 51648
+2024-03-30 18:24:50,486 INFO average coverage reward for trained map 16 in 100 steps: 3411.86, std: 233.3871898798218, optimal reward: 3995, ratio: 0.8540325406758449, num_roi: 53392
+2024-03-30 18:24:51,299 INFO average coverage reward for trained map 17 in 100 steps: 3644.78, std: 289.3745178829677, optimal reward: 4038, ratio: 0.9026201089648341, num_roi: 50304
+2024-03-30 18:24:52,114 INFO average coverage reward for trained map 18 in 100 steps: 3935.66, std: 320.4565249764779, optimal reward: 4197, ratio: 0.9377317131284251, num_roi: 51344
+2024-03-30 18:24:52,915 INFO average coverage reward for trained map 19 in 100 steps: 3706.41, std: 89.08951621823974, optimal reward: 4090, ratio: 0.9062127139364303, num_roi: 50608
+2024-03-30 18:24:53,565 INFO average coverage reward for trained map 20 in 100 steps: 3896.76, std: 232.76993448467525, optimal reward: 4198, ratio: 0.9282420200095284, num_roi: 57088
+2024-03-30 18:24:54,296 INFO average coverage reward for trained map 21 in 100 steps: 3530.15, std: 208.74407177211043, optimal reward: 4387, ratio: 0.8046842945064965, num_roi: 54592
+2024-03-30 18:24:55,051 INFO average coverage reward for trained map 22 in 100 steps: 3857.67, std: 345.5436891335161, optimal reward: 4588, ratio: 0.8408173496076722, num_roi: 53664
+2024-03-30 18:24:55,775 INFO average coverage reward for trained map 23 in 100 steps: 3402.35, std: 263.88184382408735, optimal reward: 4583, ratio: 0.7423849007200524, num_roi: 53536
+2024-03-30 18:24:56,556 INFO average coverage reward for trained map 24 in 100 steps: 3359.43, std: 357.0875874347917, optimal reward: 4077, ratio: 0.8239955849889624, num_roi: 50688
+2024-03-30 18:24:57,257 INFO average coverage reward for test map 0 in 100 steps: 3768.52, std:220.30871430790023, optimal reward: 4417, ratio: 0.8531854199683043, num_roi: 54592
+2024-03-30 18:24:57,996 INFO average coverage reward for test map 1 in 100 steps: 3800.52, std:307.3215736000322, optimal reward: 4231, ratio: 0.8982557315055543, num_roi: 53472
+2024-03-30 18:24:58,747 INFO average coverage reward for test map 2 in 100 steps: 3616.61, std:550.6785068440569, optimal reward: 4786, ratio: 0.7556644379440034, num_roi: 52976
+2024-03-30 18:24:59,539 INFO average coverage reward for test map 3 in 100 steps: 3596.55, std:250.87703661355695, optimal reward: 4319, ratio: 0.8327274832137069, num_roi: 52224
+2024-03-30 18:25:00,338 INFO average coverage reward for test map 4 in 100 steps: 3267.57, std:248.62933274253868, optimal reward: 4162, ratio: 0.7850961076405575, num_roi: 52688
+2024-03-30 18:25:01,115 INFO average coverage reward for test map 5 in 100 steps: 3482.41, std:702.358086662352, optimal reward: 4877, ratio: 0.7140475702275989, num_roi: 51024
+2024-03-30 18:25:01,850 INFO average coverage reward for test map 6 in 100 steps: 3996.39, std:215.06310213516406, optimal reward: 4356, ratio: 0.9174449035812672, num_roi: 53968
+2024-03-30 18:25:02,625 INFO average coverage reward for test map 7 in 100 steps: 3286.19, std:337.77059359867314, optimal reward: 4279, ratio: 0.7679808366440757, num_roi: 51472
+2024-03-30 18:25:03,308 INFO average coverage reward for test map 8 in 100 steps: 3901.95, std:406.4949538432181, optimal reward: 4332, ratio: 0.9007271468144044, num_roi: 56112
+2024-03-30 18:25:04,096 INFO average coverage reward for test map 9 in 100 steps: 4287.44, std:590.884714982542, optimal reward: 4781, ratio: 0.8967663668688558, num_roi: 51760
+2024-03-30 18:25:04,768 INFO average coverage reward for test map 10 in 100 steps: 3867.92, std:370.6892412789991, optimal reward: 4322, ratio: 0.8949375289217955, num_roi: 55168
+2024-03-30 18:25:05,522 INFO average coverage reward for test map 11 in 100 steps: 3723.76, std:130.49544972909976, optimal reward: 4175, ratio: 0.8919185628742515, num_roi: 52944
+2024-03-30 18:25:06,289 INFO average coverage reward for test map 12 in 100 steps: 3872.23, std:301.7580439690051, optimal reward: 4529, ratio: 0.8549856480459262, num_roi: 53104
+2024-03-30 18:25:07,024 INFO average coverage reward for test map 13 in 100 steps: 3011.51, std:511.7686488052976, optimal reward: 4699, ratio: 0.6408831666311982, num_roi: 53744
+2024-03-30 18:25:07,772 INFO average coverage reward for test map 14 in 100 steps: 3791.19, std:327.31708464423303, optimal reward: 4459, ratio: 0.8502332361516035, num_roi: 52624
+2024-03-30 18:25:08,531 INFO average coverage reward for test map 15 in 100 steps: 3952.39, std:455.41936487154345, optimal reward: 4465, ratio: 0.8851937290033595, num_roi: 51648
+2024-03-30 18:25:09,268 INFO average coverage reward for test map 16 in 100 steps: 3736.69, std:416.359164544267, optimal reward: 4321, ratio: 0.8647743577875492, num_roi: 53392
+2024-03-30 18:25:10,118 INFO average coverage reward for test map 17 in 100 steps: 3660.53, std:668.982472939314, optimal reward: 4303, ratio: 0.8506925400883105, num_roi: 50304
+2024-03-30 18:25:10,915 INFO average coverage reward for test map 18 in 100 steps: 3755.92, std:351.7931687796111, optimal reward: 4603, ratio: 0.8159721920486639, num_roi: 51344
+2024-03-30 18:25:11,762 INFO average coverage reward for test map 19 in 100 steps: 3375.55, std:880.2445952688378, optimal reward: 4995, ratio: 0.6757857857857859, num_roi: 50608
+2024-03-30 18:25:12,400 INFO average coverage reward for test map 20 in 100 steps: 3549.0, std:398.0592167002292, optimal reward: 4219, ratio: 0.8411945958757999, num_roi: 57088
+2024-03-30 18:25:13,126 INFO average coverage reward for test map 21 in 100 steps: 3854.03, std:248.57298545899954, optimal reward: 4513, ratio: 0.8539840460890761, num_roi: 54592
+2024-03-30 18:25:13,876 INFO average coverage reward for test map 22 in 100 steps: 3825.33, std:360.6682978860216, optimal reward: 4226, ratio: 0.905189304306673, num_roi: 53664
+2024-03-30 18:25:14,641 INFO average coverage reward for test map 23 in 100 steps: 3610.34, std:485.5182225210502, optimal reward: 4817, ratio: 0.7494996886028649, num_roi: 53536
+2024-03-30 18:25:15,437 INFO average coverage reward for test map 24 in 100 steps: 3269.56, std:401.5171557978563, optimal reward: 4072, ratio: 0.8029371316306483, num_roi: 50688
+2024-03-30 18:25:15,440 INFO overall average coverage reward for trained maps: 3696.3172, average optimal reward: 4276.44, ratio: 0.8643444547333764, average number of RoI pixels: 52989.439999999995, percentage of coverage: 6.975573246292092
+2024-03-30 18:25:15,440 INFO overall average coverage reward for test maps: 3674.404, average optimal reward: 4450.32, ratio: 0.8256493915044312, average number of RoI pixels: 52989.439999999995, percentage of coverage: 6.934219346345234
+2024-03-31 01:00:28,795 INFO 
+=============Test for PPO AFTER Training=============
+2024-03-31 19:40:49,753 INFO 
+=============Test for PPO BEFORE Training=============
+2024-03-31 19:40:50,120 INFO one map total 0.3652s, env reset 0.0007s, calc opt action 0.3587s, inference 0.0029s
+2024-03-31 19:40:50,120 INFO coverage reward for trained map 0 with index 14625: 2065.0, std: 0.0, optimal reward: 4076, ratio: 0.5066241413150148, num_roi: 51472
+2024-03-31 19:40:51,961 INFO one map total 0.4406s, env reset 0.0007s, calc opt action 0.4355s, inference 0.0017s
+2024-03-31 19:40:51,961 INFO coverage reward for trained map 5 with index 15281: 1269.0, std: 0.0, optimal reward: 3957, ratio: 0.3206974981046247, num_roi: 48192
+2024-03-31 19:40:53,647 INFO one map total 0.2376s, env reset 0.0013s, calc opt action 0.2320s, inference 0.0017s
+2024-03-31 19:40:53,647 INFO coverage reward for trained map 10 with index 641: 1253.0, std: 0.0, optimal reward: 4198, ratio: 0.29847546450690804, num_roi: 57088
+2024-03-31 19:40:55,195 INFO one map total 0.3019s, env reset 0.0006s, calc opt action 0.2969s, inference 0.0017s
+2024-03-31 19:40:55,195 INFO coverage reward for trained map 15 with index 6737: 3568.0, std: 0.0, optimal reward: 4375, ratio: 0.8155428571428571, num_roi: 53424
+2024-03-31 19:40:56,825 INFO one map total 0.3033s, env reset 0.0009s, calc opt action 0.2978s, inference 0.0018s
+2024-03-31 19:40:56,825 INFO coverage reward for trained map 20 with index 497: 3649.0, std: 0.0, optimal reward: 4179, ratio: 0.8731754008135918, num_roi: 53776
+2024-03-31 19:40:58,519 INFO one map total 0.3501s, env reset 0.0003s, calc opt action 0.3454s, inference 0.0017s
+2024-03-31 19:40:58,519 INFO coverage reward for trained map 25 with index 11905: 4111.0, std: 0.0, optimal reward: 4156, ratio: 0.989172281039461, num_roi: 50688
+2024-03-31 19:41:00,378 INFO one map total 0.3026s, env reset 0.0006s, calc opt action 0.2976s, inference 0.0017s
+2024-03-31 19:41:00,378 INFO coverage reward for trained map 30 with index 4385: 3430.0, std: 0.0, optimal reward: 4243, ratio: 0.8083902898892293, num_roi: 53168
+2024-03-31 19:41:02,305 INFO one map total 0.3834s, env reset 0.0005s, calc opt action 0.3782s, inference 0.0018s
+2024-03-31 19:41:02,305 INFO coverage reward for trained map 35 with index 13393: 3582.0, std: 0.0, optimal reward: 4281, ratio: 0.8367203924316748, num_roi: 50528
+2024-03-31 19:41:03,980 INFO one map total 0.3509s, env reset 0.0006s, calc opt action 0.3459s, inference 0.0018s
+2024-03-31 19:41:03,980 INFO coverage reward for trained map 40 with index 9649: 3353.0, std: 0.0, optimal reward: 4054, ratio: 0.827084361124815, num_roi: 51360
+2024-03-31 19:41:05,574 INFO one map total 0.3243s, env reset 0.0016s, calc opt action 0.3178s, inference 0.0018s
+2024-03-31 19:41:05,574 INFO coverage reward for trained map 45 with index 11617: 463.0, std: 0.0, optimal reward: 4342, ratio: 0.10663288807001382, num_roi: 53040
+2024-03-31 19:41:07,405 INFO coverage reward for test map 0 with index 1890: 3633.0, std:0.0, optimal reward: 3888, ratio: 0.9344135802469136, num_roi: 46816
+2024-03-31 19:41:10,630 INFO coverage reward for test map 10 with index 2594: 2985.0, std:0.0, optimal reward: 4446, ratio: 0.6713900134952766, num_roi: 50768
+2024-03-31 19:41:13,785 INFO coverage reward for test map 20 with index 2274: 3099.0, std:0.0, optimal reward: 4391, ratio: 0.7057617854702801, num_roi: 51776
+2024-03-31 19:41:17,413 INFO coverage reward for test map 30 with index 2306: 1030.0, std:0.0, optimal reward: 4179, ratio: 0.24647044747547261, num_roi: 49984
+2024-03-31 19:41:20,611 INFO coverage reward for test map 40 with index 1794: 3424.0, std:0.0, optimal reward: 4339, ratio: 0.7891219174925098, num_roi: 51712
+2024-03-31 19:41:23,299 INFO overall average coverage reward for trained maps: 2710.06, average optimal reward: 4270.96, ratio: 0.6345318148612958, average number of RoI pixels: 51958.07999999998, percentage of coverage: 5.215858630649941
+2024-03-31 19:41:23,299 INFO overall average coverage reward for test maps: 2526.62, average optimal reward: 4384.739999999999, ratio: 0.5762302895952783, average number of RoI pixels: 51767.67999999998, percentage of coverage: 4.880690036717892
+2024-03-31 19:41:23,299 INFO ===========PPO train and eval started at 0331_1940===========
+2024-03-31 22:47:24,972 INFO 
+=============Test for PPO BEFORE Training=============
+2024-03-31 22:47:25,361 INFO one map total 0.3879s, env reset 0.0014s, calc opt action 0.3809s, inference 0.0029s
+2024-03-31 22:47:25,361 INFO coverage reward for trained map 0 with index 865: 3663.0, std: 0.0, optimal reward: 4498, ratio: 0.8143619386393953, num_roi: 52960
+2024-03-31 22:47:29,127 INFO one map total 0.3474s, env reset 0.0016s, calc opt action 0.3414s, inference 0.0018s
+2024-03-31 22:47:29,127 INFO coverage reward for trained map 10 with index 9777: 3067.0, std: 0.0, optimal reward: 4600, ratio: 0.6667391304347826, num_roi: 52416
+2024-03-31 22:47:32,859 INFO one map total 0.2873s, env reset 0.0013s, calc opt action 0.2810s, inference 0.0020s
+2024-03-31 22:47:32,860 INFO coverage reward for trained map 20 with index 9825: 2818.0, std: 0.0, optimal reward: 4063, ratio: 0.6935761752399705, num_roi: 54640
+2024-03-31 22:47:36,693 INFO one map total 0.3596s, env reset 0.0011s, calc opt action 0.3539s, inference 0.0018s
+2024-03-31 22:47:36,693 INFO coverage reward for trained map 30 with index 11025: 3575.0, std: 0.0, optimal reward: 4057, ratio: 0.8811929997535124, num_roi: 50976
+2024-03-31 22:47:40,440 INFO one map total 0.4589s, env reset 0.0009s, calc opt action 0.4536s, inference 0.0018s
+2024-03-31 22:47:40,440 INFO coverage reward for trained map 40 with index 8673: 3827.0, std: 0.0, optimal reward: 4735, ratio: 0.8082365364308343, num_roi: 47552
+2024-03-31 22:47:44,425 INFO coverage reward for test map 0 with index 1378: 2816.0, std:0.0, optimal reward: 4198, ratio: 0.6707956169604573, num_roi: 57872
+2024-03-31 22:47:47,873 INFO coverage reward for test map 10 with index 1698: 1470.0, std:0.0, optimal reward: 4010, ratio: 0.36658354114713215, num_roi: 47888
+2024-03-31 22:47:51,537 INFO coverage reward for test map 20 with index 994: 3641.0, std:0.0, optimal reward: 4481, ratio: 0.8125418433385405, num_roi: 54592
+2024-03-31 22:47:54,704 INFO coverage reward for test map 30 with index 2242: 2736.0, std:0.0, optimal reward: 4843, ratio: 0.5649390873425563, num_roi: 52176
+2024-03-31 22:47:58,152 INFO coverage reward for test map 40 with index 802: 2310.0, std:0.0, optimal reward: 4298, ratio: 0.5374592833876222, num_roi: 50624
+2024-03-31 22:48:00,790 INFO overall average coverage reward for trained maps: 2676.2000000000003, average optimal reward: 4318.979999999999, ratio: 0.6196370439316693, average number of RoI pixels: 51199.36000000001, percentage of coverage: 5.2270184627307845
+2024-03-31 22:48:00,790 INFO overall average coverage reward for test maps: 2559.040000000001, average optimal reward: 4353.280000000001, ratio: 0.5878418112319908, average number of RoI pixels: 51850.56000000001, percentage of coverage: 4.935414390895683
+2024-03-31 22:48:00,790 INFO ===========PPO train and eval started at 0331_2247===========
+2024-04-01 01:50:46,255 INFO agent_timesteps_total: 1000000
+connector_metrics:
+  StateBufferConnector_ms: 0.003899812698364258
+  ViewRequirementAgentConnector_ms: 0.16233468055725098
+counters:
+  num_agent_steps_sampled: 1000000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 1000000
+  num_env_steps_trained: 0
+custom_metrics: {}
+date: 2024-04-01_01-50-46
+done: false
+episode_len_mean: 200.0
+episode_media: {}
+episode_reward_max: 932605.0
+episode_reward_mean: 732544.82
+episode_reward_min: 586074.0
+episodes_this_iter: 12
+episodes_total: 5000
+evaluation:
+  connector_metrics:
+    StateBufferConnector_ms: 0.002117156982421875
+    ViewRequirementAgentConnector_ms: 0.11677265167236328
+  custom_metrics: {}
+  episode_len_mean: 10.0
+  episode_media: {}
+  episode_reward_max: 41704.0
+  episode_reward_mean: 37715.6
+  episode_reward_min: 34013.0
+  episodes_this_iter: 5
+  hist_stats:
+    episode_lengths: [10, 10, 10, 10, 10]
+    episode_reward: [34013.0, 38395.0, 36390.0, 38076.0, 41704.0]
+  num_agent_steps_sampled_this_iter: 50
+  num_env_steps_sampled_this_iter: 50
+  num_faulty_episodes: 0
+  num_healthy_workers: 0
+  num_in_flight_async_reqs: 0
+  num_remote_worker_restarts: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.044160736868129304
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 2.0469154650820327
+    mean_inference_ms: 1.5511845045389117
+    mean_raw_obs_processing_ms: 0.6235481095156702
+  sampler_results:
+    connector_metrics:
+      StateBufferConnector_ms: 0.002117156982421875
+      ViewRequirementAgentConnector_ms: 0.11677265167236328
+    custom_metrics: {}
+    episode_len_mean: 10.0
+    episode_media: {}
+    episode_reward_max: 41704.0
+    episode_reward_mean: 37715.6
+    episode_reward_min: 34013.0
+    episodes_this_iter: 5
+    hist_stats:
+      episode_lengths: [10, 10, 10, 10, 10]
+      episode_reward: [34013.0, 38395.0, 36390.0, 38076.0, 41704.0]
+    num_faulty_episodes: 0
+    policy_reward_max: {}
+    policy_reward_mean: {}
+    policy_reward_min: {}
+    sampler_perf:
+      mean_action_processing_ms: 0.044160736868129304
+      mean_env_render_ms: 0.0
+      mean_env_wait_ms: 2.0469154650820327
+      mean_inference_ms: 1.5511845045389117
+      mean_raw_obs_processing_ms: 0.6235481095156702
+  timesteps_this_iter: 50
+hostname: OrangeBook-Pro-14.local
+info:
+  learner:
+    __all__:
+      num_agent_steps_trained: 128.0
+      num_env_steps_trained: 2000.0
+      total_loss: 10.062966343693839
+    default_policy:
+      curr_entropy_coeff: 0.0
+      curr_kl_coeff: 12.974634170532227
+      curr_lr: 1.0e-05
+      default_optimizer_lr: 9.999999999999999e-06
+      entropy: 2.5736564420663512
+      gradients_default_optimizer_global_norm: 68.58032051214394
+      mean_kl_loss: 0.009267456482324308
+      policy_loss: -0.05727547663040816
+      total_loss: 10.062966343693839
+      vf_explained_var: 8.648576827856679e-06
+      vf_loss: 10.0
+      vf_loss_unclipped: 16254541.533546327
+  num_agent_steps_sampled: 1000000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 1000000
+  num_env_steps_trained: 0
+iterations_since_restore: 500
+node_ip: 127.0.0.1
+num_agent_steps_sampled: 1000000
+num_agent_steps_trained: 0
+num_env_steps_sampled: 1000000
+num_env_steps_sampled_this_iter: 2000
+num_env_steps_sampled_throughput_per_sec: 92.49981339835021
+num_env_steps_trained: 0
+num_env_steps_trained_this_iter: 0
+num_env_steps_trained_throughput_per_sec: 0.0
+num_faulty_episodes: 0
+num_healthy_workers: 4
+num_in_flight_async_reqs: 0
+num_remote_worker_restarts: 0
+num_steps_trained_this_iter: 0
+perf:
+  cpu_util_percent: 76.42258064516129
+  ram_util_percent: 76.52258064516128
+pid: 33506
+policy_reward_max: {}
+policy_reward_mean: {}
+policy_reward_min: {}
+sampler_perf:
+  mean_action_processing_ms: 0.06652972917280457
+  mean_env_render_ms: 0.0
+  mean_env_wait_ms: 1.7839700375906675
+  mean_inference_ms: 3.8376559482769976
+  mean_raw_obs_processing_ms: 0.6310596619166788
+sampler_results:
+  connector_metrics:
+    StateBufferConnector_ms: 0.003899812698364258
+    ViewRequirementAgentConnector_ms: 0.16233468055725098
+  custom_metrics: {}
+  episode_len_mean: 200.0
+  episode_media: {}
+  episode_reward_max: 932605.0
+  episode_reward_mean: 732544.82
+  episode_reward_min: 586074.0
+  episodes_this_iter: 12
+  hist_stats:
+    episode_lengths: [200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200,
+      200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200,
+      200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200,
+      200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200,
+      200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200,
+      200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200, 200,
+      200, 200, 200, 200, 200, 200, 200, 200]
+    episode_reward: [744913.0, 586074.0, 786439.0, 630244.0, 754916.0, 692904.0, 684297.0,
+      768850.0, 673471.0, 740440.0, 788773.0, 802801.0, 695398.0, 752717.0, 771212.0,
+      730114.0, 766091.0, 766489.0, 644735.0, 677111.0, 708543.0, 754111.0, 748169.0,
+      660278.0, 732103.0, 828011.0, 767310.0, 791522.0, 614479.0, 677143.0, 736515.0,
+      662586.0, 741064.0, 766323.0, 723666.0, 767302.0, 735638.0, 676331.0, 597954.0,
+      633956.0, 713275.0, 745142.0, 768620.0, 766368.0, 720006.0, 769830.0, 711354.0,
+      679919.0, 735659.0, 849500.0, 682313.0, 729590.0, 806241.0, 769984.0, 720568.0,
+      730730.0, 767817.0, 740500.0, 655467.0, 725570.0, 825210.0, 806677.0, 757622.0,
+      768101.0, 769552.0, 800396.0, 740688.0, 797154.0, 756947.0, 664147.0, 672660.0,
+      769162.0, 803725.0, 932605.0, 685868.0, 766002.0, 763363.0, 851692.0, 626801.0,
+      716199.0, 753966.0, 750553.0, 797509.0, 693194.0, 740407.0, 801563.0, 691085.0,
+      604173.0, 659289.0, 649394.0, 722689.0, 737409.0, 793833.0, 705129.0, 631811.0,
+      756027.0, 707612.0, 719792.0, 734949.0, 760081.0]
+  num_faulty_episodes: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.06652972917280457
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 1.7839700375906675
+    mean_inference_ms: 3.8376559482769976
+    mean_raw_obs_processing_ms: 0.6310596619166788
+time_since_restore: 10959.479975938797
+time_this_iter_s: 21.83119297027588
+time_total_s: 10959.479975938797
+timers:
+  sample_time_ms: 3451.117
+  synch_weights_time_ms: 40.418
+  training_iteration_time_ms: 21544.146
+timestamp: 1711961446
+timesteps_total: 1000000
+training_iteration: 500
+trial_id: default
+
+2024-04-01 01:50:46,256 DEBUG {'env': {'map_size': 256, 'action_space_size': 32, 'n_maps': 1000, 'n_episodes_per_map': 1, 'n_steps_truncate': 200, 'dataset_dir': 'resource/usc_old_sparse', 'no_masking': False}, 'eval': {'evaluation_config': {'env_config': {'evaluation': True, 'n_maps': 100, 'n_episodes_per_map': 1, 'n_steps_truncate': 10}, 'exploration': {'explore': False}}, 'evaluation_duration': 5, 'evaluation_interval': 5, 'evaluation_num_workers': 0}, 'explore': {'exploration_config': {'type': 'StochasticSampling'}, 'explore': True}, 'report': {'min_sample_timesteps_per_iteration': 2000}, 'resource': {'num_cpus_per_worker': 1, 'num_gpus': 1, 'num_gpus_per_worker': 0}, 'rollout': {'num_envs_per_worker': 1, 'num_rollout_workers': 4, 'batch_mode': 'truncate_episodes'}, 'stop': {'training_iteration': 500}, 'train': {'lr': 1e-05, 'gamma': 0.1, 'grad_clip': 40.0, 'train_batch_size': 2000, 'sgd_minibatch_size': 128, 'num_sgd_iter': 20, 'model': {'fcnet_hiddens': [128, 128], 'fcnet_activation': 'relu'}}, 'agent': {'data_saving_interval': 50}}
+2024-04-01 01:50:46,256 INFO =============TRAINING ENDED=============
+2024-04-01 01:50:47,580 INFO 
+=============Test for PPO AFTER Training=============
+2024-04-01 01:50:47,974 INFO one map total 0.3914s, env reset 0.0008s, calc opt action 0.3856s, inference 0.0022s
+2024-04-01 01:50:47,974 INFO coverage reward for trained map 0 with index 4497: 3805.0, std: 0.0, optimal reward: 4068, ratio: 0.9353490658800393, num_roi: 52560
+2024-04-01 01:50:51,796 INFO one map total 0.3628s, env reset 0.0007s, calc opt action 0.3575s, inference 0.0018s
+2024-04-01 01:50:51,796 INFO coverage reward for trained map 10 with index 481: 3758.0, std: 0.0, optimal reward: 4081, ratio: 0.9208527321734868, num_roi: 51648
+2024-04-01 01:50:55,619 INFO one map total 0.3669s, env reset 0.0005s, calc opt action 0.3622s, inference 0.0017s
+2024-04-01 01:50:55,619 INFO coverage reward for trained map 20 with index 2977: 4517.0, std: 0.0, optimal reward: 4566, ratio: 0.9892685063512922, num_roi: 50080
+2024-04-01 01:50:59,261 INFO one map total 0.5312s, env reset 0.0009s, calc opt action 0.5258s, inference 0.0018s
+2024-04-01 01:50:59,261 INFO coverage reward for trained map 30 with index 5393: 3999.0, std: 0.0, optimal reward: 3999, ratio: 1.0, num_roi: 45776
+2024-04-01 01:51:02,957 INFO one map total 0.3688s, env reset 0.0006s, calc opt action 0.3636s, inference 0.0018s
+2024-04-01 01:51:02,957 INFO coverage reward for trained map 40 with index 7425: 4106.0, std: 0.0, optimal reward: 4278, ratio: 0.959794296400187, num_roi: 52496
+2024-04-01 01:51:07,023 INFO coverage reward for test map 0 with index 354: 3156.0, std:0.0, optimal reward: 4175, ratio: 0.7559281437125749, num_roi: 52944
+2024-04-01 01:51:10,799 INFO coverage reward for test map 10 with index 514: 3366.0, std:0.0, optimal reward: 4321, ratio: 0.7789863457532978, num_roi: 53392
+2024-04-01 01:51:14,138 INFO coverage reward for test map 20 with index 2018: 4052.0, std:0.0, optimal reward: 4530, ratio: 0.8944812362030905, num_roi: 46496
+2024-04-01 01:51:17,421 INFO coverage reward for test map 30 with index 98: 1843.0, std:0.0, optimal reward: 4319, ratio: 0.4267191479509146, num_roi: 52224
+2024-04-01 01:51:21,053 INFO coverage reward for test map 40 with index 162: 3732.0, std:0.0, optimal reward: 4877, ratio: 0.7652245232725036, num_roi: 51024
+2024-04-01 01:51:23,976 INFO overall average coverage reward for trained maps: 3755.300000000001, average optimal reward: 4238.679999999999, ratio: 0.8859597799314884, average number of RoI pixels: 51010.87999999999, percentage of coverage: 7.361762823930898
+2024-04-01 01:51:23,976 INFO overall average coverage reward for test maps: 3673.980000000001, average optimal reward: 4369.360000000001, ratio: 0.8408508339894173, average number of RoI pixels: 51866.24, percentage of coverage: 7.083567268419691

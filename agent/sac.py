@@ -3,9 +3,10 @@ from ray.rllib.core.rl_module.rl_module import SingleAgentRLModuleSpec
 from ray.rllib.models import ModelCatalog
 
 from agent.agent import Agent
+from env.utils_v1 import dict_update
 from rl_module.action_mask_models import ActionMaskPolicyModel, ActionMaskQModel
 
-ModelCatalog.register_custom_model("action_mask_policy", ActionMaskPolicyModel)
+
 ModelCatalog.register_custom_model("action_mask_q", ActionMaskQModel)
 
 
@@ -13,13 +14,17 @@ class SACAgent(Agent):
     def __init__(self, config: dict, log_file: str, version: str) -> None:
         super().__init__(config, log_file, version)
 
+        self.algo_name = 'sac'
+        env_config = dict_update(config.get("env"), {"algo_name": self.algo_name})
+
         sac_config = (
             SACConfig()
-            .environment(env=self.env_class, env_config=config.get("env"))
+            .environment(env=self.env_class, env_config=env_config)
             .framework("torch")
             .rollouts(
                 num_rollout_workers=config["rollout"].get("num_rollout_workers", 1),
                 num_envs_per_worker=config["rollout"].get("num_envs_per_worker", 1),
+                batch_mode=config["rollout"].get("batch_mode", "truncate_episodes"),
             )
             .resources(
                 num_gpus=config["resource"].get("num_gpus", 0),
@@ -57,4 +62,3 @@ class SACAgent(Agent):
             # )
         )
         self.agent_config = sac_config
-        self.algo_name = 'sac'

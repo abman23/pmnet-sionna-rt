@@ -206,6 +206,6 @@ def plot_rewards(output_name: str, algo_names: list[str], data_filenames: list[s
 
 
 if __name__ == "__main__":
-    plot_rewards(output_name="rand_bf_ppo", algo_names=["random", "bf_sparse", 'ppo_15', 'ppo_14'],
-                 data_filenames=['random_0322_0203.json', 'brute-force_0322_0231.json', 'ppo_0326_0442.json', 'ppo_0321_2245.json'],
-                 version='v15', evaluation=True, log=True, n_epi=1000)
+    plot_rewards(output_name="ppo", algo_names=['ppo_v16'],
+                 data_filenames=['ppo_0331_1940.json'],
+                 version='v16', evaluation=True, log=False, n_epi=350)

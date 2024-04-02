@@ -129,7 +129,7 @@ def inference(model: nn.Module, idx: list[str], tensors: torch.Tensor, batch_siz
     power_maps = {}
 
     with torch.no_grad():
-        for i in range(n_batches):
+        for i in tqdm(range(n_batches)):
             start = i * batch_size
             end = min((i + 1) * batch_size, len(idx))
 
@@ -172,20 +172,20 @@ def generate_pmaps(map_idx: int, upsampling_factor: int, mark_tx: bool, save: bo
     model.load_state_dict(torch.load(pretrained_model, map_location=device))
     model = model.to(device)
     # Generate power maps using PMNet
-    idx, tensors, tx_layers = create_dataset(input_dir_base='resource/usc_old', index=map_idx, tx_size=12,
+    idx, tensors, tx_layers = create_dataset(input_dir_base=kwargs['dir_base'], index=map_idx, tx_size=12,
                                              upsampling_factor=upsampling_factor, device=device)
-    power_maps = inference(model=model, idx=idx, tensors=tensors, batch_size=64, mark_tx=mark_tx, tx_layers=tx_layers,
+    power_maps = inference(model=model, idx=idx, tensors=tensors, batch_size=128, mark_tx=mark_tx, tx_layers=tx_layers,
                            save=save, **kwargs)
 
     return power_maps
 
 
 if __name__ == '__main__':
-    for i in range(1, 1 + 32 * 500, 32):
+    for i in range(1, 1 + 16 * 1000, 16):
         generate_pmaps(i, 8, mark_tx=True, save=True, dir_base='resource/usc_old_sparse', dir_img='pmap_train')
 
-    for i in range(2, 2 + 32 * 100, 32):
-        generate_pmaps(i, 8, mark_tx=True, save=True, dir_base='resource/usc_old_sparse', dir_img='pmap_test')
+    # for i in range(2, 2 + 32 * 100, 32):
+    #     generate_pmaps(i, 8, mark_tx=True, save=True, dir_base='resource/usc_old_sparse', dir_img='pmap_test')
 
 # if __name__ == "__main__":
 #     # Load PMNet Model Parameters
