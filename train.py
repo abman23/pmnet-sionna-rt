@@ -32,7 +32,6 @@ from network.pmnet_v3 import PMNet
 from config import config_USC_pmnetV3_V2
 from dataloader import PMnet_data_usc
 from loss import L1_loss, MSE, RMSE
-from helper import helper
 
 try:
     from encoding.nn import SyncBatchNorm
@@ -170,6 +169,7 @@ def helper(cfg, writer, data_root = '', load_model=''):
         atrous_rates=[6, 12, 18],
         multi_grids=[1, 2, 4],
         output_stride=8,)
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
     model.cuda()
     if load_model:
