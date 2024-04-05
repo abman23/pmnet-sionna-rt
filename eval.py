@@ -142,4 +142,6 @@ if __name__ == "__main__":
 
     helper(cfg, data_root, load_model=args.model_to_eval)
 
+    print(f"Results are saved in folder: {RESULT_FOLDER}")
+
 
