@@ -56,4 +56,4 @@ python eval.py \
      - **Download Link**: [Cropped images for training](https://drive.google.com/file/d/1_39J6FnhmVIxsyBDQdCkIbN3cF09h9pz/view?usp=sharing)
 
 - **Checkpoint**:
-    - **Checkpoint**: [RMSE: 0.00158](https://drive.google.com/drive/folders/1E49AIF7q7LsQWHR68tGV_XJC7ubgplEs?usp=sharing)
+    - **Checkpoint**: [RMSE: 0.00158](https://drive.google.com/file/d/1nymEoDKlKGk1aOzm5pNgeTcSE9MG3YGV/view?usp=sharing)
