@@ -46,7 +46,7 @@ class Agent(object):
         elif version == 'v16':
             from env.env_v16 import BaseEnvironment
         else:
-            from env.env_v04 import BaseEnvironment
+            from env.env_v17 import BaseEnvironment
         self.env_class = BaseEnvironment
         self.version: str = version
 
@@ -69,7 +69,7 @@ class Agent(object):
             ep_reward_mean = np.empty(num_episode // eval_interval, dtype=float)
             ep_reward_std = np.empty(num_episode // eval_interval, dtype=float)
         # training data
-        ep_train = np.arange(num_episode)
+        ep_train = np.arange(num_episode) + 1
         ep_reward_mean_train = np.empty(num_episode, dtype=float)
 
         timestamp = kwargs["timestamp"]
@@ -99,7 +99,7 @@ class Agent(object):
                     self.logger.debug(self.config)
                     self.logger.info("=============TRAINING ENDED=============")
                     checkpoint_dir = self.agent.save(
-                        f"./checkpoint/{self.algo_name}_{timestamp}").checkpoint.path
+                        f"./checkpoint/{self.version}_{self.algo_name}_{timestamp}").checkpoint.path
                     print(f"Checkpoint saved in directory {checkpoint_dir}")
                 else:
                     print("=============TRAINING ENDED=============")
@@ -133,9 +133,9 @@ class Agent(object):
                     "ep_reward_std": ep_reward_std.tolist(),
                     "ep_reward_mean": ep_reward_mean.tolist(),
                 }
-                json.dump(data, open(os.path.join(ROOT_DIR, f"data/{self.algo_name}_{timestamp}.json"), 'w'))
+                json.dump(data, open(os.path.join(ROOT_DIR, f"data/{self.version}_{self.algo_name}_{timestamp}.json"), 'w'))
                 # save the model
-                self.agent.save(os.path.join(ROOT_DIR, f"checkpoint/{self.algo_name}_{timestamp}"))
+                self.agent.save(os.path.join(ROOT_DIR, f"checkpoint/{self.version}_{self.algo_name}_{timestamp}"))
 
         if eval_interval is not None:
             # plot the mean reward in evaluation
@@ -149,7 +149,7 @@ class Agent(object):
                    title=f"{self.algo_name.upper()} Evaluation Results")
             ax.grid()
             if log:
-                fig.savefig(f"./figures/{self.version}_{self.algo_name}_{timestamp}_eval.png")
+                fig.savefig(os.path.join(ROOT_DIR, f"figures/{self.version}_{self.algo_name}_{timestamp}_eval.png"))
 
         # plot mean reward in training
         fig, ax = plt.subplots()
@@ -159,7 +159,7 @@ class Agent(object):
                title=f"{self.algo_name.upper()} Training Results")
         ax.grid()
         if log:
-            fig.savefig(f"./figures/{self.version}_{self.algo_name}_{timestamp}_train.png")
+            fig.savefig(os.path.join(ROOT_DIR, f"figures/{self.version}_{self.algo_name}_{timestamp}_train.png"))
 
         plt.show()
 
@@ -170,11 +170,13 @@ class Agent(object):
         # load the training data
         training_data = json.load(open(data_path))
         num_episode = self.config["stop"].get("training_iteration", 10)
+        training_data['ep_train'] = list(range(1, num_episode+1))
         eval_interval = self.config["eval"].get("evaluation_interval", 5)
+        training_data['ep_eval'] = list(range(eval_interval, num_episode+1, eval_interval))
         data_saving_interval = self.config["agent"].get("data_saving_interval", 10)
 
         # reload the model
-        self.agent.reset(model_path)
+        self.agent.restore(model_path)
 
         timestamp = kwargs["timestamp"]
         log = kwargs['log']
@@ -204,7 +206,7 @@ class Agent(object):
                     self.logger.debug(self.config)
                     self.logger.info("=============TRAINING ENDED=============")
                     checkpoint_dir = self.agent.save(
-                        f"./checkpoint/{self.algo_name}_{timestamp}").checkpoint.path
+                        os.path.join(ROOT_DIR, f"checkpoint/{self.version}_{self.algo_name}_{timestamp}")).checkpoint.path
                     print(f"Checkpoint saved in directory {checkpoint_dir}")
                 else:
                     print("=============TRAINING ENDED=============")
@@ -215,7 +217,10 @@ class Agent(object):
             ep_len_train = np.array(result["sampler_results"]["hist_stats"]["episode_lengths"][-episodes_this_iter:])
             ep_reward_train = np.array(result["sampler_results"]["hist_stats"]["episode_reward"][-episodes_this_iter:])
             ep_r_per_step = ep_reward_train / ep_len_train
-            training_data['ep_reward_mean_train'][i] = np.mean(ep_r_per_step)
+            if i >= len(training_data['ep_reward_mean_train']):
+                training_data['ep_reward_mean_train'].append(np.mean(ep_r_per_step))
+            else:
+                training_data['ep_reward_mean_train'][i] = np.mean(ep_r_per_step)
 
             if eval_interval is not None and (i + 1) % eval_interval == 0:
                 # calculate the evaluation mean reward per step
@@ -226,14 +231,18 @@ class Agent(object):
                 ep_r_per_step = ep_r_sum / ep_len
                 ep_r_mean, ep_r_std = np.mean(ep_r_per_step), np.std(ep_r_per_step)
                 idx = (i + 1) // eval_interval - 1
-                training_data['ep_reward_mean'][idx] = ep_r_mean
-                training_data['ep_reward_std'][idx] = ep_r_std
+                if idx >= len(training_data['ep_reward_mean']):
+                    training_data['ep_reward_mean'].append(ep_r_mean)
+                    training_data['ep_reward_std'].append(ep_r_std)
+                else:
+                    training_data['ep_reward_mean'][idx] = ep_r_mean
+                    training_data['ep_reward_std'][idx] = ep_r_std
 
             if log and ((i + 1) % data_saving_interval == 0 or i == num_episode - 1):
                 # save the training and evaluation data periodically
-                json.dump(training_data, open(os.path.join(ROOT_DIR, f"data/{self.algo_name}_{timestamp}.json"), 'w'))
+                json.dump(training_data, open(os.path.join(ROOT_DIR, f"data/{self.version}_{self.algo_name}_{timestamp}.json"), 'w'))
                 # save the model
-                self.agent.save(os.path.join(ROOT_DIR, f"checkpoint/{self.algo_name}_{timestamp}"))
+                self.agent.save(os.path.join(ROOT_DIR, f"checkpoint/{self.version}_{self.algo_name}_{timestamp}"))
 
         if eval_interval is not None:
             # plot the mean reward in evaluation
@@ -247,7 +256,7 @@ class Agent(object):
                    title=f"{self.algo_name.upper()} Evaluation Results")
             ax.grid()
             if log:
-                fig.savefig(f"./figures/{self.version}_{self.algo_name}_{timestamp}_eval.png")
+                fig.savefig(os.path.join(ROOT_DIR, f"figures/{self.version}_{self.algo_name}_{timestamp}_eval.png"))
 
         # plot mean reward in training
         fig, ax = plt.subplots()
@@ -257,7 +266,7 @@ class Agent(object):
                title=f"{self.algo_name.upper()} Training Results")
         ax.grid()
         if log:
-            fig.savefig(f"./figures/{self.version}_{self.algo_name}_{timestamp}_train.png")
+            fig.savefig(os.path.join(ROOT_DIR, f"figures/{self.version}_{self.algo_name}_{timestamp}_train.png"))
 
         plt.show()
 

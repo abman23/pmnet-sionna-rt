@@ -12,6 +12,7 @@
           <excludedPaths>
             <excludedPath local="true" path="$PROJECT_DIR$/checkpoint" />
             <excludedPath local="true" path="$PROJECT_DIR$/resource" />
+            <excludedPath local="true" path="$PROJECT_DIR$/figures" />
           </excludedPaths>
         </serverdata>
       </paths>

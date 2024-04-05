@@ -21,7 +21,7 @@ class RandomAgent(Agent):
         num_episode = self.config["stop"].get("training_iteration", 10)
         num_steps_per_episode = self.config['report'].get('min_sample_timesteps_per_iteration', 2000)
         eval_interval = self.config["eval"].get("evaluation_interval", 5)
-        eval_duration = self.config["eval"].get("evaluation_duration", 1)
+        num_maps_per_eval = self.config["eval"].get("num_maps_per_eval", 1)
         data_saving_interval = self.config["agent"].get("data_saving_interval", 10)
 
         env_config_train = self.config['env']
@@ -71,7 +71,7 @@ class RandomAgent(Agent):
 
             if eval_interval is not None and (i + 1) % eval_interval == 0:
                 # evaluation
-                for j in range(eval_duration):
+                for j in range(num_maps_per_eval):
                     env_eval.reset()
                     term, trunc = False, False
                     reward_per_ep = 0.

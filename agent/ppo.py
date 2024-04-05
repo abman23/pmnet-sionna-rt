@@ -45,7 +45,7 @@ class PPOAgent(Agent):
             )
             .evaluation(
                 evaluation_interval=config["eval"].get("evaluation_interval", 1),
-                evaluation_duration=config["eval"].get("evaluation_duration", 3),
+                evaluation_duration=config["eval"].get("num_maps_per_eval", 3),
                 evaluation_config=config["eval"].get("evaluation_config", {}),
                 evaluation_num_workers=config["eval"].get("evaluation_num_workers", 3),
             )

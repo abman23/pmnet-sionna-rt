@@ -4470,3 +4470,967 @@ trial_id: default
 2024-04-01 01:51:21,053 INFO coverage reward for test map 40 with index 162: 3732.0, std:0.0, optimal reward: 4877, ratio: 0.7652245232725036, num_roi: 51024
 2024-04-01 01:51:23,976 INFO overall average coverage reward for trained maps: 3755.300000000001, average optimal reward: 4238.679999999999, ratio: 0.8859597799314884, average number of RoI pixels: 51010.87999999999, percentage of coverage: 7.361762823930898
 2024-04-01 01:51:23,976 INFO overall average coverage reward for test maps: 3673.980000000001, average optimal reward: 4369.360000000001, ratio: 0.8408508339894173, average number of RoI pixels: 51866.24, percentage of coverage: 7.083567268419691
+2024-04-02 22:34:04,433 INFO 
+=============Test for PPO BEFORE Training=============
+2024-04-02 22:34:04,787 INFO one map total 0.3524s, env reset 0.0008s, calc opt action 0.3458s, inference 0.0029s
+2024-04-02 22:34:04,787 INFO coverage reward for trained map 0 with index 1: 3586.0, std: 0.0, optimal reward: 4124, ratio: 0.8695441319107663, num_roi: 54592
+2024-04-02 22:34:08,496 INFO one map total 0.3870s, env reset 0.0008s, calc opt action 0.3817s, inference 0.0018s
+2024-04-02 22:34:08,496 INFO coverage reward for trained map 10 with index 161: 3096.0, std: 0.0, optimal reward: 4352, ratio: 0.7113970588235294, num_roi: 51024
+2024-04-02 22:34:11,850 INFO one map total 0.2567s, env reset 0.0008s, calc opt action 0.2515s, inference 0.0018s
+2024-04-02 22:34:11,850 INFO coverage reward for trained map 20 with index 321: 896.0, std: 0.0, optimal reward: 4146, ratio: 0.2161119150988905, num_roi: 55168
+2024-04-02 22:34:15,057 INFO one map total 0.3445s, env reset 0.0008s, calc opt action 0.3392s, inference 0.0017s
+2024-04-02 22:34:15,057 INFO coverage reward for trained map 30 with index 481: 2865.0, std: 0.0, optimal reward: 4081, ratio: 0.7020338152413624, num_roi: 51648
+2024-04-02 22:34:18,268 INFO one map total 0.2276s, env reset 0.0013s, calc opt action 0.2220s, inference 0.0017s
+2024-04-02 22:34:18,268 INFO coverage reward for trained map 40 with index 641: 1532.0, std: 0.0, optimal reward: 4198, ratio: 0.3649356836588852, num_roi: 57088
+2024-04-02 22:34:21,511 INFO coverage reward for test map 0 with index 2: 3205.0, std:0.0, optimal reward: 4417, ratio: 0.7256056146705909, num_roi: 54592
+2024-04-02 22:34:24,722 INFO coverage reward for test map 10 with index 322: 3107.0, std:0.0, optimal reward: 4322, ratio: 0.7188801480795928, num_roi: 55168
+2024-04-02 22:34:27,874 INFO coverage reward for test map 20 with index 642: 2193.0, std:0.0, optimal reward: 4219, ratio: 0.5197914197677175, num_roi: 57088
+2024-04-02 22:34:31,089 INFO coverage reward for test map 30 with index 962: 3062.0, std:0.0, optimal reward: 4251, ratio: 0.7203011056222065, num_roi: 56576
+2024-04-02 22:34:33,682 INFO coverage reward for test map 40 with index 1282: 3748.0, std:0.0, optimal reward: 4223, ratio: 0.8875207198673929, num_roi: 53200
+2024-04-02 22:34:36,087 INFO overall average coverage reward for trained maps: 2867.8399999999997, average optimal reward: 4316.68, ratio: 0.6643624266797631, average number of RoI pixels: 52799.04000000001, percentage of coverage: 5.431613908131661
+2024-04-02 22:34:36,087 INFO overall average coverage reward for test maps: 2872.8600000000006, average optimal reward: 4365.920000000001, ratio: 0.658019386521054, average number of RoI pixels: 53543.999999999985, percentage of coverage: 5.365419094576426
+2024-04-02 22:34:36,087 INFO ===========PPO train and eval started at 0402_2234===========
+2024-04-03 01:15:29,322 INFO agent_timesteps_total: 1000000
+connector_metrics:
+  StateBufferConnector_ms: 0.004622697830200195
+  ViewRequirementAgentConnector_ms: 0.1753544807434082
+counters:
+  num_agent_steps_sampled: 1000000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 1000000
+  num_env_steps_trained: 0
+custom_metrics: {}
+date: 2024-04-03_01-15-29
+done: false
+episode_len_mean: 20.0
+episode_media: {}
+episode_reward_max: 100480.0
+episode_reward_mean: 79550.47
+episode_reward_min: 45482.0
+episodes_this_iter: 100
+episodes_total: 50000
+evaluation:
+  connector_metrics:
+    StateBufferConnector_ms: 0.0016489028930664062
+    ViewRequirementAgentConnector_ms: 0.09378623962402344
+  custom_metrics: {}
+  episode_len_mean: 10.0
+  episode_media: {}
+  episode_reward_max: 43710.0
+  episode_reward_mean: 34389.07
+  episode_reward_min: 19519.0
+  episodes_this_iter: 100
+  hist_stats:
+    episode_lengths: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+      10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+      10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+      10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+      10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+      10, 10, 10, 10, 10, 10, 10, 10, 10]
+    episode_reward: [31497.0, 34494.0, 36083.0, 34961.0, 34318.0, 29879.0, 42519.0,
+      33687.0, 33955.0, 38379.0, 37786.0, 42175.0, 38456.0, 32689.0, 36209.0, 40864.0,
+      43600.0, 34531.0, 38459.0, 36407.0, 34469.0, 32525.0, 32657.0, 33214.0, 30902.0,
+      28996.0, 36529.0, 31936.0, 36740.0, 35732.0, 35060.0, 36384.0, 27571.0, 34596.0,
+      36206.0, 34767.0, 34405.0, 36844.0, 33438.0, 32603.0, 32298.0, 38403.0, 36246.0,
+      34059.0, 34096.0, 30244.0, 32255.0, 34279.0, 30969.0, 39144.0, 31598.0, 19519.0,
+      37706.0, 36312.0, 35146.0, 35951.0, 31856.0, 36154.0, 30425.0, 32741.0, 30397.0,
+      30750.0, 36498.0, 35860.0, 35969.0, 36374.0, 36593.0, 30278.0, 38678.0, 33972.0,
+      31134.0, 30486.0, 34491.0, 29597.0, 35227.0, 33073.0, 36541.0, 40652.0, 33766.0,
+      27845.0, 43145.0, 43710.0, 37358.0, 40123.0, 36329.0, 23334.0, 34630.0, 31017.0,
+      28225.0, 24571.0, 23518.0, 35357.0, 36991.0, 27689.0, 33215.0, 36188.0, 36890.0,
+      33561.0, 42310.0, 36642.0]
+  num_agent_steps_sampled_this_iter: 1000
+  num_env_steps_sampled_this_iter: 1000
+  num_faulty_episodes: 0
+  num_healthy_workers: 0
+  num_in_flight_async_reqs: 0
+  num_remote_worker_restarts: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.038233001895748214
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 1.704721912756264
+    mean_inference_ms: 1.458496158712995
+    mean_raw_obs_processing_ms: 0.5272158751313497
+  sampler_results:
+    connector_metrics:
+      StateBufferConnector_ms: 0.0016489028930664062
+      ViewRequirementAgentConnector_ms: 0.09378623962402344
+    custom_metrics: {}
+    episode_len_mean: 10.0
+    episode_media: {}
+    episode_reward_max: 43710.0
+    episode_reward_mean: 34389.07
+    episode_reward_min: 19519.0
+    episodes_this_iter: 100
+    hist_stats:
+      episode_lengths: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+        10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+        10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+        10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+        10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+        10, 10, 10, 10, 10, 10, 10, 10, 10]
+      episode_reward: [31497.0, 34494.0, 36083.0, 34961.0, 34318.0, 29879.0, 42519.0,
+        33687.0, 33955.0, 38379.0, 37786.0, 42175.0, 38456.0, 32689.0, 36209.0, 40864.0,
+        43600.0, 34531.0, 38459.0, 36407.0, 34469.0, 32525.0, 32657.0, 33214.0, 30902.0,
+        28996.0, 36529.0, 31936.0, 36740.0, 35732.0, 35060.0, 36384.0, 27571.0, 34596.0,
+        36206.0, 34767.0, 34405.0, 36844.0, 33438.0, 32603.0, 32298.0, 38403.0, 36246.0,
+        34059.0, 34096.0, 30244.0, 32255.0, 34279.0, 30969.0, 39144.0, 31598.0, 19519.0,
+        37706.0, 36312.0, 35146.0, 35951.0, 31856.0, 36154.0, 30425.0, 32741.0, 30397.0,
+        30750.0, 36498.0, 35860.0, 35969.0, 36374.0, 36593.0, 30278.0, 38678.0, 33972.0,
+        31134.0, 30486.0, 34491.0, 29597.0, 35227.0, 33073.0, 36541.0, 40652.0, 33766.0,
+        27845.0, 43145.0, 43710.0, 37358.0, 40123.0, 36329.0, 23334.0, 34630.0, 31017.0,
+        28225.0, 24571.0, 23518.0, 35357.0, 36991.0, 27689.0, 33215.0, 36188.0, 36890.0,
+        33561.0, 42310.0, 36642.0]
+    num_faulty_episodes: 0
+    policy_reward_max: {}
+    policy_reward_mean: {}
+    policy_reward_min: {}
+    sampler_perf:
+      mean_action_processing_ms: 0.038233001895748214
+      mean_env_render_ms: 0.0
+      mean_env_wait_ms: 1.704721912756264
+      mean_inference_ms: 1.458496158712995
+      mean_raw_obs_processing_ms: 0.5272158751313497
+  timesteps_this_iter: 1000
+hostname: OrangeBookPro14.lan
+info:
+  learner:
+    __all__:
+      num_agent_steps_trained: 128.0
+      num_env_steps_trained: 2000.0
+      total_loss: 9.927550145231496
+    default_policy:
+      curr_entropy_coeff: 0.0
+      curr_kl_coeff: 1.139062523841858
+      curr_lr: 1.0e-05
+      default_optimizer_lr: 9.999999999999999e-06
+      entropy: 1.094494413239316
+      gradients_default_optimizer_global_norm: 4.291847272993277
+      mean_kl_loss: 0.010443059527152711
+      policy_loss: -0.08434513423847742
+      total_loss: 9.927550145231496
+      vf_explained_var: -8.759216759532404e-06
+      vf_loss: 10.0
+      vf_loss_unclipped: 19829535.05111821
+  num_agent_steps_sampled: 1000000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 1000000
+  num_env_steps_trained: 0
+iterations_since_restore: 500
+node_ip: 127.0.0.1
+num_agent_steps_sampled: 1000000
+num_agent_steps_trained: 0
+num_env_steps_sampled: 1000000
+num_env_steps_sampled_this_iter: 2000
+num_env_steps_sampled_throughput_per_sec: 109.3980897697547
+num_env_steps_trained: 0
+num_env_steps_trained_this_iter: 0
+num_env_steps_trained_throughput_per_sec: 0.0
+num_faulty_episodes: 0
+num_healthy_workers: 4
+num_in_flight_async_reqs: 0
+num_remote_worker_restarts: 0
+num_steps_trained_this_iter: 0
+perf:
+  cpu_util_percent: 75.3451612903226
+  ram_util_percent: 77.83870967741935
+pid: 46321
+policy_reward_max: {}
+policy_reward_mean: {}
+policy_reward_min: {}
+sampler_perf:
+  mean_action_processing_ms: 0.07057197141618538
+  mean_env_render_ms: 0.0
+  mean_env_wait_ms: 1.837950209692081
+  mean_inference_ms: 3.4992622311405444
+  mean_raw_obs_processing_ms: 0.9057277179742905
+sampler_results:
+  connector_metrics:
+    StateBufferConnector_ms: 0.004622697830200195
+    ViewRequirementAgentConnector_ms: 0.1753544807434082
+  custom_metrics: {}
+  episode_len_mean: 20.0
+  episode_media: {}
+  episode_reward_max: 100480.0
+  episode_reward_mean: 79550.47
+  episode_reward_min: 45482.0
+  episodes_this_iter: 100
+  hist_stats:
+    episode_lengths: [20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20]
+    episode_reward: [70475.0, 85440.0, 85800.0, 86976.0, 89820.0, 46774.0, 76342.0,
+      83780.0, 88920.0, 81593.0, 90540.0, 81028.0, 84100.0, 64260.0, 81960.0, 74712.0,
+      85180.0, 48209.0, 82504.0, 87620.0, 59875.0, 100480.0, 56405.0, 64066.0, 70429.0,
+      80570.0, 80498.0, 85820.0, 82820.0, 69385.0, 88080.0, 76475.0, 85100.0, 86320.0,
+      68192.0, 74997.0, 83440.0, 80432.0, 89620.0, 90340.0, 82460.0, 82820.0, 78192.0,
+      84480.0, 94340.0, 77933.0, 81708.0, 83700.0, 84400.0, 80729.0, 87160.0, 85020.0,
+      77187.0, 90540.0, 83720.0, 70828.0, 76761.0, 81620.0, 82876.0, 82081.0, 79408.0,
+      86680.0, 85480.0, 92580.0, 78343.0, 59676.0, 82680.0, 85468.0, 61616.0, 68854.0,
+      82820.0, 55065.0, 90140.0, 81691.0, 77770.0, 92540.0, 81875.0, 69772.0, 89080.0,
+      87920.0, 77530.0, 85440.0, 94360.0, 45482.0, 79000.0, 56512.0, 76452.0, 81057.0,
+      75677.0, 80855.0, 82220.0, 83560.0, 86220.0, 86820.0, 78834.0, 65677.0, 80780.0,
+      85660.0, 81421.0, 84100.0]
+  num_faulty_episodes: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.07057197141618538
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 1.837950209692081
+    mean_inference_ms: 3.4992622311405444
+    mean_raw_obs_processing_ms: 0.9057277179742905
+time_since_restore: 9647.039714097977
+time_this_iter_s: 22.169647932052612
+time_total_s: 9647.039714097977
+timers:
+  sample_time_ms: 3537.139
+  synch_weights_time_ms: 44.208
+  training_iteration_time_ms: 18501.926
+timestamp: 1712132129
+timesteps_total: 1000000
+training_iteration: 500
+trial_id: default
+
+2024-04-03 01:15:29,323 DEBUG {'env': {'map_size': 256, 'action_space_size': 32, 'n_maps': 1000, 'n_episodes_per_map': 1, 'n_steps_truncate': 20, 'dataset_dir': 'resource/usc_old_sparse', 'no_masking': False}, 'eval': {'evaluation_config': {'env_config': {'evaluation': True, 'n_maps': 100, 'n_episodes_per_map': 1, 'n_steps_truncate': 10}, 'exploration': {'explore': False}}, 'num_maps_per_eval': 100, 'evaluation_interval': 10, 'evaluation_num_workers': 0}, 'explore': {'exploration_config': {'type': 'StochasticSampling'}, 'explore': True}, 'report': {'min_sample_timesteps_per_iteration': 2000}, 'resource': {'num_cpus_per_worker': 1, 'num_gpus': 1, 'num_gpus_per_worker': 0}, 'rollout': {'num_envs_per_worker': 1, 'num_rollout_workers': 4, 'batch_mode': 'truncate_episodes'}, 'stop': {'training_iteration': 500}, 'train': {'lr': 1e-05, 'gamma': 0.1, 'grad_clip': 40.0, 'train_batch_size': 2000, 'sgd_minibatch_size': 128, 'num_sgd_iter': 20, 'model': {'fcnet_hiddens': [128, 128], 'fcnet_activation': 'relu'}}, 'agent': {'data_saving_interval': 50}}
+2024-04-03 01:15:29,323 INFO =============TRAINING ENDED=============
+2024-04-03 01:15:31,809 INFO 
+=============Test for PPO AFTER Training=============
+2024-04-03 01:15:32,142 INFO one map total 0.3316s, env reset 0.0041s, calc opt action 0.3221s, inference 0.0022s
+2024-04-03 01:15:32,143 INFO coverage reward for trained map 0 with index 1: 4124.0, std: 0.0, optimal reward: 4124, ratio: 1.0, num_roi: 54592
+2024-04-03 01:15:35,656 INFO one map total 0.3750s, env reset 0.0006s, calc opt action 0.3698s, inference 0.0018s
+2024-04-03 01:15:35,656 INFO coverage reward for trained map 10 with index 161: 4352.0, std: 0.0, optimal reward: 4352, ratio: 1.0, num_roi: 51024
+2024-04-03 01:15:39,042 INFO one map total 0.2834s, env reset 0.0005s, calc opt action 0.2783s, inference 0.0017s
+2024-04-03 01:15:39,042 INFO coverage reward for trained map 20 with index 321: 4146.0, std: 0.0, optimal reward: 4146, ratio: 1.0, num_roi: 55168
+2024-04-03 01:15:42,429 INFO one map total 0.3557s, env reset 0.0007s, calc opt action 0.3505s, inference 0.0018s
+2024-04-03 01:15:42,429 INFO coverage reward for trained map 30 with index 481: 4009.0, std: 0.0, optimal reward: 4081, ratio: 0.9823572653761333, num_roi: 51648
+2024-04-03 01:15:45,995 INFO one map total 0.2466s, env reset 0.0006s, calc opt action 0.2416s, inference 0.0017s
+2024-04-03 01:15:45,995 INFO coverage reward for trained map 40 with index 641: 4048.0, std: 0.0, optimal reward: 4198, ratio: 0.9642686993806574, num_roi: 57088
+2024-04-03 01:15:49,477 INFO coverage reward for test map 0 with index 2: 3115.0, std:0.0, optimal reward: 4417, ratio: 0.705229793977813, num_roi: 54592
+2024-04-03 01:15:52,859 INFO coverage reward for test map 10 with index 322: 3411.0, std:0.0, optimal reward: 4322, ratio: 0.7892179546506247, num_roi: 55168
+2024-04-03 01:15:56,152 INFO coverage reward for test map 20 with index 642: 3623.0, std:0.0, optimal reward: 4219, ratio: 0.858734297226831, num_roi: 57088
+2024-04-03 01:15:59,280 INFO coverage reward for test map 30 with index 962: 3301.0, std:0.0, optimal reward: 4251, ratio: 0.7765231710185838, num_roi: 56576
+2024-04-03 01:16:02,020 INFO coverage reward for test map 40 with index 1282: 3402.0, std:0.0, optimal reward: 4223, ratio: 0.8055884442339569, num_roi: 53200
+2024-04-03 01:16:04,585 INFO overall average coverage reward for trained maps: 4045.8999999999983, average optimal reward: 4316.68, ratio: 0.9372712362278413, average number of RoI pixels: 52799.04000000001, percentage of coverage: 7.6628287180979
+2024-04-03 01:16:04,585 INFO overall average coverage reward for test maps: 3447.8600000000006, average optimal reward: 4365.920000000001, ratio: 0.789721295855169, average number of RoI pixels: 53543.999999999985, percentage of coverage: 6.439302256088454
+2024-04-03 11:05:39,802 INFO 
+=============Test for PPO BEFORE Training=============
+2024-04-03 11:05:40,102 INFO one map total 0.2991s, env reset 0.0008s, calc opt action 0.2926s, inference 0.0029s
+2024-04-03 11:05:40,102 INFO coverage reward for trained map 0 with index 1: 3151.0, std: 0.0, optimal reward: 4124, ratio: 0.7640640155189137, num_roi: 54592
+2024-04-03 11:05:43,428 INFO one map total 0.3710s, env reset 0.0006s, calc opt action 0.3659s, inference 0.0017s
+2024-04-03 11:05:43,428 INFO coverage reward for trained map 10 with index 161: 3647.0, std: 0.0, optimal reward: 4352, ratio: 0.8380055147058824, num_roi: 51024
+2024-04-03 11:05:46,790 INFO one map total 0.2467s, env reset 0.0006s, calc opt action 0.2418s, inference 0.0018s
+2024-04-03 11:05:46,790 INFO coverage reward for trained map 20 with index 321: 2873.0, std: 0.0, optimal reward: 4146, ratio: 0.6929570670525808, num_roi: 55168
+2024-04-03 11:05:49,884 INFO one map total 0.3285s, env reset 0.0006s, calc opt action 0.3237s, inference 0.0017s
+2024-04-03 11:05:49,885 INFO coverage reward for trained map 30 with index 481: 3235.0, std: 0.0, optimal reward: 4081, ratio: 0.7926978681695663, num_roi: 51648
+2024-04-03 11:05:52,978 INFO one map total 0.2181s, env reset 0.0006s, calc opt action 0.2133s, inference 0.0016s
+2024-04-03 11:05:52,978 INFO coverage reward for trained map 40 with index 641: 1975.0, std: 0.0, optimal reward: 4198, ratio: 0.4704621248213435, num_roi: 57088
+2024-04-03 11:05:56,119 INFO coverage reward for test map 0 with index 2: 3640.0, std:0.0, optimal reward: 4417, ratio: 0.8240887480190174, num_roi: 54592
+2024-04-03 11:05:59,892 INFO coverage reward for test map 10 with index 322: 3940.0, std:0.0, optimal reward: 4322, ratio: 0.9116149930587691, num_roi: 55168
+2024-04-03 11:06:03,041 INFO coverage reward for test map 20 with index 642: 3617.0, std:0.0, optimal reward: 4219, ratio: 0.8573121592794501, num_roi: 57088
+2024-04-03 11:06:06,002 INFO coverage reward for test map 30 with index 962: 2936.0, std:0.0, optimal reward: 4251, ratio: 0.6906610209362503, num_roi: 56576
+2024-04-03 11:06:08,637 INFO coverage reward for test map 40 with index 1282: 1894.0, std:0.0, optimal reward: 4223, ratio: 0.4484963296234904, num_roi: 53200
+2024-04-03 11:06:11,145 INFO overall average coverage reward for trained maps: 3188.6000000000004, average optimal reward: 4316.68, ratio: 0.7386695330670794, average number of RoI pixels: 52799.04000000001, percentage of coverage: 6.039124953787038
+2024-04-03 11:06:11,146 INFO overall average coverage reward for test maps: 2998.7000000000003, average optimal reward: 4365.920000000001, ratio: 0.6868426356873235, average number of RoI pixels: 53543.999999999985, percentage of coverage: 5.600440759001944
+2024-04-03 11:06:11,146 INFO ===========PPO train and eval started at 0403_1105===========
+2024-04-03 12:08:46,147 INFO agent_timesteps_total: 400000
+connector_metrics:
+  StateBufferConnector_ms: 0.005945444107055664
+  ViewRequirementAgentConnector_ms: 0.220689058303833
+counters:
+  num_agent_steps_sampled: 400000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 400000
+  num_env_steps_trained: 0
+custom_metrics: {}
+date: 2024-04-03_12-08-46
+done: false
+episode_len_mean: 20.0
+episode_media: {}
+episode_reward_max: 93820.0
+episode_reward_mean: 78145.1
+episode_reward_min: 41853.0
+episodes_this_iter: 100
+episodes_total: 20000
+evaluation:
+  connector_metrics:
+    StateBufferConnector_ms: 0.00159454345703125
+    ViewRequirementAgentConnector_ms: 0.09450817108154297
+  custom_metrics: {}
+  episode_len_mean: 10.0
+  episode_media: {}
+  episode_reward_max: 45222.0
+  episode_reward_mean: 34958.7
+  episode_reward_min: 23401.0
+  episodes_this_iter: 100
+  hist_stats:
+    episode_lengths: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+      10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+      10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+      10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+      10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+      10, 10, 10, 10, 10, 10, 10, 10, 10]
+    episode_reward: [34386.0, 33400.0, 44096.0, 35335.0, 35778.0, 39979.0, 37690.0,
+      35110.0, 34736.0, 36114.0, 34087.0, 38568.0, 38055.0, 27248.0, 37140.0, 44228.0,
+      36987.0, 31881.0, 37199.0, 37772.0, 32035.0, 36567.0, 37284.0, 30386.0, 33615.0,
+      32470.0, 33599.0, 34010.0, 35385.0, 37907.0, 33569.0, 32681.0, 30187.0, 33854.0,
+      37760.0, 30537.0, 34442.0, 34761.0, 31606.0, 34485.0, 34829.0, 39772.0, 33745.0,
+      34412.0, 36787.0, 28903.0, 33737.0, 32351.0, 34574.0, 36762.0, 23401.0, 25648.0,
+      37224.0, 29500.0, 38288.0, 30121.0, 32611.0, 39555.0, 35481.0, 35365.0, 38187.0,
+      31287.0, 38161.0, 37874.0, 36157.0, 37667.0, 38873.0, 37317.0, 41244.0, 36115.0,
+      38179.0, 30998.0, 37090.0, 29439.0, 41621.0, 35622.0, 37500.0, 39959.0, 32678.0,
+      28698.0, 45222.0, 32401.0, 35063.0, 40700.0, 35284.0, 24297.0, 32494.0, 37458.0,
+      34742.0, 24990.0, 26245.0, 33609.0, 37957.0, 33338.0, 33979.0, 40280.0, 34433.0,
+      31556.0, 38970.0, 38191.0]
+  num_agent_steps_sampled_this_iter: 1000
+  num_env_steps_sampled_this_iter: 1000
+  num_faulty_episodes: 0
+  num_healthy_workers: 0
+  num_in_flight_async_reqs: 0
+  num_remote_worker_restarts: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.03706165018287171
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 1.7158485675989326
+    mean_inference_ms: 1.4386255379575683
+    mean_raw_obs_processing_ms: 0.5270035932865224
+  sampler_results:
+    connector_metrics:
+      StateBufferConnector_ms: 0.00159454345703125
+      ViewRequirementAgentConnector_ms: 0.09450817108154297
+    custom_metrics: {}
+    episode_len_mean: 10.0
+    episode_media: {}
+    episode_reward_max: 45222.0
+    episode_reward_mean: 34958.7
+    episode_reward_min: 23401.0
+    episodes_this_iter: 100
+    hist_stats:
+      episode_lengths: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+        10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+        10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+        10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+        10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+        10, 10, 10, 10, 10, 10, 10, 10, 10]
+      episode_reward: [34386.0, 33400.0, 44096.0, 35335.0, 35778.0, 39979.0, 37690.0,
+        35110.0, 34736.0, 36114.0, 34087.0, 38568.0, 38055.0, 27248.0, 37140.0, 44228.0,
+        36987.0, 31881.0, 37199.0, 37772.0, 32035.0, 36567.0, 37284.0, 30386.0, 33615.0,
+        32470.0, 33599.0, 34010.0, 35385.0, 37907.0, 33569.0, 32681.0, 30187.0, 33854.0,
+        37760.0, 30537.0, 34442.0, 34761.0, 31606.0, 34485.0, 34829.0, 39772.0, 33745.0,
+        34412.0, 36787.0, 28903.0, 33737.0, 32351.0, 34574.0, 36762.0, 23401.0, 25648.0,
+        37224.0, 29500.0, 38288.0, 30121.0, 32611.0, 39555.0, 35481.0, 35365.0, 38187.0,
+        31287.0, 38161.0, 37874.0, 36157.0, 37667.0, 38873.0, 37317.0, 41244.0, 36115.0,
+        38179.0, 30998.0, 37090.0, 29439.0, 41621.0, 35622.0, 37500.0, 39959.0, 32678.0,
+        28698.0, 45222.0, 32401.0, 35063.0, 40700.0, 35284.0, 24297.0, 32494.0, 37458.0,
+        34742.0, 24990.0, 26245.0, 33609.0, 37957.0, 33338.0, 33979.0, 40280.0, 34433.0,
+        31556.0, 38970.0, 38191.0]
+    num_faulty_episodes: 0
+    policy_reward_max: {}
+    policy_reward_mean: {}
+    policy_reward_min: {}
+    sampler_perf:
+      mean_action_processing_ms: 0.03706165018287171
+      mean_env_render_ms: 0.0
+      mean_env_wait_ms: 1.7158485675989326
+      mean_inference_ms: 1.4386255379575683
+      mean_raw_obs_processing_ms: 0.5270035932865224
+  timesteps_this_iter: 1000
+hostname: OrangeBook-Pro-14.local
+info:
+  learner:
+    __all__:
+      num_agent_steps_trained: 128.0
+      num_env_steps_trained: 2000.0
+      total_loss: 9.957045372301778
+    default_policy:
+      curr_entropy_coeff: 0.0
+      curr_kl_coeff: 3.4171876907348633
+      curr_lr: 5.0e-05
+      default_optimizer_lr: 5.0000000000000016e-05
+      entropy: 1.9344180757626177
+      gradients_default_optimizer_global_norm: 7.428035705234296
+      mean_kl_loss: 0.011986187905586993
+      policy_loss: -0.08391373575227662
+      total_loss: 9.957045372301778
+      vf_explained_var: 1.0454616607568515e-05
+      vf_loss: 10.0
+      vf_loss_unclipped: 19101684.840255592
+  num_agent_steps_sampled: 400000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 400000
+  num_env_steps_trained: 0
+iterations_since_restore: 200
+node_ip: 127.0.0.1
+num_agent_steps_sampled: 400000
+num_agent_steps_trained: 0
+num_env_steps_sampled: 400000
+num_env_steps_sampled_this_iter: 2000
+num_env_steps_sampled_throughput_per_sec: 113.63394440430096
+num_env_steps_trained: 0
+num_env_steps_trained_this_iter: 0
+num_env_steps_trained_throughput_per_sec: 0.0
+num_faulty_episodes: 0
+num_healthy_workers: 5
+num_in_flight_async_reqs: 0
+num_remote_worker_restarts: 0
+num_steps_trained_this_iter: 0
+perf:
+  cpu_util_percent: 74.97096774193548
+  ram_util_percent: 76.82903225806453
+pid: 50764
+policy_reward_max: {}
+policy_reward_mean: {}
+policy_reward_min: {}
+sampler_perf:
+  mean_action_processing_ms: 0.08404153854918092
+  mean_env_render_ms: 0.0
+  mean_env_wait_ms: 2.26197563405797
+  mean_inference_ms: 3.6436697481316345
+  mean_raw_obs_processing_ms: 1.1127611313508026
+sampler_results:
+  connector_metrics:
+    StateBufferConnector_ms: 0.005945444107055664
+    ViewRequirementAgentConnector_ms: 0.220689058303833
+  custom_metrics: {}
+  episode_len_mean: 20.0
+  episode_media: {}
+  episode_reward_max: 93820.0
+  episode_reward_mean: 78145.1
+  episode_reward_min: 41853.0
+  episodes_this_iter: 100
+  hist_stats:
+    episode_lengths: [20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20]
+    episode_reward: [84392.0, 65871.0, 78479.0, 77009.0, 72199.0, 88100.0, 77818.0,
+      67583.0, 76870.0, 86310.0, 72635.0, 76832.0, 42718.0, 79726.0, 81862.0, 80223.0,
+      79101.0, 77777.0, 83718.0, 82382.0, 85090.0, 80307.0, 59020.0, 83289.0, 76842.0,
+      80682.0, 62610.0, 73190.0, 75302.0, 82966.0, 71838.0, 87654.0, 78778.0, 85312.0,
+      62064.0, 83036.0, 65295.0, 66687.0, 79642.0, 77679.0, 74294.0, 78280.0, 84356.0,
+      73916.0, 69036.0, 80552.0, 90135.0, 77224.0, 71623.0, 88774.0, 89715.0, 83921.0,
+      73977.0, 75273.0, 76271.0, 70575.0, 82676.0, 89567.0, 87090.0, 83231.0, 77194.0,
+      93820.0, 87030.0, 78395.0, 66728.0, 88040.0, 92000.0, 85800.0, 76140.0, 86060.0,
+      79871.0, 78971.0, 77179.0, 83076.0, 76823.0, 76768.0, 73727.0, 51161.0, 82463.0,
+      82244.0, 93820.0, 78972.0, 78282.0, 74650.0, 81074.0, 71203.0, 41853.0, 83280.0,
+      81746.0, 79052.0, 91960.0, 86901.0, 64917.0, 79679.0, 70360.0, 77366.0, 86288.0,
+      82008.0, 85260.0, 82975.0]
+  num_faulty_episodes: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.08404153854918092
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 2.26197563405797
+    mean_inference_ms: 3.6436697481316345
+    mean_raw_obs_processing_ms: 1.1127611313508026
+time_since_restore: 3752.519291639328
+time_this_iter_s: 21.365020036697388
+time_total_s: 3752.519291639328
+timers:
+  sample_time_ms: 3237.637
+  synch_weights_time_ms: 52.288
+  training_iteration_time_ms: 18216.329
+timestamp: 1712171326
+timesteps_total: 400000
+training_iteration: 200
+trial_id: default
+
+2024-04-03 12:08:46,149 DEBUG {'env': {'map_size': 256, 'action_space_size': 32, 'n_maps': 1000, 'n_episodes_per_map': 1, 'n_steps_truncate': 20, 'dataset_dir': 'resource/usc_old_sparse', 'no_masking': False}, 'eval': {'evaluation_config': {'env_config': {'evaluation': True, 'n_maps': 100, 'n_episodes_per_map': 1, 'n_steps_truncate': 10}, 'exploration': {'explore': False}}, 'num_maps_per_eval': 100, 'evaluation_interval': 10, 'evaluation_num_workers': 0}, 'explore': {'exploration_config': {'type': 'StochasticSampling'}, 'explore': True}, 'report': {'min_sample_timesteps_per_iteration': 2000}, 'resource': {'num_cpus_per_worker': 1, 'num_gpus': 1, 'num_gpus_per_worker': 0}, 'rollout': {'num_envs_per_worker': 1, 'num_rollout_workers': 5, 'batch_mode': 'truncate_episodes'}, 'stop': {'training_iteration': 200}, 'train': {'lr': 5e-05, 'gamma': 0.1, 'grad_clip': 40.0, 'train_batch_size': 2000, 'sgd_minibatch_size': 128, 'num_sgd_iter': 20, 'model': {'fcnet_hiddens': [128, 128], 'fcnet_activation': 'relu'}}, 'agent': {'data_saving_interval': 50}}
+2024-04-03 12:08:46,149 INFO =============TRAINING ENDED=============
+2024-04-03 12:20:16,852 INFO ===========PPO Training at 0403_1220 Continue===========
+2024-04-03 12:20:17,245 INFO 
+=============Test for PPO AFTER Training=============
+2024-04-03 12:20:17,550 INFO one map total 0.3044s, env reset 0.0009s, calc opt action 0.2978s, inference 0.0027s
+2024-04-03 12:20:17,551 INFO coverage reward for trained map 0 with index 1: 3943.0, std: 0.0, optimal reward: 4124, ratio: 0.9561105722599418, num_roi: 54592
+2024-04-03 12:20:20,962 INFO one map total 0.3685s, env reset 0.0006s, calc opt action 0.3634s, inference 0.0019s
+2024-04-03 12:20:20,962 INFO coverage reward for trained map 10 with index 161: 4189.0, std: 0.0, optimal reward: 4352, ratio: 0.9625459558823529, num_roi: 51024
+2024-04-03 12:20:24,199 INFO one map total 0.2719s, env reset 0.0006s, calc opt action 0.2670s, inference 0.0017s
+2024-04-03 12:20:24,199 INFO coverage reward for trained map 20 with index 321: 4094.0, std: 0.0, optimal reward: 4146, ratio: 0.9874577906415822, num_roi: 55168
+2024-04-03 12:20:27,605 INFO one map total 0.4377s, env reset 0.0009s, calc opt action 0.4322s, inference 0.0019s
+2024-04-03 12:20:27,605 INFO coverage reward for trained map 30 with index 481: 3981.0, std: 0.0, optimal reward: 4081, ratio: 0.9754962019112963, num_roi: 51648
+2024-04-03 12:20:31,073 INFO one map total 0.2204s, env reset 0.0006s, calc opt action 0.2154s, inference 0.0018s
+2024-04-03 12:20:31,073 INFO coverage reward for trained map 40 with index 641: 3611.0, std: 0.0, optimal reward: 4198, ratio: 0.8601715102429729, num_roi: 57088
+2024-04-03 12:20:34,209 INFO coverage reward for test map 0 with index 2: 3885.0, std:0.0, optimal reward: 4417, ratio: 0.8795562599049128, num_roi: 54592
+2024-04-03 12:20:37,337 INFO coverage reward for test map 10 with index 322: 4019.0, std:0.0, optimal reward: 4322, ratio: 0.9298935677926886, num_roi: 55168
+2024-04-03 12:20:40,440 INFO coverage reward for test map 20 with index 642: 3456.0, std:0.0, optimal reward: 4219, ratio: 0.8191514576913961, num_roi: 57088
+2024-04-03 12:20:43,385 INFO coverage reward for test map 30 with index 962: 3557.0, std:0.0, optimal reward: 4251, ratio: 0.8367442954598918, num_roi: 56576
+2024-04-03 12:20:46,007 INFO coverage reward for test map 40 with index 1282: 3793.0, std:0.0, optimal reward: 4223, ratio: 0.8981766516694293, num_roi: 53200
+2024-04-03 12:20:48,468 INFO overall average coverage reward for trained maps: 3974.2999999999993, average optimal reward: 4316.68, ratio: 0.920684414874394, average number of RoI pixels: 52799.04000000001, percentage of coverage: 7.527220191882273
+2024-04-03 12:20:48,468 INFO overall average coverage reward for test maps: 3485.7199999999993, average optimal reward: 4365.920000000001, ratio: 0.7983930076593246, average number of RoI pixels: 53543.999999999985, percentage of coverage: 6.510010458688183
+2024-04-03 12:21:49,430 INFO ===========PPO Training at 0403_1221 Continue===========
+2024-04-03 12:35:54,042 INFO ===========PPO Training at 0403_1235 Continue===========
+2024-04-03 14:07:47,145 INFO agent_timesteps_total: 1000000
+connector_metrics:
+  StateBufferConnector_ms: 0.005565166473388672
+  ViewRequirementAgentConnector_ms: 0.2058415412902832
+counters:
+  num_agent_steps_sampled: 1000000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 1000000
+  num_env_steps_trained: 0
+custom_metrics: {}
+date: 2024-04-03_14-07-47
+done: false
+episode_len_mean: 20.0
+episode_media: {}
+episode_reward_max: 96300.0
+episode_reward_mean: 82059.89
+episode_reward_min: 47363.0
+episodes_this_iter: 100
+episodes_total: 30000
+evaluation:
+  connector_metrics:
+    StateBufferConnector_ms: 0.0016376972198486328
+    ViewRequirementAgentConnector_ms: 0.09579277038574219
+  custom_metrics: {}
+  episode_len_mean: 10.0
+  episode_media: {}
+  episode_reward_max: 44756.0
+  episode_reward_mean: 35502.22
+  episode_reward_min: 13993.0
+  episodes_this_iter: 100
+  hist_stats:
+    episode_lengths: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+      10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+      10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+      10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+      10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+      10, 10, 10, 10, 10, 10, 10, 10, 10]
+    episode_reward: [36717.0, 33758.0, 40900.0, 40661.0, 35456.0, 39691.0, 40050.0,
+      36246.0, 32084.0, 38154.0, 32439.0, 37655.0, 39975.0, 32876.0, 41597.0, 44756.0,
+      40763.0, 35731.0, 39782.0, 36382.0, 35360.0, 34450.0, 40106.0, 34361.0, 35851.0,
+      34943.0, 36343.0, 33330.0, 36472.0, 39276.0, 38751.0, 30737.0, 27029.0, 30197.0,
+      38502.0, 33306.0, 38934.0, 37563.0, 35988.0, 32955.0, 31094.0, 41154.0, 35482.0,
+      36705.0, 35254.0, 33517.0, 33658.0, 33908.0, 33200.0, 35451.0, 29527.0, 19310.0,
+      39282.0, 34164.0, 39000.0, 32297.0, 31754.0, 41566.0, 33562.0, 33439.0, 32772.0,
+      31849.0, 39310.0, 41588.0, 37969.0, 38523.0, 33889.0, 37421.0, 39517.0, 31801.0,
+      37630.0, 30808.0, 38062.0, 32130.0, 37658.0, 33480.0, 43760.0, 40244.0, 26688.0,
+      36014.0, 41898.0, 43710.0, 32096.0, 38962.0, 34491.0, 28451.0, 32654.0, 13993.0,
+      34821.0, 25942.0, 29329.0, 38420.0, 38862.0, 31103.0, 33959.0, 36640.0, 33489.0,
+      39709.0, 36846.0, 40283.0]
+  num_agent_steps_sampled_this_iter: 1000
+  num_env_steps_sampled_this_iter: 1000
+  num_faulty_episodes: 0
+  num_healthy_workers: 0
+  num_in_flight_async_reqs: 0
+  num_remote_worker_restarts: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.035246691422948666
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 1.6330740323945176
+    mean_inference_ms: 1.4137199515402512
+    mean_raw_obs_processing_ms: 0.509970442683954
+  sampler_results:
+    connector_metrics:
+      StateBufferConnector_ms: 0.0016376972198486328
+      ViewRequirementAgentConnector_ms: 0.09579277038574219
+    custom_metrics: {}
+    episode_len_mean: 10.0
+    episode_media: {}
+    episode_reward_max: 44756.0
+    episode_reward_mean: 35502.22
+    episode_reward_min: 13993.0
+    episodes_this_iter: 100
+    hist_stats:
+      episode_lengths: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+        10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+        10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+        10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+        10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+        10, 10, 10, 10, 10, 10, 10, 10, 10]
+      episode_reward: [36717.0, 33758.0, 40900.0, 40661.0, 35456.0, 39691.0, 40050.0,
+        36246.0, 32084.0, 38154.0, 32439.0, 37655.0, 39975.0, 32876.0, 41597.0, 44756.0,
+        40763.0, 35731.0, 39782.0, 36382.0, 35360.0, 34450.0, 40106.0, 34361.0, 35851.0,
+        34943.0, 36343.0, 33330.0, 36472.0, 39276.0, 38751.0, 30737.0, 27029.0, 30197.0,
+        38502.0, 33306.0, 38934.0, 37563.0, 35988.0, 32955.0, 31094.0, 41154.0, 35482.0,
+        36705.0, 35254.0, 33517.0, 33658.0, 33908.0, 33200.0, 35451.0, 29527.0, 19310.0,
+        39282.0, 34164.0, 39000.0, 32297.0, 31754.0, 41566.0, 33562.0, 33439.0, 32772.0,
+        31849.0, 39310.0, 41588.0, 37969.0, 38523.0, 33889.0, 37421.0, 39517.0, 31801.0,
+        37630.0, 30808.0, 38062.0, 32130.0, 37658.0, 33480.0, 43760.0, 40244.0, 26688.0,
+        36014.0, 41898.0, 43710.0, 32096.0, 38962.0, 34491.0, 28451.0, 32654.0, 13993.0,
+        34821.0, 25942.0, 29329.0, 38420.0, 38862.0, 31103.0, 33959.0, 36640.0, 33489.0,
+        39709.0, 36846.0, 40283.0]
+    num_faulty_episodes: 0
+    policy_reward_max: {}
+    policy_reward_mean: {}
+    policy_reward_min: {}
+    sampler_perf:
+      mean_action_processing_ms: 0.035246691422948666
+      mean_env_render_ms: 0.0
+      mean_env_wait_ms: 1.6330740323945176
+      mean_inference_ms: 1.4137199515402512
+      mean_raw_obs_processing_ms: 0.509970442683954
+  timesteps_this_iter: 1000
+hostname: OrangeBook-Pro-14.local
+info:
+  learner:
+    __all__:
+      num_agent_steps_trained: 128.0
+      num_env_steps_trained: 2000.0
+      total_loss: 9.939107474427635
+    default_policy:
+      curr_entropy_coeff: 0.0
+      curr_kl_coeff: 0.45000001788139343
+      curr_lr: 1.0e-05
+      default_optimizer_lr: 9.999999999999999e-06
+      entropy: 0.6302518449818936
+      gradients_default_optimizer_global_norm: 3.691791346754891
+      mean_kl_loss: 0.010449633601787479
+      policy_loss: -0.06559492581220457
+      total_loss: 9.939107474427635
+      vf_explained_var: 4.361231867878582e-06
+      vf_loss: 10.0
+      vf_loss_unclipped: 20828186.760383386
+  num_agent_steps_sampled: 1000000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 1000000
+  num_env_steps_trained: 0
+iterations_since_restore: 300
+node_ip: 127.0.0.1
+num_agent_steps_sampled: 1000000
+num_agent_steps_trained: 0
+num_env_steps_sampled: 1000000
+num_env_steps_sampled_this_iter: 2000
+num_env_steps_sampled_throughput_per_sec: 106.35739616305847
+num_env_steps_trained: 0
+num_env_steps_trained_this_iter: 0
+num_env_steps_trained_throughput_per_sec: 0.0
+num_faulty_episodes: 0
+num_healthy_workers: 5
+num_in_flight_async_reqs: 0
+num_remote_worker_restarts: 0
+num_steps_trained_this_iter: 0
+perf:
+  cpu_util_percent: 82.80624999999999
+  ram_util_percent: 78.446875
+pid: 51895
+policy_reward_max: {}
+policy_reward_mean: {}
+policy_reward_min: {}
+sampler_perf:
+  mean_action_processing_ms: 0.08250314703925525
+  mean_env_render_ms: 0.0
+  mean_env_wait_ms: 2.1331745827542044
+  mean_inference_ms: 3.622089071785049
+  mean_raw_obs_processing_ms: 1.08433548404245
+sampler_results:
+  connector_metrics:
+    StateBufferConnector_ms: 0.005565166473388672
+    ViewRequirementAgentConnector_ms: 0.2058415412902832
+  custom_metrics: {}
+  episode_len_mean: 20.0
+  episode_media: {}
+  episode_reward_max: 96300.0
+  episode_reward_mean: 82059.89
+  episode_reward_min: 47363.0
+  episodes_this_iter: 100
+  hist_stats:
+    episode_lengths: [20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20]
+    episode_reward: [89920.0, 85280.0, 92420.0, 69515.0, 81485.0, 73720.0, 79442.0,
+      94000.0, 84540.0, 82940.0, 81541.0, 77958.0, 47363.0, 81955.0, 84020.0, 83663.0,
+      81204.0, 84880.0, 81885.0, 82200.0, 96300.0, 79371.0, 85120.0, 87010.0, 83300.0,
+      87220.0, 91960.0, 86060.0, 62773.0, 79782.0, 72585.0, 85280.0, 88040.0, 87860.0,
+      89780.0, 86400.0, 82983.0, 84800.0, 84300.0, 83860.0, 89200.0, 80726.0, 82705.0,
+      78693.0, 72528.0, 84540.0, 81200.0, 80320.0, 82820.0, 89920.0, 83200.0, 79457.0,
+      84500.0, 78568.0, 84799.0, 83460.0, 87417.0, 80480.0, 84320.0, 82060.0, 84740.0,
+      89920.0, 87227.0, 80640.0, 81080.0, 78370.0, 84680.0, 82020.0, 69303.0, 86400.0,
+      81520.0, 62512.0, 91400.0, 82320.0, 86280.0, 83860.0, 83915.0, 83460.0, 78698.0,
+      80980.0, 82289.0, 68506.0, 80668.0, 80745.0, 80813.0, 83700.0, 84390.0, 81960.0,
+      83320.0, 52997.0, 84740.0, 79860.0, 67882.0, 82020.0, 88560.0, 84328.0, 81620.0,
+      95820.0, 84580.0, 82238.0]
+  num_faulty_episodes: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.08250314703925525
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 2.1331745827542044
+    mean_inference_ms: 3.622089071785049
+    mean_raw_obs_processing_ms: 1.08433548404245
+time_since_restore: 5509.357781410217
+time_this_iter_s: 22.580764770507812
+time_total_s: 5509.357781410217
+timers:
+  sample_time_ms: 3363.625
+  synch_weights_time_ms: 61.539
+  training_iteration_time_ms: 18201.709
+timestamp: 1712178467
+timesteps_total: 1000000
+training_iteration: 500
+trial_id: default
+
+2024-04-03 14:07:47,146 DEBUG {'env': {'map_size': 256, 'action_space_size': 32, 'n_maps': 1000, 'n_episodes_per_map': 1, 'n_steps_truncate': 20, 'dataset_dir': 'resource/usc_old_sparse', 'no_masking': False}, 'eval': {'evaluation_config': {'env_config': {'evaluation': True, 'n_maps': 100, 'n_episodes_per_map': 1, 'n_steps_truncate': 10}, 'exploration': {'explore': False}}, 'num_maps_per_eval': 100, 'evaluation_interval': 10, 'evaluation_num_workers': 0}, 'explore': {'exploration_config': {'type': 'StochasticSampling'}, 'explore': True}, 'report': {'min_sample_timesteps_per_iteration': 2000}, 'resource': {'num_cpus_per_worker': 1, 'num_gpus': 1, 'num_gpus_per_worker': 0}, 'rollout': {'num_envs_per_worker': 1, 'num_rollout_workers': 5, 'batch_mode': 'truncate_episodes'}, 'stop': {'training_iteration': 500}, 'train': {'lr': 1e-05, 'gamma': 0.9, 'grad_clip': 40.0, 'train_batch_size': 2000, 'sgd_minibatch_size': 128, 'num_sgd_iter': 20, 'model': {'fcnet_hiddens': [128, 128], 'fcnet_activation': 'relu'}}, 'agent': {'data_saving_interval': 50}}
+2024-04-03 14:07:47,146 INFO =============TRAINING ENDED=============
+2024-04-03 14:07:48,771 INFO 
+=============Test for PPO AFTER Training=============
+2024-04-03 14:07:49,142 INFO one map total 0.3693s, env reset 0.0015s, calc opt action 0.3632s, inference 0.0019s
+2024-04-03 14:07:49,142 INFO coverage reward for trained map 0 with index 1: 4048.0, std: 0.0, optimal reward: 4124, ratio: 0.9815712900096993, num_roi: 54592
+2024-04-03 14:07:52,996 INFO one map total 0.4008s, env reset 0.0005s, calc opt action 0.3957s, inference 0.0018s
+2024-04-03 14:07:52,996 INFO coverage reward for trained map 10 with index 161: 4189.0, std: 0.0, optimal reward: 4352, ratio: 0.9625459558823529, num_roi: 51024
+2024-04-03 14:07:56,488 INFO one map total 0.2763s, env reset 0.0006s, calc opt action 0.2714s, inference 0.0017s
+2024-04-03 14:07:56,488 INFO coverage reward for trained map 20 with index 321: 4094.0, std: 0.0, optimal reward: 4146, ratio: 0.9874577906415822, num_roi: 55168
+2024-04-03 14:08:00,841 INFO one map total 0.4409s, env reset 0.0008s, calc opt action 0.4354s, inference 0.0017s
+2024-04-03 14:08:00,841 INFO coverage reward for trained map 30 with index 481: 3981.0, std: 0.0, optimal reward: 4081, ratio: 0.9754962019112963, num_roi: 51648
+2024-04-03 14:08:04,726 INFO one map total 0.2402s, env reset 0.0005s, calc opt action 0.2349s, inference 0.0017s
+2024-04-03 14:08:04,726 INFO coverage reward for trained map 40 with index 641: 4190.0, std: 0.0, optimal reward: 4198, ratio: 0.9980943306336351, num_roi: 57088
+2024-04-03 14:08:08,055 INFO coverage reward for test map 0 with index 2: 4008.0, std:0.0, optimal reward: 4417, ratio: 0.9074032148517093, num_roi: 54592
+2024-04-03 14:08:11,355 INFO coverage reward for test map 10 with index 322: 3108.0, std:0.0, optimal reward: 4322, ratio: 0.7191115224433133, num_roi: 55168
+2024-04-03 14:08:14,626 INFO coverage reward for test map 20 with index 642: 2898.0, std:0.0, optimal reward: 4219, ratio: 0.6868926285849728, num_roi: 57088
+2024-04-03 14:08:17,720 INFO coverage reward for test map 30 with index 962: 3954.0, std:0.0, optimal reward: 4251, ratio: 0.9301340860973889, num_roi: 56576
+2024-04-03 14:08:20,459 INFO coverage reward for test map 40 with index 1282: 3793.0, std:0.0, optimal reward: 4223, ratio: 0.8981766516694293, num_roi: 53200
+2024-04-03 14:08:22,998 INFO overall average coverage reward for trained maps: 4142.419999999999, average optimal reward: 4316.68, ratio: 0.9596310127227403, average number of RoI pixels: 52799.04000000001, percentage of coverage: 7.845635072152825
+2024-04-03 14:08:22,998 INFO overall average coverage reward for test maps: 3603.28, average optimal reward: 4365.920000000001, ratio: 0.8253197493311832, average number of RoI pixels: 53543.999999999985, percentage of coverage: 6.729568205587929
+2024-04-03 14:39:40,592 INFO ===========PPO train and eval started at 0403_1439===========
+2024-04-03 17:13:13,742 INFO agent_timesteps_total: 1000000
+connector_metrics:
+  StateBufferConnector_ms: 0.005680561065673828
+  ViewRequirementAgentConnector_ms: 0.20907378196716309
+counters:
+  num_agent_steps_sampled: 1000000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 1000000
+  num_env_steps_trained: 0
+custom_metrics: {}
+date: 2024-04-03_17-13-13
+done: false
+episode_len_mean: 20.0
+episode_media: {}
+episode_reward_max: 98780.0
+episode_reward_mean: 78444.11
+episode_reward_min: 35981.0
+episodes_this_iter: 100
+episodes_total: 50000
+evaluation:
+  connector_metrics:
+    StateBufferConnector_ms: 0.0017955303192138672
+    ViewRequirementAgentConnector_ms: 0.09590744972229004
+  custom_metrics: {}
+  episode_len_mean: 10.0
+  episode_media: {}
+  episode_reward_max: 43013.0
+  episode_reward_mean: 34879.23
+  episode_reward_min: 16581.0
+  episodes_this_iter: 100
+  hist_stats:
+    episode_lengths: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+      10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+      10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+      10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+      10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+      10, 10, 10, 10, 10, 10, 10, 10, 10]
+    episode_reward: [33408.0, 33481.0, 35659.0, 34938.0, 37430.0, 38089.0, 40778.0,
+      36728.0, 36235.0, 38472.0, 30706.0, 36276.0, 37408.0, 33414.0, 30029.0, 41539.0,
+      39514.0, 34762.0, 35695.0, 35508.0, 35455.0, 36047.0, 30407.0, 31318.0, 30721.0,
+      32469.0, 36911.0, 33882.0, 35663.0, 34917.0, 37591.0, 32908.0, 33243.0, 32571.0,
+      37495.0, 33507.0, 32635.0, 40049.0, 35706.0, 32479.0, 35477.0, 40072.0, 32489.0,
+      32616.0, 39418.0, 31520.0, 31670.0, 32733.0, 32463.0, 40982.0, 28700.0, 16581.0,
+      39458.0, 37804.0, 35459.0, 32023.0, 18144.0, 41143.0, 35052.0, 36437.0, 37590.0,
+      29490.0, 38990.0, 41201.0, 34485.0, 40670.0, 41100.0, 35765.0, 37070.0, 36138.0,
+      37381.0, 33948.0, 36542.0, 29937.0, 43013.0, 33293.0, 37207.0, 34061.0, 31986.0,
+      31238.0, 30865.0, 42308.0, 38360.0, 37068.0, 31981.0, 25584.0, 35844.0, 40017.0,
+      32625.0, 32238.0, 26366.0, 35067.0, 40433.0, 28191.0, 32142.0, 36137.0, 36802.0,
+      33752.0, 35895.0, 38859.0]
+  num_agent_steps_sampled_this_iter: 1000
+  num_env_steps_sampled_this_iter: 1000
+  num_faulty_episodes: 0
+  num_healthy_workers: 0
+  num_in_flight_async_reqs: 0
+  num_remote_worker_restarts: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.03587261457132918
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 1.758852872068229
+    mean_inference_ms: 1.4331140808290395
+    mean_raw_obs_processing_ms: 0.5170599999102314
+  sampler_results:
+    connector_metrics:
+      StateBufferConnector_ms: 0.0017955303192138672
+      ViewRequirementAgentConnector_ms: 0.09590744972229004
+    custom_metrics: {}
+    episode_len_mean: 10.0
+    episode_media: {}
+    episode_reward_max: 43013.0
+    episode_reward_mean: 34879.23
+    episode_reward_min: 16581.0
+    episodes_this_iter: 100
+    hist_stats:
+      episode_lengths: [10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+        10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+        10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+        10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+        10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10,
+        10, 10, 10, 10, 10, 10, 10, 10, 10]
+      episode_reward: [33408.0, 33481.0, 35659.0, 34938.0, 37430.0, 38089.0, 40778.0,
+        36728.0, 36235.0, 38472.0, 30706.0, 36276.0, 37408.0, 33414.0, 30029.0, 41539.0,
+        39514.0, 34762.0, 35695.0, 35508.0, 35455.0, 36047.0, 30407.0, 31318.0, 30721.0,
+        32469.0, 36911.0, 33882.0, 35663.0, 34917.0, 37591.0, 32908.0, 33243.0, 32571.0,
+        37495.0, 33507.0, 32635.0, 40049.0, 35706.0, 32479.0, 35477.0, 40072.0, 32489.0,
+        32616.0, 39418.0, 31520.0, 31670.0, 32733.0, 32463.0, 40982.0, 28700.0, 16581.0,
+        39458.0, 37804.0, 35459.0, 32023.0, 18144.0, 41143.0, 35052.0, 36437.0, 37590.0,
+        29490.0, 38990.0, 41201.0, 34485.0, 40670.0, 41100.0, 35765.0, 37070.0, 36138.0,
+        37381.0, 33948.0, 36542.0, 29937.0, 43013.0, 33293.0, 37207.0, 34061.0, 31986.0,
+        31238.0, 30865.0, 42308.0, 38360.0, 37068.0, 31981.0, 25584.0, 35844.0, 40017.0,
+        32625.0, 32238.0, 26366.0, 35067.0, 40433.0, 28191.0, 32142.0, 36137.0, 36802.0,
+        33752.0, 35895.0, 38859.0]
+    num_faulty_episodes: 0
+    policy_reward_max: {}
+    policy_reward_mean: {}
+    policy_reward_min: {}
+    sampler_perf:
+      mean_action_processing_ms: 0.03587261457132918
+      mean_env_render_ms: 0.0
+      mean_env_wait_ms: 1.758852872068229
+      mean_inference_ms: 1.4331140808290395
+      mean_raw_obs_processing_ms: 0.5170599999102314
+  timesteps_this_iter: 1000
+hostname: OrangeBook-Pro-14.local
+info:
+  learner:
+    __all__:
+      num_agent_steps_trained: 128.0
+      num_env_steps_trained: 2000.0
+      total_loss: 9.927681666974442
+    default_policy:
+      curr_entropy_coeff: 0.0
+      curr_kl_coeff: 3.4171876907348633
+      curr_lr: 0.0001
+      default_optimizer_lr: 0.00010000000000000003
+      entropy: 1.6803856714845846
+      gradients_default_optimizer_global_norm: 4.631675459325504
+      mean_kl_loss: 0.0052565452043721785
+      policy_loss: -0.09028090117796779
+      total_loss: 9.927681666974442
+      vf_explained_var: 1.0155641232816557e-06
+      vf_loss: 10.0
+      vf_loss_unclipped: 19445781.54313099
+  num_agent_steps_sampled: 1000000
+  num_agent_steps_trained: 0
+  num_env_steps_sampled: 1000000
+  num_env_steps_trained: 0
+iterations_since_restore: 500
+node_ip: 127.0.0.1
+num_agent_steps_sampled: 1000000
+num_agent_steps_trained: 0
+num_env_steps_sampled: 1000000
+num_env_steps_sampled_this_iter: 2000
+num_env_steps_sampled_throughput_per_sec: 107.6297274034627
+num_env_steps_trained: 0
+num_env_steps_trained_this_iter: 0
+num_env_steps_trained_throughput_per_sec: 0.0
+num_faulty_episodes: 0
+num_healthy_workers: 5
+num_in_flight_async_reqs: 0
+num_remote_worker_restarts: 0
+num_steps_trained_this_iter: 0
+perf:
+  cpu_util_percent: 72.134375
+  ram_util_percent: 78.0625
+pid: 53370
+policy_reward_max: {}
+policy_reward_mean: {}
+policy_reward_min: {}
+sampler_perf:
+  mean_action_processing_ms: 0.0829227788408482
+  mean_env_render_ms: 0.0
+  mean_env_wait_ms: 2.188422710525836
+  mean_inference_ms: 3.643890696543068
+  mean_raw_obs_processing_ms: 1.0442341258104193
+sampler_results:
+  connector_metrics:
+    StateBufferConnector_ms: 0.005680561065673828
+    ViewRequirementAgentConnector_ms: 0.20907378196716309
+  custom_metrics: {}
+  episode_len_mean: 20.0
+  episode_media: {}
+  episode_reward_max: 98780.0
+  episode_reward_mean: 78444.11
+  episode_reward_min: 35981.0
+  episodes_this_iter: 100
+  hist_stats:
+    episode_lengths: [20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20,
+      20, 20, 20, 20, 20, 20, 20, 20, 20]
+    episode_reward: [97520.0, 85541.0, 83890.0, 86656.0, 74869.0, 86368.0, 46757.0,
+      71428.0, 84800.0, 75407.0, 57852.0, 87258.0, 88340.0, 68723.0, 87360.0, 66393.0,
+      39034.0, 63813.0, 78782.0, 93614.0, 81410.0, 85260.0, 83400.0, 59571.0, 92540.0,
+      79969.0, 91504.0, 77900.0, 89029.0, 78795.0, 84737.0, 80428.0, 96700.0, 83427.0,
+      90140.0, 74415.0, 63131.0, 80368.0, 71866.0, 83068.0, 87520.0, 80168.0, 82683.0,
+      86584.0, 75798.0, 78520.0, 61380.0, 78487.0, 78755.0, 71846.0, 88160.0, 83950.0,
+      68541.0, 82151.0, 83274.0, 82523.0, 74625.0, 88634.0, 81467.0, 81103.0, 81626.0,
+      71013.0, 35981.0, 79776.0, 80008.0, 80754.0, 88154.0, 50984.0, 87220.0, 49847.0,
+      90960.0, 76451.0, 81994.0, 79303.0, 85935.0, 82606.0, 76384.0, 62923.0, 80780.0,
+      45559.0, 83060.0, 77929.0, 86782.0, 85798.0, 81134.0, 80616.0, 83336.0, 86070.0,
+      83825.0, 85307.0, 98780.0, 57402.0, 87980.0, 82402.0, 79445.0, 64175.0, 82850.0,
+      77163.0, 76448.0, 87419.0]
+  num_faulty_episodes: 0
+  policy_reward_max: {}
+  policy_reward_mean: {}
+  policy_reward_min: {}
+  sampler_perf:
+    mean_action_processing_ms: 0.0829227788408482
+    mean_env_render_ms: 0.0
+    mean_env_wait_ms: 2.188422710525836
+    mean_inference_ms: 3.643890696543068
+    mean_raw_obs_processing_ms: 1.0442341258104193
+time_since_restore: 9206.752406835556
+time_this_iter_s: 22.40206289291382
+time_total_s: 9206.752406835556
+timers:
+  sample_time_ms: 3134.31
+  synch_weights_time_ms: 48.938
+  training_iteration_time_ms: 18168.663
+timestamp: 1712189593
+timesteps_total: 1000000
+training_iteration: 500
+trial_id: default
+
+2024-04-03 17:13:13,742 DEBUG {'env': {'map_size': 256, 'action_space_size': 32, 'n_maps': 1000, 'n_episodes_per_map': 1, 'n_steps_truncate': 20, 'dataset_dir': 'resource/usc_old_sparse', 'no_masking': False}, 'eval': {'evaluation_config': {'env_config': {'evaluation': True, 'n_maps': 100, 'n_episodes_per_map': 1, 'n_steps_truncate': 10}, 'exploration': {'explore': False}}, 'num_maps_per_eval': 100, 'evaluation_interval': 10, 'evaluation_num_workers': 0}, 'explore': {'exploration_config': {'type': 'StochasticSampling'}, 'explore': True}, 'report': {'min_sample_timesteps_per_iteration': 2000}, 'resource': {'num_cpus_per_worker': 1, 'num_gpus': 1, 'num_gpus_per_worker': 0}, 'rollout': {'num_envs_per_worker': 1, 'num_rollout_workers': 5, 'batch_mode': 'truncate_episodes'}, 'stop': {'training_iteration': 500}, 'train': {'lr': 0.0001, 'gamma': 0.1, 'grad_clip': 40.0, 'train_batch_size': 2000, 'sgd_minibatch_size': 128, 'num_sgd_iter': 20, 'model': {'fcnet_hiddens': [128, 128], 'fcnet_activation': 'relu'}}, 'agent': {'data_saving_interval': 50}}
+2024-04-03 17:13:13,742 INFO =============TRAINING ENDED=============
+2024-04-03 17:13:15,027 INFO 
+=============Test for PPO AFTER Training=============
+2024-04-03 17:13:15,371 INFO one map total 0.3422s, env reset 0.0012s, calc opt action 0.3363s, inference 0.0019s
+2024-04-03 17:13:15,371 INFO coverage reward for trained map 0 with index 1: 3943.0, std: 0.0, optimal reward: 4124, ratio: 0.9561105722599418, num_roi: 54592
+2024-04-03 17:13:19,070 INFO one map total 0.3947s, env reset 0.0006s, calc opt action 0.3898s, inference 0.0017s
+2024-04-03 17:13:19,070 INFO coverage reward for trained map 10 with index 161: 4352.0, std: 0.0, optimal reward: 4352, ratio: 1.0, num_roi: 51024
+2024-04-03 17:13:22,475 INFO one map total 0.2654s, env reset 0.0006s, calc opt action 0.2604s, inference 0.0017s
+2024-04-03 17:13:22,476 INFO coverage reward for trained map 20 with index 321: 4004.0, std: 0.0, optimal reward: 4146, ratio: 0.9657501205981669, num_roi: 55168
+2024-04-03 17:13:25,741 INFO one map total 0.3508s, env reset 0.0006s, calc opt action 0.3458s, inference 0.0017s
+2024-04-03 17:13:25,741 INFO coverage reward for trained map 30 with index 481: 4009.0, std: 0.0, optimal reward: 4081, ratio: 0.9823572653761333, num_roi: 51648
+2024-04-03 17:13:29,204 INFO one map total 0.2334s, env reset 0.0005s, calc opt action 0.2286s, inference 0.0017s
+2024-04-03 17:13:29,204 INFO coverage reward for trained map 40 with index 641: 3485.0, std: 0.0, optimal reward: 4198, ratio: 0.8301572177227251, num_roi: 57088
+2024-04-03 17:13:32,476 INFO coverage reward for test map 0 with index 2: 3304.0, std:0.0, optimal reward: 4417, ratio: 0.7480190174326465, num_roi: 54592
+2024-04-03 17:13:35,704 INFO coverage reward for test map 10 with index 322: 4187.0, std:0.0, optimal reward: 4322, ratio: 0.9687644608977325, num_roi: 55168
+2024-04-03 17:13:38,905 INFO coverage reward for test map 20 with index 642: 1957.0, std:0.0, optimal reward: 4219, ratio: 0.4638539938374022, num_roi: 57088
+2024-04-03 17:13:41,934 INFO coverage reward for test map 30 with index 962: 3853.0, std:0.0, optimal reward: 4251, ratio: 0.906374970595154, num_roi: 56576
+2024-04-03 17:13:44,601 INFO coverage reward for test map 40 with index 1282: 3815.0, std:0.0, optimal reward: 4223, ratio: 0.9033862183282027, num_roi: 53200
+2024-04-03 17:13:47,088 INFO overall average coverage reward for trained maps: 4029.479999999998, average optimal reward: 4316.68, ratio: 0.9334673869733217, average number of RoI pixels: 52799.04000000001, percentage of coverage: 7.631729667812137
+2024-04-03 17:13:47,088 INFO overall average coverage reward for test maps: 3442.719999999999, average optimal reward: 4365.920000000001, ratio: 0.7885439953091211, average number of RoI pixels: 53543.999999999985, percentage of coverage: 6.429702674435978
