@@ -58,7 +58,7 @@ def eval_model(model, test_loader, error="RMSE", best_val=100, cfg=None, eval_mo
                 for i in range(len(preds)):
                     plt.imshow(cv2.cvtColor(preds[i][0].cpu().detach().numpy(), cv2.COLOR_BGR2RGB))
 
-                    img_name=os.path.join(infer_img_path,'inference_images',f'{pred_cnt}.png')
+                    img_name=os.path.join(infer_img_path,f'{pred_cnt}.png')
                     plt.savefig(img_name)
                     pred_cnt+=1
                     if pred_cnt%100==0:
@@ -71,14 +71,6 @@ def eval_model(model, test_loader, error="RMSE", best_val=100, cfg=None, eval_mo
             n_samples += inputs.shape[0]
 
     avg_loss = avg_loss / (n_samples + 1e-7)
-
-    if avg_loss < best_val and eval_mode==False:
-        best_val = avg_loss
-        # save ckpt
-        torch.save(model.state_dict(), f'{RESULT_FOLDER}/{cfg.exp_name}_epoch{cfg.num_epochs}/{cfg.param_str}/model_{best_val:.5f}.pt')
-        print(f'[*] model saved to: {RESULT_FOLDER}/{cfg.exp_name}_epoch{cfg.num_epochs}/{cfg.param_str}/model_{best_val:.5f}.pt')
-        f_log.write(f'[*] model saved to: {RESULT_FOLDER}/{cfg.exp_name}_epoch{cfg.num_epochs}/{cfg.param_str}/model_{best_val:.5f}.pt')
-        f_log.write('\n')
 
     model.train()
     return avg_loss, best_val
@@ -123,10 +115,10 @@ def helper(cfg, data_root = '', load_model=''):
     model.to(device)
 
     # create inference images directory if not exist
-    createDirectory(os.path.join(os.path.split(load_model)[0], 'inference_images'))
+    createDirectory(RESULT_FOLDER)
 
     result = eval_model(model, test_loader, error="RMSE", best_val=100, cfg=None, eval_mode=True,
-                        infer_img_path=os.path.split(load_model)[0])
+                        infer_img_path=RESULT_FOLDER)
     print('Evaluation score(RMSE): ', result)
     '''End evaluation region'''
 
@@ -134,23 +126,19 @@ if __name__ == "__main__":
     split_to_eval_score_dict = {}
 
     data_root = ""
+
     parser = argparse.ArgumentParser()
     parser.add_argument('-m', '--model_to_eval', type=str, help='Pretrained model to evaluate.')
     args, unknown = parser.parse_known_args()
+    RESULT_FOLDER = f'{data_root}PMNet_results/inference_images/{os.path.split(args.model_to_eval)[1]}/'
 
     print('start')
     cfg = config_USC_pmnetV3_V2()
-    cfg.now = datetime.today().strftime("%Y%m%d%H%M") # YYYYmmddHHMM
+    cfg.now = datetime.today().strftime("%Y%m%d%H%M") 
 
 
-    cfg.param_str = f'{cfg.batch_size}_{cfg.lr}_{cfg.lr_decay}_{cfg.step}'
+    os.makedirs(RESULT_FOLDER, exist_ok=True)
     
-
-    print('cfg.exp_name: ', cfg.exp_name)
-    print('cfg.now: ', cfg.now)
-    for k, v in cfg.get_train_parameters().items():
-      print(f'{k}: {v}')
-    print('cfg.param_str: ', cfg.param_str)
 
     helper(cfg, data_root, load_model=args.model_to_eval)
 
