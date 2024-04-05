@@ -1,10 +1,8 @@
 import numpy as np
-
 from sionna.rt import load_scene, Transmitter, PlanarArray
-
-import os
-
 import cv2
+import os
+import sys
 
 def get_scene(xml_file):
   scene = load_scene(xml_file)
@@ -57,6 +55,10 @@ def augment_image(image):
   return image, flipped_vertical, flipped_horizontal, flipped_both
 
 def crop_image_with_tx(root, bs, tx_image, building_mask, power, point, w, crop_dim=np.array((256, 256)), stride=1):
+    os.makedirs(ROOT+f"/cropped/tx_map", exist_ok=True)
+    os.makedirs(ROOT+f"/cropped/power_map", exist_ok=True)
+    os.makedirs(ROOT+f"/cropped/city_map", exist_ok=True)
+
     height, width = tx_image.shape[:2]
     crop_height, crop_width = crop_dim
     stride_x, stride_y = stride, stride
@@ -94,7 +96,7 @@ def crop_image_with_tx(root, bs, tx_image, building_mask, power, point, w, crop_
 
 
 if __name__ == "__main__":
-  ROOT ="data/"
+  ROOT = ""
   TX =  np.load(f"{ROOT}tx_positions.npy")
   CROP_DIM = np.array((256, 256))
   STRIDE = 65
@@ -108,35 +110,44 @@ if __name__ == "__main__":
   city_map = cv2.resize(city_map, (cm_dim, cm_dim))
   city_dim = city_map.shape[0]
 
-  start, end = 0, 5 # batch size of 5
+  start, end = int(sys.argv[1]), int(sys.argv[2]) 
   batch_size = end-start
 
-  for i in range(start, end):
-    tx = Transmitter(f"tx{i}", TX[i]+[0, 0, 2], [0.0, 0.0, 0.0])
-    scene.add(tx)
+  if end > len(TX):
+     print(f"Please enter an end less than number of TX points ({len(TX)})")
+  elif start < 0:
+     print(f"start should be greater than 0")
+  elif batch_size <= 0:
+     print(f"end should be greater than start")
+  else:
+    for i in range(start, end):
+      tx = Transmitter(f"tx{i}", TX[i]+[0, 0, 2], [0.0, 0.0, 0.0])
+      scene.add(tx)
 
-  cm = scene.coverage_map(
-      cm_cell_size=(5.0, 5.0),
-      diffraction=True, scattering=True, edge_diffraction=True, max_depth = 1000, num_samples = 8.99*(10**6)
-  )
-  for i in range(start, end):
-      tx_cm = 10.*np.log10(cm[i%batch_size].numpy())
-      tx_cm[tx_cm==(-np.inf)] = -250
-      tx_cm = cv2.resize(tx_cm, city_map.shape)
+    cm = scene.coverage_map(
+        cm_cell_size=(5.0, 5.0),
+        diffraction=True, scattering=True, edge_diffraction=True, max_depth = 1000, num_samples = 8.99*(10**6)
+    )
+    for i in range(start, end):
+        tx_cm = 10.*np.log10(cm[i%batch_size].numpy())
+        tx_cm[tx_cm==(-np.inf)] = -250
+        tx_cm = cv2.resize(tx_cm, city_map.shape)
 
-      tx_cm = cv2.flip(tx_cm, 0)
-      tx_cm[tx_cm < FLOOR] = FLOOR
-      tx_cm[city_map == 0] = -250
-      tx_cm += 250
+        tx_cm = cv2.flip(tx_cm, 0)
+        tx_cm[tx_cm < FLOOR] = FLOOR
+        tx_cm[city_map == 0] = -250
+        tx_cm += 250
 
-      tx_pos= np.array(TX[i])+(cm_dim//2) + (50)
-      tx_pos = (tx_pos*city_dim/cm_dim).astype(np.int16)
+        tx_pos= np.array(TX[i])+(cm_dim//2) + (50)
+        tx_pos = (tx_pos*city_dim/cm_dim).astype(np.int16)
 
-      tx_map = np.zeros((city_dim, city_dim))
-      shift = TX_WIDTH//2
-      tx_map[city_dim - tx_pos[1]-shift:city_dim - tx_pos[1] +shift, tx_pos[0]-shift:tx_pos[0]+shift] = 255
+        tx_map = np.zeros((city_dim, city_dim))
+        shift = TX_WIDTH//2
+        tx_map[city_dim - tx_pos[1]-shift:city_dim - tx_pos[1] +shift, tx_pos[0]-shift:tx_pos[0]+shift] = 255
 
-      uncropped =tx_cm+tx_map
-      cv2.imwrite(ROOT+f"/uncropped/{i}.png", uncropped)
-      crop_image_with_tx(ROOT, f"{i}", tx_map, city_map, tx_cm, tx_pos[:2], w = TX_WIDTH, crop_dim=CROP_DIM, stride=STRIDE)
+        uncropped =tx_cm+tx_map
+
+        os.makedirs(ROOT+f"/uncropped", exist_ok=True)
+        cv2.imwrite(ROOT+f"/uncropped/{i}.png", uncropped)
+        crop_image_with_tx(ROOT, f"{i}", tx_map, city_map, tx_cm, tx_pos[:2], w = TX_WIDTH, crop_dim=CROP_DIM, stride=STRIDE)
   

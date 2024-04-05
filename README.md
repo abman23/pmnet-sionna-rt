@@ -30,9 +30,12 @@ we use a 3D USC campus model obtained from Blender OSM. These models are then ex
         - Black background (0) indicates RoI and buildings
 3. **Cropping**:
     - Images cropped into 256x256 pixels, ensuring inclusion of TX point
-    - Approximately 6,455 cropped images for each type of map
+    - Approximately 6,455 cropped images for each type of map.
 #### **How to Prepare Data**
-To prepare the pathloss data set, simply run the `data/preprocess.py` file
+To prepare the pathloss data set, simply run the following script. Please replace `[START]` and `[END]` with the TX points you want to start and end data mining with. A bigger range will require a lot of memory. A good estimate to have is a range of 5. In order to mine data for all 104 TX, you can run the file updating the `[START]` and `[END]` arguments.
+```
+python data/preprocess.py [START] [END]
+```
 
 ### Running the Model
 
