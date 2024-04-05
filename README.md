@@ -1,56 +1,59 @@
-# pmnet-sionnart
-A Scalable and Generalizable Pathloss Map Prediction (based on SionnaRT ray-tracing channel dataset)
+# PMNet with SionnaRT: Pathloss Map Prediction
 
-# Pathloss Map Prediction System (based on SionnaRT ray-tracing channel dataset)
-This repo is the official implementation of "A Scalable and Generalizable Pathloss Map Prediction" as well as the follow-ups.
+### Overview
 
-Our system achieves an RMSE of 0.02569 on the provided RadioMap3Dseer dataset, and 0.0383 on the challenge test set, placing it in the 1st rank of the challenge.
+This README provides comprehensive instructions for training a PMNet model using the Sionna RT dataset. The process involves generating cropped images from the USC campus Sionna RT scene and training a neural network to predict path loss or power maps.
 
-# Directories
-- network: includes network code(pmnet)
-- checkpoints: pre-trained models
-- outputs: containing the estimated radio maps
-    - RadioMap3DSeer_Test : Estimated images using the validation subset we determined in the training dataset.
-    - RadioMapChallenge_Test : Estimated images using the given test set.
+### Sionna Data
+
+<img src="figures/OSMView.png" alt="map_USC" width="300"/> <img src="figures/USC_city_map.png" alt="city_map" width="300"/><br/>
+<img src="figures/BlenderView.png" alt="blender_3D_USC" width="300"/>
+
+we use a 3D USC campus model obtained from Blender OSM. These models are then exported to the produce scenes in sionna RT.
 
 
-# Setup
-Install packages using the following instruction.
-```
-pip install -r requirements.txt
-```
-- Python 3.8.15
-- torch cuda
+### Data Preparation
 
-# How to run
-## 1. Run sh file
-```
-sh eval.sh
-```
 
-## 2. Run python file with arguments
+1. **TX Configuration**:
+    - 104 TX points distributed across the USC campus scene
+    - Task is to generated power maps, city maps, and tx maps for each TX point
+2. **Image Generation**:
+    - Power maps: Grayscale images representing power over regions of interest (RoI)
+        - Range: -250dBm to 0dBm
+        - Grayscale mapping: -250dBm $\rightarrow$ 0, 0dBm $\rightarrow$ 255
+    - City maps: Grayscale images showing RoI and buildings
+        - Range: 0 to 255
+        - Grayscale mapping: 0 $\rightarrow$ Altitude of buildings, 255 $\rightarrow$ ROI
+    - TX maps: Indicate TX point locations with a white $5\times5m^2$ square on black background
+        - White square (255) indicates TX point
+        - Black background (0) indicates RoI and buildings
+3. **Cropping**:
+    - Images cropped into 256x256 pixels, ensuring inclusion of TX point
+    - Approximately 6,455 cropped images for each type of map
+#### **How to Prepare Data**
+To prepare the pathloss data set, simply run the `data/preprocess.py` file
+
+### Running the Model
+
+We train a PMNet model by stacking the cropped city map and tx map in the `data/cropped` folder as input and predict the pathloss. 
+#### **Training**
+To train PMNet, simply run the `train.py` 
+#### **Evaluating**
+To train PMNet, simply run the `eval.sh` 
+To evaluate {MNet}, refer to the following commands. Please update the path to model for evaluation.
 ```
 python eval.py \
-    --input_dir './RadioMap3DSeer/png' \
-    --gt_dir './RadioMap3DSeer/gain' \
-    --first_index 631 \
-    --last_index 700 \
-    --pretrained_model './checkpoints/radiomapseer3d_pmnetV3_V2_model_0.00076.pt' \
-    --network_type 'pmnet_v3' \
-    --output_dir './outputs/RadioMap3DSeer_Test'
+    --model_to_eval '[PATH_TO_MODEL]' 
 ```
 
-The RMSE and run-time will be printed in results.txt file and the terminal where you run.
 
-# Arguments
-- input_dir : The directory where folders of input images such as antennasWHeight, buildingsWHeight exist. (It should be {your_directory}/png)
-- gt_dir : The directory where ground truth images exist. (It should be {your_directory}/gain)
-- first_index : The first index of map indices. For example, when we have 0_0.png ~ 83_79.png images, it should be 0 which is the first index of maps.
-- last_index : The last index of map indices. For example, in the above case, it should be 83 which is the last index of maps.
-- pretrained_model : The path of pretrained model.
-- network_type : The type of network. (pmnet, pmnet_v3)
-- output_dir : The directory where predicted images are saved. (Default: {current_directory}/outputs)
+### Data and Checkpoint
 
-# To use other datasets
-You need to set arguments: input_dir, gt_dir, first_index, last_index
+- **Data**:
+    - **Uncropped Images**: [Uncropped images for visualization](https://drive.google.com/drive/folders/1AHCQtniNpr1DjGMYrWgwxddmQ3IXCgav?usp=drive_link)
+    - **Cropped Images**: [Cropped images for training](https://drive.google.com/drive/folders/1E49AIF7q7LsQWHR68tGV_XJC7ubgplEs?usp=drive_link)
+     - **Download Link**: [Cropped images for training](https://drive.google.com/file/d/1_39J6FnhmVIxsyBDQdCkIbN3cF09h9pz/view?usp=sharing)
 
+- **Checkpoint**:
+    - **Checkpoint**: [RMSE: 0.00158](https://drive.google.com/drive/folders/1E49AIF7q7LsQWHR68tGV_XJC7ubgplEs?usp=sharing)

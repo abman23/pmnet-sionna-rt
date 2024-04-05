@@ -1,0 +1,862 @@
+<scene version="2.1.0">
+
+<!-- Defaults, these can be set via the command line: -Darg=value -->
+
+
+<!-- Camera and Rendering Parameters -->
+
+	<integrator type="path" id="elm__0" name="elm__0">
+		<integer name="max_depth" value="12"/>
+	</integrator>
+
+<!-- Materials -->
+
+	<bsdf type="twosided" id="mat-itu_very_dry_ground" name="mat-itu_very_dry_ground">
+		<bsdf type="diffuse" name="bsdf">
+			<rgb value="0.800000 0.800000 0.800000" name="reflectance"/>
+		</bsdf>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-itu_concrete.002" name="mat-itu_concrete.002">
+		<rgb value="1.000000 0.500000 0.200000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-itu_concrete" name="mat-itu_concrete">
+		<rgb value="0.290000 0.250000 0.210000" name="reflectance"/>
+	</bsdf>
+
+<!-- Emitters -->
+
+	<emitter type="constant" id="elm__1" name="elm__1">
+		<rgb value="0.833841 0.833841 0.833841" name="radiance"/>
+	</emitter>
+
+<!-- Shapes -->
+
+	<shape type="ply" id="elm__3" name="elm__3">
+		<string name="filename" value="meshes/Plane.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_very_dry_ground" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__6" name="elm__6">
+		<string name="filename" value="meshes/Heritage_Hall_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__7" name="elm__7">
+		<string name="filename" value="meshes/Heritage_Hall_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__8" name="elm__8">
+		<string name="filename" value="meshes/North_Parking_Structure-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__9" name="elm__9">
+		<string name="filename" value="meshes/North_Parking_Structure-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__10" name="elm__10">
+		<string name="filename" value="meshes/Beigler_Hall_of_Engineering_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__11" name="elm__11">
+		<string name="filename" value="meshes/Beigler_Hall_of_Engineering_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__12" name="elm__12">
+		<string name="filename" value="meshes/Steven_and_Katherine_Sample_Hall_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__13" name="elm__13">
+		<string name="filename" value="meshes/Steven_and_Katherine_Sample_Hall_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__14" name="elm__14">
+		<string name="filename" value="meshes/Ronald_Tutor_Campus_Center_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__15" name="elm__15">
+		<string name="filename" value="meshes/Ronald_Tutor_Campus_Center_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__16" name="elm__16">
+		<string name="filename" value="meshes/Hall_Building__HSH__001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__17" name="elm__17">
+		<string name="filename" value="meshes/Hall_Building__HSH__001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__18" name="elm__18">
+		<string name="filename" value="meshes/John_Mckay_Center_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__19" name="elm__19">
+		<string name="filename" value="meshes/John_Mckay_Center_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__20" name="elm__20">
+		<string name="filename" value="meshes/Stabler_Hall_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__21" name="elm__21">
+		<string name="filename" value="meshes/Stabler_Hall_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__22" name="elm__22">
+		<string name="filename" value="meshes/Annenberg_School_for_Communication___Journalism_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__23" name="elm__23">
+		<string name="filename" value="meshes/Annenberg_School_for_Communication___Journalism_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__24" name="elm__24">
+		<string name="filename" value="meshes/Arts_and_Humanities_Residential_College_at_Parkside_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__25" name="elm__25">
+		<string name="filename" value="meshes/Arts_and_Humanities_Residential_College_at_Parkside_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__26" name="elm__26">
+		<string name="filename" value="meshes/Bing_Theater_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__27" name="elm__27">
+		<string name="filename" value="meshes/Bing_Theater_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__28" name="elm__28">
+		<string name="filename" value="meshes/Bovard_Administration_Building_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__29" name="elm__29">
+		<string name="filename" value="meshes/Bovard_Administration_Building_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__30" name="elm__30">
+		<string name="filename" value="meshes/Denney_Research_Center_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__31" name="elm__31">
+		<string name="filename" value="meshes/Denney_Research_Center_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__32" name="elm__32">
+		<string name="filename" value="meshes/Frank_R_Seaver_Science_Center_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__33" name="elm__33">
+		<string name="filename" value="meshes/Frank_R_Seaver_Science_Center_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__34" name="elm__34">
+		<string name="filename" value="meshes/Grace_Ford_Salvatori_Hall_of_Letters__Arts_and_Sciences_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__35" name="elm__35">
+		<string name="filename" value="meshes/Grace_Ford_Salvatori_Hall_of_Letters__Arts_and_Sciences_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__36" name="elm__36">
+		<string name="filename" value="meshes/Hedco_Neurosciences_Building_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__37" name="elm__37">
+		<string name="filename" value="meshes/Hedco_Neurosciences_Building_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__38" name="elm__38">
+		<string name="filename" value="meshes/Hughes_Aircraft_Electrical_Engineering_Center_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__39" name="elm__39">
+		<string name="filename" value="meshes/Hughes_Aircraft_Electrical_Engineering_Center_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__40" name="elm__40">
+		<string name="filename" value="meshes/International_Residential_College_at_Parkside_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__41" name="elm__41">
+		<string name="filename" value="meshes/International_Residential_College_at_Parkside_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__42" name="elm__42">
+		<string name="filename" value="meshes/Irani_Hall_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__43" name="elm__43">
+		<string name="filename" value="meshes/Irani_Hall_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__44" name="elm__44">
+		<string name="filename" value="meshes/Kaprielian_Hall_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__45" name="elm__45">
+		<string name="filename" value="meshes/Kaprielian_Hall_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__46" name="elm__46">
+		<string name="filename" value="meshes/Kenneth_and_Eileen_Norris_Cinema_Center_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__47" name="elm__47">
+		<string name="filename" value="meshes/Kenneth_and_Eileen_Norris_Cinema_Center_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__48" name="elm__48">
+		<string name="filename" value="meshes/Neely_Petroleum_Engineering_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__49" name="elm__49">
+		<string name="filename" value="meshes/Neely_Petroleum_Engineering_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__50" name="elm__50">
+		<string name="filename" value="meshes/Downey_Way_Parking_Structure_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__51" name="elm__51">
+		<string name="filename" value="meshes/Downey_Way_Parking_Structure_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__52" name="elm__52">
+		<string name="filename" value="meshes/Parkside_Apartments_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__53" name="elm__53">
+		<string name="filename" value="meshes/Parkside_Apartments_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__54" name="elm__54">
+		<string name="filename" value="meshes/Powell_Hall_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__55" name="elm__55">
+		<string name="filename" value="meshes/Powell_Hall_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__56" name="elm__56">
+		<string name="filename" value="meshes/Ray_and_Nadine_Watt_Hall_of_Architecture_and_Fine_Arts_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__57" name="elm__57">
+		<string name="filename" value="meshes/Ray_and_Nadine_Watt_Hall_of_Architecture_and_Fine_Arts_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__58" name="elm__58">
+		<string name="filename" value="meshes/Ronald_Tutor_Hall_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__59" name="elm__59">
+		<string name="filename" value="meshes/Ronald_Tutor_Hall_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__60" name="elm__60">
+		<string name="filename" value="meshes/Salvatori_Computer_Science_Center_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__61" name="elm__61">
+		<string name="filename" value="meshes/Salvatori_Computer_Science_Center_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__62" name="elm__62">
+		<string name="filename" value="meshes/Scene_Dock_Theatre_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__63" name="elm__63">
+		<string name="filename" value="meshes/Scene_Dock_Theatre_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__64" name="elm__64">
+		<string name="filename" value="meshes/Seeley_G__Mudd_Building_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__65" name="elm__65">
+		<string name="filename" value="meshes/Seeley_G__Mudd_Building_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__66" name="elm__66">
+		<string name="filename" value="meshes/Loker_Hall_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__67" name="elm__67">
+		<string name="filename" value="meshes/Loker_Hall_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__68" name="elm__68">
+		<string name="filename" value="meshes/Stonier_Hall_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__69" name="elm__69">
+		<string name="filename" value="meshes/Stonier_Hall_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__70" name="elm__70">
+		<string name="filename" value="meshes/Taper_Hall_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__71" name="elm__71">
+		<string name="filename" value="meshes/Taper_Hall_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__72" name="elm__72">
+		<string name="filename" value="meshes/Technical_Theatre_Laboratory_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__73" name="elm__73">
+		<string name="filename" value="meshes/Technical_Theatre_Laboratory_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__74" name="elm__74">
+		<string name="filename" value="meshes/USC_Bookstores_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__75" name="elm__75">
+		<string name="filename" value="meshes/USC_Bookstores_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__76" name="elm__76">
+		<string name="filename" value="meshes/Vivian_Hall_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__77" name="elm__77">
+		<string name="filename" value="meshes/Vivian_Hall_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__78" name="elm__78">
+		<string name="filename" value="meshes/Wallis_Annenberg_Hall_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__79" name="elm__79">
+		<string name="filename" value="meshes/Wallis_Annenberg_Hall_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__80" name="elm__80">
+		<string name="filename" value="meshes/element_023-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__81" name="elm__81">
+		<string name="filename" value="meshes/element_023-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__82" name="elm__82">
+		<string name="filename" value="meshes/element_025-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__83" name="elm__83">
+		<string name="filename" value="meshes/element_025-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__84" name="elm__84">
+		<string name="filename" value="meshes/McAlister_Academic_Resource_Center_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__85" name="elm__85">
+		<string name="filename" value="meshes/McAlister_Academic_Resource_Center_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__86" name="elm__86">
+		<string name="filename" value="meshes/Ahmanson_Center_for_Biological_Research_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__87" name="elm__87">
+		<string name="filename" value="meshes/Ahmanson_Center_for_Biological_Research_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__88" name="elm__88">
+		<string name="filename" value="meshes/element_026-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__89" name="elm__89">
+		<string name="filename" value="meshes/element_026-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__90" name="elm__90">
+		<string name="filename" value="meshes/element_027-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__91" name="elm__91">
+		<string name="filename" value="meshes/element_027-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__92" name="elm__92">
+		<string name="filename" value="meshes/element_028-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__93" name="elm__93">
+		<string name="filename" value="meshes/element_028-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__94" name="elm__94">
+		<string name="filename" value="meshes/element_029-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__95" name="elm__95">
+		<string name="filename" value="meshes/element_029-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__96" name="elm__96">
+		<string name="filename" value="meshes/element_030-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__97" name="elm__97">
+		<string name="filename" value="meshes/element_030-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__98" name="elm__98">
+		<string name="filename" value="meshes/element_031-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__99" name="elm__99">
+		<string name="filename" value="meshes/element_031-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__100" name="elm__100">
+		<string name="filename" value="meshes/element_032-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__101" name="elm__101">
+		<string name="filename" value="meshes/element_032-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__102" name="elm__102">
+		<string name="filename" value="meshes/element_033-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__103" name="elm__103">
+		<string name="filename" value="meshes/element_033-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__104" name="elm__104">
+		<string name="filename" value="meshes/element_034-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__105" name="elm__105">
+		<string name="filename" value="meshes/element_034-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__106" name="elm__106">
+		<string name="filename" value="meshes/element_035-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__107" name="elm__107">
+		<string name="filename" value="meshes/element_035-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__108" name="elm__108">
+		<string name="filename" value="meshes/element_036-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__109" name="elm__109">
+		<string name="filename" value="meshes/element_036-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__110" name="elm__110">
+		<string name="filename" value="meshes/element_037-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__111" name="elm__111">
+		<string name="filename" value="meshes/element_037-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__112" name="elm__112">
+		<string name="filename" value="meshes/John_J_Brooks_Memorial_Pavilion_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__113" name="elm__113">
+		<string name="filename" value="meshes/John_J_Brooks_Memorial_Pavilion_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__114" name="elm__114">
+		<string name="filename" value="meshes/element_038-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__115" name="elm__115">
+		<string name="filename" value="meshes/element_038-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__116" name="elm__116">
+		<string name="filename" value="meshes/element_039-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__117" name="elm__117">
+		<string name="filename" value="meshes/element_039-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__118" name="elm__118">
+		<string name="filename" value="meshes/element_040-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__119" name="elm__119">
+		<string name="filename" value="meshes/element_040-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__120" name="elm__120">
+		<string name="filename" value="meshes/element_041-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__121" name="elm__121">
+		<string name="filename" value="meshes/element_041-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__122" name="elm__122">
+		<string name="filename" value="meshes/element_042-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__123" name="elm__123">
+		<string name="filename" value="meshes/element_042-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__124" name="elm__124">
+		<string name="filename" value="meshes/element_043-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__125" name="elm__125">
+		<string name="filename" value="meshes/element_043-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__126" name="elm__126">
+		<string name="filename" value="meshes/Taco_Bell-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__127" name="elm__127">
+		<string name="filename" value="meshes/Taco_Bell-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__128" name="elm__128">
+		<string name="filename" value="meshes/element_044-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__129" name="elm__129">
+		<string name="filename" value="meshes/element_044-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__130" name="elm__130">
+		<string name="filename" value="meshes/Natural_History_Museum_of_Los_Angeles_County-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__131" name="elm__131">
+		<string name="filename" value="meshes/Natural_History_Museum_of_Los_Angeles_County-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__132" name="elm__132">
+		<string name="filename" value="meshes/element_056-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__133" name="elm__133">
+		<string name="filename" value="meshes/element_056-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__134" name="elm__134">
+		<string name="filename" value="meshes/element_057-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__135" name="elm__135">
+		<string name="filename" value="meshes/element_057-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__136" name="elm__136">
+		<string name="filename" value="meshes/element_058-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__137" name="elm__137">
+		<string name="filename" value="meshes/element_058-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__138" name="elm__138">
+		<string name="filename" value="meshes/element_059-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__139" name="elm__139">
+		<string name="filename" value="meshes/element_059-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__140" name="elm__140">
+		<string name="filename" value="meshes/element_060-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__141" name="elm__141">
+		<string name="filename" value="meshes/element_060-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__142" name="elm__142">
+		<string name="filename" value="meshes/Rapp_Hall_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__143" name="elm__143">
+		<string name="filename" value="meshes/Rapp_Hall_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__144" name="elm__144">
+		<string name="filename" value="meshes/Seaver_Science_Library_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__145" name="elm__145">
+		<string name="filename" value="meshes/Seaver_Science_Library_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__146" name="elm__146">
+		<string name="filename" value="meshes/Stauffer_Science_Lecture_Hall_002-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__147" name="elm__147">
+		<string name="filename" value="meshes/Stauffer_Science_Lecture_Hall_002-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__148" name="elm__148">
+		<string name="filename" value="meshes/Stauffer_Science_Lecture_Hall_003-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__149" name="elm__149">
+		<string name="filename" value="meshes/Stauffer_Science_Lecture_Hall_003-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__150" name="elm__150">
+		<string name="filename" value="meshes/Michelson_Center_for_Convergent_Biosciences_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__151" name="elm__151">
+		<string name="filename" value="meshes/Michelson_Center_for_Convergent_Biosciences_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__152" name="elm__152">
+		<string name="filename" value="meshes/element_063-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__153" name="elm__153">
+		<string name="filename" value="meshes/element_063-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__154" name="elm__154">
+		<string name="filename" value="meshes/Olin_Hall_of_Engineering_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__155" name="elm__155">
+		<string name="filename" value="meshes/Olin_Hall_of_Engineering_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__156" name="elm__156">
+		<string name="filename" value="meshes/Harris_Hall_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__157" name="elm__157">
+		<string name="filename" value="meshes/Harris_Hall_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__158" name="elm__158">
+		<string name="filename" value="meshes/Ethel_Percy_Andrus_Gerontology_Center_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__159" name="elm__159">
+		<string name="filename" value="meshes/Ethel_Percy_Andrus_Gerontology_Center_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__160" name="elm__160">
+		<string name="filename" value="meshes/Physical_Education_Building_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__161" name="elm__161">
+		<string name="filename" value="meshes/Physical_Education_Building_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__162" name="elm__162">
+		<string name="filename" value="meshes/Mudd_Hall_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__163" name="elm__163">
+		<string name="filename" value="meshes/Mudd_Hall_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__164" name="elm__164">
+		<string name="filename" value="meshes/Zumberge_Hall_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__165" name="elm__165">
+		<string name="filename" value="meshes/Zumberge_Hall_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__166" name="elm__166">
+		<string name="filename" value="meshes/Student_Union_001-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__167" name="elm__167">
+		<string name="filename" value="meshes/Student_Union_001-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__168" name="elm__168">
+		<string name="filename" value="meshes/element_065-itu_concrete.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete" name="bsdf"/>
+	</shape>
+	<shape type="ply" id="elm__169" name="elm__169">
+		<string name="filename" value="meshes/element_065-itu_concrete.002.ply"/>
+		<boolean name="face_normals" value="true"/>
+		<ref id="mat-itu_concrete.002" name="bsdf"/>
+	</shape>
+
+<!-- Volumes -->
+
+</scene>
