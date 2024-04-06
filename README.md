@@ -34,7 +34,7 @@ we use a 3D USC campus model obtained from Blender OSM. These models are then ex
 #### **How to Prepare Data**
 To prepare the pathloss data set, simply run the following script. Please replace `[START]` and `[END]` with the TX points you want to start and end data mining with. A bigger range will require a lot of memory. A good estimate to have is a range of 5. In order to mine data for all 104 TX, you can run the file updating the `[START]` and `[END]` arguments.
 ```
-python data/preprocess.py [START] [END]
+python Data/preprocess.py [START] [END]
 ```
 
 ### Running the Model
