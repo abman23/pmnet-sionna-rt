@@ -41,7 +41,11 @@ python data/preprocess.py [START] [END]
 
 We train a PMNet model by stacking the cropped city map and tx map in the `data/cropped` folder as input and predict the pathloss. 
 #### **Training**
-To train PMNet, simply run the `train.py` 
+To train PMNet, simply run the `train.py`.
+```
+python train.py
+```
+ 
 #### **Evaluating**
 To train PMNet, simply run the `eval.sh` 
 To evaluate {MNet}, refer to the following commands. Please update the path to model for evaluation.
