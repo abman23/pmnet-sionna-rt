@@ -150,4 +150,6 @@ if __name__ == "__main__":
         os.makedirs(ROOT+f"/uncropped", exist_ok=True)
         cv2.imwrite(ROOT+f"/uncropped/{i}.png", uncropped)
         crop_image_with_tx(ROOT, f"{i}", tx_map, city_map, tx_cm, tx_pos[:2], w = TX_WIDTH, crop_dim=CROP_DIM, stride=STRIDE)
+
+        print("Completed")
   
