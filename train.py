@@ -145,9 +145,6 @@ def createDirectory(directory):
 def helper(cfg, writer, data_root = '', load_model=''):
 
     if cfg.sampling == 'exclusive':
-        ddf = pd.DataFrame(np.arange(1,19016))
-        ddf.to_csv(f'{data_root}/Data_coarse_train.csv',index=False)
-
         data_usc_train = PMnet_data_usc(dir_dataset=data_root)
 
         dataset_size = len(data_usc_train)

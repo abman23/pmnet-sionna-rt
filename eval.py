@@ -100,7 +100,6 @@ def createDirectory(directory):
 def helper(cfg, data_root = '', load_model=''):
 
     if cfg.sampling == 'exclusive':
-
         data_usc_train = PMnet_data_usc(dir_dataset=data_root)
 
         dataset_size = len(data_usc_train)
