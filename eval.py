@@ -37,6 +37,7 @@ def eval_model(model, test_loader, error="RMSE", best_val=100, cfg=None, eval_mo
 
     # check dataset type
     pred_cnt=1 # start from 1
+    
     for inputs, targets in tqdm(test_loader):
         inputs = inputs.cuda()
         targets = targets.cuda()
@@ -53,10 +54,28 @@ def eval_model(model, test_loader, error="RMSE", best_val=100, cfg=None, eval_mo
             preds = model(inputs)
             preds = torch.clip(preds, 0, 1)
 
+            loss = criterion(preds, targets)
+            # NMSE
+
+            avg_loss += (loss.item() * inputs.shape[0])
+            n_samples += inputs.shape[0]
+
             # inference image
             if infer_img_path!='':
                 for i in range(len(preds)):
-                    plt.imshow(cv2.cvtColor(preds[i][0].cpu().detach().numpy(), cv2.COLOR_BGR2RGB))
+                    tx_map = inputs[i, 1].cpu().detach().numpy() * 255
+                    plt.figure(figsize=(15,10))
+                    plt.subplot(1,3,1)
+                    plt.axis("off")
+                    plt.title("Ground Truth")
+                    left=(targets[i].cpu().detach().numpy()*255 + tx_map)[0][:,::-1]
+                    plt.imshow(left, cmap='gray', vmin=0, vmax=255)
+
+                    plt.subplot(1,3,2)
+                    plt.axis("off")
+                    plt.title("Predicted Image with tx")
+                    right=(preds[i, 0].cpu().detach().numpy()*255 + tx_map)[:,::-1]
+                    plt.imshow(right, cmap='gray', vmin=0, vmax=255)
 
                     img_name=os.path.join(infer_img_path,f'{pred_cnt}.png')
                     plt.savefig(img_name)
@@ -64,11 +83,6 @@ def eval_model(model, test_loader, error="RMSE", best_val=100, cfg=None, eval_mo
                     if pred_cnt%100==0:
                         print(f'{img_name} saved')
 
-            loss = criterion(preds, targets)
-            # NMSE
-
-            avg_loss += (loss.item() * inputs.shape[0])
-            n_samples += inputs.shape[0]
 
     avg_loss = avg_loss / (n_samples + 1e-7)
 
@@ -86,8 +100,6 @@ def createDirectory(directory):
 def helper(cfg, data_root = '', load_model=''):
 
     if cfg.sampling == 'exclusive':
-        ddf = pd.DataFrame(np.arange(1,19016))
-        ddf.to_csv(f'{data_root}/Data_coarse_train.csv',index=False)
 
         data_usc_train = PMnet_data_usc(dir_dataset=data_root)
 
@@ -98,7 +110,6 @@ def helper(cfg, data_root = '', load_model=''):
         test_size = dataset_size - train_size
         train_dataset, test_dataset = random_split(data_usc_train, [train_size, test_size])
 
-        train_loader =  DataLoader(train_dataset, batch_size=16, shuffle=True, num_workers=8)
         test_loader = DataLoader(test_dataset, batch_size=16, shuffle=True, num_workers=8)
     elif cfg.sampling == 'random':
         pass
