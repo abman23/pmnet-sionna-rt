@@ -96,7 +96,7 @@ def crop_image_with_tx(root, bs, tx_image, building_mask, power, point, w, crop_
 
 
 if __name__ == "__main__":
-  ROOT = ""
+  ROOT = "Data/"
   TX =  np.load(f"{ROOT}tx_positions.npy")
   CROP_DIM = np.array((256, 256))
   STRIDE = 65
