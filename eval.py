@@ -73,7 +73,7 @@ def eval_model(model, test_loader, error="RMSE", best_val=100, cfg=None, eval_mo
 
                     plt.subplot(1,3,2)
                     plt.axis("off")
-                    plt.title("Predicted Image with tx")
+                    plt.title("Predicted Image")
                     right=(preds[i, 0].cpu().detach().numpy()*255 + tx_map)[:,::-1]
                     plt.imshow(right, cmap='gray', vmin=0, vmax=255)
 
