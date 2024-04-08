@@ -4,6 +4,8 @@
 
 This README provides comprehensive instructions for training a PMNet model using the Sionna RT dataset. The process involves generating cropped images from the USC campus Sionna RT scene and training a neural network to predict path loss or power maps.
 
+<img src="figures/Output.png" alt="map_USC" width="100%"/>
+
 ### Sionna Data
 
 <img src="figures/OSMView.png" alt="map_USC" width="300"/> <img src="figures/USC_city_map.png" alt="city_map" width="300"/><br/>
