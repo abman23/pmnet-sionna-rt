@@ -49,8 +49,7 @@ python train.py
 ```
  
 #### **Evaluating**
-To train PMNet, simply run the `eval.sh` 
-To evaluate {MNet}, refer to the following commands. Please update the path to model for evaluation. Similarly make sure the data is already present in the `data/cropped` folder else follow the above section to prepare the data.
+To evaluate a PMNet, refer to the following commands. Please update the path to model for evaluation. Similarly make sure the data is already present in the `data/cropped` folder else follow the above section to prepare the data.
 ```
 python eval.py \
     --model_to_eval '[PATH_TO_MODEL]' 
