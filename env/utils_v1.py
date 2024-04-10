@@ -202,10 +202,11 @@ def plot_rewards(output_name: str, algo_names: list[str], data_filenames: list[s
     timestamp = datetime.now().strftime('%m%d_%H%M')
     if log:
         fig.savefig(os.path.join(ROOT_DIR, f"figures/compare/{version}_{output_name}_{timestamp}.png"))
+        # fig.savefig(os.path.join(ROOT_DIR, f"figures/{version}_{algo_names[0]}_{timestamp}.png"))
     plt.show()
 
 
 if __name__ == "__main__":
-    plot_rewards(output_name="ppo", algo_names=['ppo_v16'],
-                 data_filenames=['ppo_0331_1940.json'],
-                 version='v16', evaluation=True, log=False, n_epi=350)
+    plot_rewards(output_name="ppo", algo_names=['ppo'],
+                 data_filenames=['ppo_0326_0442.json'],
+                 version='v15', evaluation=True, log=True, n_epi=2000)

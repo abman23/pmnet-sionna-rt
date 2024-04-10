@@ -1,0 +1,21 @@
+train:
+  lr: 0.0001
+  gamma: 0.1
+  tau: 1.0
+  target_network_update_freq: 500
+  num_steps_sampled_before_learning_starts: 10000
+  replay_buffer_config:
+    capacity: 10000
+  train_batch_size: 128
+  model:
+    fcnet_hiddens: [ 128, 128 ]
+    fcnet_activation: relu
+    custom_model: action_mask_q
+    no_final_linear: false
+explore:
+  exploration_config:
+    epsilon_timesteps: 100000
+    final_epsilon: 0.02
+    initial_epsilon: 1.0
+    type: EpsilonGreedy
+  explore: true
