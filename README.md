@@ -3,7 +3,7 @@
 
 - This repository provides detailed instructions on the training of **PMNet**—an NN tailored for path loss map prediction. 
 - The PMNet are trained with site-specific channel measurement data obtained through **Sionna RT**. 
-- The method includes two main steps: 
+- This training includes two main steps: 
     1. Generating path loss map dataset by utilizing **Sionna RT**; 
     2. Training **PMNet** with the pathloss map dataset to predict path loss map.
 
@@ -15,7 +15,6 @@
 
 
 ## Dataset: SionnaRT-based Pathloss Map (USC Campus Area)
-
 
 - A 3D map of the USC campus, created with *Blender OSM*, was utilized. These models were then exported to create scenes in **Sionna RT**.
 
