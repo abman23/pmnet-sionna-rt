@@ -1,65 +1,76 @@
 # PMNet with SionnaRT: Pathloss Map Prediction
 
-### Overview
+## Overview
 
-This README provides comprehensive instructions for training a PMNet model using the Sionna RT dataset. The process involves generating cropped images from the USC campus Sionna RT scene and training a neural network to predict path loss or power maps.
+- This repository provides detailed instructions on the training of **PMNet**—an NN tailored for path loss map prediction. 
+- The PMNet are trained with site-specific channel measurement data obtained through **Sionna RT**. 
+- The method includes two main steps: 
+    1. Generating path loss map dataset by utilizing **Sionna RT**; 
+    2. Training **PMNet** with the pathloss map dataset to predict path loss map.
 
-<img src="figures/Output.png" alt="map_USC" width="620"/>
+- Example (Output): 
 
-### Sionna Data
-
-<img src="figures/OSMView.png" alt="map_USC" width="300"/> <img src="figures/USC_city_map.png" alt="city_map" width="300"/><br/>
-<img src="figures/BlenderView.png" alt="blender_3D_USC" width="300"/>
-
-we use a 3D USC campus model obtained from Blender OSM. These models are then exported to the produce scenes in sionna RT.
-
-
-### Data Preparation
+    <img src="figures/Prediction_scene1.png" alt="prediction1" width="400"/> </br>
+    <!-- <img src="figures/Prediction_scene2.png" alt="prediction2" width="400"/> -->
 
 
-1. **TX Configuration**:
-    - 104 TX points distributed across the USC campus scene
-    - Task is to generated power maps, city maps, and tx maps for each TX point
-2. **Image Generation**:
-    - Power maps: Grayscale images representing power over regions of interest (RoI)
-        - Grayscale mapping: -250dBm $\rightarrow$ 0dBm, 55 $\rightarrow$ 255 pixel value
-    - City maps: Grayscale images showing RoI and buildings
-        - Grayscale mapping: 0 pixel value represents building area, 255 pixel value represents ROI
-    - TX maps: Indicate TX point locations with a white $5\times5m^2$ square on black background
-        - White square (255 pixel value) indicates TX point
-        - Black background (0 pixel value) indicates RoI and buildings
+
+## Dataset: SionnaRT-based Pathloss Map (USC Campus Area)
+
+
+- A 3D map of the USC campus, created with *Blender OSM*, was utilized. These models were then exported to create scenes in **Sionna RT**.
+
+    <img src="figures/View_OpenStreetMap.png" alt="map_USC" height="200"/> &nbsp; &nbsp;
+    <img src="figures/View_Blender.png" alt="blender_3D_USC" height="200"/>
+<!-- <img src="figures/CityMap_USC.png" alt="city_map" width="200"/> -->
+
+### Data Pre-Processing
+
+1. **Configuration (TX/RX/Channel/etc.)**:
+    - *Details will be updated...*
+2. **Map Generation**:
+    - For each scene at a specific TX location, three types of maps are generated:
+        1. **Pathloss Maps**: These are grayscale images that visualize pathloss (or pathgain) across regions of interest (RoI).
+            - Gray conversion: $-200 \sim 0$ [dBm] pathgain $\rightarrow$ $55 \sim 255$ grayscale
+        2. **City Maps**: These are grayscale images showing RoI and buildings.
+            - Grayscale mapping: $0$ (Black) and $255$ (White) gray value represent building and ROI area, respectively.
+        3. **TX Maps**: These are grayscale images indicating the TX locations, which is highlited with $255$ (White) gray value.
 3. **Cropping**:
     - Images cropped into 256x256 pixels, ensuring inclusion of TX point and are further augmented.
-    - Approximately 6,455 cropped images for each type of map.
-#### **How to Prepare Data**
-To prepare the pathloss data set, simply run the following script. Please replace `[START]` and `[END]` with the TX points you want to start and end data mining with. A bigger range will require a lot of memory. A good estimate to have is a range of 5. In order to mine data for all 104 TX, you can run the file updating the `[START]` and `[END]` arguments.
+    - A total of $6455$ cropped images are produced for the USC campus map dataset.
+
+#### ***"How to Pre-Process Data?"***
+To pre-process the pathloss map data, simply run the following script. 
+Please replace `[START]` and `[END]` with the TX points you want to start and end data mining with. A bigger range will require a lot of memory. A good estimate to have is a range of 5. In order to mine data for all 104 TX, you can run the file updating the `[START]` and `[END]` arguments.
 ```
-python Data/preprocess.py [START] [END]
+python data/preprocess.py [START] [END]
 ```
 
-### Running the Model
 
-We train a PMNet model by stacking the cropped city map and tx map in the `Data/cropped` folder as input and predict the pathloss. Make sure the data is already present in the mentioned folder else follow the above section to prepare the data.
-#### **Training**
+## Model: PMNet
+- To train the PMNet model, we use stacked cropped City and TX maps from the data/cropped folder as input to predict the Pathloss map as the output.
+
+#### ***"How to Train?"***
 To train PMNet, simply run the `train.py`.
 ```
 python train.py
 ```
  
-#### **Evaluating**
-To evaluate a PMNet, refer to the following commands. Please update the path to model for evaluation. Similarly make sure the data is already present in the `Data/cropped` folder else follow the above section to prepare the data.
+#### ***"How to Evaluate?"***
+To evaluate a PMNet, refer to the following commands. Please update the path to model for evaluation. Similarly make sure the data is already present in the `data/cropped` folder else follow the above section to prepare the data.
 ```
 python eval.py \
     --model_to_eval '[PATH_TO_MODEL]' 
 ```
 
 
-### Data and Checkpoint
+### Download: Dataset and Checkpoint
 
-- **Data**:
-    - **Uncropped Images**: [Uncropped images for visualization](https://drive.google.com/drive/folders/1AHCQtniNpr1DjGMYrWgwxddmQ3IXCgav?usp=drive_link)
-    - **Cropped Images**: [Cropped images for training](https://drive.google.com/drive/folders/1E49AIF7q7LsQWHR68tGV_XJC7ubgplEs?usp=drive_link)
-     - **Download Link**: [Zip file](https://drive.google.com/file/d/1_39J6FnhmVIxsyBDQdCkIbN3cF09h9pz/view?usp=sharing)
+- **Dataset**:
+    - **Full Dataset**: [.zip](https://drive.google.com/file/d/1_39J6FnhmVIxsyBDQdCkIbN3cF09h9pz/view?usp=sharing)
+    - **Uncropped**: [images](https://drive.google.com/drive/folders/1AHCQtniNpr1DjGMYrWgwxddmQ3IXCgav?usp=drive_link)
+    - **Cropped**: [images](https://drive.google.com/drive/folders/1E49AIF7q7LsQWHR68tGV_XJC7ubgplEs?usp=drive_link)
+    
 
-- **Checkpoint**:
-    - **Checkpoint**: [RMSE: 0.00158](https://drive.google.com/file/d/1nymEoDKlKGk1aOzm5pNgeTcSE9MG3YGV/view?usp=sharing)
+- **Checkpoint (Pre-trained PMNet)**:
+    - **ckpt (RMSE: 0.00158)**: [pmnet](https://drive.google.com/file/d/1nymEoDKlKGk1aOzm5pNgeTcSE9MG3YGV/view?usp=sharing)
