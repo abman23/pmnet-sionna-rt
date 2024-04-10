@@ -28,7 +28,7 @@ from torchsummary import summary as summary_
 
 import cv2
 
-from network.pmnet_v3 import PMNet
+from network.pmnet import PMNet
 from config import config_USC_pmnetV3_V2
 from dataloader import PMnet_data_usc
 from loss import L1_loss, MSE, RMSE
