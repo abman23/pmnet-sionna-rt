@@ -17,24 +17,24 @@ class PMnet_data_usc(Dataset):
 
         self.dir_dataset = dir_dataset
         self.transform = transform
-        self.png_list = os.listdir(dir_dataset + "Data/cropped/power_map/")
+        self.png_list = os.listdir(dir_dataset + "data/cropped/power_map/")
 
     def __len__(self):
         return len(self.png_list)
 
     def __getitem__(self, idx):
         #Load city map
-        self.dir_buildings = self.dir_dataset+ "Data/cropped/city_map/"
+        self.dir_buildings = self.dir_dataset+ "data/cropped/city_map/"
         img_name_buildings = os.path.join(self.dir_buildings, f"{self.png_list[idx]}")
         image_buildings = np.asarray(io.imread(img_name_buildings))
 
         #Load Tx (transmitter):
-        self.dir_Tx = self.dir_dataset+ "Data/cropped/tx_map/"
+        self.dir_Tx = self.dir_dataset+ "data/cropped/tx_map/"
         img_name_Tx = os.path.join(self.dir_Tx, f"{self.png_list[idx]}")
         image_Tx = np.asarray(io.imread(img_name_Tx))
 
         #Load Power:
-        self.dir_power = self.dir_dataset+ "Data/cropped/power_map/"
+        self.dir_power = self.dir_dataset+ "data/cropped/power_map/"
         img_name_power = os.path.join(self.dir_power, f"{self.png_list[idx]}")
         image_power = np.asarray(io.imread(img_name_power))
 
