@@ -1,5 +1,4 @@
-# PMNet with SionnaRT: Pathloss Map Prediction
-
+# PMNet with SionnaRT
 ## Overview
 
 - This repository provides detailed instructions on the training of **PMNet**—an NN tailored for path loss map prediction. 
