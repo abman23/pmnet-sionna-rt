@@ -39,29 +39,33 @@
     - Images cropped into 256x256 pixels, ensuring inclusion of TX point and are further augmented.
     - A total of $6455$ cropped images are produced for the USC campus map dataset.
 
-#### ***"How to Pre-Process Data?"***
-To pre-process the pathloss map data, simply run the following script. 
+> ***"How to Pre-Process Data?"***
+- To pre-process the pathloss map data, simply run the following script. 
 Please replace `[START]` and `[END]` with the TX points you want to start and end data mining with. A bigger range will require a lot of memory. A good estimate to have is a range of 5. In order to mine data for all 104 TX, you can run the file updating the `[START]` and `[END]` arguments.
-```
-python data/preprocess.py [START] [END]
-```
+
+    ```
+    python data/preprocess.py [START] [END]
+    ```
 
 
 ## Model: PMNet
 - To train the PMNet model, we use stacked cropped City and TX maps from the data/cropped folder as input to predict the Pathloss map as the output.
 
-#### ***"How to Train?"***
-To train PMNet, simply run the `train.py`.
-```
-python train.py
-```
+> ***"How to Train?"***
+- To train PMNet, simply run the `train.py`.
+
+    ```
+    python train.py
+    ```
  
-#### ***"How to Evaluate?"***
-To evaluate a PMNet, refer to the following commands. Please update the path to model for evaluation. Similarly make sure the data is already present in the `data/cropped` folder else follow the above section to prepare the data.
-```
-python eval.py \
-    --model_to_eval '[PATH_TO_MODEL]' 
-```
+> ***"How to Evaluate?"***
+
+- To evaluate a PMNet, refer to the following commands. Please update the path to model for evaluation. Similarly make sure the data is already present in the `data/cropped` folder else follow the above section to prepare the data.
+
+    ```
+    python eval.py \
+        --model_to_eval '[PATH_TO_MODEL]' 
+    ```
 
 
 ### Download: Dataset and Checkpoint
