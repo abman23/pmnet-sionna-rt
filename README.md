@@ -22,14 +22,14 @@ we use a 3D USC campus model obtained from Blender OSM. These models are then ex
     - Task is to generated power maps, city maps, and tx maps for each TX point
 2. **Image Generation**:
     - Power maps: Grayscale images representing power over regions of interest (RoI)
-        - Grayscale mapping: -250dBm $\rightarrow$ 0, 55 $\rightarrow$ 255 pixel value
+        - Grayscale mapping: -250dBm $\rightarrow$ 0dBm, 55 $\rightarrow$ 255 pixel value
     - City maps: Grayscale images showing RoI and buildings
         - Grayscale mapping: 0 pixel value represents building area, 255 pixel value represents ROI
     - TX maps: Indicate TX point locations with a white $5\times5m^2$ square on black background
-        - White square (255) indicates TX point
-        - Black background (0) indicates RoI and buildings
+        - White square (255 pixel value) indicates TX point
+        - Black background (0 pixel value) indicates RoI and buildings
 3. **Cropping**:
-    - Images cropped into 256x256 pixels, ensuring inclusion of TX point
+    - Images cropped into 256x256 pixels, ensuring inclusion of TX point and are further augmented.
     - Approximately 6,455 cropped images for each type of map.
 #### **How to Prepare Data**
 To prepare the pathloss data set, simply run the following script. Please replace `[START]` and `[END]` with the TX points you want to start and end data mining with. A bigger range will require a lot of memory. A good estimate to have is a range of 5. In order to mine data for all 104 TX, you can run the file updating the `[START]` and `[END]` arguments.
