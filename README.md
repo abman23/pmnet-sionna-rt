@@ -8,9 +8,9 @@
     1. Generating path loss map dataset by utilizing **Sionna RT**; 
     2. Training **PMNet** with the pathloss map dataset to predict path loss map.
 
-- Example (Output): 
+- Example: Ground Truth (**SionnaRT** measurement) vs. Predicted (**PMNet** prediction)
 
-    <img src="figures/Prediction_scene1.png" alt="prediction1" width="400"/> </br>
+    <img src="figures/Prediction_scene1.png" alt="prediction1" width="600"/> </br>
     <!-- <img src="figures/Prediction_scene2.png" alt="prediction2" width="400"/> -->
 
 
@@ -20,8 +20,8 @@
 
 - A 3D map of the USC campus, created with *Blender OSM*, was utilized. These models were then exported to create scenes in **Sionna RT**.
 
-    <img src="figures/View_OpenStreetMap.png" alt="map_USC" height="200"/> &nbsp; &nbsp;
-    <img src="figures/View_Blender.png" alt="blender_3D_USC" height="200"/>
+    <img src="figures/View_OpenStreetMap.png" alt="map_USC" height="250"/> &nbsp; 
+    <img src="figures/View_Blender.png" alt="blender_3D_USC" height="250"/>
 <!-- <img src="figures/CityMap_USC.png" alt="city_map" width="200"/> -->
 
 ### Data Pre-Processing
