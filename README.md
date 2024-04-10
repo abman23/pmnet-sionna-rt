@@ -22,7 +22,6 @@ we use a 3D USC campus model obtained from Blender OSM. These models are then ex
     - Task is to generated power maps, city maps, and tx maps for each TX point
 2. **Image Generation**:
     - Power maps: Grayscale images representing power over regions of interest (RoI)
-        - Range: -250dBm to 0dBm
         - Grayscale mapping: -250dBm $\rightarrow$ 0, 55 $\rightarrow$ 255 pixel value
     - City maps: Grayscale images showing RoI and buildings
         - Grayscale mapping: 0 pixel value represents building area, 255 pixel value represents ROI
