@@ -106,7 +106,7 @@ if __name__ == "__main__":
 
   cm_dim = 900
 
-  city_map = cv2.imread(f"{ROOT}USC_city_map.png")[:, :, 0]
+  city_map = cv2.imread(f"{ROOT}city_map_usc.png")[:, :, 0]
   city_map = cv2.resize(city_map, (cm_dim, cm_dim))
   city_dim = city_map.shape[0]
 

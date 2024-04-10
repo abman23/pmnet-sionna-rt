@@ -67,7 +67,7 @@ Please replace `[START]` and `[END]` with the TX points you want to start and en
     ```
 
 
-### Download: Dataset and Checkpoint
+## Download: Dataset & Checkpoint
 
 - **Dataset**:
     - **Full Dataset**: [.zip](https://drive.google.com/file/d/1_39J6FnhmVIxsyBDQdCkIbN3cF09h9pz/view?usp=sharing)
