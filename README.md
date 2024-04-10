@@ -20,8 +20,8 @@
 
 - A 3D map of the USC campus, created with *Blender OSM*, was utilized. These models were then exported to create scenes in **Sionna RT**.
 
-    <img src="figures/View_OpenStreetMap.png" alt="map_USC" height="250"/> &nbsp; 
-    <img src="figures/View_Blender.png" alt="blender_3D_USC" height="250"/>
+    <img src="figures/View_OpenStreetMap.png" alt="map_USC" height="230"/> &nbsp; 
+    <img src="figures/View_Blender.png" alt="blender_3D_USC" height="230"/>
 <!-- <img src="figures/CityMap_USC.png" alt="city_map" width="200"/> -->
 
 ### Data Pre-Processing
