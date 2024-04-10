@@ -8,7 +8,7 @@
     1. Generating path loss map dataset by utilizing **Sionna RT**; 
     2. Training **PMNet** with the pathloss map dataset to predict path loss map.
 
-- Example: Ground Truth (**SionnaRT** measurement) vs. Predicted (**PMNet** prediction)
+- *Example*: Ground Truth (**SionnaRT** measurement) vs. Predicted (**PMNet** prediction)
 
     <img src="figures/Prediction_scene1.png" alt="prediction1" width="600"/> </br>
     <!-- <img src="figures/Prediction_scene2.png" alt="prediction2" width="400"/> -->
@@ -24,7 +24,7 @@
     <img src="figures/View_Blender.png" alt="blender_3D_USC" height="230"/>
 <!-- <img src="figures/CityMap_USC.png" alt="city_map" width="200"/> -->
 
-### Data Pre-Processing
+### Pre-Processing
 
 1. **Configuration (TX/RX/Channel/etc.)**:
     - *Details will be updated...*
@@ -39,7 +39,7 @@
     - Images cropped into 256x256 pixels, ensuring inclusion of TX point and are further augmented.
     - A total of $6455$ cropped images are produced for the USC campus map dataset.
 
-> ***"How to Pre-Process Data?"***
+> ***"How to Prepare (Pre-Process) Pathloss Map Data?"***
 - To pre-process the pathloss map data, simply run the following script. 
 Please replace `[START]` and `[END]` with the TX points you want to start and end data mining with. A bigger range will require a lot of memory. A good estimate to have is a range of 5. In order to mine data for all 104 TX, you can run the file updating the `[START]` and `[END]` arguments.
 
