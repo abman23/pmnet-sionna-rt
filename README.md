@@ -29,7 +29,7 @@
 2. **Map Generation**:
     - For each scene at a specific TX location, three types of maps are generated:
         1. **Pathloss Maps**: These are grayscale images that visualize pathloss (or pathgain) across regions of interest (RoI).
-            - Gray conversion: $-200 \sim 0$ [dBm] pathgain $\rightarrow$ $55 \sim 255$ grayscale
+            - Gray conversion: $-200 \sim 0$ [dBm] pathgain $\rightarrow$ $50 \sim 250$ grayscale
         2. **City Maps**: These are grayscale images showing RoI and buildings.
             - Grayscale mapping: $0$ (Black) and $255$ (White) gray value represent building and ROI area, respectively.
         3. **TX Maps**: These are grayscale images indicating the TX locations, which is highlited with $255$ (White) gray value.
