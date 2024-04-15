@@ -18,14 +18,14 @@ from dataset_builder.generate_pmap import generate_pmaps
 
 RANDOM_SEED: int | None = None  # manually set random seed
 
-# set a logger
-logger = logging.getLogger("env_v20")
-logger.setLevel(logging.INFO)
-log_path = os.path.join(ROOT_DIR, "log/env_v20.log")
-handler = logging.FileHandler(log_path, encoding='utf-8', mode='a')
-formatter = logging.Formatter("%(asctime)s %(levelname)s %(message)s")
-handler.setFormatter(formatter)
-logger.addHandler(handler)
+# # set a logger
+# logger = logging.getLogger("env_v20")
+# logger.setLevel(logging.INFO)
+# log_path = os.path.join(ROOT_DIR, "log/env_v20.log")
+# handler = logging.FileHandler(log_path, encoding='utf-8', mode='a')
+# formatter = logging.Formatter("%(asctime)s %(levelname)s %(message)s")
+# handler.setFormatter(formatter)
+# logger.addHandler(handler)
 
 
 class BaseEnvironment(MultiAgentEnv):
@@ -115,8 +115,8 @@ class BaseEnvironment(MultiAgentEnv):
 
         # fix a random seed
         self._np_random, seed = seeding.np_random(RANDOM_SEED)
-        if not evaluation_mode:
-            logger.info(f"=============NEW ENV {self.version.upper()} INITIALIZED=============")
+        # if not evaluation_mode:
+        #     logger.info(f"=============NEW ENV {self.version.upper()} INITIALIZED=============")
 
     # retry if action mask contains no 1 (no valid action in the reduced action space)
     @retry(stop_max_attempt_number=3)
@@ -176,8 +176,8 @@ class BaseEnvironment(MultiAgentEnv):
             "map_index": self.map_idx,
             "init_locs": init_locs,
         }
-        if self.n_episodes % 5 == 0:
-            logger.info(info_dict)
+        # if self.n_episodes % 5 == 0:
+        #     logger.info(info_dict)
 
         return observation, {idx: info_dict for idx in self._agent_ids}
 

@@ -30,6 +30,7 @@ class PPOActionMaskRLM(BaseActionMaskRLM, PPOTorchRLModule):
 
     """
     def _forward_inference(self, batch: NestedDict, **kwargs) -> Mapping[str, Any]:
+        # print(batch[SampleBatch.OBS].shape)
         return self.mask_forward_fn(super()._forward_inference, batch, **kwargs)
 
     def _forward_exploration(self, batch: NestedDict, **kwargs) -> Mapping[str, Any]:
