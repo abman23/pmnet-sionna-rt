@@ -9,7 +9,7 @@
 
 - *Example*: Ground Truth (**SionnaRT** measurement) vs. Predicted (**PMNet** prediction)
 
-    <img src="figures/Prediction_scene1.png" alt="prediction1" width="600"/> </br>
+    <img src="figures/Prediction_scene3.png" alt="prediction3" width="600"/> </br>
     <!-- <img src="figures/Prediction_scene2.png" alt="prediction2" width="400"/> -->
 
 
@@ -29,17 +29,17 @@
 2. **Map Generation**:
     - For each scene at a specific TX location, three types of maps are generated:
         1. **Pathloss Maps**: These are grayscale images that visualize pathloss (or pathgain) across regions of interest (RoI).
-            - Gray conversion: $-200 \sim 0$ [dBm] pathgain $\rightarrow$ $50 \sim 250$ grayscale
+            - Gray conversion: $-255 \sim 0$ [dBm] pathgain $\rightarrow$ $50 \sim 255$ grayscale
         2. **City Maps**: These are grayscale images showing RoI and buildings.
-            - Grayscale mapping: $0$ (Black) and $255$ (White) gray value represent building and ROI area, respectively.
+            - Grayscale mapping: $0 \sim 54$ [m] height $\rightarrow$ $0 \sim 54$ grayscale and $255$ (White) gray value represent building and ROI area, respectively.
         3. **TX Maps**: These are grayscale images indicating the TX locations, which is highlited with $255$ (White) gray value.
 3. **Cropping**:
     - Images cropped into 256x256 pixels, ensuring inclusion of TX point and are further augmented.
-    - A total of $6455$ cropped images are produced for the USC campus map dataset.
+    - A total of $4884$ cropped images are produced for the USC campus map dataset.
 
 > ***"How to Prepare (Pre-Process) Pathloss Map Data?"***
 - To pre-process the pathloss map data, simply run the following script. 
-Please replace `[START]` and `[END]` with the TX points you want to start and end data mining with. A bigger range will require a lot of memory. A good estimate to have is a range of 5. In order to mine data for all 104 TX, you can run the file updating the `[START]` and `[END]` arguments.
+Please replace `[START]` and `[END]` with the TX points you want to start and end data mining with. A bigger range will require a lot of memory. A good estimate to have is a range of 5. In order to mine data for all $84$ TX, you can run the file updating the `[START]` and `[END]` arguments.
 
     ```
     python data/preprocess.py [START] [END]
