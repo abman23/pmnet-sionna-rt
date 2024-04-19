@@ -56,8 +56,9 @@ class BruteForceAgent(Agent):
                 _, info_dict = env_train.reset()
 
                 # training
-                action, reward = calc_optimal_locations(env_train.dataset_dir, env_train.map_suffix, info_dict["map_index"],
-                                                        env_train.coverage_threshold, env_train.upsampling_factor)
+                # action, reward = calc_optimal_locations(env_train.dataset_dir, env_train.map_suffix, info_dict["map_index"],
+                #                                         env_train.coverage_threshold, env_train.upsampling_factor)
+                reward = env_train.reward_matrix.max()
                 reward_train_mean += reward / num_maps
             ep_reward_mean_train[i] = reward_train_mean
             time_total_s = time.time() - time_train_start
@@ -69,9 +70,10 @@ class BruteForceAgent(Agent):
                 # evaluation
                 for j in range(num_maps_per_eval):
                     _, info_dict = env_eval.reset()
-                    action, reward = calc_optimal_locations(env_eval.dataset_dir, env_eval.map_suffix,
-                                                            info_dict["map_index"],
-                                                            env_eval.coverage_threshold, env_eval.upsampling_factor)
+                    # action, reward = calc_optimal_locations(env_eval.dataset_dir, env_eval.map_suffix,
+                    #                                         info_dict["map_index"],
+                    #                                         env_eval.coverage_threshold, env_eval.upsampling_factor)
+                    reward = env_eval.reward_matrix.max()
                     reward_eval.append(reward)
                 ep_r_mean, ep_r_std = np.mean(reward_eval), np.std(reward_eval)
                 idx = (i + 1) // eval_interval - 1
@@ -98,7 +100,7 @@ class BruteForceAgent(Agent):
                     "ep_reward_std": ep_reward_std.tolist(),
                     "ep_reward_mean": ep_reward_mean.tolist(),
                 }
-                json.dump(data, open(os.path.join(ROOT_DIR, f"data/{self.algo_name}_{timestamp}.json"), 'w'))
+                json.dump(data, open(os.path.join(ROOT_DIR, f"data/{self.version}_{self.algo_name}_{timestamp}.json"), 'w'))
 
         if log:
             time_total_s = time.time() - time_train_start

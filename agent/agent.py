@@ -45,6 +45,8 @@ class Agent(object):
             from env.env_v15 import BaseEnvironment
         elif version == 'v16':
             from env.env_v16 import BaseEnvironment
+        elif version == 'v18':
+            from env.env_v18 import BaseEnvironment
         else:
             from env.env_v17 import BaseEnvironment
         self.env_class = BaseEnvironment
@@ -301,10 +303,12 @@ class Agent(object):
             obs, _ = env_eval.reset()
             after_reset = time.time()
             # number of RoI pixels - black
-            num_roi = int(env_eval.map_size**2 - env_eval.pixel_map.sum())
+            # num_roi = int(env_eval.map_size**2 - env_eval.pixel_map.sum())
+            num_roi = np.sum(env_eval.pixel_map == 1.)
             num_roi_mean += num_roi / duration
-            action_opt, reward_opt = calc_optimal_locations(env_eval.dataset_dir, env_eval.map_suffix, env_eval.map_idx,
-                                                            env_eval.coverage_threshold, env_eval.upsampling_factor)
+            # action_opt, reward_opt = calc_optimal_locations(env_eval.dataset_dir, env_eval.map_suffix, env_eval.map_idx,
+            #                                                 env_eval.coverage_threshold, env_eval.upsampling_factor)
+            action_opt, reward_opt = env_eval.reward_matrix.argmax(), env_eval.reward_matrix.max()
             after_calc_opt = time.time()
             loc_opt = env_eval.calc_upsampling_loc(action_opt)
             reward_highest, loc_highest = 0, (-1, -1)
@@ -314,13 +318,14 @@ class Agent(object):
             action = self.agent.compute_single_action(obs)
             after_action = time.time()
             row, col = env_eval.calc_upsampling_loc(action)
-            coverage_reward = env_eval.calc_coverage(row, col)
+            # coverage_reward = env_eval.calc_coverage(row, col)
+            coverage_reward = env_eval.calc_coverage(action)
             coverage_rewards.append(coverage_reward)
             if coverage_reward > reward_highest:
                 reward_highest = coverage_reward
                 loc_highest = (row, col)
             cnt += 1
-            obs, reward, term, trunc, info = env_eval.step(action)
+            # obs, reward, term, trunc, info = env_eval.step(action)
 
             coverage_reward_mean, coverage_reward_std = np.mean(coverage_rewards), np.std(coverage_rewards)
             coverage_reward_mean_overall += coverage_reward_mean / duration
@@ -361,17 +366,19 @@ class Agent(object):
             cnt = 0
             term, trunc = False, False
             obs, _ = env_eval.reset()
-            # number of RoI pixels - black
-            num_roi = int(env_eval.map_size ** 2 - env_eval.pixel_map.sum())
+            # number of RoI pixels - white
+            # num_roi = int(env_eval.map_size ** 2 - env_eval.pixel_map.sum())
+            num_roi = np.sum(env_eval.pixel_map == 1.)
             num_roi_mean_new += num_roi / duration
-            action_opt, reward_opt = calc_optimal_locations(env_eval.dataset_dir, env_eval.map_suffix, env_eval.map_idx,
-                                                            env_eval.coverage_threshold, env_eval.upsampling_factor)
+            # action_opt, reward_opt = calc_optimal_locations(env_eval.dataset_dir, env_eval.map_suffix, env_eval.map_idx,
+            #                                                 env_eval.coverage_threshold, env_eval.upsampling_factor)
+            action_opt, reward_opt = env_eval.reward_matrix.argmax(), env_eval.reward_matrix.max()
             loc_opt = env_eval.calc_upsampling_loc(action_opt)
             reward_highest, loc_highest = 0, (-1, -1)
             while not (term or trunc) and cnt < steps_per_map:
                 action = self.agent.compute_single_action(obs)
                 row, col = env_eval.calc_upsampling_loc(action)
-                coverage_reward = env_eval.calc_coverage(row, col)
+                coverage_reward = env_eval.calc_coverage(action)
                 coverage_rewards.append(coverage_reward)
                 if coverage_reward > reward_highest:
                     reward_highest = coverage_reward

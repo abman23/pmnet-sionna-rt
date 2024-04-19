@@ -107,7 +107,7 @@ class RandomAgent(Agent):
                     "ep_reward_std": ep_reward_std.tolist(),
                     "ep_reward_mean": ep_reward_mean.tolist(),
                 }
-                json.dump(data, open(os.path.join(ROOT_DIR, f"data/{self.algo_name}_{timestamp}.json"), 'w'))
+                json.dump(data, open(os.path.join(ROOT_DIR, f"data/{self.version}_{self.algo_name}_{timestamp}.json"), 'w'))
 
         if log:
             time_total_s = time.time() - time_train_start
@@ -139,23 +139,21 @@ class RandomAgent(Agent):
             cnt = 0
             term, trunc = False, False
             obs, _ = env_eval.reset()
-            # number of RoI pixels - black
-            num_roi = int(env_eval.map_size ** 2 - env_eval.pixel_map.sum())
+            # num_roi = int(env_eval.map_size ** 2 - env_eval.pixel_map.sum())
+            num_roi = np.sum(env_eval.pixel_map == 1.)
             num_roi_mean += num_roi / duration
-            action_opt, reward_opt = calc_optimal_locations(env_eval.dataset_dir, env_eval.map_suffix, env_eval.map_idx,
-                                                            env_eval.coverage_threshold, env_eval.upsampling_factor)
+            # action_opt, reward_opt = calc_optimal_locations(env_eval.dataset_dir, env_eval.map_suffix, env_eval.map_idx,
+            #                                                 env_eval.coverage_threshold, env_eval.upsampling_factor)
+            action_opt, reward_opt = env_eval.reward_matrix.argmax(), env_eval.reward_matrix.max()
             loc_opt = env_eval.calc_upsampling_loc(action_opt)
-            reward_highest, loc_highest = 0, (-1, -1)
+            loc = (0, 0)
             while not (term or trunc) and cnt < steps_per_map:
                 action = env_eval.np_random.choice(np.where(env_eval.mask == 1)[0])
-                row, col = env_eval.calc_upsampling_loc(action)
-                coverage_reward = env_eval.calc_coverage(row, col)
-                coverage_reward_mean += coverage_reward
-                if coverage_reward > reward_highest:
-                    reward_highest = coverage_reward
-                    loc_highest = (row, col)
-                cnt += 1
                 obs, reward, term, trunc, info = env_eval.step(action)
+                coverage_reward_mean += reward
+                loc = info['loc']
+                cnt += 1
+
 
             coverage_reward_mean /= cnt
             coverage_reward_mean_overall += coverage_reward_mean / duration
@@ -173,7 +171,7 @@ class RandomAgent(Agent):
                                                      self.version + '_' + timestamp + '_' + self.algo_name + '_train_' +
                                                      str(i) + '_' + suffix + '.png')
                         save_map(filepath=test_map_path, pixel_map=env_eval.pixel_map, reverse_color=False,
-                                 mark_size=5, mark_loc=loc_opt, mark_locs=[loc_highest])
+                                 mark_size=5, mark_loc=loc_opt, mark_locs=[loc])
 
         # test on new maps
         env_config = dict_update(env_config, self.config['eval']['evaluation_config']['env_config'])
@@ -190,23 +188,19 @@ class RandomAgent(Agent):
             cnt = 0
             term, trunc = False, False
             obs, _ = env_eval.reset()
-            # number of RoI pixels - black
-            num_roi = int(env_eval.map_size ** 2 - env_eval.pixel_map.sum())
+            # num_roi = int(env_eval.map_size ** 2 - env_eval.pixel_map.sum())
+            num_roi = np.sum(env_eval.pixel_map == 1.)
             num_roi_mean_new += num_roi / duration
-            action_opt, reward_opt = calc_optimal_locations(env_eval.dataset_dir, env_eval.map_suffix, env_eval.map_idx,
-                                                            env_eval.coverage_threshold, env_eval.upsampling_factor)
+            action_opt, reward_opt = env_eval.reward_matrix.argmax(), env_eval.reward_matrix.max()
             loc_opt = env_eval.calc_upsampling_loc(action_opt)
-            reward_highest, loc_highest = 0, (-1, -1)
+            loc = (0, 0)
             while not (term or trunc) and cnt < steps_per_map:
                 action = env_eval.np_random.choice(np.where(env_eval.mask == 1)[0])
-                row, col = env_eval.calc_upsampling_loc(action)
-                coverage_reward = env_eval.calc_coverage(row, col)
-                coverage_reward_mean += coverage_reward
-                if coverage_reward > reward_highest:
-                    reward_highest = coverage_reward
-                    loc_highest = (row, col)
-                cnt += 1
                 obs, reward, term, trunc, info = env_eval.step(action)
+                coverage_reward_mean += reward
+                loc = info['loc']
+                cnt += 1
+
 
             coverage_reward_mean /= cnt
             coverage_reward_mean_overall_new += coverage_reward_mean / duration
@@ -225,7 +219,7 @@ class RandomAgent(Agent):
                                                      self.version + '_' + timestamp + '_' + self.algo_name + '_test_' + str(
                                                          i) + '_' + suffix + '.png')
                         save_map(filepath=test_map_path, pixel_map=env_eval.pixel_map, reverse_color=False,
-                                 mark_size=5, mark_loc=loc_opt, mark_locs=[loc_highest])
+                                 mark_size=5, mark_loc=loc_opt, mark_locs=[loc])
 
         info1 = (f"overall average coverage reward for trained maps: {coverage_reward_mean_overall},"
                  f" average optimal reward: {reward_opt_mean},"

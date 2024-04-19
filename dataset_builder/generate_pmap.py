@@ -9,6 +9,7 @@ import numpy as np
 from PIL import Image
 from tqdm import tqdm
 import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
 
 from dataset_builder.pmnet_v3 import PMNet
 from env.utils_v1 import ROOT_DIR, calc_coverages_and_save, load_map_normalized
@@ -27,11 +28,14 @@ def load_maps(dir_base: str = "usc", indices: np.ndarray = np.arange(100, dtype=
         arr_maps[idx] = (np.array(arr_map,
                                   dtype=np.float32) - 0) / 255  # 256 x 256 matrix with value in [0,1] (grayscale)
         # arr_maps[idx] = np.asarray(io.imread(filename))
+        # print(f"map {idx}: ")
+        # print(arr_maps[idx][100: 110, 100: 110])
 
     return arr_maps
 
 
-def generate_tx_layer(arr_map: np.ndarray, tx_size: int = 1, upsampling_factor: int = 4) -> dict[int, np.ndarray]:
+def generate_tx_layer(arr_map: np.ndarray, tx_size: int = 1, upsampling_factor: int = 4,
+                      non_building_pixel_value: float = 0.) -> dict[int, np.ndarray]:
     """Generate TX layers (same shape as the map) corresponding to all valid TX locations on a map.
 
     """
@@ -43,7 +47,7 @@ def generate_tx_layer(arr_map: np.ndarray, tx_size: int = 1, upsampling_factor: 
             # only generate upsampled TX location corresponding to the action in auto BS
             y, x = row * upsampling_factor + (upsampling_factor - 1) // 2, col * upsampling_factor + (
                     upsampling_factor - 1) // 2
-            if arr_map[y, x] == 1.:  # white pixel - building
+            if arr_map[y, x] != non_building_pixel_value:
                 arr_tx = np.zeros_like(arr_map, dtype=np.uint8)  # black background
                 y_top, y_bottom = max(0, y - (tx_size - 1) // 2), min(map_size, y + tx_size // 2 + 1),
                 x_left, x_right = max(0, x - (tx_size - 1) // 2), min(map_size, x + tx_size // 2 + 1)
@@ -56,7 +60,7 @@ def generate_tx_layer(arr_map: np.ndarray, tx_size: int = 1, upsampling_factor: 
 
 
 def create_dataset(input_dir_base: str = "usc", index: int = 1, tx_size: int = 1, upsampling_factor: int = 4,
-                   device: str = "cpu") -> tuple[list[str], torch.Tensor, dict[int, np.ndarray]]:
+                   non_building_pixel_value: float = 0., device: str = "cpu") -> tuple[list[str], torch.Tensor, dict[int, np.ndarray]]:
     """Create dataset for PMNet (cropped maps + TX locations).
 
     """
@@ -64,7 +68,7 @@ def create_dataset(input_dir_base: str = "usc", index: int = 1, tx_size: int = 1
     arr_maps = load_maps(input_dir_base, indices)
     arr_map = arr_maps[index]
     idx_map_tx, tensors = [], []  # index (map index + tx index), tensor ([map, tx], ch=2)
-    tx_layers = generate_tx_layer(arr_map, tx_size, upsampling_factor)
+    tx_layers = generate_tx_layer(arr_map, tx_size, upsampling_factor, non_building_pixel_value)
     for idx_tx, tx_layer in tx_layers.items():
         idx_data = str(index) + '_' + str(idx_tx)
         idx_map_tx.append(idx_data)
@@ -74,10 +78,10 @@ def create_dataset(input_dir_base: str = "usc", index: int = 1, tx_size: int = 1
         # img_tx.save(os.path.join(output_dir_base, "tx_" + suffix, "tx_" + idx_data + ".png"))
         # concatenate map and tx along channel-wisely
         arr_input = np.stack([arr_map, tx_layer], axis=0, dtype=np.float32)
-        tensor_input = torch.from_numpy(arr_input).to(device)
+        tensor_input = torch.from_numpy(arr_input)
         tensors.append(tensor_input)
 
-    tensors = torch.stack(tensors, dim=0)
+    tensors = torch.stack(tensors, dim=0).to(device)
     # print(f"tensors shape: {tensors.shape}")
 
     return idx_map_tx, tensors, tx_layers
@@ -152,7 +156,9 @@ def inference(model: nn.Module, idx: list[str], tensors: torch.Tensor, batch_siz
                 #     print(arr[:5, :5])
                 if save:
                     file_name = 'pmap_' + batch_idx[j] + '.png'
-                    file_path = os.path.join(ROOT_DIR, kwargs['dir_base'], kwargs['dir_img'], file_name)
+                    img_dir = os.path.join(ROOT_DIR, kwargs['dir_base'], kwargs['dir_img'])
+                    os.makedirs(img_dir, exist_ok=True)
+                    file_path = os.path.join(img_dir, file_name)
                     plt.imsave(file_path, arr, cmap='gray')
 
     return power_maps
@@ -163,7 +169,7 @@ def generate_pmaps(map_idx: int, upsampling_factor: int, mark_tx: bool, save: bo
 
     """
     # Load PMNet Model Parameters
-    pretrained_model = os.path.join(ROOT_DIR, 'dataset_builder/checkpoints/summary_case4.pt')
+    pretrained_model = os.path.join(ROOT_DIR, 'dataset_builder/checkpoints/model_0.00136.pt')
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     model = PMNet(n_blocks=[3, 3, 27, 3],
                   atrous_rates=[6, 12, 18],
@@ -172,9 +178,10 @@ def generate_pmaps(map_idx: int, upsampling_factor: int, mark_tx: bool, save: bo
     model.load_state_dict(torch.load(pretrained_model, map_location=device))
     model = model.to(device)
     # Generate power maps using PMNet
-    idx, tensors, tx_layers = create_dataset(input_dir_base=kwargs['dir_base'], index=map_idx, tx_size=12,
-                                             upsampling_factor=upsampling_factor, device=device)
-    power_maps = inference(model=model, idx=idx, tensors=tensors, batch_size=128, mark_tx=mark_tx, tx_layers=tx_layers,
+    idx, tensors, tx_layers = create_dataset(input_dir_base=kwargs['dir_base'], index=map_idx, tx_size=3,
+                                             upsampling_factor=upsampling_factor, non_building_pixel_value=1.,
+                                             device=device)
+    power_maps = inference(model=model, idx=idx, tensors=tensors, mark_tx=mark_tx, tx_layers=tx_layers,
                            save=save, **kwargs)
 
     return power_maps
@@ -187,6 +194,8 @@ def generate_reward_matrix(map_idx: int, dir_dataset: str, data_type: str, map_s
 
     """
     pmap_dir = os.path.join(ROOT_DIR, 'resource', dir_dataset, f'pmap_{data_type}')
+    if not os.path.exists(pmap_dir):
+        os.makedirs(pmap_dir)
     map_dir = os.path.join(ROOT_DIR, 'resource', dir_dataset, 'map')
     map_path = os.path.join(map_dir, f"{map_idx}.png")
     map_arr = load_map_normalized(map_path)
@@ -217,69 +226,81 @@ def generate_reward_matrix(map_idx: int, dir_dataset: str, data_type: str, map_s
 
 
 if __name__ == '__main__':
-    # for i in range(1, 1 + 16 * 1000, 16):
-    #     generate_pmaps(i, 8, mark_tx=True, save=True, dir_base='resource/usc_old_sparse', dir_img='pmap_train')
-
-    # for i in range(2, 2 + 32 * 100, 32):
-    #     generate_pmaps(i, 8, mark_tx=True, save=True, dir_base='resource/usc_old_sparse', dir_img='pmap_test')
-
-    # # Load PMNet Model Parameters
-    # pretrained_model = os.path.join(ROOT_DIR, 'dataset_builder/checkpoints/summary_case4.pt')
-    # device = 'cuda' if torch.cuda.is_available() else 'cpu'
-    # print(device)
-    # model = PMNet(n_blocks=[3, 3, 27, 3],
-    #               atrous_rates=[6, 12, 18],
-    #               multi_grids=[1, 2, 4],
-    #               output_stride=8, )
-    # model.load_state_dict(torch.load(pretrained_model, map_location=device))
-    # model = model.to(device)
+    # for i in range(1, 1001, 1):
+    #     generate_pmaps(i, 8, batch_size=32,
+    #                    mark_tx=False, save=True, dir_base='resource/usc_new', dir_img='pmap_train')
     #
-    # arr_map = np.random.randint(2, size=[256, 256])
-    # tensors = []
-    # for _ in range(2):
-    #     tx_layer = np.random.randint(2, size=[256, 256])
-    #     arr_input = np.stack([arr_map, tx_layer], axis=0, dtype=np.float32)
-    #     tensor_input = torch.from_numpy(arr_input).to(device)
-    #     tensors.append(tensor_input)
-    # tensors = torch.stack(tensors, dim=0)
+    # for i in range(1001, 1101, 1):
+    #     generate_pmaps(i, 8, batch_size=32,
+    #                    mark_tx=False, save=True, dir_base='resource/usc_new', dir_img='pmap_test')
+
+    # Load PMNet Model Parameters
+    pretrained_model = os.path.join(ROOT_DIR, 'dataset_builder/checkpoints/model_0.00136.pt')
+    device = 'cuda' if torch.cuda.is_available() else 'cpu'
+    print(device)
+    model = PMNet(n_blocks=[3, 3, 27, 3],
+                  atrous_rates=[6, 12, 18],
+                  multi_grids=[1, 2, 4],
+                  output_stride=8, )
+    model.load_state_dict(torch.load(pretrained_model, map_location=device))
+    model = model.to(device)
+
+    bld_filename = os.path.join(ROOT_DIR, 'resource/cropped_downsample_512x512/city_map/0_0_0.png')
+    arr_map = np.array(Image.open(bld_filename).convert('L'), dtype=np.float32)
+    # print(arr_map.max(), arr_map.min())
+    arr_map /= 255.
+    tx_filename = os.path.join(ROOT_DIR, 'resource/cropped_downsample_512x512/tx_map/0_0_0.png')
+    tx_layer = np.array(Image.open(tx_filename).convert('L'), dtype=np.float32) / 255.
+    arr_input = np.stack([arr_map, tx_layer], axis=0, dtype=np.float32)
+    tensor_input = torch.from_numpy(arr_input).to(device)
+    bld_filename2 = os.path.join(ROOT_DIR, 'resource/cropped_downsample_512x512/city_map/0_0_1.png')
+    arr_map2 = np.array(Image.open(bld_filename2).convert('L'), dtype=np.float32) / 255.
+    # tx_filename2 = os.path.join(ROOT_DIR, 'resource/cropped_downsample_512x512/tx_map/0_0_1.png')
+    # tx_layer2 = np.array(Image.open(tx_filename2).convert('L'), dtype=np.float32) / 255.
+    tx_layer2 = np.zeros_like(arr_map2, dtype=np.uint8)  # black background
+    tx_size, map_size = 3, 256
+    y, x = 100, 100
+    y_top, y_bottom = max(0, y - (tx_size - 1) // 2), min(map_size, y + tx_size // 2 + 1),
+    x_left, x_right = max(0, x - (tx_size - 1) // 2), min(map_size, x + tx_size // 2 + 1)
+    tx_layer2[y_top: y_bottom, x_left: x_right] = 1
+    arr_input2 = np.stack([arr_map, tx_layer2], axis=0, dtype=np.float32)
+    tensor_input2 = torch.from_numpy(arr_input2).to(device)
+    tensors = torch.stack([tensor_input, tensor_input2], dim=0)
     # print(tensors.shape)
-    # output = model(tensors)
+
+    output = model(tensors)
+    output = torch.clip(output, 0, 1)
     # print(output.shape)
+    arr = output[0, 0].detach().numpy()
+    print(arr.max())
+    arr2 = output[1, 0].detach().numpy()
+    print(arr2.max())
+    mask = arr > 0.  # only consider RoI area
+    thr = np.percentile(arr[mask], 80)
+    print(f"thr 1: {thr}")
+    mask = arr2 > 0.  # only consider RoI area
+    thr = np.percentile(arr2[mask], 80)
+    print(f"thr 2: {thr}")
+    arr2 = np.where(arr >= thr, 1., 0.)
+    # arr2 = mpimg.imread('../resource/cropped_downsample_512x512/power_map/0_0_0.png')
 
-    # Generate reward matrices
-    for i in tqdm(range(1, 1 + 16 * 1000, 16)):
-        generate_reward_matrix(map_idx=i, dir_dataset='usc_old_sparse', data_type='train',
-                               map_size=256, upsampling_factor=8, coverage_thr=240./255)
-    for i in tqdm(range(2, 2 + 32 * 100, 32)):
-        generate_reward_matrix(map_idx=i, dir_dataset='usc_old_sparse', data_type='test',
-                               map_size=256, upsampling_factor=8, coverage_thr=240./255)
+    fig, axes = plt.subplots(1, 2, figsize=(10, 5))
+    # Plot the first image
+    axes[0].imshow(arr, cmap='gray')
+    axes[0].set_title('From PMNet')
 
-#
-#     # Save Power Map
-#     # idx, tensors = create_dataset(input_dir_base='usc', indices=np.arange(1, dtype=int), device=device)
-#     # inference_and_save(model=model, idx=idx, tensors=tensors, batch_size=8, dir_base='usc/pmap/')
-#
-#     idx_start, idx_end = 1, 1 + 32 * 100
-#     # only do inference on one map at one time in case of OutOfMemoeryError
-#     for idx_eval in tqdm(range(idx_start, idx_end, 32)):
-#         idx, tensors = create_dataset(input_dir_base='resource/usc_old',
-#                                       indices=np.arange(idx_eval, idx_eval + 1, dtype=int), tx_size=12,
-#                                       upsampling_factor=8, device=device)
-#         inference_and_save(model=model, idx=idx, tensors=tensors, batch_size=4, dir_base='resource/usc_old_2',
-#                            dir_img='pmap_train')
-#
-#     idx_start, idx_end = 2, 2 + 32 * 50
-#     # only do inference on one map at one time in case of OutOfMemoeryError
-#     for idx_eval in tqdm(range(idx_start, idx_end, 32)):
-#         idx, tensors = create_dataset(input_dir_base='resource/usc_old',
-#                                       indices=np.arange(idx_eval, idx_eval + 1, dtype=int), tx_size=12,
-#                                       upsampling_factor=8, device=device)
-#         inference_and_save(model=model, idx=idx, tensors=tensors, batch_size=4, dir_base='resource/usc_old_2',
-#                            dir_img='pmap_test')
+    # Plot the second image
+    axes[1].imshow(arr2, cmap='gray')
+    axes[1].set_title('Covered Area')
+    # plt.imshow(arr2, cmap='gray')
+    plt.show()
 
-# Do not pre-calculate and store environment stepping-related data in json because
-# reading data from json files is slower than reading from images + calculating these data.
-# # calculate optimal TX location based on power map and save all information to json
-# calc_coverages_and_save(dataset_dir='resource/usc_old', output_dir='resource/usc_old_json',
-#                         map_indices=np.arange(idx_eval, idx_eval + 1, dtype=int), map_suffix='test',
-#                         coverage_threshold=220./255, upsampling_factor=256//64)
+
+
+    # # Generate reward matrices
+    # for i in tqdm(range(1, 1 + 16 * 1000, 16)):
+    #     generate_reward_matrix(map_idx=i, dir_dataset='usc_new', data_type='train',
+    #                            map_size=256, upsampling_factor=8, coverage_thr=170./255)
+    # for i in tqdm(range(2, 2 + 32 * 100, 32)):
+    #     generate_reward_matrix(map_idx=i, dir_dataset='usc_new', data_type='test',
+    #                            map_size=256, upsampling_factor=8, coverage_thr=170./255)

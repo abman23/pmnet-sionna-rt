@@ -8,11 +8,11 @@ from torch.distributions import Distribution
 from agent.ppo import PPOAgent
 from agent.random import RandomAgent
 from agent.brute_force import BruteForceAgent
-from multi_agent.async_random import RandomAgent
-from multi_agent.ma_brute_force import BruteForceAgent
+# from multi_agent.async_random import RandomAgent
+# from multi_agent.ma_brute_force import BruteForceAgent
 from env.utils_v1 import ROOT_DIR, plot_rewards
 
-VERSION = 'v21'
+VERSION = 'v18'
 
 if __name__ == "__main__":
     # prevent error caused by simplex check failure
@@ -32,7 +32,8 @@ if __name__ == "__main__":
                                 version=VERSION)
 
     # train these baseline agents and evaluate every some steps
-    timestamp = datetime.now().strftime('%m%d_%H%M')
+    # timestamp = datetime.now().strftime('%m%d_%H%M')
+    timestamp = '0419_0027'
     random_agent.train_and_eval(log=True, timestamp=timestamp)
     filename_rand = f"{VERSION}_{random_agent.algo_name}_{timestamp}.json"
     bf_sparse.train_and_eval(log=True, timestamp=timestamp)
@@ -43,7 +44,7 @@ if __name__ == "__main__":
 
     # plot the reward curves
     plot_rewards(output_name="rand_bf_ppo", algo_names=["random", "bf_sparse", "ppo"],
-                 data_filenames=[filename_rand, filename_bf_sparse, 'v21_ppo_0413_0022.json'],
+                 data_filenames=[filename_rand, filename_bf_sparse, 'v18_ppo_0419_0027.json'],
                  # data_filenames=['random_0321_1812.json', 'brute-force_0321_1817.json', 'brute-force_0321_1839.json', 'ppo_0321_2245.json'],
                  version=VERSION, evaluation=True, log=True, n_epi=500)
 
