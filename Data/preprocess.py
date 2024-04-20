@@ -77,6 +77,10 @@ def crop_image_with_tx(root, bs, tx_image, building_mask, power, point, w, crop_
                 crop_tx = augment_image(
                     cv2.resize(tx_image[y:y + crop_height, x:x + crop_width], (256, 256))
                 )
+                
+                for crop in crop_tx:
+                    crop[crop>0] = 255
+
                 crop_bld = augment_image(
                     cv2.resize(building_mask[y:y + crop_height, x:x + crop_width], (256, 256))
                 )
