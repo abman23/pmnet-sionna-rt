@@ -75,4 +75,4 @@ Please replace `[START]` and `[END]` with the TX points you want to start and en
     
 
 - **Checkpoint (Pre-trained PMNet)**:
-    - **PMNet (RMSE: 0.00136)**: [ckpt](https://drive.google.com/file/d/1TOVlVfZNIeXRznd_0yht95_Ff4iL3hBc/view?usp=drive_link)
+    - **PMNet (RMSE: 0.00113)**: [ckpt](https://drive.google.com/file/d/1D2-SWNeeuUfYJ-jfvD-lF0V62waDs9U3/view?usp=sharing)
