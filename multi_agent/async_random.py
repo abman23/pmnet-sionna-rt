@@ -9,7 +9,7 @@ from env.utils_v1 import ROOT_DIR, dict_update
 from multi_agent.async_agent import Agent
 
 
-class RandomAgent(Agent):
+class AsyncRandom(Agent):
     def __init__(self, config: dict, log_file: str, version: str) -> None:
         super().__init__(config, log_file, version)
 
@@ -141,8 +141,8 @@ class RandomAgent(Agent):
 
         for i in range(duration):
             obs, info_dict = env_eval.reset()
-            # number of RoI pixels - black
-            num_roi = int(env_eval.map_size ** 2 - env_eval.pixel_map.sum())
+            # number of RoI pixels
+            num_roi = np.sum(env_eval.pixel_map == 1)
             num_roi_mean += num_roi / duration
             locs_opt, reward_opt = env_eval.calc_optimal_locations()
             locs = []
@@ -184,8 +184,8 @@ class RandomAgent(Agent):
         start_time = time.time()
         for i in range(duration):
             obs, info_dict = env_eval.reset()
-            # number of RoI pixels - black
-            num_roi = int(env_eval.map_size ** 2 - env_eval.pixel_map.sum())
+            # number of RoI pixels
+            num_roi = np.sum(env_eval.pixel_map == 1)
             num_roi_mean_new += num_roi / duration
             locs_opt, reward_opt = env_eval.calc_optimal_locations()
             locs = []

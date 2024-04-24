@@ -1,8 +1,8 @@
 env:
+  n_bs: 2
   map_size: 256
   action_space_size: 32
   n_maps: 1000
-  n_episodes_per_map: 1
   n_steps_truncate: 20  # batch_size / num_maps_per_update
   dataset_dir: resource/new_usc
   no_masking: false
@@ -12,7 +12,7 @@ eval:
       evaluation: true
       n_maps: 100
       n_episodes_per_map: 1
-      n_steps_truncate: 10
+      n_steps_truncate: 20
     exploration:
       explore: false
   num_maps_per_eval: 100
@@ -30,20 +30,20 @@ resource:
   num_gpus_per_worker: 0
 rollout:
   num_envs_per_worker: 1
-  num_rollout_workers: 4
+  num_rollout_workers: 2
   batch_mode: truncate_episodes
 stop:
-  training_iteration: 300  # 500 for 1000 maps
+  training_iteration: 200  # 500 for 1000 maps
 train:
   lr: 1.0e-05
   gamma: 0.1
   grad_clip: 40.0
-  train_batch_size: 2000
-  sgd_minibatch_size: 128
+  train_batch_size: 2000  # 2000
+  sgd_minibatch_size: 128  # 128
   num_sgd_iter: 20
   model:
     fcnet_hiddens: [128, 128]
     fcnet_activation: relu
-#    post_fcnet_hiddens: [128]
+#    uses_new_env_runners: true
 agent:
   data_saving_interval: 50

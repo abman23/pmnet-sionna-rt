@@ -34,6 +34,8 @@ class Agent(object):
         # set an environment class
         if version == "v21":
             from env.env_v21 import BaseEnvironment
+        elif version == 'v30':
+            from env.env_v30 import BaseEnvironment
         else:
             from env.env_v21 import BaseEnvironment
         self.env_class = BaseEnvironment
@@ -124,33 +126,25 @@ class Agent(object):
                 # save the model
                 self.agent.save(os.path.join(ROOT_DIR, f"checkpoint/{self.version}_{self.algo_name}_{timestamp}"))
 
-        if eval_interval is not None:
-            # plot the mean reward in evaluation
-            fig, ax = plt.subplots()
-            fig.set_size_inches(10, 6)
-            ax.plot(ep_eval, ep_reward_mean, color="blue")
-            sup = list(map(lambda x, y: x + y, ep_reward_mean, ep_reward_std))
-            inf = list(map(lambda x, y: x - y, ep_reward_mean, ep_reward_std))
-            ax.fill_between(ep_eval, inf, sup, color="blue", alpha=0.5)
-            ax.set(xlabel="training_step", ylabel="mean reward per step",
-                   title=f"{self.algo_name.upper()} Evaluation Results")
-            ax.grid()
-            if log:
-                fig.savefig(os.path.join(ROOT_DIR, f"figures/{self.version}_{self.algo_name}_{timestamp}_eval.png"))
-
-        # plot mean reward in training
+        # plot mean reward
         fig, ax = plt.subplots()
         fig.set_size_inches(10, 6)
-        ax.plot(ep_train, ep_reward_mean_train, color='red')
-        sup = list(map(lambda x, y: x + y, ep_reward_mean_train, ep_reward_std_train))
-        inf = list(map(lambda x, y: x - y, ep_reward_mean_train, ep_reward_std_train))
-        ax.fill_between(ep_train, inf, sup, color="red", alpha=0.5)
-        ax.set(xlabel="training_step", ylabel="mean reward per step",
+        ax.plot(ep_train, ep_reward_mean_train, color='red', label='train')
+        # sup = list(map(lambda x, y: x + y, ep_reward_mean_train, ep_reward_std_train))
+        # inf = list(map(lambda x, y: x - y, ep_reward_mean_train, ep_reward_std_train))
+        # ax.fill_between(ep_train, inf, sup, color="red", alpha=0.2)
+        if eval_interval is not None:
+            # plot the mean reward in evaluation
+            ax.plot(ep_eval, ep_reward_mean, color="blue", label='eval')
+            # sup = list(map(lambda x, y: x + y, ep_reward_mean, ep_reward_std))
+            # inf = list(map(lambda x, y: x - y, ep_reward_mean, ep_reward_std))
+            # ax.fill_between(ep_eval, inf, sup, color="blue", alpha=0.2)
+        ax.set(xlabel="episode", ylabel="average reward",
                title=f"{self.algo_name.upper()} Training Results")
         ax.grid()
+        ax.legend()
         if log:
-            fig.savefig(os.path.join(ROOT_DIR, f"figures/{self.version}_{self.algo_name}_{timestamp}_train.png"))
-
+            fig.savefig(os.path.join(ROOT_DIR, f"figures/{self.version}_{self.algo_name}_{timestamp}.png"))
         plt.show()
 
     def continue_train(self, start_episode: int, data_path: str, model_path: str, **kwargs) -> None:
@@ -232,33 +226,22 @@ class Agent(object):
                 # save the model
                 self.agent.save(os.path.join(ROOT_DIR, f"checkpoint/{self.version}_{self.algo_name}_{timestamp}"))
 
-        if eval_interval is not None:
-            # plot the mean reward in evaluation
-            fig, ax = plt.subplots()
-            fig.set_size_inches(10, 6)
-            ax.plot(training_data['ep_eval'], training_data['ep_reward_mean'], color="blue")
-            sup = list(map(lambda x, y: x + y, training_data['ep_reward_mean'], training_data['ep_reward_std']))
-            inf = list(map(lambda x, y: x - y, training_data['ep_reward_mean'], training_data['ep_reward_std']))
-            ax.fill_between(training_data['ep_eval'], inf, sup, color="blue", alpha=0.2)
-            ax.set(xlabel="training_step", ylabel="mean reward",
-                   title=f"{self.algo_name.upper()} Evaluation Results")
-            ax.grid()
-            if log:
-                fig.savefig(os.path.join(ROOT_DIR, f"figures/{self.version}_{self.algo_name}_{timestamp}_eval.png"))
-
         # plot mean reward in training
         fig, ax = plt.subplots()
         fig.set_size_inches(10, 6)
-        ax.plot(training_data['ep_train'], training_data['ep_reward_mean_train'], color='red')
-        sup = list(map(lambda x, y: x + y, training_data['ep_reward_mean_train'], training_data['ep_reward_std_train']))
-        inf = list(map(lambda x, y: x - y, training_data['ep_reward_mean_train'], training_data['ep_reward_std_train']))
-        ax.fill_between(training_data['ep_train'], inf, sup, color="red", alpha=0.2)
-        ax.set(xlabel="training_step", ylabel="mean reward",
+        ax.plot(training_data['ep_train'], training_data['ep_reward_mean_train'], color='red', label='train')
+        # sup = list(map(lambda x, y: x + y, training_data['ep_reward_mean_train'], training_data['ep_reward_std_train']))
+        # inf = list(map(lambda x, y: x - y, training_data['ep_reward_mean_train'], training_data['ep_reward_std_train']))
+        # ax.fill_between(training_data['ep_train'], inf, sup, color="red", alpha=0.2)
+        if eval_interval is not None:
+            # plot the mean reward in evaluation
+            ax.plot(training_data['ep_eval'], training_data['ep_reward_mean'], color="blue", label='eval')
+        ax.set(xlabel="episode", ylabel="average reward",
                title=f"{self.algo_name.upper()} Training Results")
         ax.grid()
+        ax.legend()
         if log:
-            fig.savefig(os.path.join(ROOT_DIR, f"figures/{self.version}_{self.algo_name}_{timestamp}_train.png"))
-
+            fig.savefig(os.path.join(ROOT_DIR, f"figures/{self.version}_{self.algo_name}_{timestamp}.png"))
         plt.show()
 
     def test(self, timestamp: str, duration: int = 25, log: bool = True, suffix: str = 'after'):
@@ -287,7 +270,7 @@ class Agent(object):
             obs, info_dict = env_eval.reset()
             after_reset = time.time()
             # number of RoI pixels - black
-            num_roi = int(env_eval.map_size ** 2 - env_eval.pixel_map.sum())
+            num_roi = np.sum(env_eval.pixel_map == 1)
             num_roi_mean += num_roi / duration
             locs_opt, reward_opt = env_eval.calc_optimal_locations()
             after_calc_opt = time.time()
@@ -337,8 +320,8 @@ class Agent(object):
         start_time = time.time()
         for i in range(duration):
             obs, info_dict = env_eval.reset()
-            # number of RoI pixels - black
-            num_roi = int(env_eval.map_size ** 2 - env_eval.pixel_map.sum())
+            # number of RoI pixels - white
+            num_roi = np.sum(env_eval.pixel_map == 1)
             num_roi_mean_new += num_roi / duration
             locs_opt, reward_opt = env_eval.calc_optimal_locations()
             locs = []

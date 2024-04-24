@@ -153,7 +153,7 @@ def calc_optimal_locations(dataset_dir: str, map_suffix: str, map_idx: int,
 
 
 def plot_rewards(output_name: str, algo_names: list[str], data_filenames: list[str], version: str,
-                 evaluation: bool = True, log: bool = False, n_epi: int = 10):
+                 evaluation: bool = True, log: bool = False, n_epi: int = 10, timestamp: str = datetime.now().strftime('%m%d_%H%M')):
     """Plot rewards curve of multiple algorithms.
 
     """
@@ -177,9 +177,9 @@ def plot_rewards(output_name: str, algo_names: list[str], data_filenames: list[s
             # print(len(ep_eval), len(ep_reward_mean))
             ax = axes[1]
             ax.plot(ep_eval, ep_reward_mean, label=algo_name.upper())
-            sup = list(map(lambda x, y: x + y, ep_reward_mean, ep_reward_std))
-            inf = list(map(lambda x, y: x - y, ep_reward_mean, ep_reward_std))
-            ax.fill_between(ep_eval, inf, sup, alpha=0.2)
+            # sup = list(map(lambda x, y: x + y, ep_reward_mean, ep_reward_std))
+            # inf = list(map(lambda x, y: x - y, ep_reward_mean, ep_reward_std))
+            # ax.fill_between(ep_eval, inf, sup, alpha=0.2)
 
         # plot reward in training
         ep_train = algo_data['ep_train'][:n_epi]
@@ -199,7 +199,6 @@ def plot_rewards(output_name: str, algo_names: list[str], data_filenames: list[s
     ax.grid()
     ax.legend()
 
-    timestamp = datetime.now().strftime('%m%d_%H%M')
     if log:
         fig.savefig(os.path.join(ROOT_DIR, f"figures/compare/{version}_{output_name}_{timestamp}.png"))
         # fig.savefig(os.path.join(ROOT_DIR, f"figures/{version}_{algo_names[0]}_{timestamp}.png"))

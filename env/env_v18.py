@@ -10,7 +10,7 @@ from gymnasium.spaces import Discrete, MultiBinary, Dict, Box
 from gymnasium.utils import seeding
 from retrying import retry
 
-from env.utils_v1 import ROOT_DIR, calc_coverages, load_map_normalized, calc_optimal_locations
+from env.utils_v1 import ROOT_DIR, load_map_normalized
 
 RANDOM_SEED: int | None = None  # manually set random seed
 
@@ -206,7 +206,7 @@ class BaseEnvironment(gym.Env):
 
 
 if __name__ == "__main__":
-    reward_matrix_path = os.path.join(ROOT_DIR, 'resource/usc_new', 'reward_matrix',
+    reward_matrix_path = os.path.join(ROOT_DIR, 'resource/new_usc', 'reward_matrix',
                                       f'reward_{1}.json')
     reward_matrix = np.array(json.load(open(reward_matrix_path)))
     print(reward_matrix.shape)
