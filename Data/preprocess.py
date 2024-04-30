@@ -68,18 +68,24 @@ def crop_image_with_tx(root, bs, tx_image, building_mask, power, point, w, crop_
     min_sq, max_sq = point-shift, point+shift
     count = 0
 
+    scale = crop_height/256
+    scaled_shift = (shift//scale).astype(np.int16)
+
     # Iterate over the image with the specified stride
     for y in range(0, height - crop_height + 1, stride_y):
         for x in range(0, width - crop_width + 1, stride_x):
             # Check if the point is present in the current cropped region
             if x <= min_sq[0] < x + crop_width and x <= max_sq[0] < x + crop_width and y <= min_sq[1] < y + crop_height and y <= max_sq[1] < y + crop_height:
                 
+                cropped_point = ((point - np.array((x, y)))//2).astype(np.int16)
+                tx_map_ = np.zeros((256, 256))
+                tx_map_[
+                    cropped_point[1]-scaled_shift:cropped_point[1]+scaled_shift+1, cropped_point[0]-scaled_shift:cropped_point[0]+scaled_shift+1
+                ] = 255
+
                 crop_tx = augment_image(
-                    cv2.resize(tx_image[y:y + crop_height, x:x + crop_width], (256, 256))
+                    tx_map_
                 )
-                
-                for crop in crop_tx:
-                    crop[crop>0] = 255
 
                 crop_bld = augment_image(
                     cv2.resize(building_mask[y:y + crop_height, x:x + crop_width], (256, 256))
