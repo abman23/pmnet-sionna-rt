@@ -35,11 +35,11 @@
         3. **TX Maps**: These are grayscale images indicating the TX locations, which is highlited with $255$ (White) gray value.
 3. **Cropping**:
     - Images cropped into 256x256 pixels, ensuring inclusion of TX point and are further augmented.
-    - A total of $4884$ cropped images are produced for the USC campus map dataset.
+    - A total of $9164$ cropped images are produced for the USC campus map dataset.
 
 > ***"How to Prepare (Pre-Process) Pathloss Map Data?"***
 - To pre-process the pathloss map data, simply run the following script. 
-Please replace `[START]` and `[END]` with the TX points you want to start and end data mining with. A bigger range will require a lot of memory. A good estimate to have is a range of 5. In order to mine data for all $84$ TX, you can run the file updating the `[START]` and `[END]` arguments.
+Please replace `[START]` and `[END]` with the TX points you want to start and end data mining with. A bigger range will require a lot of memory. A good estimate to have is a range of 5. In order to mine data for all $158$ TX, you can run the file updating the `[START]` and `[END]` arguments. Additionally, the total number of TX points are $175$, out of which $17$ give NaN values in their coverage map which are automatically discarded.
 
     ```
     python data/preprocess.py [START] [END]
@@ -69,10 +69,10 @@ Please replace `[START]` and `[END]` with the TX points you want to start and en
 ## Download: Dataset & Checkpoint
 
 - **Dataset**:
-    - **Full Dataset**: [.zip](https://drive.google.com/file/d/16Ic85KHGvNO1G8M1woL2K0cwhbRZXe5S/view?usp=sharing)
-    - **Uncropped**: [images](https://drive.google.com/drive/folders/1OTsFC9UY-UTQlGXMfJm0KO2UsZEuW1QT?usp=sharing)
-    - **Cropped**: [images](https://drive.google.com/drive/folders/1B6B2XGitOAuY5JcpS4JWoFEWPsLkIk7F?usp=sharing)
+    - **Full Dataset**: [.zip](https://drive.google.com/file/d/1FvRpNQts9SGYqbECSKAeFYSlba5LTnKK/view?usp=sharing)
+    - **Uncropped**: [images](https://drive.google.com/drive/folders/1gOB7mPQ-q8BxqK6PO1c4cvH9_Rz11V5o?usp=sharing)
+    - **Cropped**: [images](https://drive.google.com/drive/folders/1-0i8EKz9qas0jMea_vwmBboEwKHeUf0M?usp=sharing)
     
 
 - **Checkpoint (Pre-trained PMNet)**:
-    - **PMNet (RMSE: 0.00113)**: [ckpt](https://drive.google.com/file/d/1D2-SWNeeuUfYJ-jfvD-lF0V62waDs9U3/view?usp=sharing)
+    - **PMNet (RMSE: 0.00098)**: [ckpt](https://drive.google.com/file/d/1KPnsFpEv806nYO2sK3G4260zPP1xzcAO/view?usp=sharing)
