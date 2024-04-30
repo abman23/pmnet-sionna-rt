@@ -1,17 +1,13 @@
 import json
 import logging
-import os.path
-import time
-from datetime import datetime
+import os
 from typing import Any, SupportsFloat
 
 import gymnasium as gym
 import numpy as np
-import yaml
 from gymnasium.core import ActType, ObsType
 from gymnasium.spaces import Discrete, MultiBinary, Dict, Box
 from gymnasium.utils import seeding
-from matplotlib import pyplot as plt
 from retrying import retry
 
 from env.utils_v1 import ROOT_DIR, calc_coverages
@@ -19,9 +15,9 @@ from env.utils_v1 import ROOT_DIR, calc_coverages
 RANDOM_SEED: int | None = None  # manually set random seed
 
 # set a logger
-logger = logging.getLogger("env_v11")
+logger = logging.getLogger("env_v12")
 logger.setLevel(logging.INFO)
-log_path = os.path.join(ROOT_DIR, "log/env_v11.log")
+log_path = os.path.join(ROOT_DIR, "log/env_v12.log")
 handler = logging.FileHandler(log_path, encoding='utf-8', mode='a')
 formatter = logging.Formatter("%(asctime)s %(levelname)s %(message)s")
 handler.setFormatter(formatter)
@@ -29,8 +25,8 @@ logger.addHandler(handler)
 
 
 class BaseEnvironment(gym.Env):
-    """MDP environment of autoBS, version 1.1.
-    Reward function : coverage reward + distance penalty (normalized)
+    """MDP environment of autoBS, version 1.2.
+    Reward function : coverage reward (normalized)
 
     """
     pixel_map: np.ndarray  # current building map
@@ -40,7 +36,7 @@ class BaseEnvironment(gym.Env):
     coverage_rewards: dict[int, int]  # coverage matrices corresponding to each valid TX location
     power_maps: dict[int, np.ndarray]  # power maps corresponding to each TX location
     max_dis_opt: float  # the maximum distance from the optimal TX location to any pixel on the map
-    version: str = "v11"
+    version: str = "v12"
     steps: int
 
     def __init__(self, config: dict) -> None:
@@ -55,7 +51,7 @@ class BaseEnvironment(gym.Env):
         # training or test env
         self.map_suffix = "test" if evaluation_mode else "train"
         # indices of maps used for training or test
-        self.map_indices: np.ndarray = np.arange(4, 4 + 32 * 50, 32) if evaluation_mode else np.arange(3, 3 + 32 * 100,
+        self.map_indices: np.ndarray = np.arange(2, 2 + 32 * 50, 32) if evaluation_mode else np.arange(1, 1 + 32 * 100,
                                                                                                        32)
         # the threshold of luminance (larger power value, brighter pixel) that we consider a pixel as 'covered' by TX
         self.coverage_threshold: float = 220. / 255  # todo: may need to be changed for the new dataset
@@ -138,6 +134,10 @@ class BaseEnvironment(gym.Env):
         if self.mask.sum() < 1:
             print("retry")
             raise Exception("mask sum < 1, no available action")
+        # if self.evaluation:
+        #     print(f"sum of mask in evaluation: {self.mask.sum()}")
+        # else:
+        #     print(f"sum of mask in training: {self.mask.sum()}")
 
         # choose a random initial action
         init_action = self.np_random.choice(np.where(self.mask == 1)[0])
@@ -162,8 +162,6 @@ class BaseEnvironment(gym.Env):
         }
         # if self.evaluation:
         #     logger.info(info_dict)
-        # print("restart")
-        # print(info_dict)
         return observation, info_dict
 
     def step(
@@ -176,15 +174,9 @@ class BaseEnvironment(gym.Env):
         # calculate reward
         r_c = self.calc_coverage(row, col)  # coverage reward
         r_e = self.coverage_opt  # optimal coverage reward
-
-        p_d = -np.linalg.norm(np.array([row, col]) - self.loc_tx_opt)  # distance penalty
-        k = self.max_dis_opt
-        # calculate reward
-        a = self.coefficient_dict.get("r_c", 1.)
-        b = self.coefficient_dict.get("p_d", 1.)
-        # combine coverage reward and distance penalty together to form the final reward
-        # The reward value should be in the range [-1,1]
-        r = a * r_c/r_e + b * p_d/k if r_e > 0 else p_d/k
+        # coverage reward only
+        # The reward value should be in the range [0,1]
+        r = r_c / r_e if r_e > 0 else 0.
 
         term = True if r == 1. else False  # terminate if the location (action) is optimal
         self.steps += 1
@@ -205,8 +197,7 @@ class BaseEnvironment(gym.Env):
             "loc_opt": self.loc_tx_opt,
             "reward": r,
             "r_c": r_c,
-            "p_d": p_d,
-            # "detailed_rewards": f"r_c = {r_c}, r_e = {r_e}, p_d = {p_d}, k = {k}",
+            # "detailed_rewards": f"r_c = {r_c}, r_e = {r_e}",
         }
         # logger.info(info_dict)
         if self.test_algo and (self.steps % (np.ceil(self.n_steps_per_map / 4)) == 0 or term or trunc):
@@ -215,7 +206,7 @@ class BaseEnvironment(gym.Env):
         # # plot the current and optimal TX locations
         # if self.algo_name and (term or trunc):
         #     save_map(
-        #         f"./figures/test_maps/{datetime.now().strftime('%m%d_%H%M')}_{self.algo_name}_{self.n_trained_maps}.png",
+        #         f"./figures/test_map_archive/{datetime.now().strftime('%m%d_%H%M')}_{self.algo_name}_{self.n_trained_maps}.png",
         #         self.pixel_map,
         #         True,
         #         self.loc_tx_opt,
@@ -258,7 +249,7 @@ class BaseEnvironment(gym.Env):
             power_map = self.power_maps[tx_idx]
         else:
             # return building map for invalid TX location
-            power_map = self.pixel_map.astype(np.float32)
+            power_map = self.pixel_map.astype(np.float64)
         return power_map.reshape(-1)
 
     def calc_upsampling_loc(self, action: int) -> tuple:
@@ -285,40 +276,3 @@ class BaseEnvironment(gym.Env):
         """
         idx = np.arange((self.upsampling_factor - 1) // 2, self.map_size, self.upsampling_factor)
         return self.pixel_map[idx][:, idx].reshape(-1)
-
-
-if __name__ == "__main__":
-    start = time.time()
-
-    config = yaml.safe_load(open('../config/ppo_v1_test.yaml', 'r'))
-    # print(config)
-    env_config = config['env']
-    env = BaseEnvironment(config=env_config)
-    # env.reset()
-
-    fig, ax = plt.subplots()
-
-    for i in range(1):
-        _, info = env.reset()
-        print(f"reset {i}: {info}")
-        terminated, truncated = False, False
-        r_ep = []
-        n = 0
-        while not terminated and not truncated:
-            action = env.np_random.choice(np.where(env.mask == 1)[0])
-            obs, reward, terminated, truncated, info = env.step(action)
-            print(info)
-            print(env.pixel_map[20:50, 20:50])
-            n += 1
-            r_ep.append(reward)
-
-        ax.plot(list(range(n)), r_ep, label=f"episode # {i}")
-
-    ax.set(xlabel="step", ylabel="reward", title="Random Sample")
-    ax.legend()
-    ax.grid()
-    # fig.savefig(f"./figures/random_{datetime.now().strftime('%m%d_%H%M')}.png")
-    plt.show()
-
-    end = time.time()
-    print(f"total runtime: {end - start}s")

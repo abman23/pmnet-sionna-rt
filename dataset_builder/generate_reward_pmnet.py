@@ -15,10 +15,10 @@ def generate_reward_from_existing_pmap(map_idx: int, dir_dataset: str, data_type
     coverage reward of a TX location.
 
     """
-    pmap_dir = os.path.join(ROOT_DIR, 'resource', dir_dataset, f'pmap_{data_type}')
+    pmap_dir = os.path.join(dir_dataset, f'pmap_{data_type}')
     if not os.path.exists(pmap_dir):
         os.makedirs(pmap_dir)
-    map_dir = os.path.join(ROOT_DIR, 'resource', dir_dataset, 'map')
+    map_dir = os.path.join(dir_dataset, 'map')
     map_path = os.path.join(map_dir, f"{map_idx}.png")
     map_arr = load_map_normalized(map_path)
 
@@ -41,7 +41,7 @@ def generate_reward_from_existing_pmap(map_idx: int, dir_dataset: str, data_type
                 rewards.append(coverage)
 
     # print(len(rewards))
-    reward_dir = os.path.join(ROOT_DIR, 'resource', dir_dataset, 'reward_matrix')
+    reward_dir = os.path.join(dir_dataset, 'reward_matrix')
     os.makedirs(reward_dir, exist_ok=True)
     reward_matrix = os.path.join(reward_dir, f"reward_{map_idx}.json")
     json.dump(rewards, open(os.path.join(reward_matrix), 'w'))
@@ -66,8 +66,8 @@ def generate_reward(map_idx: int, dir_dataset: str, map_size: int, upsampling_fa
     idx, tensors, tx_layers = create_dataset(input_dir_base=dir_dataset, index=map_idx, tx_size=3,
                                              upsampling_factor=upsampling_factor, non_building_pixel_value=1.,
                                              device=device)
-    power_maps = inference(model=model, idx=idx, tensors=tensors, mark_tx=False, tx_layers=tx_layers,
-                           batch_size=batch_size, save=True, dir_base=dir_dataset, dir_img=f'power_map')
+    power_maps = inference(model=model, idx=idx, tensors=tensors, batch_size=batch_size, save=True,
+                           dir_base=dir_dataset, dir_img=f'power_map')
     # print(power_maps.keys())
 
     # Calculate reward based on power maps and fill up the reward matrix

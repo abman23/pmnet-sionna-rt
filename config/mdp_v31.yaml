@@ -1,0 +1,49 @@
+env:
+  n_bs: 2
+  map_size: 256
+  action_space_size: 32
+  n_maps: 800
+  n_steps_truncate: 10  # batch_size / num_maps_per_update
+  dataset_dir: /Users/ylu/Downloads/project_archive/usc_old_sparse
+  no_masking: false
+  non_building_pixel: 0.0  # 1-white, 0-black
+eval:
+  evaluation_config:
+    env_config:
+      evaluation: true
+      n_maps: 200
+      n_steps_truncate: 10
+    exploration:
+      explore: false
+  num_maps_per_eval: 200
+  evaluation_interval: 10
+  evaluation_num_workers: 0
+explore:
+  exploration_config:
+    type: StochasticSampling
+  explore: true
+report:
+  min_sample_timesteps_per_iteration: 2000  # keep it the same as batch size
+resource:
+  num_cpus_per_worker: 1
+  num_gpus: 1
+  num_gpus_per_worker: 0
+rollout:
+  num_envs_per_worker: 1
+  num_rollout_workers: 2
+  batch_mode: truncate_episodes
+stop:
+  training_iteration: 300  # 500 for 1000 maps
+train:
+  lr: 1.0e-05
+  gamma: 0.1
+  grad_clip: 40.0
+  train_batch_size: 2000  # 2000
+  sgd_minibatch_size: 256  # 128
+  num_sgd_iter: 20
+  model:
+    fcnet_hiddens: [128, 128]
+    fcnet_activation: relu
+#    uses_new_env_runners: true
+agent:
+  data_saving_interval: 50

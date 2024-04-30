@@ -1,5 +1,9 @@
-#figures/*
-#log/*
-checkpoint/*
 .DS_Store
 /dataset_builder/checkpoints/
+/figures/test_map_archive/
+/figures/reward_curve_archive/
+/env/env_archive/
+/log/log_archive/
+/checkpoint/
+/config/config_archive/
+/data/data_archive/

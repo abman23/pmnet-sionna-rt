@@ -153,11 +153,12 @@ def calc_optimal_locations(dataset_dir: str, map_suffix: str, map_idx: int,
 
 
 def plot_rewards(output_name: str, algo_names: list[str], data_filenames: list[str], version: str,
-                 evaluation: bool = True, log: bool = False, n_epi: int = 10, timestamp: str = datetime.now().strftime('%m%d_%H%M')):
+                 evaluation: bool = True, train: bool = True, log: bool = False, n_epi: int = 10,
+                 timestamp: str = datetime.now().strftime('%m%d_%H%M')):
     """Plot rewards curve of multiple algorithms.
 
     """
-    if evaluation:
+    if evaluation and train:
         fig, axes = plt.subplots(2, 1)
         fig.set_size_inches(10, 12)
     else:
@@ -175,29 +176,31 @@ def plot_rewards(output_name: str, algo_names: list[str], data_filenames: list[s
             ep_reward_std = algo_data['ep_reward_std'][:n_epi//5]
             # print(algo_name)
             # print(len(ep_eval), len(ep_reward_mean))
-            ax = axes[1]
+            ax = axes[1] if train else axes
             ax.plot(ep_eval, ep_reward_mean, label=algo_name.upper())
             # sup = list(map(lambda x, y: x + y, ep_reward_mean, ep_reward_std))
             # inf = list(map(lambda x, y: x - y, ep_reward_mean, ep_reward_std))
             # ax.fill_between(ep_eval, inf, sup, alpha=0.2)
 
-        # plot reward in training
-        ep_train = algo_data['ep_train'][:n_epi]
-        ep_reward_mean_train = algo_data['ep_reward_mean_train'][:n_epi]
-        ax = axes[0] if evaluation else axes
-        ax.plot(ep_train, ep_reward_mean_train, label=algo_name.upper())
+        if train:
+            # plot reward in training
+            ep_train = algo_data['ep_train'][:n_epi]
+            ep_reward_mean_train = algo_data['ep_reward_mean_train'][:n_epi]
+            ax = axes[0] if evaluation else axes
+            ax.plot(ep_train, ep_reward_mean_train, label=algo_name.upper())
 
     if evaluation:
-        ax = axes[1]
+        ax = axes[1] if train else axes
         ax.set(xlabel="training_step", ylabel="mean reward per step",
                title=f"Evaluation Results")
         ax.grid()
         ax.legend()
-    ax = axes[0] if evaluation else axes
-    ax.set(xlabel="training_step", ylabel="mean reward per step",
-           title=f"Training Results")
-    ax.grid()
-    ax.legend()
+    if train:
+        ax = axes[0] if evaluation else axes
+        ax.set(xlabel="training_step", ylabel="mean reward per step",
+               title=f"Training Results")
+        ax.grid()
+        ax.legend()
 
     if log:
         fig.savefig(os.path.join(ROOT_DIR, f"figures/compare/{version}_{output_name}_{timestamp}.png"))

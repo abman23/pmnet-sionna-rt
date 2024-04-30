@@ -123,7 +123,7 @@ def inference_and_save(model: nn.Module, idx: list[str], tensors: torch.Tensor, 
 
 
 def inference(model: nn.Module, idx: list[str], tensors: torch.Tensor, batch_size: int = 256, save: bool = False,
-              mark_tx: bool = True, tx_layers: dict[int, np.ndarray] | None = None, **kwargs) -> dict[int, np.ndarray]:
+              **kwargs) -> dict[int, np.ndarray]:
     """Use PMNet to generate power maps from the given dataset.
 
     """
@@ -148,10 +148,10 @@ def inference(model: nn.Module, idx: list[str], tensors: torch.Tensor, batch_siz
             for j in range(len(preds)):
                 pmap_idx = int(batch_idx[j].split('_')[-1])
                 arr = preds[j, 0].cpu().numpy()
-                if mark_tx:
-                    # mark the tx location
-                    tx_layer = tx_layers[pmap_idx]
-                    arr = np.where(tx_layer > arr, tx_layer, arr)
+                # if mark_tx:
+                #     # mark the tx location
+                #     tx_layer = tx_layers[pmap_idx]
+                #     arr = np.where(tx_layer > arr, tx_layer, arr)
                 power_maps[pmap_idx] = arr
                 # if j == 0:
                 #     print(f"batch {i} first map:")
@@ -166,12 +166,13 @@ def inference(model: nn.Module, idx: list[str], tensors: torch.Tensor, batch_siz
     return power_maps
 
 
-def generate_pmaps(map_idx: int, upsampling_factor: int, mark_tx: bool, save: bool, **kwargs) -> dict[int, np.ndarray]:
+def generate_pmaps(map_idx: int, upsampling_factor: int, batch_size: int, save: bool,
+                   non_building_pixel: float, dir_base: str, dir_img: str) -> dict[int, np.ndarray]:
     """Generate all path loss maps corresponding to some TX locations given a building map
 
     """
     # Load PMNet Model Parameters
-    pretrained_model = os.path.join(ROOT_DIR, 'dataset_builder/checkpoints/model_0.00133.pt')
+    pretrained_model = os.path.join(ROOT_DIR, 'dataset_builder/checkpoints/summary_case4.pt')
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     model = PMNet(n_blocks=[3, 3, 27, 3],
                   atrous_rates=[6, 12, 18],
@@ -180,11 +181,11 @@ def generate_pmaps(map_idx: int, upsampling_factor: int, mark_tx: bool, save: bo
     model.load_state_dict(torch.load(pretrained_model, map_location=device))
     model = model.to(device)
     # Generate power maps using PMNet
-    idx, tensors, tx_layers = create_dataset(input_dir_base=kwargs['dir_base'], index=map_idx, tx_size=5,
-                                             upsampling_factor=upsampling_factor, non_building_pixel_value=1.,
-                                             device=device)
-    power_maps = inference(model=model, idx=idx, tensors=tensors, mark_tx=mark_tx, tx_layers=tx_layers,
-                           save=save, **kwargs)
+    idx, tensors, tx_layers = create_dataset(input_dir_base=dir_base, index=map_idx, tx_size=5,
+                                             upsampling_factor=upsampling_factor,
+                                             non_building_pixel_value=non_building_pixel, device=device)
+    power_maps = inference(model=model, idx=idx, tensors=tensors, batch_size=batch_size, save=save, dir_base=dir_base,
+                           dir_img=dir_img)
 
     return power_maps
 
@@ -201,13 +202,13 @@ if __name__ == '__main__':
     # print(sample_tx_map.shape, sample_tx_map.dtype)
     # print(sample_tx_map[65:75, 185:195])
 
-    for i in range(1, 1101):
-        generate_pmaps(i, 8, batch_size=32,
-                       mark_tx=False, save=True, dir_base='resource/new_usc', dir_img='power_map')
+    for i in np.arange(1, 1 + 16 * 1000, 16):
+        generate_pmaps(i, 8, batch_size=32, save=True, non_building_pixel=0.,
+                       dir_base='resource/usc_old_sparse', dir_img='power_map')
 
-    # for i in range(1001, 1101, 1):
-    #     generate_pmaps(i, 8, batch_size=32,
-    #                    mark_tx=False, save=True, dir_base='resource/new_usc', dir_img='pmap_test')
+    for i in np.arange(2, 2 + 32 * 100, 32):
+        generate_pmaps(i, 8, batch_size=32, save=True, non_building_pixel=0.,
+                       dir_base='resource/usc_old_sparse', dir_img='power_map')
 
     # # Load PMNet Model Parameters
     # pretrained_model = os.path.join(ROOT_DIR, 'dataset_builder/checkpoints/model_0.00136.pt')
@@ -267,13 +268,3 @@ if __name__ == '__main__':
     # axes[1].set_title('Covered Area')
     # # plt.imshow(arr2, cmap='gray')
     # plt.show()
-
-
-
-    # # Generate reward matrices
-    # for i in tqdm(range(1, 1 + 16 * 1000, 16)):
-    #     generate_reward_matrix(map_idx=i, dir_dataset='new_usc', data_type='train',
-    #                            map_size=256, upsampling_factor=8, coverage_thr=170./255)
-    # for i in tqdm(range(2, 2 + 32 * 100, 32)):
-    #     generate_reward_matrix(map_idx=i, dir_dataset='new_usc', data_type='test',
-    #                            map_size=256, upsampling_factor=8, coverage_thr=170./255)

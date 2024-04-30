@@ -2,7 +2,6 @@ import json
 import logging
 import os.path
 import time
-from datetime import datetime
 from logging import Logger
 
 import numpy as np
@@ -12,7 +11,7 @@ from ray.rllib.algorithms import Algorithm, AlgorithmConfig
 from ray.tune.logger import pretty_print
 
 from env.utils import save_map
-from env.utils_v1 import ROOT_DIR, dict_update, calc_optimal_locations
+from env.utils_v1 import ROOT_DIR, dict_update
 
 
 class Agent(object):
@@ -34,17 +33,17 @@ class Agent(object):
         self.logger.addHandler(handler)
         # set an environment class
         if version == "v11":
-            from env.env_v11 import BaseEnvironment
+            from env.env_archive.env_v11 import BaseEnvironment
         elif version == "v12":
-            from env.env_v12 import BaseEnvironment
+            from env.env_archive.env_v12 import BaseEnvironment
         elif version == "v13":
-            from env.env_v13 import BaseEnvironment
+            from env.env_archive.env_v13 import BaseEnvironment
         elif version == "v14":
-            from env.env_v14 import BaseEnvironment
+            from env.env_archive.env_v14 import BaseEnvironment
         elif version == "v15":
-            from env.env_v15 import BaseEnvironment
+            from env.env_archive.env_v15 import BaseEnvironment
         elif version == 'v16':
-            from env.env_v16 import BaseEnvironment
+            from env.env_archive.env_v16 import BaseEnvironment
         elif version == 'v18':
             from env.env_v18 import BaseEnvironment
         else:
@@ -291,12 +290,12 @@ class Agent(object):
         env_eval = self.env_class(config=env_config)
         env_eval.evaluation = True  # randomly select map at each reset
 
-        coverage_reward_mean_overall = 0.0
+        reward_mean_overall = 0.0
         reward_opt_mean = 0.0
         num_roi_mean = 0
 
         for i in range(duration):
-            coverage_rewards = []
+            rewards = []
             cnt = 0
             term, trunc = False, False
             before_reset = time.time()
@@ -318,21 +317,21 @@ class Agent(object):
             action = self.agent.compute_single_action(obs)
             after_action = time.time()
             row, col = env_eval.calc_upsampling_loc(action)
-            # coverage_reward = env_eval.calc_coverage(row, col)
-            coverage_reward = env_eval.calc_coverage(action)
-            coverage_rewards.append(coverage_reward)
-            if coverage_reward > reward_highest:
-                reward_highest = coverage_reward
+            # reward = env_eval.calc_coverage(action)
+            reward = env_eval.calc_coverage(action)
+            rewards.append(reward)
+            if reward > reward_highest:
+                reward_highest = reward
                 loc_highest = (row, col)
             cnt += 1
             # obs, reward, term, trunc, info = env_eval.step(action)
 
-            coverage_reward_mean, coverage_reward_std = np.mean(coverage_rewards), np.std(coverage_rewards)
-            coverage_reward_mean_overall += coverage_reward_mean / duration
+            reward_mean, reward_std = np.mean(rewards), np.std(rewards)
+            reward_mean_overall += reward_mean / duration
             reward_opt_mean += reward_opt / duration
-            info = (f"coverage reward for trained map {i} with index {env_eval.map_idx}: {coverage_reward_mean}, "
-                    f"std: {coverage_reward_std}, optimal reward: {reward_opt}, "
-                    f"ratio: {coverage_reward_mean / reward_opt}, num_roi: {num_roi}")
+            info = (f"reward for trained map {i} with index {env_eval.map_idx}: {reward_mean}, "
+                    f"std: {reward_std}, optimal reward: {reward_opt}, "
+                    f"ratio: {reward_mean / reward_opt}, num_roi: {num_roi}")
             time_info = (
                 f"one map total {time.time() - before_reset:.4f}s, env reset {after_reset - before_reset:.4f}s, "
                 f"calc opt action {after_calc_opt - after_reset:.4f}s, inference {after_action - before_action:.4f}s")
@@ -345,7 +344,7 @@ class Agent(object):
                     self.logger.info(info)
                     if i == 0:
                         # plot the optimal TX location and location corresponding the best action in STEP_PER_MAP steps
-                        test_map_path = os.path.join(ROOT_DIR, 'figures/test_maps',
+                        test_map_path = os.path.join(ROOT_DIR, 'figures/test_map_archive',
                                                      self.version + '_' + timestamp + '_' + self.algo_name + '_train_' +
                                                      str(i) + '_' + suffix + '.png')
                         save_map(filepath=test_map_path, pixel_map=env_eval.pixel_map, reverse_color=False,
@@ -362,7 +361,7 @@ class Agent(object):
 
         start_time = time.time()
         for i in range(duration):
-            coverage_rewards = []
+            rewards = []
             cnt = 0
             term, trunc = False, False
             obs, _ = env_eval.reset()
@@ -378,19 +377,19 @@ class Agent(object):
             while not (term or trunc) and cnt < steps_per_map:
                 action = self.agent.compute_single_action(obs)
                 row, col = env_eval.calc_upsampling_loc(action)
-                coverage_reward = env_eval.calc_coverage(action)
-                coverage_rewards.append(coverage_reward)
-                if coverage_reward > reward_highest:
-                    reward_highest = coverage_reward
+                reward = env_eval.calc_coverage(action)
+                rewards.append(reward)
+                if reward > reward_highest:
+                    reward_highest = reward
                     loc_highest = (row, col)
                 cnt += 1
                 obs, reward, term, trunc, info = env_eval.step(action)
 
-            coverage_reward_mean, coverage_reward_std = np.mean(coverage_rewards), np.std(coverage_rewards)
+            coverage_reward_mean, reward_std = np.mean(rewards), np.std(rewards)
             coverage_reward_mean_overall_new += coverage_reward_mean / duration
             reward_opt_mean_new += reward_opt / duration
             info = (f"coverage reward for test map {i} with index {env_eval.map_idx}: {coverage_reward_mean}, std:"
-                    f"{coverage_reward_std}, optimal reward: {reward_opt}, "
+                    f"{reward_std}, optimal reward: {reward_opt}, "
                     f"ratio: {coverage_reward_mean / reward_opt}, num_roi: {num_roi}")
 
             if i % 10 == 0:
@@ -400,17 +399,17 @@ class Agent(object):
                     self.logger.info(info)
                     if i == 0:
                         # plot the optimal TX location and location corresponding the best action in STEP_PER_MAP steps
-                        test_map_path = os.path.join(ROOT_DIR, 'figures/test_maps',
+                        test_map_path = os.path.join(ROOT_DIR, 'figures/test_map_archive',
                                                      self.version + '_' + timestamp + '_' + self.algo_name + '_test_' + str(
                                                          i) + '_' + suffix + '.png')
                         save_map(filepath=test_map_path, pixel_map=env_eval.pixel_map, reverse_color=False,
                                  mark_size=5, mark_loc=loc_opt, mark_locs=[loc_highest])
 
-        info1 = (f"overall average coverage reward for trained maps: {coverage_reward_mean_overall},"
+        info1 = (f"overall average coverage reward for trained maps: {reward_mean_overall},"
                  f" average optimal reward: {reward_opt_mean},"
-                 f" ratio: {coverage_reward_mean_overall / reward_opt_mean},"
+                 f" ratio: {reward_mean_overall / reward_opt_mean},"
                  f" average number of RoI pixels: {num_roi_mean},"
-                 f" percentage of coverage: {coverage_reward_mean_overall / num_roi_mean * 100}")
+                 f" percentage of coverage: {reward_mean_overall / num_roi_mean * 100}")
         info2 = (f"overall average coverage reward for test maps: {coverage_reward_mean_overall_new}"
                  f", average optimal reward: {reward_opt_mean_new},"
                  f" ratio: {coverage_reward_mean_overall_new / reward_opt_mean_new},"

@@ -167,7 +167,7 @@ class RandomAgent(Agent):
                     self.logger.info(info)
                     if i == 0:
                         # plot the optimal TX location and location corresponding the best action in STEP_PER_MAP steps
-                        test_map_path = os.path.join(ROOT_DIR, 'figures/test_maps',
+                        test_map_path = os.path.join(ROOT_DIR, 'figures/test_map_archive',
                                                      self.version + '_' + timestamp + '_' + self.algo_name + '_train_' +
                                                      str(i) + '_' + suffix + '.png')
                         save_map(filepath=test_map_path, pixel_map=env_eval.pixel_map, reverse_color=False,
@@ -215,7 +215,7 @@ class RandomAgent(Agent):
                     self.logger.info(info)
                     if i == 0:
                         # plot the optimal TX location and location corresponding the best action in STEP_PER_MAP steps
-                        test_map_path = os.path.join(ROOT_DIR, 'figures/test_maps',
+                        test_map_path = os.path.join(ROOT_DIR, 'figures/test_map_archive',
                                                      self.version + '_' + timestamp + '_' + self.algo_name + '_test_' + str(
                                                          i) + '_' + suffix + '.png')
                         save_map(filepath=test_map_path, pixel_map=env_eval.pixel_map, reverse_color=False,

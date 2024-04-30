@@ -15,9 +15,9 @@ from env.utils import crop_map, calc_coverage, find_opt_loc, calc_pl_threshold, 
 RANDOM_SEED: int | None = None  # manually set random seed
 
 # set a logger
-logger = logging.getLogger("env_v03")
+logger = logging.getLogger("env_v02")
 logger.setLevel(logging.INFO)
-handler = logging.FileHandler(f"./log/env_v03.log", encoding='utf-8', mode='a')
+handler = logging.FileHandler(f"./log/env_v02.log", encoding='utf-8', mode='a')
 formatter = logging.Formatter("%(asctime)s %(levelname)s %(message)s")
 handler.setFormatter(formatter)
 logger.addHandler(handler)
@@ -32,7 +32,7 @@ class BaseEnvironment(gym.Env):
     loc_tx_opt: tuple  # the optimal location of TX
     coverage_map_opt: np.ndarray  # the coverage map corresponding to the optimal TX location
     max_dis_opt: float  # the maximum distance from the optimal TX location to any pixel on the map
-    version: str = "v03"
+    version: str = "v02"
 
     def __init__(self, config: dict) -> None:
         """Initialize the base MDP environment.
@@ -84,16 +84,16 @@ class BaseEnvironment(gym.Env):
         self.upsampling_factor = map_size // action_space_size
         self.action_space_size: int = action_space_size
         # action mask has the same shape as the action
-        self.mask: np.ndarray = np.empty(action_space_size**2, dtype=np.int8)
+        self.mask: np.ndarray = np.empty(action_space_size ** 2, dtype=np.int8)
         self.no_masking: bool = config.get("no_masking", True)
-        self.action_space: Discrete = Discrete(action_space_size**2)
+        self.action_space: Discrete = Discrete(action_space_size ** 2)
         if self.no_masking:
-            self.observation_space = Box(low=-np.inf, high=np.inf, shape=(map_size**2,))
+            self.observation_space = Box(low=-np.inf, high=np.inf, shape=(map_size ** 2,))
         else:
             self.observation_space: Dict = Dict(
                 {
-                    "observations": Box(low=-np.inf, high=np.inf, shape=(map_size**2,)),
-                    "action_mask": MultiBinary(action_space_size**2)
+                    "observations": Box(low=-np.inf, high=np.inf, shape=(map_size ** 2,)),
+                    "action_mask": MultiBinary(action_space_size ** 2)
                 }
             )
 
@@ -142,7 +142,7 @@ class BaseEnvironment(gym.Env):
         row_opt, col_opt = self.loc_tx_opt[0], self.loc_tx_opt[1]
         row_dis = max(self.cropped_map_size - row_opt, row_opt)
         col_dis = max(self.cropped_map_size - col_opt, col_opt)
-        self.max_dis_opt = np.sqrt(row_dis**2 + col_dis**2)
+        self.max_dis_opt = np.sqrt(row_dis ** 2 + col_dis ** 2)
 
         # 1 - building, 0 - free space
         self.mask = self._calc_action_mask()
@@ -197,8 +197,8 @@ class BaseEnvironment(gym.Env):
         # calculate reward
         a = self.coefficient_dict.get("r_c", 1.)
         b = self.coefficient_dict.get("p_d", 1.)
-        # only r_c
-        r = r_c
+        # no normalization
+        r = a * (r_c - r_e) + b * p_d
 
         term = True if r == 0 else False  # terminate if the location (action) is optimal
         self.steps += 1
@@ -224,13 +224,13 @@ class BaseEnvironment(gym.Env):
             "coverage_matrix": coverage_matrix.tolist
         }
         # logger.info(info_dict)
-        if self.test_algo and (self.steps % (np.ceil(self.n_steps_per_map/4)) == 0 or term or trunc):
+        if self.test_algo and (self.steps % (np.ceil(self.n_steps_per_map / 4)) == 0 or term or trunc):
             logger.info(info_dict)
 
         # # plot the current and optimal TX locations
         # if self.algo_name and (term or trunc):
         #     save_map(
-        #         f"./figures/test_maps/{datetime.now().strftime('%m%d_%H%M')}_{self.algo_name}_{self.n_trained_maps}.png",
+        #         f"./figures/test_map_archive/{datetime.now().strftime('%m%d_%H%M')}_{self.algo_name}_{self.n_trained_maps}.png",
         #         self.pixel_map,
         #         True,
         #         self.loc_tx_opt,
@@ -290,5 +290,5 @@ class BaseEnvironment(gym.Env):
             A 0-1 flatten array of the action mask.
 
         """
-        idx = np.arange((self.upsampling_factor-1)//2, self.cropped_map_size, self.upsampling_factor)
+        idx = np.arange((self.upsampling_factor - 1) // 2, self.cropped_map_size, self.upsampling_factor)
         return self.pixel_map[idx][:, idx].reshape(-1)
