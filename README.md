@@ -4,7 +4,7 @@ Algorithms are implemented by using [Ray RLlib](https://docs.ray.io/en/latest/rl
 
 ## Project Structure
 - `agent/` (Deprecated): Trainable DRL agents.
-- `multi-agent\`: DRL agents and baseline implementations in the multi-BS scenario.
+- `multi-agent/`: DRL agents and baseline implementations in the multi-BS scenario.
 - `checkpoint/`: Saved algorithm state, including all model parameters.
 - `config/`: Configurations of all algorithm hyperparameters and simulation parameters.
 - `data/`: Training data used for visualization.
