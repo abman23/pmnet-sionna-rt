@@ -38,6 +38,8 @@ class Agent(object):
             from env.env_v30 import BaseEnvironment
         elif version == 'v19':
             from env.env_v19 import BaseEnvironment
+        elif version == 'v32':
+            from env.env_v32 import BaseEnvironment
         else:
             from env.env_v31 import BaseEnvironment
         self.env_class = BaseEnvironment
@@ -72,6 +74,7 @@ class Agent(object):
             self.logger.info(start_info)
         print(start_info)
 
+        max_val_reward: float = -np.inf
         for i in range(num_episode):
             # one training step (may include multiple environment episodes)
             result = self.agent.train()
@@ -89,12 +92,12 @@ class Agent(object):
             if i == num_episode - 1:
                 if log:
                     # save the result and checkpoint
-                    self.logger.info(pretty_print(result))
+                    # self.logger.info(pretty_print(result))
                     self.logger.debug(self.config)
                     self.logger.info("=============TRAINING ENDED=============")
-                    checkpoint_dir = self.agent.save(
-                        f"./checkpoint/{self.version}_{self.algo_name}_{timestamp}").checkpoint.path
-                    print(f"Checkpoint saved in directory {checkpoint_dir}")
+                    # checkpoint_dir = self.agent.save(
+                    #     f"./checkpoint/{self.version}_{self.algo_name}_{timestamp}").checkpoint.path
+                    # print(f"Checkpoint saved in directory {checkpoint_dir}")
                 else:
                     print("=============TRAINING ENDED=============")
                     print(self.config)
@@ -112,6 +115,10 @@ class Agent(object):
                 idx = (i + 1) // eval_interval - 1
                 ep_reward_mean[idx] = ep_r_mean
                 ep_reward_std[idx] = ep_r_std
+                # Save the agent with the greatest validation reward
+                if log and ep_r_mean > max_val_reward:
+                    max_val_reward = ep_r_mean
+                    self.agent.save(f"./checkpoint/{self.version}_{self.algo_name}_{timestamp}")
 
             if log and ((i + 1) % data_saving_interval == 0 or i == num_episode - 1):
                 # save the training and evaluation data periodically
@@ -125,8 +132,8 @@ class Agent(object):
                 }
                 json.dump(data,
                           open(os.path.join(ROOT_DIR, f"data/{self.version}_{self.algo_name}_{timestamp}.json"), 'w'))
-                # save the model
-                self.agent.save(os.path.join(ROOT_DIR, f"checkpoint/{self.version}_{self.algo_name}_{timestamp}"))
+                # # save the model
+                # self.agent.save(os.path.join(ROOT_DIR, f"checkpoint/{self.version}_{self.algo_name}_{timestamp}"))
 
         # plot mean reward
         fig, ax = plt.subplots()
@@ -171,6 +178,7 @@ class Agent(object):
             self.logger.info(start_info)
         print(start_info)
 
+        max_val_reward = -np.inf
         for i in range(start_episode, num_episode):
             # one training step (may include multiple environment episodes)
             result = self.agent.train()
@@ -188,13 +196,13 @@ class Agent(object):
             if i == num_episode - 1:
                 if log:
                     # save the result and checkpoint
-                    self.logger.info(pretty_print(result))
+                    # self.logger.info(pretty_print(result))
                     self.logger.debug(self.config)
                     self.logger.info("=============TRAINING ENDED=============")
-                    checkpoint_dir = self.agent.save(
-                        os.path.join(ROOT_DIR,
-                                     f"checkpoint/{self.version}_{self.algo_name}_{timestamp}")).checkpoint.path
-                    print(f"Checkpoint saved in directory {checkpoint_dir}")
+                    # checkpoint_dir = self.agent.save(
+                    #     os.path.join(ROOT_DIR,
+                    #                  f"checkpoint/{self.version}_{self.algo_name}_{timestamp}")).checkpoint.path
+                    # print(f"Checkpoint saved in directory {checkpoint_dir}")
                 else:
                     print("=============TRAINING ENDED=============")
                     print(self.config)
@@ -220,13 +228,17 @@ class Agent(object):
                         else:
                             training_data['ep_reward_mean'][idx] = ep_r_mean
                             training_data['ep_reward_std'][idx] = ep_r_std
+                        # Save the agent with the greatest validation reward
+                        if log and ep_r_mean > max_val_reward:
+                            max_val_reward = ep_r_mean
+                            self.agent.save(f"./checkpoint/{self.version}_{self.algo_name}_{timestamp}")
 
             if log and ((i + 1) % data_saving_interval == 0 or i == num_episode - 1):
                 # save the training and evaluation data periodically
                 json.dump(training_data,
                           open(os.path.join(ROOT_DIR, f"data/{self.version}_{self.algo_name}_{timestamp}.json"), 'w'))
-                # save the model
-                self.agent.save(os.path.join(ROOT_DIR, f"checkpoint/{self.version}_{self.algo_name}_{timestamp}"))
+                # # save the model
+                # self.agent.save(os.path.join(ROOT_DIR, f"checkpoint/{self.version}_{self.algo_name}_{timestamp}"))
 
         # plot mean reward in training
         fig, ax = plt.subplots()
@@ -251,16 +263,24 @@ class Agent(object):
         """Test the trained agent on both the training maps and test maps.
 
         """
-        msg = f"\n=============Test for {self.algo_name.upper()} {suffix.upper()} Training============="
+        msg = f"\n=============Test for {self.algo_name.upper()} {suffix.upper()}============="
         print(msg)
         if log:
             self.logger.info(msg)
 
-        env_config: dict = json.loads(json.dumps(self.config.get("env")))
-
+        env_config_train: dict = json.loads(json.dumps(self.config.get("env")))
+        env_config_test = dict_update(env_config_train, self.config['eval']['evaluation_config']['env_config'])
         if test_on_trained:
-            # test on training maps
-            env_config["algo_name"] = self.algo_name + "_used"
+            env_configs = {'training': env_config_train, 'test': env_config_test}
+        else:
+            env_configs = {'test': env_config_test}
+
+        # reload the best model
+        model_path = os.path.join(ROOT_DIR, f'checkpoint/{self.version}_{self.algo_name}_{timestamp}')
+        self.agent.restore(model_path)
+
+        start_time = time.time()
+        for env_type, env_config in env_configs.items():
             env_eval = self.env_class(config=env_config)
             env_eval.evaluation = True  # select map in sequence at each reset
 
@@ -291,7 +311,7 @@ class Agent(object):
                 reward_mean_overall += accumulated_reward / duration
                 reward_opt_mean += reward_opt / duration
                 info = (
-                    f"reward for trained map {i} with index {env_eval.map_idx}: {accumulated_reward}, "
+                    f"reward for {env_type} map {i} with index {env_eval.map_idx}: {accumulated_reward}, "
                     f"optimal reward: {reward_opt}, "
                     f"ratio: {accumulated_reward / reward_opt}, num_roi: {num_roi}"
                 )
@@ -300,21 +320,39 @@ class Agent(object):
                     f"calc opt action {after_calc_opt - after_reset:.4f}s, inference {after_action - before_action:.4f}s")
 
                 if i % 10 == 0:
+                    print(f"{time.time() - start_time:.4f}s so far")
                     print(time_info)
                     print(info)
                     if log:
                         self.logger.info(time_info)
                         self.logger.info(info)
-                        if i == 0:
-                            # plot the optimal TX location and location corresponding the best action in STEP_PER_MAP steps
-                            test_map_path = os.path.join(ROOT_DIR, 'figures/test_map_archive',
-                                                         self.version + '_' + timestamp + '_' + self.algo_name + '_train_' +
-                                                         str(i) + '_' + suffix + '.png')
-                            draw_map_with_tx(filepath=test_map_path, pixel_map=env_eval.pixel_map, mark_size=5,
-                                             target_locs=locs_opt, curr_locs=locs)
+
+                if log and (i == 0 or i == duration - 1):
+                    if env_eval.reward_type == 'coverage':
+                        # plot coverage area of deployed TXs and optimal TXs
+                        coverage_map, _ = env_eval.calc_coverage(locs)
+                        coverage_map_opt, _ = env_eval.calc_coverage(locs_opt)
+                        coverage_map_dir = os.path.join(ROOT_DIR, 'figures/coverage_map')
+                        os.makedirs(coverage_map_dir, exist_ok=True)
+                        coverage_map_path = os.path.join(coverage_map_dir,
+                                                         f'{self.version}_{timestamp}_{self.algo_name}_{env_eval.map_idx}_{suffix}.png')
+                        plot_coverage(filepath=coverage_map_path, pixel_map=env_eval.pixel_map,
+                                      coverage_curr=coverage_map,
+                                      coverage_opt=coverage_map_opt, tx_locs=locs, opt_tx_locs=locs_opt, save=True)
+                    elif env_eval.reward_type == 'capacity':
+                        # plot capacity map (overlap of power maps corresponding to multiple TX locations)
+                        capacity_map, _ = env_eval.calc_capacity(locs)
+                        capacity_map_opt, _ = env_eval.calc_capacity(locs_opt)
+                        capacity_map_dir = os.path.join(ROOT_DIR, 'figures/capacity_map')
+                        os.makedirs(capacity_map_dir, exist_ok=True)
+                        capacity_map_path = os.path.join(capacity_map_dir,
+                                                         f'{self.version}_{timestamp}_{self.algo_name}_{env_eval.map_idx}.png')
+                        plot_coverage(filepath=capacity_map_path, pixel_map=env_eval.pixel_map,
+                                      coverage_curr=capacity_map,
+                                      coverage_opt=capacity_map_opt, tx_locs=locs, opt_tx_locs=locs_opt, save=True)
 
             info1 = (
-                f"overall average reward for trained maps: {reward_mean_overall},"
+                f"overall average reward for {env_type} maps: {reward_mean_overall},"
                 f" average optimal reward: {reward_opt_mean},"
                 f" ratio: {reward_mean_overall / reward_opt_mean},"
                 f" average number of RoI pixels: {num_roi_mean},"
@@ -326,72 +364,3 @@ class Agent(object):
             if log:
                 self.logger.info(info1)
             print(info1)
-
-        # test on new maps
-        env_config = dict_update(env_config, self.config['eval']['evaluation_config']['env_config'])
-        env_config["algo_name"] = self.algo_name + "_new"
-        env_eval = self.env_class(config=env_config)
-
-        reward_mean_overall_new = 0.0
-        reward_opt_mean_new = 0.0
-        num_roi_mean_new = 0
-
-        start_time = time.time()
-        for i in range(duration):
-            obs, info_dict = env_eval.reset()
-            # number of RoI pixels
-            num_roi = np.sum(env_eval.pixel_map == env_eval.non_building_pixel)
-            num_roi_mean_new += num_roi / duration
-            locs_opt, reward_opt = env_eval.calc_optimal_locations()
-            locs = []
-            for _ in range(env_eval.n_bs):
-                action = self.agent.compute_single_action(obs)
-                row, col = env_eval.calc_upsampling_loc(action)
-                locs.append((row, col))
-                obs, _, _, _, info_dict = env_eval.step(action)
-
-            accumulated_reward = info_dict['accumulated_reward']
-            reward_mean_overall_new += accumulated_reward / duration
-            reward_opt_mean_new += reward_opt / duration
-            info = (
-                f"reward for test map {i} with index {env_eval.map_idx}: {accumulated_reward}, "
-                f"optimal reward: {reward_opt}, "
-                f"ratio: {accumulated_reward / reward_opt}, num_roi: {num_roi}"
-            )
-
-            if i % 10 == 0:
-                print(f"{time.time() - start_time:.4f}s so far")
-                print(info)
-                if log:
-                    self.logger.info(info)
-
-            if log and (i == 0 or i == duration - 1):
-                # # plot the optimal TX location and deployed TX location for 2 maps
-                # test_map_path = os.path.join(ROOT_DIR, 'figures/test_map_archive',
-                #                              f"{self.version}_{timestamp}_{self.algo_name}_test_{i}_{suffix}.png")
-                # draw_map_with_tx(filepath=test_map_path, pixel_map=env_eval.pixel_map, mark_size=5,
-                #                  target_locs=locs_opt, curr_locs=locs)
-
-                # plot coverage area of deployed TXs and optimal TXs
-                coverage_map, _ = env_eval.calc_coverage(locs)
-                coverage_map_opt, _ = env_eval.calc_coverage(locs_opt)
-                coverage_map_dir = os.path.join(ROOT_DIR, 'figures/coverage_map')
-                os.makedirs(coverage_map_dir, exist_ok=True)
-                coverage_map_path = os.path.join(coverage_map_dir,
-                                                 f'{self.version}_{timestamp}_{self.algo_name}_{env_eval.map_idx}_{suffix}.png')
-                plot_coverage(filepath=coverage_map_path, pixel_map=env_eval.pixel_map, coverage_curr=coverage_map,
-                              coverage_opt=coverage_map_opt, tx_locs=locs, opt_tx_locs=locs_opt, save=True)
-
-        info2 = (
-            f"overall average reward for test maps: {reward_mean_overall_new}"
-            f", average optimal reward: {reward_opt_mean_new},"
-            f" ratio: {reward_mean_overall_new / reward_opt_mean_new},"
-            f" average number of RoI pixels: {num_roi_mean_new},"
-        )
-        if env_eval.reward_type == 'coverage':
-            info2 += f" percentage of coverage: {reward_mean_overall_new / num_roi_mean_new * 100}"
-        else:
-            info2 += f" overall average capacity: {reward_mean_overall_new}"
-        if log:
-            self.logger.info(info2)
-        print(info2)

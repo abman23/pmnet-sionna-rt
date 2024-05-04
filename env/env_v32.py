@@ -15,15 +15,14 @@ RANDOM_SEED: int | None = None  # manually set random seed
 
 
 class BaseEnvironment(gym.Env):
-    """MDP environment of single-BS, version 1.9.
+    """MDP environment of multi-BS, version 3.2.
     Old dataset, capacity reward.
 
     """
     pixel_map: np.ndarray  # current building map
-    version: str = "v19"
+    version: str = "v32"
     steps: int
     map_idx: int  # index of the current building map
-    n_deployed_bs: int  # number of deployed BS
     accumulated_reward: int  # accumulated reward in one episode
     tx_locs: list  # Deployed TX locations
     r_prev: float  # reward before deploying the current TX
@@ -67,11 +66,11 @@ class BaseEnvironment(gym.Env):
 
         self.action_space: Discrete = Discrete(action_space_size ** 2)
         if self.no_masking:
-            self.observation_space: Box = Box(low=0., high=1., shape=(map_size ** 2,), dtype=np.float32)
+            self.observation_space: Box = Box(low=0., high=1., shape=(map_size ** 2 * 2,), dtype=np.float32)
         else:
             self.observation_space: Dict = Dict(
                 {
-                    "observations": Box(low=0., high=1., shape=(map_size ** 2,), dtype=np.float32),
+                    "observations": Box(low=0., high=1., shape=(map_size ** 2 * 2,), dtype=np.float32),
                     "action_mask": Box(low=0., high=1., shape=(self.action_space.n,), dtype=np.int8)
                 }
             )
@@ -85,7 +84,6 @@ class BaseEnvironment(gym.Env):
         super().reset(seed=seed, options=options)
 
         self.steps = 0
-        self.n_deployed_bs = 0
         self.accumulated_reward = 0
         # switch the building map
         # map_idx uniquely determines a map in the dataset
@@ -101,11 +99,11 @@ class BaseEnvironment(gym.Env):
         # 1 - building, 0 - free space
         self.mask = self._calc_action_mask()
 
-        # # initial state - no deployed TX
+        # initial state - no deployed TX
         self.tx_locs = []
         self.r_prev = 0.
-        # obs = np.concatenate([self.pixel_map, self.coverage_map], axis=None)
-        obs = self.pixel_map.reshape(-1)
+        # observe capacity map as building map
+        obs = np.tile(self.pixel_map.reshape(-1), 2)
 
         if self.no_masking:
             observation = obs
@@ -131,7 +129,7 @@ class BaseEnvironment(gym.Env):
 
         # calculate reward
         self.tx_locs.append((row, col))
-        _, r_new = self.calc_capacity(self.tx_locs)
+        capacity_map, r_new = self.calc_capacity(self.tx_locs)
         r = r_new - self.r_prev
         self.accumulated_reward += r
         self.r_prev = r_new
@@ -140,9 +138,10 @@ class BaseEnvironment(gym.Env):
         trunc = self.steps >= self.n_steps_truncate  # truncate if reach the step limit
 
         # reset TX locations and reward if all TXs are deployed
-        if not trunc and len(self.tx_locs) == self.n_bs:
+        if len(self.tx_locs) == self.n_bs:
             self.tx_locs = []
             self.r_prev = 0.
+            capacity_map = self.pixel_map.copy()
 
         info_dict = {
             "steps": self.steps,
@@ -153,12 +152,7 @@ class BaseEnvironment(gym.Env):
         }
 
         # update observation
-        self.n_deployed_bs = (self.n_deployed_bs + 1) % self.n_bs
-        # if self.n_deployed_bs == 0:
-        #     # reset coverage map
-        #     self.coverage_map = np.zeros_like(self.pixel_map)
-        # obs = np.concatenate((self.pixel_map, self.coverage_map), axis=None)
-        obs = self.pixel_map.reshape(-1)
+        obs = np.concatenate((self.pixel_map, capacity_map), axis=None)
 
         if self.no_masking:
             observation = obs

@@ -124,16 +124,20 @@ class AsyncRandom(Agent):
         """Test the agent on both the training maps and test maps.
 
         """
-        msg = f"\n=============Test for {self.algo_name.upper()} {suffix.upper()} Training============="
+        msg = f"\n=============Test for {self.algo_name.upper()} {suffix.upper()}============="
         print(msg)
         if log:
             self.logger.info(msg)
 
-        env_config: dict = json.loads(json.dumps(self.config.get("env")))
-
+        env_config_train: dict = json.loads(json.dumps(self.config.get("env")))
+        env_config_test = dict_update(env_config_train, self.config['eval']['evaluation_config']['env_config'])
         if test_on_trained:
-            # test on training maps
-            env_config["algo_name"] = self.algo_name + "_used"
+            env_configs = {'training': env_config_train, 'test': env_config_test}
+        else:
+            env_configs = {'test': env_config_test}
+
+        start_time = time.time()
+        for env_type, env_config in env_configs.items():
             env_eval = self.env_class(config=env_config)
             env_eval.evaluation = True  # select map in sequence at each reset
 
@@ -144,7 +148,7 @@ class AsyncRandom(Agent):
             for i in range(duration):
                 obs, info_dict = env_eval.reset()
                 # number of RoI pixels
-                num_roi = np.sum(env_eval.pixel_map == 1)
+                num_roi = np.sum(env_eval.pixel_map == env_eval.non_building_pixel)
                 num_roi_mean += num_roi / duration
                 locs_opt, reward_opt = env_eval.calc_optimal_locations()
                 locs = []
@@ -159,24 +163,43 @@ class AsyncRandom(Agent):
                 reward_mean_overall += accumulated_reward / duration
                 reward_opt_mean += reward_opt / duration
                 info = (
-                    f"reward for trained map {i} with index {env_eval.map_idx}: {accumulated_reward}, "
+                    f"reward for {env_type} map {i} with index {env_eval.map_idx}: {accumulated_reward}, "
                     f"optimal reward: {reward_opt}, "
                     f"ratio: {accumulated_reward / reward_opt}, num_roi: {num_roi}"
                 )
 
                 if i % 10 == 0:
+                    print(f"{time.time() - start_time:.4f}s so far")
                     print(info)
                     if log:
                         self.logger.info(info)
-                        if i == 0:
-                            # plot the optimal TX location and location corresponding the best action
-                            test_map_path = os.path.join(ROOT_DIR, 'figures/test_map_archive',
-                                                         f'{self.version}_{timestamp}_{self.algo_name}_train_{i}_{suffix}.png')
-                            draw_map_with_tx(filepath=test_map_path, pixel_map=env_eval.pixel_map, mark_size=5,
-                                             target_locs=locs_opt, curr_locs=locs)
+
+                if log and (i == 0 or i == duration - 1):
+                    if env_eval.reward_type == 'coverage':
+                        # plot coverage area of deployed TXs and optimal TXs
+                        coverage_map, _ = env_eval.calc_coverage(locs)
+                        coverage_map_opt, _ = env_eval.calc_coverage(locs_opt)
+                        coverage_map_dir = os.path.join(ROOT_DIR, 'figures/coverage_map')
+                        os.makedirs(coverage_map_dir, exist_ok=True)
+                        coverage_map_path = os.path.join(coverage_map_dir,
+                                                         f'{self.version}_{timestamp}_{self.algo_name}_{env_eval.map_idx}_{suffix}.png')
+                        plot_coverage(filepath=coverage_map_path, pixel_map=env_eval.pixel_map,
+                                      coverage_curr=coverage_map,
+                                      coverage_opt=coverage_map_opt, tx_locs=locs, opt_tx_locs=locs_opt, save=True)
+                    elif env_eval.reward_type == 'capacity':
+                        # plot capacity map (overlap of power maps corresponding to multiple TX locations)
+                        capacity_map, _ = env_eval.calc_capacity(locs)
+                        capacity_map_opt, _ = env_eval.calc_capacity(locs_opt)
+                        capacity_map_dir = os.path.join(ROOT_DIR, 'figures/capacity_map')
+                        os.makedirs(capacity_map_dir, exist_ok=True)
+                        capacity_map_path = os.path.join(capacity_map_dir,
+                                                         f'{self.version}_{timestamp}_{self.algo_name}_{env_eval.map_idx}.png')
+                        plot_coverage(filepath=capacity_map_path, pixel_map=env_eval.pixel_map,
+                                      coverage_curr=capacity_map,
+                                      coverage_opt=capacity_map_opt, tx_locs=locs, opt_tx_locs=locs_opt, save=True)
 
             info1 = (
-                f"overall average reward for trained maps: {reward_mean_overall},"
+                f"overall average reward for {env_type} maps: {reward_mean_overall},"
                 f" average optimal reward: {reward_opt_mean},"
                 f" ratio: {reward_mean_overall / reward_opt_mean},"
                 f" average number of RoI pixels: {num_roi_mean},"
@@ -188,72 +211,3 @@ class AsyncRandom(Agent):
             if log:
                 self.logger.info(info1)
             print(info1)
-
-        # test on new maps
-        env_config = dict_update(env_config, self.config['eval']['evaluation_config']['env_config'])
-        env_config["algo_name"] = self.algo_name + "_new"
-        env_eval = self.env_class(config=env_config)
-
-        reward_mean_overall_new = 0.0
-        reward_opt_mean_new = 0.0
-        num_roi_mean_new = 0
-
-        start_time = time.time()
-        for i in range(duration):
-            obs, info_dict = env_eval.reset()
-            # number of RoI pixels
-            num_roi = np.sum(env_eval.pixel_map == env_eval.non_building_pixel)
-            num_roi_mean_new += num_roi / duration
-            locs_opt, reward_opt = env_eval.calc_optimal_locations()
-            locs = []
-            for _ in range(env_eval.n_bs):
-                action = env_eval.np_random.choice(np.where(env_eval.mask == 1)[0])
-                row, col = env_eval.calc_upsampling_loc(action)
-                locs.append((row, col))
-                obs, _, _, _, info_dict = env_eval.step(action)
-
-            accumulated_reward = info_dict['accumulated_reward']
-            reward_mean_overall_new += accumulated_reward / duration
-            reward_opt_mean_new += reward_opt / duration
-            info = (
-                f"reward for test map {i} with index {env_eval.map_idx}: {accumulated_reward}, "
-                f"optimal reward: {reward_opt}, "
-                f"ratio: {accumulated_reward / reward_opt}, num_roi: {num_roi}"
-            )
-
-            if i % 10 == 0:
-                print(f"{time.time() - start_time:.4f}s so far")
-                print(info)
-                if log:
-                    self.logger.info(info)
-
-            if log and (i == 0 or i == duration - 1):
-                # # plot the optimal TX location and deployed TX location for 2 maps
-                # test_map_path = os.path.join(ROOT_DIR, 'figures/test_map_archive',
-                #                              f"{self.version}_{timestamp}_{self.algo_name}_test_{i}_{suffix}.png")
-                # draw_map_with_tx(filepath=test_map_path, pixel_map=env_eval.pixel_map, mark_size=5,
-                #                  target_locs=locs_opt, curr_locs=locs)
-
-                # plot coverage area of deployed TXs and optimal TXs
-                coverage_map, _ = env_eval.calc_coverage(locs)
-                coverage_map_opt, _ = env_eval.calc_coverage(locs_opt)
-                coverage_map_dir = os.path.join(ROOT_DIR, 'figures/coverage_map')
-                os.makedirs(coverage_map_dir, exist_ok=True)
-                coverage_map_path = os.path.join(coverage_map_dir,
-                                                 f'{self.version}_{timestamp}_{self.algo_name}_{env_eval.map_idx}_{suffix}.png')
-                plot_coverage(filepath=coverage_map_path, pixel_map=env_eval.pixel_map, coverage_curr=coverage_map,
-                              coverage_opt=coverage_map_opt, tx_locs=locs, opt_tx_locs=locs_opt, save=True)
-
-        info2 = (
-            f"overall average reward for test maps: {reward_mean_overall_new}"
-            f", average optimal reward: {reward_opt_mean_new},"
-            f" ratio: {reward_mean_overall_new / reward_opt_mean_new},"
-            f" average number of RoI pixels: {num_roi_mean_new},"
-        )
-        if env_eval.reward_type == 'coverage':
-            info2 += f" percentage of coverage: {reward_mean_overall_new / num_roi_mean_new * 100}"
-        else:
-            info2 += f" overall average capacity: {reward_mean_overall_new}"
-        if log:
-            self.logger.info(info2)
-        print(info2)

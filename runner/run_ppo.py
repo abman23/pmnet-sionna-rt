@@ -10,7 +10,7 @@ from multi_agent.async_ppo import AsyncPPO
 from env.utils_v1 import ROOT_DIR
 
 LOG = True
-VERSION = 'v31'
+VERSION = 'v32'
 
 if __name__ == "__main__":
     # prevent error caused by simplex check failure

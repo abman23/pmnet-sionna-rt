@@ -13,8 +13,8 @@ from multi_agent.async_ppo import AsyncPPO
 from multi_agent.ma_brute_force import MABruteForce
 from env.utils_v1 import ROOT_DIR, plot_rewards
 
-VERSION = 'v31'
-timestamp = '0429_0303'
+VERSION = 'v32'
+timestamp = '0504_0304'
 
 if __name__ == "__main__":
     # prevent error caused by simplex check failure
