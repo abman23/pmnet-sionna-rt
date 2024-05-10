@@ -1,9 +1,9 @@
 env:
-  n_bs: 1
+  n_bs: 2
   map_size: 256
   action_space_size: 32
   n_maps: 1000
-  n_steps_truncate: 5  # batch_size / num_maps_per_update
+  n_steps_truncate: 10  # batch_size / num_maps_per_update
   dataset_dir: /Users/ylu/Downloads/project_archive/usc_old_sparse
   no_masking: false
   non_building_pixel: 0.0  # 1-white, 0-black
@@ -13,7 +13,7 @@ eval:
     env_config:
       evaluation: true
       n_maps: 100
-      n_steps_truncate: 5
+      n_steps_truncate: 10
     exploration:
       explore: false
   num_maps_per_eval: 100
@@ -31,7 +31,7 @@ resource:
   num_gpus_per_worker: 0
 rollout:
   num_envs_per_worker: 1
-  num_rollout_workers: 1
+  num_rollout_workers: 4
   batch_mode: truncate_episodes
 stop:
   training_iteration: 200  # 500 for 1000 maps

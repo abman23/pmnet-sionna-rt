@@ -40,6 +40,8 @@ class Agent(object):
             from env.env_v19 import BaseEnvironment
         elif version == 'v32':
             from env.env_v32 import BaseEnvironment
+        elif version == 'v33':
+            from env.env_v33 import BaseEnvironment
         else:
             from env.env_v31 import BaseEnvironment
         self.env_class = BaseEnvironment

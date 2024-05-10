@@ -172,7 +172,7 @@ def generate_pmaps(map_idx: int, upsampling_factor: int, batch_size: int, save: 
 
     """
     # Load PMNet Model Parameters
-    pretrained_model = os.path.join(ROOT_DIR, 'dataset_builder/checkpoints/summary_case4.pt')
+    pretrained_model = os.path.join(ROOT_DIR, 'dataset_builder/checkpoints/model_0.00012.pt')
     device = 'cuda' if torch.cuda.is_available() else 'cpu'
     model = PMNet(n_blocks=[3, 3, 27, 3],
                   atrous_rates=[6, 12, 18],
@@ -202,13 +202,13 @@ if __name__ == '__main__':
     # print(sample_tx_map.shape, sample_tx_map.dtype)
     # print(sample_tx_map[65:75, 185:195])
 
-    for i in np.arange(1, 1 + 16 * 1000, 16):
-        generate_pmaps(i, 8, batch_size=32, save=True, non_building_pixel=0.,
-                       dir_base='resource/usc_old_sparse', dir_img='power_map')
+    for i in np.arange(1, 1000, 1):
+        generate_pmaps(i, 8, batch_size=32, save=True, non_building_pixel=1.,
+                       dir_base='resource/new_usc_2', dir_img='power_map')
 
-    for i in np.arange(2, 2 + 32 * 100, 32):
-        generate_pmaps(i, 8, batch_size=32, save=True, non_building_pixel=0.,
-                       dir_base='resource/usc_old_sparse', dir_img='power_map')
+    # for i in np.arange(2, 2 + 32 * 100, 32):
+    #     generate_pmaps(i, 8, batch_size=32, save=True, non_building_pixel=0.,
+    #                    dir_base='resource/usc_old_sparse', dir_img='power_map')
 
     # # Load PMNet Model Parameters
     # pretrained_model = os.path.join(ROOT_DIR, 'dataset_builder/checkpoints/model_0.00136.pt')

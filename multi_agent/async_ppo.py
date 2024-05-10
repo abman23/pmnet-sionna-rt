@@ -2,7 +2,6 @@ import torch
 from ray.rllib.algorithms import PPOConfig
 from ray.rllib.core.rl_module.rl_module import SingleAgentRLModuleSpec
 from ray.rllib.env.single_agent_env_runner import SingleAgentEnvRunner
-from ray.rllib.examples.rl_module.action_masking_rlm import TorchActionMaskRLM
 
 from multi_agent.async_agent import Agent
 from rl_module.action_mask_rlm import PPOActionMaskRLM
