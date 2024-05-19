@@ -80,6 +80,7 @@ class AsyncActionCallbacks(DefaultCallbacks):
                 You can mutate this object to add additional metrics.
             kwargs: Forward compatibility placeholder.
         """
+        # print(evaluation_metrics)
         num_episodes = evaluation_metrics['evaluation']['sampler_results']["episodes_this_iter"]
         reward_per_round = evaluation_metrics['evaluation']['sampler_results']["hist_stats"]["reward_per_round"][-num_episodes:]
         std = np.std(reward_per_round)

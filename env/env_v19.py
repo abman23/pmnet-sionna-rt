@@ -40,9 +40,9 @@ class BaseEnvironment(gym.Env):
         self.map_suffix = "test" if evaluation_mode else "train"
         # indices of maps used for training or test
         if not evaluation_mode:
-            self.map_indices = np.arange(1, 1 + 16 * 1000, 16)
+            self.map_indices = np.arange(1, 2412, 2)[:964]
         else:
-            self.map_indices = np.arange(2, 2 + 32 * 100, 32)
+            self.map_indices = np.arange(1, 2412, 2)[964:]
         self.coverage_threshold: float = 240. / 255
         self.non_building_pixel: float = config["non_building_pixel"]
         self.reward_type: str = config.get('reward_type', 'coverage')
@@ -131,10 +131,7 @@ class BaseEnvironment(gym.Env):
 
         # calculate reward
         self.tx_locs.append((row, col))
-        if self.reward_type == 'coverage':
-            _, r_new = self.calc_coverage(self.tx_locs)
-        else:
-            _, r_new = self.calc_capacity(self.tx_locs)
+        _, r_new = self.calc_capacity(self.tx_locs)
         r = r_new - self.r_prev
         self.accumulated_reward += r
         self.r_prev = r_new
@@ -172,6 +169,48 @@ class BaseEnvironment(gym.Env):
             }
 
         return observation, r, False, trunc, info_dict
+    
+    def calc_rewards_for_all_locations(self) -> dict:
+        """Calculate the reward for all possible TX locations.
+    
+        Returns:
+            A dictionary containing rewards for all possible locations.
+        """
+        rewards = {}
+        
+        data_dir = os.path.join(self.dataset_dir, f'overall_{self.reward_type}_{self.n_bs}')
+        if not os.path.exists(data_dir):
+            os.makedirs(data_dir)
+        filename = os.path.join(data_dir, f"overall_{self.reward_type}_{self.n_bs}_{self.map_idx}.json")
+        if not os.path.exists(filename) or True:
+            all_actions = itertools.combinations_with_replacement(range(self.action_space_size ** 2), 1)
+    
+            for actions in all_actions:
+                tx_locs = []
+                flag = False
+                for action in actions:
+                    row, col = self.calc_upsampling_loc(action)
+                    if self.pixel_map[row, col] == self.non_building_pixel:
+                        # skip non-building pixel
+                        flag = True
+                        break
+                    tx_locs.append((row, col))
+                if flag:
+                    continue
+    
+                if self.reward_type == 'coverage':
+                    _, reward = self.calc_coverage(tx_locs)
+                else:  # capacity
+                    _, reward = self.calc_capacity(tx_locs)
+                
+                rewards[f'{row},{col}'] = reward
+
+            # save result to avoid repeated computation
+            json.dump(rewards, open(filename, 'w'))
+        else:
+            rewards = json.load(open(filename))
+    
+        return rewards
 
     def calc_optimal_locations(self) -> tuple[list, int]:
         """Calculate the optimal TX locations that maximize the reward.
@@ -186,7 +225,7 @@ class BaseEnvironment(gym.Env):
         if not os.path.exists(data_dir):
             os.makedirs(data_dir)
         filename = os.path.join(data_dir, f"optimal_{self.reward_type}_{self.n_bs}_{self.map_idx}.json")
-        if not os.path.exists(filename):
+        if not os.path.exists(filename) or True:
             # print(f"No existing optimal reward {filename}")
             all_actions = itertools.combinations_with_replacement(range(self.action_space_size ** 2), self.n_bs)
 
@@ -195,7 +234,7 @@ class BaseEnvironment(gym.Env):
                 flag = False
                 for action in actions:
                     row, col = self.calc_upsampling_loc(action)
-                    if self.pixel_map[row, col] == self.non_building_pixel:
+                    if self.pixel_map[row, col] == self.non_building_pixel: 
                         # skip non-building pixel
                         flag = True
                         break
@@ -269,6 +308,10 @@ class BaseEnvironment(gym.Env):
             capacity_map = np.maximum(capacity_map, power_map)
 
         avg_capacity = capacity_map.sum() / num_roi
+        # threshold = 0.714076
+        # transformed_avg_capacity = ((avg_capacity - threshold) if avg_capacity > threshold else 0)/(1-threshold)
+        
+        # transformed_avg_capacity = np.exp(avg_capacity * 10) / np.exp(10)
         return capacity_map, float(avg_capacity)
 
     def calc_upsampling_loc(self, action: int) -> tuple:

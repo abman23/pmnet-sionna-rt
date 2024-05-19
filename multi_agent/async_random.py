@@ -179,24 +179,26 @@ class AsyncRandom(Agent):
                         # plot coverage area of deployed TXs and optimal TXs
                         coverage_map, _ = env_eval.calc_coverage(locs)
                         coverage_map_opt, _ = env_eval.calc_coverage(locs_opt)
+                        overall_rewards = env_eval.calc_rewards_for_all_locations()
                         coverage_map_dir = os.path.join(ROOT_DIR, 'figures/coverage_map')
                         os.makedirs(coverage_map_dir, exist_ok=True)
                         coverage_map_path = os.path.join(coverage_map_dir,
                                                          f'{self.version}_{timestamp}_{self.algo_name}_{env_eval.map_idx}_{suffix}.png')
                         plot_coverage(filepath=coverage_map_path, pixel_map=env_eval.pixel_map,
                                       coverage_curr=coverage_map,
-                                      coverage_opt=coverage_map_opt, tx_locs=locs, opt_tx_locs=locs_opt, save=True)
+                                      coverage_opt=coverage_map_opt, tx_locs=locs, opt_tx_locs=locs_opt, rewards=overall_rewards, save=True)
                     elif env_eval.reward_type == 'capacity':
                         # plot capacity map (overlap of power maps corresponding to multiple TX locations)
                         capacity_map, _ = env_eval.calc_capacity(locs)
                         capacity_map_opt, _ = env_eval.calc_capacity(locs_opt)
+                        overall_rewards = env_eval.calc_rewards_for_all_locations()
                         capacity_map_dir = os.path.join(ROOT_DIR, 'figures/capacity_map')
                         os.makedirs(capacity_map_dir, exist_ok=True)
                         capacity_map_path = os.path.join(capacity_map_dir,
                                                          f'{self.version}_{timestamp}_{self.algo_name}_{env_eval.map_idx}.png')
                         plot_coverage(filepath=capacity_map_path, pixel_map=env_eval.pixel_map,
                                       coverage_curr=capacity_map,
-                                      coverage_opt=capacity_map_opt, tx_locs=locs, opt_tx_locs=locs_opt, save=True)
+                                      coverage_opt=capacity_map_opt, tx_locs=locs, opt_tx_locs=locs_opt, rewards=overall_rewards, save=True)
 
             info1 = (
                 f"overall average reward for {env_type} maps: {reward_mean_overall},"

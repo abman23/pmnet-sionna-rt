@@ -40,8 +40,6 @@ class Agent(object):
             from env.env_v19 import BaseEnvironment
         elif version == 'v32':
             from env.env_v32 import BaseEnvironment
-        elif version == 'v33':
-            from env.env_v33 import BaseEnvironment
         else:
             from env.env_v31 import BaseEnvironment
         self.env_class = BaseEnvironment
@@ -88,9 +86,9 @@ class Agent(object):
             if eval_interval is not None and (i + 1) % eval_interval == 0:
                 print(f"================EVALUATION AT # {i + 1}================")
             # if not log:
-            #     # print for debug ONLY
-            #     print(pretty_print(result))
-
+                # print for debug ONLY
+            print(f'Max reward per episode: {result["episode_reward_max"]}\nMin reward per episode: {result["episode_reward_min"]}\nMean reward per episode: {result["episode_reward_mean"]}')
+            print(1)
             if i == num_episode - 1:
                 if log:
                     # save the result and checkpoint
@@ -103,7 +101,8 @@ class Agent(object):
                 else:
                     print("=============TRAINING ENDED=============")
                     print(self.config)
-
+            
+            print(2)
             # calculate the training mean reward per step
             reward_per_round_mean = result["custom_metrics"]["reward_per_round_mean"]
             reward_per_round_std = result["custom_metrics"]["reward_per_round_std"]
@@ -121,7 +120,8 @@ class Agent(object):
                 if log and ep_r_mean > max_val_reward:
                     max_val_reward = ep_r_mean
                     self.agent.save(f"./checkpoint/{self.version}_{self.algo_name}_{timestamp}")
-
+            
+            print(3)
             if log and ((i + 1) % data_saving_interval == 0 or i == num_episode - 1):
                 # save the training and evaluation data periodically
                 data = {
@@ -312,7 +312,10 @@ class Agent(object):
                 accumulated_reward = info_dict['accumulated_reward']
                 reward_mean_overall += accumulated_reward / duration
                 reward_opt_mean += reward_opt / duration
+                row_print, col_print = locs[0]
+
                 info = (
+                    f"pmap_{env_eval.map_idx}_{row_print * env_eval.map_size + col_print}.png, "
                     f"reward for {env_type} map {i} with index {env_eval.map_idx}: {accumulated_reward}, "
                     f"optimal reward: {reward_opt}, "
                     f"ratio: {accumulated_reward / reward_opt}, num_roi: {num_roi}"
@@ -329,29 +332,33 @@ class Agent(object):
                         self.logger.info(time_info)
                         self.logger.info(info)
 
-                if log and (i == 0 or i == duration - 1):
+                if log and (i == 0 or i == duration - 1) or True: #if log and (i == 0 or i == duration - 1)
                     if env_eval.reward_type == 'coverage':
                         # plot coverage area of deployed TXs and optimal TXs
                         coverage_map, _ = env_eval.calc_coverage(locs)
                         coverage_map_opt, _ = env_eval.calc_coverage(locs_opt)
-                        coverage_map_dir = os.path.join(ROOT_DIR, 'figures/coverage_map')
+                        overall_rewards = env_eval.calc_rewards_for_all_locations()
+                        # print(overall_rewards)
+                        coverage_map_dir = os.path.join(ROOT_DIR, f'figures/coverage_map/{self.version}_{timestamp}_{self.algo_name}')
                         os.makedirs(coverage_map_dir, exist_ok=True)
                         coverage_map_path = os.path.join(coverage_map_dir,
-                                                         f'{self.version}_{timestamp}_{self.algo_name}_{env_eval.map_idx}_{suffix}.png')
+                                                         f'{env_eval.map_idx}_{suffix}.png')
                         plot_coverage(filepath=coverage_map_path, pixel_map=env_eval.pixel_map,
                                       coverage_curr=coverage_map,
-                                      coverage_opt=coverage_map_opt, tx_locs=locs, opt_tx_locs=locs_opt, save=True)
+                                      coverage_opt=coverage_map_opt, tx_locs=locs, opt_tx_locs=locs_opt, rewards=overall_rewards, save=True)
                     elif env_eval.reward_type == 'capacity':
                         # plot capacity map (overlap of power maps corresponding to multiple TX locations)
                         capacity_map, _ = env_eval.calc_capacity(locs)
                         capacity_map_opt, _ = env_eval.calc_capacity(locs_opt)
-                        capacity_map_dir = os.path.join(ROOT_DIR, 'figures/capacity_map')
+                        overall_rewards = env_eval.calc_rewards_for_all_locations()
+                        # print(overall_rewards)
+                        capacity_map_dir = os.path.join(ROOT_DIR, f'figures/capacity_map/{self.version}_{timestamp}_{self.algo_name}')
                         os.makedirs(capacity_map_dir, exist_ok=True)
                         capacity_map_path = os.path.join(capacity_map_dir,
-                                                         f'{self.version}_{timestamp}_{self.algo_name}_{env_eval.map_idx}.png')
+                                                         f'{env_eval.map_idx}.png')
                         plot_coverage(filepath=capacity_map_path, pixel_map=env_eval.pixel_map,
                                       coverage_curr=capacity_map,
-                                      coverage_opt=capacity_map_opt, tx_locs=locs, opt_tx_locs=locs_opt, save=True)
+                                      coverage_opt=capacity_map_opt, tx_locs=locs, opt_tx_locs=locs_opt, rewards=overall_rewards, save=True)
 
             info1 = (
                 f"overall average reward for {env_type} maps: {reward_mean_overall},"

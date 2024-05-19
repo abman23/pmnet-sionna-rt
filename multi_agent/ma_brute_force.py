@@ -1,6 +1,7 @@
 import json
 import os
 import time
+from tqdm import tqdm
 
 import numpy as np
 
@@ -63,7 +64,7 @@ class MABruteForce(Agent):
 
             if (i + 1) % eval_interval == 0:
                 # evaluation
-                for j in range(num_maps_per_eval):
+                for j in tqdm(range(num_maps_per_eval)):
                     env_eval.reset()
                     _, reward = env_eval.calc_optimal_locations()
                     reward_eval.append(reward)
